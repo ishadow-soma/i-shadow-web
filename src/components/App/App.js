@@ -4,10 +4,25 @@ import './App.css';
 function App() {
   return (
     <main>
-      <input type="file"/>
-      <button>Youtube URL</button>
+      <input type="file" accept="audio/*, video/*"/>
+      <button onClick={openDialog}>Youtube URL</button>
+      <dialog id={"inputURLDialog"}>
+        <form action="">
+          <p>dialog</p>
+          <input placeholder="Youtube URL"/>
+
+          <button type="submit">제출</button>
+          <button value="cancel">취소</button>
+        </form>
+      </dialog>
     </main>
   );
+}
+
+function openDialog() {
+  let dialog = document.getElementById("inputURLDialog")
+  if(typeof dialog.showModal === "function")
+    dialog.showModal()
 }
 
 export default App;
