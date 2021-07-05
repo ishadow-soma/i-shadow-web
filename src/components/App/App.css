@@ -1,0 +1,13 @@
+header {
+    background-color: aqua;
+    height: 300px;
+}
+
+main {
+    margin-top: 100px;
+    text-align: center;
+}
+
+main input, main button {
+    font-size: 24px;
+}
