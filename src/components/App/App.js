@@ -1,6 +1,5 @@
-import logo from '../../logo.svg';
 import './App.css';
-import React, {Component} from "react";
+import React from "react";
 import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
@@ -10,11 +9,13 @@ function App() {
   return (
     <BrowserRouter>
       <header>
-        header
+        <h1>I-Shadow</h1>
       </header>
+
       <main>
         <input type="file" accept="audio/*, video/*"/>
         <button onClick={openDialog}>Youtube URL</button>
+        <button onClick={codeInYoutubeURL}>temp</button>
         <dialog id={"inputURLDialog"}>
           <form action="">
             <p>dialog</p>
@@ -44,6 +45,17 @@ function openDialog() {
   let dialog = document.getElementById("inputURLDialog")
   if(typeof dialog.showModal === "function")
     dialog.showModal()
+}
+
+function codeInYoutubeURL(url) {
+  const testURL = 'https://www.youtube.com/watch?v=ozlRWpLnMSk&list=LL&index=25';
+
+  let youtubeURL = url.toString();
+  let idx = youtubeURL.indexOf("?");
+  let result = youtubeURL.substr(idx + 3, 11);
+  console.log(result);
+
+  return result;
 }
 
 export default App;

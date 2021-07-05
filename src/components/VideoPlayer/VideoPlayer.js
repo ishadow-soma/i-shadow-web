@@ -1,5 +1,5 @@
 import './VideoPlayer.css';
-import React, {Component} from "react";
+import React from "react";
 
 function VideoPlayer() {
   return (
