@@ -1,9 +1,13 @@
 import logo from '../../logo.svg';
 import './App.css';
+import React, {Component} from "react";
+import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
+import AudioPlayer from "../AudioPlayer/AudioPlayer";
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <header>
         header
       </header>
@@ -19,8 +23,17 @@ function App() {
             <button value="cancel">취소</button>
           </form>
         </dialog>
+
+        <div className="player-container">
+          <Link to="/video">비디오 플레이어</Link>
+          <Link to="/audio">오디오 플레이어</Link>
+          <Switch>
+            <Route path="/video" component={VideoPlayer}/>
+            <Route path="/audio" component={AudioPlayer}/>
+          </Switch>
+        </div>
       </main>
-    </div>
+    </BrowserRouter>
   );
 }
 
