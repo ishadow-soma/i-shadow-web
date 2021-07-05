@@ -4,6 +4,7 @@ import React, {Component} from "react";
 import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
+import YoutubePlayer from "../YoutubePlayer/YoutubePlayer";
 
 function App() {
   return (
@@ -27,9 +28,11 @@ function App() {
         <div className="player-container">
           <Link to="/video">비디오 플레이어</Link>
           <Link to="/audio">오디오 플레이어</Link>
+          <Link to="/youtube">유튜브 플레이어</Link>
           <Switch>
             <Route path="/video" component={VideoPlayer}/>
             <Route path="/audio" component={AudioPlayer}/>
+            <Route path="/youtube" component={YoutubePlayer}/>
           </Switch>
         </div>
       </main>
