@@ -4,7 +4,7 @@ import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
 import YoutubePlayer from "../YoutubePlayer/YoutubePlayer";
-import Header from "../../global/Header";
+import Header from "../../global/Header/Header";
 
 function App() {
   return (
