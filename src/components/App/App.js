@@ -4,24 +4,23 @@ import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
 import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
 import YoutubePlayer from "../YoutubePlayer/YoutubePlayer";
+import Header from "../../global/Header";
 
 function App() {
   return (
     <BrowserRouter>
-      <header>
-        <h1>I-Shadow</h1>
-      </header>
+      <Header/>
 
       <main>
         <input type="file" accept="audio/*, video/*"/>
         <button onClick={openDialog}>Youtube URL</button>
-        <button onClick={codeInYoutubeURL}>temp</button>
+        {/* input youtube url */}
         <dialog id={"inputURLDialog"}>
-          <form action="">
+          <form name="youtube-form" method="get" action="">
             <p>dialog</p>
-            <input placeholder="Youtube URL"/>
+            <input placeholder="Youtube URL" name="url"/>
 
-            <button type="submit">제출</button>
+            <Link to="/youtube">제출</Link>
             <button value="cancel">취소</button>
           </form>
         </dialog>
@@ -34,6 +33,7 @@ function App() {
             <Route path="/video" component={VideoPlayer}/>
             <Route path="/audio" component={AudioPlayer}/>
             <Route path="/youtube" component={YoutubePlayer}/>
+            <Route path="/youtube/:url" component={YoutubePlayer}/>
           </Switch>
         </div>
       </main>
@@ -45,17 +45,6 @@ function openDialog() {
   let dialog = document.getElementById("inputURLDialog")
   if(typeof dialog.showModal === "function")
     dialog.showModal()
-}
-
-function codeInYoutubeURL(url) {
-  const testURL = 'https://www.youtube.com/watch?v=ozlRWpLnMSk&list=LL&index=25';
-
-  let youtubeURL = url.toString();
-  let idx = youtubeURL.indexOf("?");
-  let result = youtubeURL.substr(idx + 3, 11);
-  console.log(result);
-
-  return result;
 }
 
 export default App;

@@ -1,11 +1,5 @@
 /* header */
 
-header {
-    background-color: aqua;
-    padding: 16px;
-    height: 200px;
-}
-
 header h1 {
     text-align: center;
 }
