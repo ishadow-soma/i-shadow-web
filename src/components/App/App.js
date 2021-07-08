@@ -5,6 +5,7 @@ import VideoPlayer from "../VideoPlayer/VideoPlayer";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
 import YoutubePlayer from "../YoutubePlayer/YoutubePlayer";
 import Header from "../../global/Header/Header";
+import YoutubeURLDialog from "../../global/YoutubeURLDialog/YoutubeURLDialog";
 
 function App() {
   return (
@@ -13,18 +14,19 @@ function App() {
 
       <div className="wrap">
         <main>
-          <input type="file" accept="audio/*, video/*"/>
-          <button onClick={openDialog}>Youtube URL</button>
-          { /* input youtube url */ }
-          <dialog id={"inputURLDialog"}>
-            <form name="youtube-form" method="get" action="">
-              <p>dialog</p>
-              <input placeholder="Youtube URL" name="url"/>
+          <div className="menu-container">
+            <div className="card" onClick={openDialog}>
+              <h2>Youtube URL</h2>
+              <p>유튜브 URL로 손쉽게 콘텐츠를 추가해 보세요.</p>
+            </div>
+            <div className="card">
+              <h2>File Upload</h2>
+              <p>영상 또는 음성 파일을 업로드해 손쉽게 콘텐츠를 추가해 보세요.</p>
+              <input type="file" accept="audio/*, video/*"/>
+            </div>
+          </div>
 
-              <Link to="/youtube">제출</Link>
-              <button value="cancel">취소</button>
-            </form>
-          </dialog>
+          <YoutubeURLDialog/>
 
           <div className="player-container">
             <Link to="/video">비디오 플레이어</Link>

@@ -1,12 +1,40 @@
 /* wrap */
 
 .wrap {
-    padding-top: 144px;
+    padding-top: 80px;
     margin: auto;
     width: 1200px;
     height: 900px;
     background-color: antiquewhite;
-    text-align: center;
 }
 
 /* main */
+
+.menu-container {
+    display: flex;
+    margin-top: 64px;
+}
+
+.card {
+    display: inline-block;
+    width: 368px;
+    height: 200px;
+    margin: 72px 128px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.card h2 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.card p {
+    font-size: 18px;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px;
+}
