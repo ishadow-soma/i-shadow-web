@@ -20,7 +20,7 @@ function Header() {
       </nav>
 
       <Switch>
-        <Route path="/" component={Login}/>
+        <Route path="/" component={Signup}/>
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup}/>
       </Switch>
