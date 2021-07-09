@@ -1,8 +1,6 @@
 import './Header.css';
 import React from "react";
 import {BrowserRouter, Route, Link, Switch} from "react-router-dom";
-import Login from "../../components/Login/Login";
-import Signup from "../../components/Signup/Signup";
 
 function Header() {
   return (
@@ -18,12 +16,6 @@ function Header() {
           <Link to="/signup">Sign up</Link>
         </div>
       </nav>
-
-      <Switch>
-        <Route path="/" component={Signup}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/signup" component={Signup}/>
-      </Switch>
     </header>
   );
 }

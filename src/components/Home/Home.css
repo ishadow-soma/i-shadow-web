@@ -1,0 +1,37 @@
+/* main */
+
+main {
+    background-image: url("/src/asset/mbackground.jpg");
+    background-size: cover;
+    background-position: top;
+    height: 900px;
+    padding-top: 80px;
+}
+
+.menu-container {
+    display: flex;
+}
+
+.card {
+    display: inline-block;
+    width: 368px;
+    height: 200px;
+    margin: 72px 128px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.card h2 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.card p {
+    font-size: 18px;
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px;
+}

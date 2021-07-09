@@ -3,7 +3,7 @@ import React from "react";
 
 function AudioPlayer() {
   return (
-    <div>
+    <div className="audio-player">
       Audio player
     </div>
   );

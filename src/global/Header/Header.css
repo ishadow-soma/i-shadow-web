@@ -1,6 +1,7 @@
 header {
     text-align: right;
     position: absolute;
+    top: 0;
     width: 100%;
     height: 80px;
     background: rgba(127, 255, 212, 0.5);

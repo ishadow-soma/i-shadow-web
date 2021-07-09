@@ -1,13 +1,11 @@
 import YoutubeURLDialog from "../../global/YoutubeURLDialog/YoutubeURLDialog";
 import {Link, Route, Switch} from "react-router-dom";
-import VideoPlayer from "../VideoPlayer/VideoPlayer";
-import AudioPlayer from "../AudioPlayer/AudioPlayer";
-import YoutubePlayer from "../YoutubePlayer/YoutubePlayer";
 import React from "react";
+import './Home.css';
 
 function Home() {
   return (
-    <div className="home">
+    <main>
       <div className="menu-container">
         <div className="card" onClick={openDialog}>
           <h2>Youtube URL</h2>
@@ -19,9 +17,12 @@ function Home() {
           <input type="file" accept="audio/*, video/*"/>
         </div>
       </div>
+      <Link to="/video">비디오 플레이어</Link>
+      <Link to="/audio">오디오 플레이어</Link>
+      <Link to="/youtube">유튜브 플레이어</Link>
 
       <YoutubeURLDialog/>
-    </div>
+    </main>
   )
 }
 

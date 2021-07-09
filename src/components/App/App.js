@@ -7,6 +7,8 @@ import YoutubePlayer from "../YoutubePlayer/YoutubePlayer";
 import Header from "../../global/Header/Header";
 import YoutubeURLDialog from "../../global/YoutubeURLDialog/YoutubeURLDialog";
 import Home from "../Home/Home";
+import Login from "../Login/Login";
+import Signup from "../Signup/Signup";
 
 function App() {
   return (
@@ -14,20 +16,18 @@ function App() {
       <Header/>
 
       <div className="wrap">
-        <main>
-          <div className="player-container">
-            <Link to="/video">비디오 플레이어</Link>
-            <Link to="/audio">오디오 플레이어</Link>
-            <Link to="/youtube">유튜브 플레이어</Link>
-            <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route path="/video" component={VideoPlayer}/>
-              <Route path="/audio" component={AudioPlayer}/>
-              <Route path="/youtube" component={YoutubePlayer}/>
-              <Route path="/youtube/:url" component={YoutubePlayer}/>
-            </Switch>
-          </div>
-        </main>
+        <div className="player-container">
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/signup" component={Signup}/>
+
+            <Route path="/video" component={VideoPlayer}/>
+            <Route path="/audio" component={AudioPlayer}/>
+            <Route path="/youtube" component={YoutubePlayer}/>
+            <Route path="/youtube/:url" component={YoutubePlayer}/>
+          </Switch>
+        </div>
       </div>
 
 
