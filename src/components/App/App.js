@@ -16,21 +16,17 @@ function App() {
       <Header/>
 
       <div className="wrap">
-        <div className="player-container">
-          <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path="/login" component={Login}/>
-            <Route path="/signup" component={Signup}/>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route path="/login" component={Login}/>
+          <Route path="/signup" component={Signup}/>
 
-            <Route path="/video" component={VideoPlayer}/>
-            <Route path="/audio" component={AudioPlayer}/>
-            <Route path="/youtube" component={YoutubePlayer}/>
-            <Route path="/youtube/:url" component={YoutubePlayer}/>
-          </Switch>
-        </div>
+          <Route path="/video" component={VideoPlayer}/>
+          <Route path="/audio" component={AudioPlayer}/>
+          <Route path="/youtube" component={YoutubePlayer}/>
+          <Route path="/youtube/:url" component={YoutubePlayer}/>
+        </Switch>
       </div>
-
-
     </BrowserRouter>
   );
 }
