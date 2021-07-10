@@ -12,7 +12,7 @@ import Signup from "../Signup/Signup";
 
 function App() {
   return (
-    <BrowserRouter basename="process.env.PUBLIC_URL">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Header/>
 
       <div className="wrap">

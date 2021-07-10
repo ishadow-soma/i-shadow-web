@@ -1,15 +1,20 @@
 import {Link} from "react-router-dom";
 import React from "react";
+import './YoutubeURLDialog.css'
 
 function YoutubeURLDialog() {
   return (
-    <dialog id="inputURLDialog" className="dialog">
+    <dialog id="input-url-dialog" className="dialog">
       <form name="youtube-form" method="get" action="">
-        <p>dialog</p>
         <input placeholder="Youtube URL" name="url"/>
 
-        <Link to="/youtube">제출</Link>
-        <button value="cancel">취소</button>
+        <div className="baseline">
+          <div className="btn">
+            <Link to="/youtube">제출</Link>
+          </div>
+          <button value="cancel">취소</button>
+        </div>
+
       </form>
     </dialog>
   );

@@ -27,7 +27,7 @@ function Home() {
 }
 
 function openDialog() {
-  let dialog = document.getElementById("inputURLDialog")
+  let dialog = document.getElementById("input-url-dialog")
   if(typeof dialog.showModal === "function")
     dialog.showModal()
 }
