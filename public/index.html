@@ -24,122 +24,15 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <!-- 네이버 아이디 로그인 -->
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
     <title>I Shadow</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <input type=checkbox id="chk-hear-mic"><label for="chk-hear-mic">마이크 소리 듣기</label>
-    <button id="record">녹음</button>
-    <button id="stop">정지</button>
-    <div id="sound-clips"></div>
-    <script>
-      const record = document.getElementById("record")
-      const stop = document.getElementById("stop")
-      const soundClips = document.getElementById("sound-clips")
-      const chkHearMic = document.getElementById("chk-hear-mic")
-
-      const audioCtx = new(window.AudioContext || window.webkitAudioContext)() // 오디오 컨텍스트 정의
-
-      const analyser = audioCtx.createAnalyser()
-      //        const distortion = audioCtx.createWaveShaper()
-      //        const gainNode = audioCtx.createGain()
-      //        const biquadFilter = audioCtx.createBiquadFilter()
-
-      function makeSound(stream) {
-        const source = audioCtx.createMediaStreamSource(stream)
-
-        source.connect(analyser)
-        //            analyser.connect(distortion)
-        //            distortion.connect(biquadFilter)
-        //            biquadFilter.connect(gainNode)
-        //            gainNode.connect(audioCtx.destination) // connecting the different audio graph nodes together
-        analyser.connect(audioCtx.destination)
-
-      }
-
-      if (navigator.mediaDevices) {
-        console.log('getUserMedia supported.')
-
-        const constraints = {
-          audio: true
-        }
-        let chunks = []
-
-        navigator.mediaDevices.getUserMedia(constraints)
-                .then(stream => {
-
-                  const mediaRecorder = new MediaRecorder(stream)
-
-                  chkHearMic.onchange = e => {
-                    if(e.target.checked == true) {
-                      audioCtx.resume()
-                      makeSound(stream)
-                    } else {
-                      audioCtx.suspend()
-                    }
-                  }
-
-                  record.onclick = () => {
-                    mediaRecorder.start()
-                    console.log(mediaRecorder.state)
-                    console.log("recorder started")
-                    record.style.background = "red"
-                    record.style.color = "black"
-                  }
-
-                  stop.onclick = () => {
-                    mediaRecorder.stop()
-                    console.log(mediaRecorder.state)
-                    console.log("recorder stopped")
-                    record.style.background = ""
-                    record.style.color = ""
-                  }
-
-                  mediaRecorder.onstop = e => {
-                    console.log("data available after MediaRecorder.stop() called.")
-
-                    const clipName = prompt("오디오 파일 제목을 입력하세요.", new Date())
-
-                    const clipContainer = document.createElement('article')
-                    const clipLabel = document.createElement('p')
-                    const audio = document.createElement('audio')
-                    const deleteButton = document.createElement('button')
-
-                    clipContainer.classList.add('clip')
-                    audio.setAttribute('controls', '')
-                    deleteButton.innerHTML = "삭제"
-                    clipLabel.innerHTML = clipName
-
-                    clipContainer.appendChild(audio)
-                    clipContainer.appendChild(clipLabel)
-                    clipContainer.appendChild(deleteButton)
-                    soundClips.appendChild(clipContainer)
-
-                    audio.controls = true
-                    const blob = new Blob(chunks, {
-                      'type': 'audio/ogg codecs=opus'
-                    })
-                    chunks = []
-                    const audioURL = URL.createObjectURL(blob)
-                    audio.src = audioURL
-                    console.log("recorder stopped")
-
-                    deleteButton.onclick = e => {
-                      evtTgt = e.target
-                      evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode)
-                    }
-                  }
-
-                  mediaRecorder.ondataavailable = e => {
-                    chunks.push(e.data)
-                  }
-                })
-                .catch(err => {
-                  console.log('The following error occurred: ' + err)
-                })
-      }
-    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -150,5 +43,19 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+  <!-- 네이버 로그인 테스트 -->
+    <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+    <div id="naver_id_login"></div>
+    <!-- //네이버아이디로로그인 버튼 노출 영역 -->
+    <script type="text/javascript">
+      var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "YOUR_CALLBACK_URL");
+      var state = naver_id_login.getUniqState();
+      naver_id_login.setButton("white", 2,40);
+      naver_id_login.setDomain("YOUR_SERVICE_URL");
+      naver_id_login.setState(state);
+      naver_id_login.setPopup();
+      naver_id_login.init_naver_id_login();
+    </script>
   </body>
 </html>
