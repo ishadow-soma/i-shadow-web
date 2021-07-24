@@ -1,8 +1,23 @@
 import './Login.css';
-import React from "react";
+import React, {useEffect} from "react";
 import { FcGoogle } from "react-icons/fc";
+const { naver } = window;
 
 function Login() {
+  const initializeNaverLogin = () => {
+    const naverLogin = new naver.LoginWithNaverId({
+      clientId: 'VtMBj6R5IJ4fxRf8oPvJ',
+      callbackUrl: 'http://localhost:3000/',
+      isPopup: false,
+      loginButton: {color: 'white', type: 3, height: '47'},
+    })
+    naverLogin.init();
+  }
+
+  useEffect(() => {
+    initializeNaverLogin();
+  }, []);
+
   return (
     <div className="login">
       <h2>Sign in to I-Shadow</h2>
@@ -26,6 +41,7 @@ function Login() {
           sign in with google
         </button>
       </div>
+      <div id='naverIdLogin'></div>
     </div>
   );
 }
