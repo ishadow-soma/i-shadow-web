@@ -1,6 +1,6 @@
 import YoutubeURLDialog from "../../global/YoutubeURLDialog/YoutubeURLDialog";
 import {Link, Route, Switch} from "react-router-dom";
-import React from "react";
+import React, {useEffect} from "react";
 import './Home.css';
 
 function Home() {
