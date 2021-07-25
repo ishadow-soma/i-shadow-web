@@ -10,7 +10,7 @@ function Home(props) {
     if(location.hash) {
       const token = props.location.hash.split('=')[1].split('&')[0];
       store.token = token;
-      //alert(store.token);
+      alert('새로운 로그인 확인 : ', store.token);
       props.history.push('/');
     }
   })
