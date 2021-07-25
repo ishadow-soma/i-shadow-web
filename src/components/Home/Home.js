@@ -2,8 +2,19 @@ import YoutubeURLDialog from "../../global/YoutubeURLDialog/YoutubeURLDialog";
 import {Link, Route, Switch} from "react-router-dom";
 import React, {useEffect} from "react";
 import './Home.css';
+import store from '../../global/store/store';
 
-function Home() {
+function Home(props) {
+  useEffect(() => {
+    const location = props.location;
+    if(location.hash) {
+      const token = props.location.hash.split('=')[1].split('&')[0];
+      store.token = token;
+      //alert(store.token);
+      props.history.push('/');
+    }
+  })
+
   return (
     <main>
       <div className="menu-container">
