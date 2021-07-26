@@ -17,18 +17,21 @@ function Login(props) {
     naverLogin.init();
   }
 
-  useEffect(() => {
-    initializeNaverLogin();
-  }, []);
-
+  /* 구글 로그인 */
+  // 성공
   const onSuccessGoogle = (res) => {
+    console.log(res)
     alert(res.profileObj.email);
     alert(res.profileObj.name);
   }
-
+  // 실패
   const onFailureGoogle = (res) => {
     alert('login 실패');
   }
+
+  useEffect(() => {
+    initializeNaverLogin();
+  }, []);
 
   // 렌더링
   return (
