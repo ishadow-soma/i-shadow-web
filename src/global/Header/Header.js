@@ -5,17 +5,11 @@ import {Link} from "react-router-dom";
 function Header() {
   return (
     <header>
-      <nav>
-        <div className="link">
-          <Link to="/">Home</Link>
-        </div>
-        <div className="link">
-          <Link to="/login">Log in</Link>
-        </div>
-        <div className="link">
-          <Link to="/signup">Sign up</Link>
-        </div>
-      </nav>
+      <h2>i-Shadow</h2>
+      <Link to="/">home</Link>
+      <Link to="/MyRoom">my room</Link>
+      <Link to="/login">log in</Link>
+      <Link to="/signup">sign up</Link>
     </header>
   );
 }

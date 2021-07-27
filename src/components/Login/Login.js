@@ -1,6 +1,5 @@
 import './Login.css';
 import React, {useEffect} from "react";
-import { FcGoogle } from "react-icons/fc";
 import GoogleLogin from "react-google-login";
 const { naver } = window;
 require('dotenv').config();
@@ -35,35 +34,34 @@ function Login(props) {
 
   // 렌더링
   return (
-    <div className="login">
-      <h2>Sign in to I-Shadow</h2>
-      <div className="login-form">
+    <div>
+      <div>
+        <h1>log in</h1>
+
         <form id="login-form" action="" method="POST">
-          <label htmlFor="">Email</label>
+          <input type="text" placeholder="Email"/>
           <br/>
-          <input type="text"/>
+          <input type="password" placeholder="Password"/>
           <br/>
-          <label htmlFor="">Password</label>
-          <br/>
-          <input type="password"/>
-          <br/>
-          <button type="submit" className="btn_submit">Sign in</button>
+          <button type="submit" className="btn_submit">log in</button>
         </form>
+        <a href="">Forgot password?</a>
+        <p>or</p>
+        <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                     onSuccess={onSuccessGoogle}
+                     onFailure={onFailureGoogle}
+                     cookiePolicy='single_host_origin'/>
+        <div id='naverIdLogin'></div>
+        <p>Don't hav and accound? <a href="">sign up</a></p>
       </div>
 
-      <div className="login-with-sns">
-        <FcGoogle id="google-icon"/>
-        <button>
-          sign in with google
-        </button>
+      <div>
+        <h2>Welcome back to i-Shadow.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eligendi ex magnam minima perferendis quisquam ratione, sunt totam?</p>
       </div>
-      <div className="g-signin2" data-onsuccess="onSignIn"></div>
-      <div id='naverIdLogin'></div>
-      <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                   onSuccess={onSuccessGoogle}
-                   onFailure={onFailureGoogle}
-                   cookiePolicy='single_host_origin'/>
     </div>
+
+
   );
 }
 
