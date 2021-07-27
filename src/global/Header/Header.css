@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 header {
     display: flex;
     justify-content: space-between;
@@ -25,9 +27,11 @@ header a {
     padding-left: 240px;
 }
 
-.logo h2 {
+.logo h1 {
+    font-family: Lobster, serif;
     font-size: 40px;
     margin-right: 50px;
+    font-weight: 400;
 }
 
 .logo a {

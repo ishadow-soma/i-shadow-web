@@ -1,3 +1,62 @@
 main {
     display: flex;
+    margin-top: 50px;
+}
+
+main {
+    color: #2F3F65;
+}
+
+main h2 {
+    font-size: 32px;
+}
+
+/* left */
+
+.flex-left {
+    margin: 112px 163px 0 263px;
+}
+
+.flex-left .card {
+    position: relative;
+    width: 573px;
+    height: 287px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    font-size: 16px;
+    margin-bottom: 45px;
+}
+
+.flex-left .card h2 {
+    margin-bottom: 20px;
+}
+
+.flex-left .card img {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 186px;
+    height: 186px;
+    background-color: #2F7AF9;
+    border-top-left-radius: 100%;
+}
+
+.flex-left .card span {
+    position: absolute;
+    bottom: 34px;
+    color: #2F7AF9;
+    font-size: 20px;
+}
+
+/* right */
+
+main img {
+    border-top-left-radius: 200px;
+}
+
+main footer {
+    margin-top: 112px;
 }

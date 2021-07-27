@@ -3,6 +3,7 @@ import {Link, Route, Switch} from "react-router-dom";
 import React, {useEffect} from "react";
 import './Home.css';
 import store from '../../global/store/store';
+import Footer from "../../global/Footer/Footer";
 
 function Home(props) {
   useEffect(() => {
@@ -17,34 +18,27 @@ function Home(props) {
 
   return (
     <main>
-      <div>
-        <div onClick={openDialog}>
+      <div className="flex-left">
+        <div onClick={openDialog} className="card">
           <h2>Youtube URL</h2>
-          <p>유튜브 URL로 손쉽게 콘텐츠를 추가해 보세요.</p>
-          start now →
+          <p>
+            유튜브 URL로 <br/>
+            손쉽게 콘텐츠를 추가해 보세요.
+          </p>
+          <span>start now →</span>
           <img src="" alt="youtube"/>
         </div>
 
-        <div onClick={openDialog}>
+        <div onClick={openDialog} className="card">
           <h2>File Upload</h2>
-          <p>영상 또는 음성 파일을 업로드해 손쉽게 콘텐츠를 추가해 보세요.</p>
-          start now →
-
+          <p>영상 또는 음성 파일을 업로드해 <br/>
+            손쉽게 콘텐츠를 추가해 보세요.</p>
+          <span>start now →</span>
           <img src="" alt="file upload"/>
         </div>
-
-        <p>대표자 : 가나다 / algosketch@gmail.com</p>
-        <img src="" alt="play store"/>
-        <img src="" alt="app store"/>
+        <Footer/>
       </div>
-
-      <div>
-        <img src="https://source.unsplash.com/user/erondu/400x800" alt="conversation"/>
-      </div>
-
-
-
-
+      <img src="https://source.unsplash.com/user/erondu/920x930" alt="conversation"/>
     </main>
   )
 }
