@@ -16,6 +16,7 @@ import FindPassword from "../FindPassword/FindPassword";
 function App() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Header/>
       <div className="wrap">
         <Switch>
           <Route exact path="/" component={Home}/>

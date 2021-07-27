@@ -1,0 +1,58 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 240px;
+}
+
+header a {
+    font-size: 22px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/* logo */
+
+.logo {
+    display: flex;
+    min-width: 750px;
+    width: 1030px;
+    height: 100px;
+    align-items: center;
+    color: white;
+    background-color: #2f7af9;
+    border-radius: 0 0 200px 0;
+    padding-left: 240px;
+}
+
+.logo h2 {
+    font-size: 40px;
+    margin-right: 50px;
+}
+
+.logo a {
+    margin-right: 30px;
+    font-size: 22px;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+/* profile */
+
+.profile {
+    min-width: 350px;
+    color: #2F3F65;
+    text-align: right;
+}
+
+.profile a {
+    padding: 6px 22px;
+    border-radius: 21px;
+    text-align: center;
+}
+
+.profile .sign-up {
+    color: white;
+    background-color: #2f7af9;
+}

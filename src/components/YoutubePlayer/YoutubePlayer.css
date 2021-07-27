@@ -1,3 +1,83 @@
+body {
+    background-color: #f2f6fe;
+}
+
 .youtube-player {
-    margin-top: 80px;
+    margin-top: 70px;
+    display: flex;
+}
+
+/* video frame */
+
+.video-frame {
+    width: 920px;
+    margin-right: 50px;
+}
+
+.video-frame h1 {
+    color: #001833;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.video-frame h2 {
+    color: #2F7AF9;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.video-frame a {
+    text-decoration: none;
+    color: #8898BF;
+    font-size: 18px;
+}
+
+/* caption */
+
+.caption {
+    border-top: rgba(0, 18, 36, 0.25) solid 1px;
+    position: relative;
+    top: -4px;
+    height: 108px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #2f3f65;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* script */
+
+.script {
+    min-width: 370px;
+    width: 470px;
+    color: white;
+    background-color: #001833;
+    border: none;
+    border-radius: 20px;
+    padding: 30px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.script li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.script .time-stamp {
+    color: #B4D0FF;
+    background-color: transparent;
+    border: none;
+    margin-right: 30px;
+}
+
+.time-stamp:hover {
+    color: #FFCC00;
+}
+
+.script p {
+    display: inline-block;
 }
