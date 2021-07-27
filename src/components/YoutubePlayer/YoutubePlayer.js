@@ -1,5 +1,6 @@
 import './YoutubePlayer.css';
 import React, {useEffect, useState} from "react";
+import Footer from "../../global/Footer/Footer";
 
 const youtubeCode = ['1eAZvWm0gE0', 'd-HK6DFi3MA'];
 const YTPlayer = require('yt-player');
@@ -34,23 +35,29 @@ function YoutubePlayer({match}) {
             Our hearts wore never broken
           </div>
           <a href="">https://www.youtube.com/watch?v=1abcde23abs</a>
+          <Footer/>
         </div>
 
         <div className="script">
-          <ul>
-            <li>
-              <button onClick={() => onSeek(59)} className="time-stamp">0:59</button>
-              <p>Loving can hurt</p>
-            </li>
-            <li>
-              <button onClick={() => onSeek(60+23)} className="time-stamp">1:23</button>
-              <p>loving can hurt sometimes</p>
-            </li>
-            <li>
-              <button onClick={() => onSeek(60+56)} className="time-stamp">1:56</button>
-              <p>But it's the only thing that I know</p>
-            </li>
-          </ul>
+          <button className="tab selected">Script</button>
+          <button className="tab">Rec.</button>
+
+          <div className="content">
+            <ul>
+              <li>
+                <button onClick={() => onSeek(59)} className="time-stamp">0:59</button>
+                <p>Loving can hurt</p>
+              </li>
+              <li>
+                <button onClick={() => onSeek(60+23)} className="time-stamp">1:23</button>
+                <p>loving can hurt sometimes</p>
+              </li>
+              <li>
+                <button onClick={() => onSeek(60+56)} className="time-stamp">1:56</button>
+                <p>But it's the only thing that I know</p>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

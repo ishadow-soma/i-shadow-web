@@ -54,6 +54,7 @@ header a {
     padding: 6px 22px;
     border-radius: 21px;
     text-align: center;
+    margin-left: 8px;
 }
 
 .profile .sign-up {
