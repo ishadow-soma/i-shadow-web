@@ -17,6 +17,8 @@
     height: 68px;
     border-radius: 10px;
     border: 1px solid #B4D0FF;
+    font-size: 20px;
+    padding: 20px 24px;
 }
 
 .login .btn-submit {
@@ -80,7 +82,7 @@
 }
 
 .login .flex-right span {
-    background-image: url("/src/asset/member.jpg");
+    background-image: url("/src/assets/member.jpg");
     background-position: center center;
     background-size: cover;
     display: block;

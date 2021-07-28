@@ -65,7 +65,7 @@ main .home-background {
     display: block;
     width: 920px;
     height: 900px;
-    background-image: url("/src/asset/home.jpg");
+    background-image: url("/src/assets/home.jpg");
     background-position: center center;
     background-size: cover;
     border-top-left-radius: 200px;

@@ -32,20 +32,26 @@ function Signup() {
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className="sign-up-page">
+      <div className="flex-left">
         <h1>sign up</h1>
         <div className="signup-form">
           <form action="" method="POST">
-            <input type="email" placeholder="Email"/>
-            <a href="">인증번호 발송</a>
-            <input type="text" placeholder="인증번호"/>
-            <p>인증번호가 일치하지 않습니다.</p>
-            <input type="password" placeholder="Password"/>
-            <input type="password" placeholder="Confirm Password"/>
-            <a href="">인증하기</a>
-            <button type="submit" className="btn_submit">Sign up</button>
-            <p>or</p>
+            <div className="email">
+              <input type="email" placeholder="Email"/>
+              <a href="">인증번호 발송</a>
+            </div>
+            <div className="authorization">
+              <input type="text" placeholder="인증번호"/>
+              <p>인증번호가 일치하지 않습니다.</p>
+              <a href="">인증하기</a>
+            </div>
+            <div className="password">
+              <input type="password" placeholder="Password"/>
+              <input type="password" placeholder="Confirm Password"/>
+            </div>
+            <button type="submit" className="btn-submit">Sign up</button>
+            <p className="or">or</p>
             <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                          onSuccess={onSuccessGoogle}
                          onFailure={onFailureGoogle}
@@ -55,8 +61,10 @@ function Signup() {
         </div>
       </div>
 
-      <div>
-        <h2>Welcome back to i-Shadow.</h2>
+      <div className="flex-right">
+        <span className="signup-background"/>
+        <h2>Welcome back to <br/>
+          i-Shadow.</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eligendi ex magnam minima perferendis quisquam ratione, sunt totam?</p>
       </div>
     </div>
