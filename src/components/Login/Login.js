@@ -1,6 +1,7 @@
 import './Login.css';
 import React, {useEffect} from "react";
 import GoogleLogin from "react-google-login";
+import {Link} from "react-router-dom";
 const { naver } = window;
 require('dotenv').config();
 
@@ -43,22 +44,25 @@ function Login(props) {
           <br/>
           <input type="password" placeholder="Password"/>
           <br/>
-          <button type="submit" className="btn_submit">log in</button>
+          <button type="submit" className="btn-submit">log in</button>
         </form>
-        <a href="">Forgot password?</a>
-        <p>or</p>
+        <a href="" className="find-password">Forgot password?</a>
+        <p className="or">or</p>
         <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                      onSuccess={onSuccessGoogle}
                      onFailure={onFailureGoogle}
                      cookiePolicy='single_host_origin'/>
         <div id='naverIdLogin'></div>
-        <p>Don't hav and accound? <a href="">sign up</a></p>
+        <p>Don't hav and accound? <Link to="/signup">sign up</Link></p>
       </div>
 
       <div className="flex-right">
-        <img src="/src/asset/member.jpg" alt="conversation"/>
-        <h2>Welcome back to i-Shadow.</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eligendi ex magnam minima perferendis quisquam ratione, sunt totam?</p>
+        <span className="member"/>
+        <div>
+          <h2>Welcome back to <br/>
+            i-Shadow.</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eligendi ex magnam minima perferendis quisquam ratione, sunt totam?</p>
+        </div>
       </div>
     </div>
 
