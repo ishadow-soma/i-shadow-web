@@ -46,7 +46,7 @@ function Login(props) {
           <br/>
           <button type="submit" className="btn-submit">log in</button>
         </form>
-        <a href="" className="find-password">Forgot password?</a>
+        <Link to="/findpassword" className="find-password">Forgot password?</Link>
         <p className="or">or</p>
         <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
                      onSuccess={onSuccessGoogle}

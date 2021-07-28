@@ -5,9 +5,14 @@
 
 /* left */
 
+.login .flex-left {
+    margin-left: 240px;
+}
+
 .login .flex-left h1 {
     text-transform: capitalize;
     text-align: center;
+    margin-top: 216px;
     margin-bottom: 56px;
 }
 
