@@ -67,7 +67,7 @@ body {
 
 /* content */
 
-.content {
+.youtube-player .content {
     min-width: 370px;
     width: 470px;
     height: 80vh;
@@ -80,7 +80,7 @@ body {
     line-height: 24px;
 }
 
-.content li {
+.youtube-player .content li {
     list-style: none;
     margin-bottom: 10px;
 }
