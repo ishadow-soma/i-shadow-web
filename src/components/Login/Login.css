@@ -1,0 +1,19 @@
+.login {
+    display: flex;
+}
+
+/* right */
+
+.login .flex-right {
+    width: 888px;
+    height: 1000px;
+    border-bottom-left-radius: 200px;
+    overflow: hidden;
+}
+
+.login .flex-right img {
+    display: block;
+    width: 888px;
+    height: 627px;
+    border-bottom-right-radius: 100px;
+}

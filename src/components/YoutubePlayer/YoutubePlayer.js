@@ -28,19 +28,19 @@ function YoutubePlayer({match}) {
     <div className="container">
       <div className="youtube-player">
         <div className="video-frame">
-          <h2>내가 변환한 유튜브 콘텐츠</h2>
+          <h2><i className="xi-youtube-play xi-x"/> 내가 변환한 유튜브 콘텐츠</h2>
           <h1>The Intern - Official Trailer [HD]</h1>
           <element id="player"/>
           <div className="caption">
             Our hearts wore never broken
           </div>
-          <a href="">https://www.youtube.com/watch?v=1abcde23abs</a>
+          <a href=""><i className="xi-link"/> https://www.youtube.com/watch?v=1abcde23abs</a>
           <Footer/>
         </div>
 
         <div className="script">
-          <button className="tab selected">Script</button>
-          <button className="tab">Rec.</button>
+          <button className="tab selected"><i className="xi-microphone"/>Script</button>
+          <button className="tab"><i className="xi-microphone xi-x"/> Rec.</button>
 
           <div className="content">
             <ul>

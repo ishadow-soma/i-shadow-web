@@ -34,8 +34,8 @@ function Login(props) {
 
   // 렌더링
   return (
-    <div>
-      <div>
+    <div className="login">
+      <div className="flex-left">
         <h1>log in</h1>
 
         <form id="login-form" action="" method="POST">
@@ -55,7 +55,8 @@ function Login(props) {
         <p>Don't hav and accound? <a href="">sign up</a></p>
       </div>
 
-      <div>
+      <div className="flex-right">
+        <img src="/src/asset/member.jpg" alt="conversation"/>
         <h2>Welcome back to i-Shadow.</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores eligendi ex magnam minima perferendis quisquam ratione, sunt totam?</p>
       </div>

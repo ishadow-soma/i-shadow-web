@@ -26,7 +26,7 @@ function Home(props) {
             손쉽게 콘텐츠를 추가해 보세요.
           </p>
           <span>start now →</span>
-          <img src="" alt="youtube"/>
+          <i className="xi-youtube-play xi-5x"/>
         </div>
 
         <div onClick={openDialog} className="card">
@@ -34,11 +34,11 @@ function Home(props) {
           <p>영상 또는 음성 파일을 업로드해 <br/>
             손쉽게 콘텐츠를 추가해 보세요.</p>
           <span>start now →</span>
-          <img src="" alt="file upload"/>
+          <i className="xi-upload xi-5x"/>
         </div>
         <Footer/>
       </div>
-      <img src="https://source.unsplash.com/user/erondu/920x930" alt="conversation"/>
+      <span className="home-background"/>
     </main>
   )
 }
