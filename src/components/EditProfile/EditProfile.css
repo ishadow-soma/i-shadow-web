@@ -1,0 +1,127 @@
+/* left */
+
+.edit-profile {
+    display: flex;
+    justify-content: space-between;
+    color: #2F3F65;
+    margin-left: 240px;
+    font-size: 20px;
+}
+
+.edit-profile h1 {
+    font-size: 46px;
+    font-weight: 600;
+    margin-top: 168px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.edit-profile .my-email {
+    width: 550px;
+    border: none;
+    border-radius: 10px;
+    background-color: #F2F6FE;
+    padding: 18px 24px;
+    margin-bottom: 30px;
+}
+
+.edit-profile input {
+    display: block;
+    width: 550px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border: 1px solid #B4D0FF;
+    padding: 18px 24px;
+    font-size: 20px;
+    color: #2F3F65;
+}
+
+.edit-profile input:focus {
+    outline: none;
+    border: #2F7AF9 solid 1px;
+    color: #2F7AF9;
+}
+
+.edit-profile input:focus {
+    border: #2F7AF9 solid 1px;
+    color: #2F7AF9;
+}
+
+.edit-profile .sex-container {
+    display: flex;
+    justify-content: space-between;
+    width: 550px;
+    margin-bottom: 30px;
+}
+
+.edit-profile .sex-container .sex-component {
+    width: 260px;
+    border: #B4D0FF solid 1px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.edit-profile .sex-container .sex-component input {
+    width: 24px;
+    height: 24px;
+    margin: 18px 24px;
+}
+
+.edit-profile button {
+    font-size: 22px;
+    color: #2F3F65;
+    width: 550px;
+    height: 65px;
+    border: 1px solid #8898BF;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.edit-profile button.btn-submit {
+    font-size: 24px;
+    font-weight: 600;
+    background-color: #2F7AF9;
+    border: none;
+    color: white;
+}
+
+.or {
+    text-align: center;
+    margin: 40px 0 30px 0;
+    color: #8898BF;
+}
+
+/* right */
+
+.edit-profile .flex-right {
+    width: 888px;
+    height: 1080px;
+    background-color: #2F7AF9;
+    color: white;
+    border-bottom-left-radius: 200px;
+}
+
+.edit-profile .flex-right h2 {
+    font-size: 56px;
+    line-height: 68px;
+    margin-left: 108px;
+    margin-top: 72px;
+    margin-bottom: 32px;
+    font-weight: 400;
+}
+
+.edit-profile .flex-right p {
+    margin-left: 108px;
+}
+
+.edit-profile .flex-right span {
+    background-image: url("/src/assets/member.jpg");
+    background-position: center center;
+    background-size: cover;
+    display: block;
+    width: 888px;
+    height: 627px;
+    border-bottom-right-radius: 100px;
+}

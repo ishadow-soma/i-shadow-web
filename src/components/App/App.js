@@ -11,6 +11,7 @@ import MyRoom from "../MyRoom/MyRoom";
 import Payment from "../Payment/Payment";
 import PaymentMethod from "../PaymentMethod/PaymentMethod";
 import FindPassword from "../FindPassword/FindPassword";
+import EditProfile from "../EditProfile/EditProfile";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/video" component={VideoPlayer}/>
         <Route path="/audio" component={AudioPlayer}/>
         <Route path="/youtube" component={YoutubePlayer}/>
+        <Route path="/editprofile" component={EditProfile}/>
       </Switch>
     </BrowserRouter>
   );
