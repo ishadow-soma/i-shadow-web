@@ -5,6 +5,7 @@ import './Home.css';
 import store from '../../global/store/store';
 import Footer from "../../global/Footer/Footer";
 import Header from "../../global/Header/Header";
+import Modal from "../../global/Modal/Modal";
 
 function Home(props) {
   useEffect(() => {
@@ -16,6 +17,12 @@ function Home(props) {
       props.history.push('/');
     }
   })
+
+  function openDialog() {
+    let dialog = document.getElementById("modal");
+    if(typeof dialog.showModal === "function")
+      dialog.showModal();
+  }
 
   return (
     <div className="wrap">
@@ -42,16 +49,14 @@ function Home(props) {
           <Footer/>
         </div>
         <span className="home-background"/>
+
+        <dialog id="modal">
+          <Modal/>
+        </dialog>
       </main>
     </div>
 
   )
-}
-
-function openDialog() {
-  let dialog = document.getElementById("input-url-dialog")
-  if(typeof dialog.showModal === "function")
-    dialog.showModal()
 }
 
 export default Home;

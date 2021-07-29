@@ -1,0 +1,86 @@
+dialog {
+    border: none;
+    border-radius: 15px;
+    margin: auto auto;
+    z-index: 1;
+}
+
+dialog::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.modal {
+    display: block;
+    width: 1200px;
+    color: #2F3F65;
+    background-color: white;
+    z-index: 10;
+    padding-top: 45px;
+    padding-bottom: 50px;
+}
+
+.modal h1 {
+    margin-bottom: 10px;
+}
+
+.modal p {
+    margin-bottom: 28px;
+}
+
+.modal h1,
+.modal p {
+    text-align: center;
+}
+
+.modal .input-container {
+    border: 1px dashed #A6C4FB;
+    padding: 16px 0;
+    margin: 0 60px 32px;
+}
+
+.modal input {
+    width: 950px;
+    margin: 0 auto;
+    display: block;
+    background-color: #F2F6FE;
+    font-size: 18px;
+    padding: 8px 24px;
+    border: none;
+}
+
+.modal input::placeholder {
+    color: #8898BF;
+}
+
+.modal .btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.modal .btn-container button {
+    margin: 0 15px;
+}
+
+.modal button {
+    display: block;
+    width: 200px;
+    height: 60px;
+    border: none;
+    border-radius: 30px;
+    color: white;
+}
+
+.modal button.ok {
+    background-color: #2F7AF9;
+}
+
+.modal button.cancel {
+    background-color: #2F3F65;
+}
