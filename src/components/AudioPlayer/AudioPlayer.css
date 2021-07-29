@@ -135,6 +135,7 @@
     background-color: transparent;
     border: none;
     margin-right: 30px;
+    font-size: 18px;
 }
 
 .time-stamp:hover {

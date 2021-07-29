@@ -1,121 +1,56 @@
 import './VideoPlayer.css';
-import React, {useState, useCallback} from "react";
-
-const record = document.getElementById("record")
-const stop = document.getElementById("stop")
-const soundClips = document.getElementById("sound-clips")
-const chkHearMic = document.getElementById("chk-hear-mic")
-
-const audioCtx = new(window.AudioContext || window.webkitAudioContext)() // 오디오 컨텍스트 정의
-
-const analyser = audioCtx.createAnalyser()
-//        const distortion = audioCtx.createWaveShaper()
-//        const gainNode = audioCtx.createGain()
-//        const biquadFilter = audioCtx.createBiquadFilter()
-
-function makeSound(stream) {
-  const source = audioCtx.createMediaStreamSource(stream)
-
-  source.connect(analyser)
-  //            analyser.connect(distortion)
-  //            distortion.connect(biquadFilter)
-  //            biquadFilter.connect(gainNode)
-  //            gainNode.connect(audioCtx.destination) // connecting the different audio graph nodes together
-  analyser.connect(audioCtx.destination)
-
-}
-
-if (navigator.mediaDevices) {
-  console.log('getUserMedia supported.')
-
-  const constraints = {
-    audio: true
-  }
-  let chunks = []
-
-  navigator.mediaDevices.getUserMedia(constraints)
-    .then(stream => {
-
-      const mediaRecorder = new MediaRecorder(stream)
-
-      chkHearMic.onchange = e => {
-        if(e.target.checked == true) {
-          audioCtx.resume()
-          makeSound(stream)
-        } else {
-          audioCtx.suspend()
-        }
-      }
-
-      record.onclick = () => {
-        mediaRecorder.start()
-        console.log(mediaRecorder.state)
-        console.log("recorder started")
-        record.style.background = "red"
-        record.style.color = "black"
-      }
-
-      stop.onclick = () => {
-        mediaRecorder.stop()
-        console.log(mediaRecorder.state)
-        console.log("recorder stopped")
-        record.style.background = ""
-        record.style.color = ""
-      }
-
-      mediaRecorder.onstop = e => {
-        console.log("data available after MediaRecorder.stop() called.")
-
-        const clipName = prompt("오디오 파일 제목을 입력하세요.", new Date())
-
-        const clipContainer = document.createElement('article')
-        const clipLabel = document.createElement('p')
-        const audio = document.createElement('audio')
-        const deleteButton = document.createElement('button')
-
-        clipContainer.classList.add('clip')
-        audio.setAttribute('controls', '')
-        deleteButton.innerHTML = "삭제"
-        clipLabel.innerHTML = clipName
-
-        clipContainer.appendChild(audio)
-        clipContainer.appendChild(clipLabel)
-        clipContainer.appendChild(deleteButton)
-        soundClips.appendChild(clipContainer)
-
-        audio.controls = true
-        const blob = new Blob(chunks, {
-          'type': 'audio/ogg codecs=opus'
-        })
-        chunks = []
-        const audioURL = URL.createObjectURL(blob)
-        audio.src = audioURL
-        console.log("recorder stopped")
-
-        deleteButton.onclick = e => {
-          const evtTgt = e.target
-          evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode)
-        }
-      }
-
-      mediaRecorder.ondataavailable = e => {
-        chunks.push(e.data)
-      }
-    })
-    .catch(err => {
-      console.log('The following error occurred: ' + err)
-    })
-}
+import React from "react";
+import Header from "../../global/Header/Header";
+import Footer from "../../global/Footer/Footer";
 
 function VideoPlayer() {
-
   return (
-    <div className="video-player">
-      <input type='checkbox' id="chk-hear-mic"/>
-        <label htmlFor="chk-hear-mic">마이크 소리 듣기</label>
-        <button id="record">녹음</button>
-        <button id="stop">정지</button>
-        <div id="sound-clips"></div>
+    <div className="wrap">
+      <Header/>
+      <div className="container">
+        <div className="audio-player">
+          <div className="audio-frame">
+            <h2><i className="xi-videocam"/> 내가 변환한 영상 콘텐츠</h2>
+            <h1>The Intern - Official Trailer [HD]</h1>
+            <span className="audio-background">
+                <span className="operation-menu">
+                  <i className="xi-step-backward"/>
+                  <i className="xi-pause pause"/>
+                  <i className="xi-step-forward"/>
+                </span>
+                <span className="volume">
+                  <i className="xi-volume-up"/>
+                </span>
+              </span>
+            <div className="caption">
+              Our hearts wore never broken
+            </div>
+            <Footer/>
+          </div>
+
+          <div className="script">
+            <button className="tab selected"><i className="xi-microphone tab-icon"/>Script</button>
+            <button className="tab"><i className="xi-microphone tab-icon"/> Rec.</button>
+
+            <div className="content">
+              <ul>
+                <li>
+                  <button className="time-stamp">0:59</button>
+                  <p>Loving can hurt</p>
+                </li>
+                <li>
+                  <button className="time-stamp">1:23</button>
+                  <p>loving can hurt sometimes</p>
+                </li>
+                <li>
+                  <button className="time-stamp">1:56</button>
+                  <p>But it's the only thing that I know</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
