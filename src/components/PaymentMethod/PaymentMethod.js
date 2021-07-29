@@ -10,7 +10,7 @@ function PaymentMethod() {
       <div className="card">
         <h2>주문 상품</h2>
         <div className="selected-model">
-          <p><strong>45</strong>point</p>
+          <p><span className="p-icon">P</span><strong>45</strong>point</p>
           <p><strong>3,000</strong>원</p>
         </div>
 

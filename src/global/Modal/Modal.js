@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import "./Modal.css"
 
 function Modal(props) {
-  const [title, setTitle] = useState('Youtube URL');
-  const [description, setDescription] = useState('유튜브 URL을 입력해 주세요.');
+  const [title, setTitle] = useState(props.title);
+  const [description, setDescription] = useState(props.description);
 
   return (
     <div className="modal">

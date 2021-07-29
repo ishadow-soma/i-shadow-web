@@ -29,7 +29,7 @@ function AudioPlayer() {
           </div>
 
           <div className="script">
-            <button className="tab selected"><i className="xi-microphone tab-icon"/>Script</button>
+            <button className="tab selected"><i className="xi-file-text-o tab-icon"/>Script</button>
             <button className="tab"><i className="xi-microphone tab-icon"/> Rec.</button>
 
             <div className="content">

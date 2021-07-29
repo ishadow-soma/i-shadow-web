@@ -1,6 +1,6 @@
 import YoutubeURL from "../../global/YoutubeURL/YoutubeURL";
 import {Link, Route, Switch} from "react-router-dom";
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import './Home.css';
 import store from '../../global/store/store';
 import Footer from "../../global/Footer/Footer";
@@ -8,6 +8,9 @@ import Header from "../../global/Header/Header";
 import Modal from "../../global/Modal/Modal";
 
 function Home(props) {
+  const [title, setTitle] = useState("Youtube URL");
+  const [description,setDescription] = useState("유튜브 URL을 입력해 주세요.");
+
   useEffect(() => {
     const location = props.location;
     if(location.hash) {
@@ -18,7 +21,10 @@ function Home(props) {
     }
   })
 
-  function openDialog() {
+  function openDialog(_title, _description) {
+    setTitle(_title);
+    setDescription(_description);
+    console.log(title);
     let dialog = document.getElementById("modal");
     if(typeof dialog.showModal === "function")
       dialog.showModal();
@@ -29,7 +35,7 @@ function Home(props) {
       <Header/>
       <main>
         <div className="flex-left">
-          <div onClick={openDialog} className="card">
+          <div onClick={() => {openDialog("Youtube URL", "유튜브 URL을 입력해 주세요.")}} className="card">
             <h2>Youtube URL</h2>
             <p>
               유튜브 URL로 <br/>
@@ -51,7 +57,7 @@ function Home(props) {
         <span className="home-background"/>
 
         <dialog id="modal">
-          <Modal/>
+          <Modal title={title} description={description}/>
         </dialog>
       </main>
     </div>

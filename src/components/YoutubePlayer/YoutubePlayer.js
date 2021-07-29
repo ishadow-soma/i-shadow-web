@@ -43,7 +43,7 @@ function YoutubePlayer({match}) {
             </div>
 
             <div className="script">
-              <button className="tab selected"><i className="xi-microphone"/>Script</button>
+              <button className="tab selected"><i className="xi-file-text-o"/>Script</button>
               <button className="tab"><i className="xi-microphone xi-x"/> Rec.</button>
 
               <div className="content">
