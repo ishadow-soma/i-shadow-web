@@ -1,10 +1,7 @@
 main {
     display: flex;
-    margin-top: 50px;
-}
-
-main {
     color: #2F3F65;
+    padding-top: 50px;
 }
 
 main h2 {

@@ -10,7 +10,7 @@ function Signup() {
       clientId: process.env.REACT_APP_NAVER_CLIENT_ID,
       callbackUrl: 'http://localhost:3000/',
       isPopup: false,
-      loginButton: {color: 'white', type: 3, height: '47'},
+      loginButton: {color: 'white', type: 3, height: '67'},
     })
     naverLogin.init();
   }
@@ -52,11 +52,13 @@ function Signup() {
             </div>
             <button type="submit" className="btn-submit">Sign up</button>
             <p className="or">or</p>
-            <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                         onSuccess={onSuccessGoogle}
-                         onFailure={onFailureGoogle}
-                         cookiePolicy='single_host_origin'/>
-            <div id='naverIdLogin'></div>
+            <div className="sns-login">
+              <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                           onSuccess={onSuccessGoogle}
+                           onFailure={onFailureGoogle}
+                           cookiePolicy='single_host_origin'/>
+              <div id='naverIdLogin'></div>
+            </div>
           </form>
         </div>
       </div>

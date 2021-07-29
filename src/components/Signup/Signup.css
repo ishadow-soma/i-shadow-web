@@ -115,3 +115,11 @@
     font-size: 22px;
     margin-left: 108px;
 }
+
+/* sns login */
+
+.sns-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

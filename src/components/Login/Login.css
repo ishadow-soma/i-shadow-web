@@ -14,6 +14,7 @@
     text-align: center;
     margin-top: 216px;
     margin-bottom: 56px;
+    font-weight: 600;
 }
 
 .login .flex-left input {
@@ -94,4 +95,12 @@
     width: 888px;
     height: 627px;
     border-bottom-right-radius: 100px;
+}
+
+/* sns login */
+
+.sns-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -1,11 +1,8 @@
 /* header */
 
-
-
 .my-room h1 {
-     color: #2F3F65;
-     font-size: 40px;
-    margin-bottom: 30px;
+    color: #2F3F65;
+    font-size: 40px;
  }
 
 .my-room .nickname {
@@ -14,6 +11,7 @@
 
 .my-room-header {
     margin-top: 60px;
+    margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
 }
@@ -55,9 +53,30 @@
     justify-content: space-between;
 }
 
+.my-room .content .decoration {
+    width: 70px;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #2F3F65;
+    border-bottom-left-radius: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-room .content .decoration i {
+    position: relative;
+    top: -4px;
+    right: -4px;
+}
+
 .my-room .content h2 {
     color: #2F3F65;
     font-size: 22px;
+    margin-bottom: 22px;
 }
 
 .my-room .converted-content {
@@ -67,10 +86,52 @@
 }
 
 .my-room .video-content {
+    position: relative;
+    overflow: hidden;
     width: 996px;
     margin-bottom: 30px;
 }
 
 .my-room .audio-content {
     width: 416px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
 }
+
+.my-room .content li {
+    list-style: none;
+}
+
+.my-room .content .video-content .add-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #8898BF;
+    width: 285px;
+    height: 180px;
+    background-color: #F2F6FE;
+    border-radius: 10px;
+    border: 1px dashed #8898BF;
+}
+
+.my-room .content .video-content .add-content .xi-plus-circle {
+    margin-bottom: 8px;
+}
+
+.my-room .content .audio-content .add-content {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    color: #8898BF;
+    width: 350px;
+    height: 80px;
+    background-color: #F2F6FE;
+    border-radius: 10px;
+    border: 1px dashed #8898BF;
+}
+
+.my-room .content .audio-content .add-content .xi-plus-circle {
+     margin: 0 12px;
+ }

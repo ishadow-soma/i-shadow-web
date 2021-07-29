@@ -5,6 +5,18 @@ header {
     justify-content: space-between;
     align-items: center;
     padding-right: 240px;
+    background-color: #F2F6FE;
+}
+
+header::after {
+    content: "";
+    background-color: #F2F6FE;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: -1;
 }
 
 header a {

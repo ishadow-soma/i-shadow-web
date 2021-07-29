@@ -12,7 +12,7 @@ function Login(props) {
       clientId: process.env.REACT_APP_NAVER_CLIENT_ID,
       callbackUrl: 'http://localhost:3000/',
       isPopup: false,
-      loginButton: {color: 'white', type: 3, height: '47'},
+      loginButton: {color: 'white', type: 3, height: '67'},
     })
     naverLogin.init();
   }
@@ -48,11 +48,13 @@ function Login(props) {
         </form>
         <Link to="/findpassword" className="find-password">Forgot password?</Link>
         <p className="or">or</p>
-        <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                     onSuccess={onSuccessGoogle}
-                     onFailure={onFailureGoogle}
-                     cookiePolicy='single_host_origin'/>
-        <div id='naverIdLogin'></div>
+        <div className="sns-login">
+          <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
+                       onSuccess={onSuccessGoogle}
+                       onFailure={onFailureGoogle}
+                       cookiePolicy='single_host_origin'/>
+          <div id='naverIdLogin'/>
+        </div>
         <p>Don't hav and accound? <Link to="/signup">sign up</Link></p>
       </div>
 
@@ -65,8 +67,6 @@ function Login(props) {
         </div>
       </div>
     </div>
-
-
   );
 }
 

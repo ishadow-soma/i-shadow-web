@@ -4,6 +4,7 @@ import React, {useEffect} from "react";
 import './Home.css';
 import store from '../../global/store/store';
 import Footer from "../../global/Footer/Footer";
+import Header from "../../global/Header/Header";
 
 function Home(props) {
   useEffect(() => {
@@ -17,29 +18,33 @@ function Home(props) {
   })
 
   return (
-    <main>
-      <div className="flex-left">
-        <div onClick={openDialog} className="card">
-          <h2>Youtube URL</h2>
-          <p>
-            유튜브 URL로 <br/>
-            손쉽게 콘텐츠를 추가해 보세요.
-          </p>
-          <span>start now →</span>
-          <i className="xi-youtube-play xi-5x"/>
-        </div>
+    <div className="wrap">
+      <Header/>
+      <main>
+        <div className="flex-left">
+          <div onClick={openDialog} className="card">
+            <h2>Youtube URL</h2>
+            <p>
+              유튜브 URL로 <br/>
+              손쉽게 콘텐츠를 추가해 보세요.
+            </p>
+            <span>start now →</span>
+            <i className="xi-youtube-play xi-5x"/>
+          </div>
 
-        <div onClick={openDialog} className="card">
-          <h2>File Upload</h2>
-          <p>영상 또는 음성 파일을 업로드해 <br/>
-            손쉽게 콘텐츠를 추가해 보세요.</p>
-          <span>start now →</span>
-          <i className="xi-upload xi-5x"/>
+          <div onClick={openDialog} className="card">
+            <h2>File Upload</h2>
+            <p>영상 또는 음성 파일을 업로드해 <br/>
+              손쉽게 콘텐츠를 추가해 보세요.</p>
+            <span>start now →</span>
+            <i className="xi-upload xi-5x"/>
+          </div>
+          <Footer/>
         </div>
-        <Footer/>
-      </div>
-      <span className="home-background"/>
-    </main>
+        <span className="home-background"/>
+      </main>
+    </div>
+
   )
 }
 

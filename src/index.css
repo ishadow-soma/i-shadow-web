@@ -1,3 +1,114 @@
+/* SourceSansPro */
+/* Black 은 뭐지? */
+
+@font-face {
+  font-family: "SourceSansPro";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/SourceSansPro-Regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  font-style: italic;
+  font-weight: 400;
+  src: url("./fonts/SourceSansPro-Italic.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/SourceSansPro-Bold.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  font-style: italic;
+  font-weight: 700;
+  src: url("./fonts/SourceSansPro-BoldItalic.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  font-style: normal;
+  font-weight: 200;
+  src: url("./fonts/SourceSansPro-ExtraLight.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  font-style: italic;
+  font-weight: 200;
+  src: url("./fonts/SourceSansPro-ExtraLightItalic.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  font-style: normal;
+  font-weight: 300;
+  src: url("./fonts/SourceSansPro-Light.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  font-style: italic;
+  font-weight: 300;
+  src: url("./fonts/SourceSansPro-LightItalic.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  font-style: normal;
+  font-weight: 600;
+  src: url("./fonts/SourceSansPro-SemiBold.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "SourceSansPro";
+  font-style: italic;
+  font-weight: 600;
+  src: url("./fonts/SourceSansPro-SemiBoldItalic.ttf") format('truetype');
+}
+
+/* NotoSans */
+
+@font-face {
+  font-family: "NotoSansCJKkr";
+  font-weight: 100;
+  src: url("./fonts/NotoSansCJKkr-Thin.otf");
+}
+
+@font-face {
+  font-family: "NotoSansCJKkr";
+  font-weight: 200;
+  src: url("./fonts/NotoSansCJKkr-Light.otf");
+}
+
+@font-face {
+  font-family: "NotoSansCJKkr";
+  font-weight: 300;
+  src: url("./fonts/NotoSansCJKkr-DemiLight.otf");
+}
+
+@font-face {
+  font-family: "NotoSansCJKkr";
+  font-weight: 400;
+  src: url("./fonts/NotoSansCJKkr-Regular.otf");
+}
+
+@font-face {
+  font-family: "NotoSansCJKkr";
+  font-weight: 500;
+  src: url("./fonts/NotoSansCJKkr-Medium.otf");
+}
+
+@font-face {
+  font-family: "NotoSansCJKkr";
+  font-weight: 700;
+  src: url("./fonts/NotoSansCJKkr-Bold.otf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +117,7 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: "SourceSansPro", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +128,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 
 /* container */
 

@@ -1,9 +1,5 @@
-body {
-    background-color: #f2f6fe;
-}
-
 .youtube-player {
-    margin-top: 70px;
+    padding-top: 70px;
     display: flex;
 }
 
