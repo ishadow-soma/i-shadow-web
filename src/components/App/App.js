@@ -15,7 +15,7 @@ import EditProfile from "../EditProfile/EditProfile";
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route path="/login" component={Login}/>
