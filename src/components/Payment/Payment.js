@@ -24,7 +24,7 @@ function Payment() {
                 <a href="">3,000원 결제하기</a>
               </li>
               <li>
-                <p><span className="p-icon">P</span><span>75</span>point</p>
+                <p><span className="p-icon">P</span><span>750</span>point</p>
                 <a href="">5,000원 결제하기</a>
               </li>
               <li>
