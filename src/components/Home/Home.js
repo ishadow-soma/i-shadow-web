@@ -6,7 +6,7 @@ import store from '../../global/store/store';
 import Footer from "../../global/Footer/Footer";
 import Header from "../../global/Header/Header";
 import Dialog from "../../global/Dialog/Dialog";
-import ReactModal from "react-modal";
+import Modal from "react-modal";
 
 const customStyles = {
   content: {
@@ -72,14 +72,14 @@ function Home(props) {
         <span className="home-background"/>
 
         <div id="modal">
-          <ReactModal
+          <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             style={customStyles}
             contentLabel="Example Modal"
           >
             <Dialog title={title} description={description}/>
-          </ReactModal>
+          </Modal>
         </div>
       </main>
     </div>
