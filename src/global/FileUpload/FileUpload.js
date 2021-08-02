@@ -1,29 +1,24 @@
 import React from "react";
+import "./FileUpload.css"
 
 function FileUpload() {
   return (
-    <div>
-      <h1>file upload</h1>
-      <p>음성파일 혹은 영상파일을 업로드 하세요.</p>
-
-      <div>
-        <div>
-          <h2>음성파일 선택</h2>
-          <input type="file"/>
-        </div>
-        <div>
-          <h2>영상파일 선택</h2>
-          <input type="file"/>
+    <div className="file-upload">
+      <div className="btn-upload">
+        <i className="xi-headset large-icon"/>
+        <h2>음성파일 선택</h2>
+        <div className="filebox">
+          <label htmlFor="ex_file">파일선택</label>
+          <input type="file" id="ex_file"/>
         </div>
       </div>
-
-      <div>
-        <button>
-          확인
-        </button>
-        <button>
-          취소
-        </button>
+      <div className="btn-upload">
+        <i className="xi-videocam large-icon"/>
+        <h2>영상파일 선택</h2>
+        <div className="filebox">
+          <label htmlFor="ex_file">파일선택</label>
+          <input type="file" id="ex_file"/>
+        </div>
       </div>
     </div>
   );

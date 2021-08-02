@@ -82,7 +82,6 @@ function Home(props) {
         </div>
       </main>
     </div>
-
   )
 }
 
