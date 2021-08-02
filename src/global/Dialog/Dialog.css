@@ -1,20 +1,19 @@
+.ReactModalPortal {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
 dialog {
-    border: none;
     border-radius: 15px;
     margin: auto auto;
     z-index: 1;
     font-family: "NotoSansCJKkr", serif;
 }
 
-dialog::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
+#modal {
+    border-radius: 15px;
+    margin: auto auto;
+    font-family: "NotoSansCJKkr", serif;
 }
 
 .modal {

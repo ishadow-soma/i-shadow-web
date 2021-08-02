@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import "./Modal.css"
+import "./Dialog.css"
 
-function Modal(props) {
+function Dialog(props) {
   const [title, setTitle] = useState(props.title);
   const [description, setDescription] = useState(props.description);
 
@@ -22,4 +22,4 @@ function Modal(props) {
   );
 }
 
-export default Modal;
+export default Dialog;

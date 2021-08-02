@@ -5,7 +5,21 @@ import './Home.css';
 import store from '../../global/store/store';
 import Footer from "../../global/Footer/Footer";
 import Header from "../../global/Header/Header";
-import Modal from "../../global/Modal/Modal";
+import Dialog from "../../global/Dialog/Dialog";
+import ReactModal from "react-modal";
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    border: 'none',
+    borderRadius: '15px',
+  },
+};
 
 function Home(props) {
   const [title, setTitle] = useState("Youtube URL");
@@ -21,13 +35,14 @@ function Home(props) {
     }
   })
 
-  function openDialog(_title, _description) {
-    setTitle(_title);
-    setDescription(_description);
-    console.log(title);
-    let dialog = document.getElementById("modal");
-    if(typeof dialog.showModal === "function")
-      dialog.showModal();
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
   }
 
   return (
@@ -35,7 +50,7 @@ function Home(props) {
       <Header/>
       <main>
         <div className="flex-left">
-          <div onClick={() => {openDialog("Youtube URL", "유튜브 URL을 입력해 주세요.")}} className="card">
+          <div onClick={openModal} className="card">
             <h2>Youtube URL</h2>
             <p>
               유튜브 URL로 <br/>
@@ -45,7 +60,7 @@ function Home(props) {
             <i className="xi-youtube-play xi-5x"/>
           </div>
 
-          <div onClick={openDialog} className="card">
+          <div onClick={openModal} className="card">
             <h2>File Upload</h2>
             <p>영상 또는 음성 파일을 업로드해 <br/>
               손쉽게 콘텐츠를 추가해 보세요.</p>
@@ -56,9 +71,16 @@ function Home(props) {
         </div>
         <span className="home-background"/>
 
-        <dialog id="modal">
-          <Modal title={title} description={description}/>
-        </dialog>
+        <div id="modal">
+          <ReactModal
+            isOpen={modalIsOpen}
+            onRequestClose={closeModal}
+            style={customStyles}
+            contentLabel="Example Modal"
+          >
+            <Dialog title={title} description={description}/>
+          </ReactModal>
+        </div>
       </main>
     </div>
 
