@@ -103,6 +103,10 @@
     list-style: none;
 }
 
+.my-room .content .add-content {
+    cursor: pointer;
+}
+
 .my-room .content .video-content .add-content {
     display: flex;
     flex-direction: column;

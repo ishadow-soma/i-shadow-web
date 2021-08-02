@@ -18,6 +18,10 @@ main .flex-left {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
+main .card {
+    cursor: pointer;
+}
+
 .card span {
     position: absolute;
     bottom: 34px;

@@ -76,7 +76,6 @@ function Home(props) {
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             style={customStyles}
-            contentLabel="Example Modal"
           >
             <Dialog title={title} description={description}/>
           </Modal>
