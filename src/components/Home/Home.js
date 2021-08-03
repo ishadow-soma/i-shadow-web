@@ -1,5 +1,3 @@
-import YoutubeURL from "../../global/YoutubeURL/YoutubeURL";
-import {Link, Route, Switch} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import './Home.css';
 import store from '../../global/store/store';
@@ -22,8 +20,8 @@ const customStyles = {
 };
 
 function Home(props) {
-  const [title, setTitle] = useState("Youtube URL");
-  const [description,setDescription] = useState("유튜브 URL을 입력해 주세요.");
+  const [modal, setModal] = useState(1);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const location = props.location;
@@ -35,9 +33,10 @@ function Home(props) {
     }
   })
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
 
-  function openModal() {
+  function openModal(type) {
+    setModal(type);
+    //alert(modal)
     setIsOpen(true);
   }
 
@@ -50,7 +49,7 @@ function Home(props) {
       <Header/>
       <main>
         <div className="flex-left">
-          <div onClick={openModal} className="card">
+          <div onClick={() => {openModal(0)}} className="card">
             <h2>Youtube URL</h2>
             <p>
               유튜브 URL로 <br/>
@@ -60,7 +59,7 @@ function Home(props) {
             <i className="xi-youtube-play xi-5x"/>
           </div>
 
-          <div onClick={openModal} className="card">
+          <div onClick={() => {openModal(1)}} className="card">
             <h2>File Upload</h2>
             <p>영상 또는 음성 파일을 업로드해 <br/>
               손쉽게 콘텐츠를 추가해 보세요.</p>
@@ -71,13 +70,14 @@ function Home(props) {
         </div>
         <span className="home-background"/>
 
+        {/* 모달 */}
         <div id="modal">
           <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             style={customStyles}
           >
-            <Dialog title={title} description={description}/>
+            <Dialog type={modal}/>
           </Modal>
         </div>
       </main>
