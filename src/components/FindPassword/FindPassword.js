@@ -10,17 +10,29 @@ function FindPassword() {
         <div className="">
           <form action="" method="POST">
             <div className="email">
-              <input type="email" placeholder="Email"/>
+              <div className="input">
+                <span><i className="xi-at"/></span>
+                <input type="text" placeholder="Email"/>
+              </div>
               <a href="">인증번호 발송</a>
             </div>
             <div className="authorization">
-              <input type="text" placeholder="인증번호"/>
+              <div className="input">
+                <span><i className="xi-shield-checked-o"/></span>
+                <input type="text" placeholder="인증번호"/>
+              </div>
               <p>인증번호가 일치하지 않습니다.</p>
               <a href="">인증하기</a>
             </div>
             <div className="password">
-              <input type="password" placeholder="New Password"/>
-              <input type="password" placeholder="Confirm Password"/>
+              <div className="input">
+                <span><i className="xi-lock-o"/></span>
+                <input type="password" placeholder="Password"/>
+              </div>
+              <div className="input">
+                <span><i className="xi-lock"/></span>
+                <input type="password" placeholder="Confirm Password"/>
+              </div>
             </div>
             <button type="submit" className="btn-submit">비밀번호 변경</button>
           </form>

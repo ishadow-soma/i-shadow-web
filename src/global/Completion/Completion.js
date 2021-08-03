@@ -6,7 +6,7 @@ function Completion(props) {
 
   return (
     <div className="completion" style={{display: props.show ? "block" : "none"}}>
-      <p><span>제작된 콘텐츠명 : </span>{content}</p>
+      <p><span><i className="xi-check-circle-o"/> 제작된 콘텐츠명 : </span>{content}</p>
     </div>
   );
 }

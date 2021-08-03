@@ -25,15 +25,32 @@
     margin-bottom: 30px;
 }
 
-.edit-profile input {
-    display: block;
-    width: 550px;
-    margin-bottom: 30px;
+.edit-profile .my-email p {
+    display: inline;
+    margin-left: 24px;
+}
+
+.edit-profile .flex-left .input {
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    width: 552px;
+    height: 68px;
     border-radius: 10px;
     border: 1px solid #B4D0FF;
-    padding: 18px 24px;
     font-size: 20px;
-    color: #2F3F65;
+    margin-bottom: 30px;
+}
+
+.edit-profile .flex-left span {
+    color: #2F7AF9;
+}
+
+.edit-profile .flex-left input {
+    height: 28px;
+    border: none;
+    font-size: 20px;
+    padding: 20px 24px;
 }
 
 .edit-profile input:focus {

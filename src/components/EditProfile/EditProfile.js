@@ -9,10 +9,19 @@ function EditProfile() {
     <div className="edit-profile">
       <div className="flex-left">
         <h1>My Profile</h1>
-        <p className="my-email">{email}</p>
+        <div className="my-email">
+          <span><i className="xi-at"/></span>
+          <p>{email}</p>
+        </div>
         <form action="">
-          <input type="text" value={email}/>
-          <input type="text" placeholder="Age"/>
+          <div className="input">
+            <span><i className="xi-user-o"/></span>
+            <input type="text" value={email} placeholder="닉네임"/>
+          </div>
+          <div className="input">
+            <span><i className="xi-user"/></span>
+            <input type="text" placeholder="Age"/>
+          </div>
           <div className="sex-container">
             <div className="sex-component">
               <input type="radio" value="male" name="sex" className="sex-component"/>

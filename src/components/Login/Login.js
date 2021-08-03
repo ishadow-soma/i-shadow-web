@@ -40,9 +40,16 @@ function Login(props) {
         <h1>log in</h1>
 
         <form id="login-form" action="" method="POST">
-          <input type="text" placeholder="Email"/>
+          <div className="input">
+            <span><i className="xi-at"/></span>
+            <input type="text" placeholder="Email"/>
+          </div>
+
           <br/>
-          <input type="password" placeholder="Password"/>
+          <div className="input">
+            <span><i className="xi-lock-o"/></span>
+            <input type="password" placeholder="Password"/>
+          </div>
           <br/>
           <button type="submit" className="btn-submit">log in</button>
         </form>

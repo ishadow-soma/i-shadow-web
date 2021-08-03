@@ -6,7 +6,7 @@ function Fail(props) {
 
   return (
     <div className="fail" style={{display: props.show ? "block" : "none"}}>
-      <p><span>실패 사유 </span>: {reason}</p>
+      <p><span><i className="xi-close-circle-o"/> 실패 사유 </span>: {reason}</p>
     </div>
   );
 }

@@ -41,7 +41,7 @@ function Dialog(props) {
   const onOkClick = () => {
     setDescription("콘텐츠 제작 중...");
     setMode(2);
-    setInterval(() => {onFail()}, 1000);
+    setInterval(() => {onComplete()}, 1000);
   }
 
   const onComplete = () => {
