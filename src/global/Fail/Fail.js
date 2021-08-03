@@ -1,13 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
+import "./Fail.css"
 
-function Fail() {
+function Fail(props) {
+  const [reason, setReason] = useState("잘못된 형식입니다.")
+
   return (
-    <div>
-      <h1>File Upload</h1>
-      <p>변환에 실패했습니다.</p>
-      <div>
-        <p>실패 사유 : 파일 용량이 너무 큽니다.</p>
-      </div>
+    <div className="fail" style={{display: props.show ? "block" : "none"}}>
+      <p><span>실패 사유 </span>: {reason}</p>
     </div>
   );
 }
