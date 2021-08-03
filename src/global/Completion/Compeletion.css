@@ -1,0 +1,17 @@
+.completion {
+    background-color: #F2F6FE;
+    padding: 22px;
+    margin-bottom: 34px;
+    border-radius: 10px;
+}
+
+.completion p {
+    color: #001833;
+    font-size: 20px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.completion span {
+    color: #2F7AF9;
+}

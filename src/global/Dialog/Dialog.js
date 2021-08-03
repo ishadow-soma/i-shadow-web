@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./Dialog.css"
 import FileUpload from "../FileUpload/FileUpload";
 import Loading from "../Loading/Loading";
+import Completion from "../Completion/Completion";
 
 const type = {
   YOUTUBE_URL: 0,
@@ -38,6 +39,12 @@ function Dialog(props) {
   const onOkClick = () => {
     setDescription("콘텐츠 제작 중...");
     setMode(2);
+    setInterval(() => {onComplete()}, 1000);
+  }
+
+  const onComplete = () => {
+    setDescription("콘텐츠 제작 완료");
+    setMode(3);
   }
 
   return (
@@ -54,6 +61,8 @@ function Dialog(props) {
         <div id="file-upload" style={mode === type.UPLOAD ? null : style}><FileUpload/></div>
         {/* 로딩 */}
         <Loading show={mode === type.LOADING}/>
+        {/* 완료 */}
+        <Completion show={mode === type.COMPLETION}/>
       </form>
       <div className="btn-container">
         <button type="submit" value="ok" className="ok" onClick={onOkClick}>확인</button>
