@@ -36,7 +36,6 @@ function Home(props) {
 
   function openModal(type) {
     setModal(type);
-    //alert(modal)
     setIsOpen(true);
   }
 

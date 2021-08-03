@@ -22,6 +22,7 @@ const customStyles = {
 function MyRoom() {
   const [point, setPoint] = useState(500);
   const [nickname, setNickname] = useState('algosketch@gamil.com');
+  const [modal, setModal] = useState(1);
 
   useEffect(() => {
       setPoint(500);
@@ -30,8 +31,9 @@ function MyRoom() {
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
-  function openModal() {
+  function openModal(type) {
     setIsOpen(true);
+    setModal(type);
   }
 
   function closeModal() {
@@ -60,7 +62,7 @@ function MyRoom() {
                 <h2>내가 변환한 유튜브 콘텐츠</h2>
                 <ul>
                   <li>
-                    <div className="add-content" onClick={openModal}>
+                    <div className="add-content" onClick={() => {openModal(0)}}>
                       <i className="xi-plus-circle xi-3x"/>
                       <p>유튜브 콘텐츠 추가하기</p>
                     </div>
@@ -74,7 +76,7 @@ function MyRoom() {
                 </div>
                 <h2>내가 변환한 영상 콘텐츠</h2>
                 <li>
-                  <div className="add-content" onClick={openModal}>
+                  <div className="add-content" onClick={() => {openModal(1)}}>
                     <i className="xi-plus-circle xi-3x"/>
                     <p>영상 콘텐츠 추가하기</p>
                   </div>
@@ -90,7 +92,7 @@ function MyRoom() {
               <h2>내가 변환한 음성 콘텐츠</h2>
               <ul>
                 <li>
-                  <div className="add-content" onClick={openModal}>
+                  <div className="add-content" onClick={() => {openModal(1)}}>
                     <i className="xi-plus-circle xi-3x"/>
                     <p>음성 콘텐츠 추가하기</p>
                   </div>
@@ -106,7 +108,7 @@ function MyRoom() {
         onRequestClose={closeModal}
         style={customStyles}
       >
-        <Dialog title="Youtube URL" description="유튜브 URL을 입력해 주세요."/>
+        <Dialog type={modal}/>
       </Modal>
     </div>
   );
