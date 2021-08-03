@@ -76,7 +76,7 @@ function Dialog(props) {
       </form>
       <div className="btn-container">
         <button type="submit" value="ok" className="ok" style={{display: onlyCancel ? "none" : "block"}} onClick={onOkClick}>확인</button>
-        <button type="submit" value="cancel" className="cancel">취소</button>
+        <button type="submit" value="cancel" className="cancel" onClick={props.cancelAction}>취소</button>
       </div>
     </div>
   );
