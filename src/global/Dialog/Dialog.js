@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from "react";
 import "./Dialog.css"
 import FileUpload from "../FileUpload/FileUpload";
+import Loading from "../Loading/Loading";
 
 const type = {
   YOUTUBE_URL: 0,
   UPLOAD: 1,
+  LOADING: 2,
+  COMPLETION: 3,
+  FAIL: 4,
 }
 
 const style = {
@@ -21,16 +25,21 @@ function Dialog(props) {
   }, []);
 
   useEffect(() => {
-    if(mode === 0) {
+    if(mode === type.YOUTUBE_URL) {
       setTitle("Youtube URL");
       setDescription("유튜브 URL을 입력해 주세요.");
     }
-    if(mode === 1) {
+    if(mode === type.UPLOAD) {
       setTitle("File Upload");
       setDescription("음성파일 혹은 영상파일을 업로드 하세요.");
     }
   }, [title, description]);
-  
+
+  const onOkClick = () => {
+    setDescription("콘텐츠 제작 중...");
+    setMode(2);
+  }
+
   return (
     <div className="modal">
       <h1>{title}</h1>
@@ -43,12 +52,13 @@ function Dialog(props) {
         </div>
         {/* 파일 업로드 */}
         <div id="file-upload" style={mode === type.UPLOAD ? null : style}><FileUpload/></div>
-
-        <div className="btn-container">
-          <button type="submit" value="ok" className="ok">확인</button>
-          <button type="submit" value="cancel" className="cancel">취소</button>
-        </div>
+        {/* 로딩 */}
+        <Loading show={mode === type.LOADING}/>
       </form>
+      <div className="btn-container">
+        <button type="submit" value="ok" className="ok" onClick={onOkClick}>확인</button>
+        <button type="submit" value="cancel" className="cancel">취소</button>
+      </div>
     </div>
   );
 }

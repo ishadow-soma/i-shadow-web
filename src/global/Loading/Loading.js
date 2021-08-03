@@ -1,13 +1,12 @@
 import React from "react";
+import "./Loading.css"
 
-function Loading() {
+function Loading(props) {
   return (
-    <div>
-      <h1>Youtube URL</h1>
-      <p>콘텐츠 제작 중...</p>
-      <div>
-        <p>https://www.youtube.com/watch?v=1abcde23abs</p>
-        <div>프로그레스 바</div>
+    <div className="loading" style={{display: props.show ? "block" : "none"}}>
+      <p>어떤 콘텐츠를 업로드 중인지 표시하는 공간</p>
+      <div className="progress-bar">
+        <div className="progress"/>
       </div>
     </div>
   );
