@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../global/Header/Header";
 import Footer from "../../global/Footer/Footer";
 import "../CustomPlayer.css";
+import RecodedList from "../../global/RecodedList/RecodedList";
 
 function AudioPlayer() {
   return (
@@ -33,6 +34,7 @@ function AudioPlayer() {
             <button className="tab"><i className="xi-microphone tab-icon"/> Rec.</button>
 
             <div className="content">
+              {/* 스크립트 */}
               <ul>
                 <li>
                   <button className="time-stamp">0:59</button>
@@ -47,6 +49,8 @@ function AudioPlayer() {
                   <p>But it's the only thing that I know</p>
                 </li>
               </ul>
+              {/* 녹음 리스트 */}
+              <RecodedList/>
             </div>
           </div>
         </div>
