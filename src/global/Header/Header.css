@@ -27,7 +27,7 @@ header a {
 
 /* logo */
 
-.logo {
+header .logo {
     display: flex;
     min-width: 750px;
     width: 1030px;
@@ -39,14 +39,14 @@ header a {
     padding-left: 240px;
 }
 
-.logo h1 {
+header .logo h1 {
     font-family: Lobster, serif;
     font-size: 40px;
     margin-right: 50px;
     font-weight: 400;
 }
 
-.logo a {
+header .logo a {
     margin-right: 30px;
     font-size: 22px;
     color: white;
@@ -56,20 +56,20 @@ header a {
 
 /* profile */
 
-.profile {
+header .profile {
     min-width: 350px;
     color: #2F3F65;
     text-align: right;
 }
 
-.profile a {
+header .profile a {
     padding: 6px 22px;
     border-radius: 21px;
     text-align: center;
     margin-left: 8px;
 }
 
-.profile .sign-up {
+header .profile .sign-up {
     color: white;
     background-color: #2f7af9;
 }
