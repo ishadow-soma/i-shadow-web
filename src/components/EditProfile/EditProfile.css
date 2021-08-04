@@ -55,12 +55,6 @@
 
 .edit-profile input:focus {
     outline: none;
-    border: #2F7AF9 solid 1px;
-    color: #2F7AF9;
-}
-
-.edit-profile input:focus {
-    border: #2F7AF9 solid 1px;
     color: #2F7AF9;
 }
 

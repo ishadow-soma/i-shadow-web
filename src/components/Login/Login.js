@@ -1,11 +1,16 @@
 import './Login.css';
 import React, {useEffect} from "react";
-import GoogleLogin from "react-google-login";
 import {Link} from "react-router-dom";
 const { naver } = window;
+let { gapi, auth2 } = window;
 require('dotenv').config();
 
 function Login(props) {
+  useEffect(() => {
+    initializeNaverLogin();
+    startApp();
+  }, []);
+
   // 네이버 로그인
   const initializeNaverLogin = () => {
     const naverLogin = new naver.LoginWithNaverId({
@@ -18,21 +23,28 @@ function Login(props) {
   }
 
   /* 구글 로그인 */
-  // 성공
-  const onSuccessGoogle = (res) => {
-    console.log(res)
-    alert(res.profileObj.email);
-    alert(res.profileObj.name);
-  }
-  // 실패
-  const onFailureGoogle = (res) => {
-    alert('login 실패');
-  }
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+      attachSignin(document.getElementById('customBtn'));
+    });
+  };
 
-  useEffect(() => {
-    initializeNaverLogin();
-  }, []);
-
+  function attachSignin(element) {
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+      function(googleUser) {
+        console.log(googleUser.Ts.Me);
+      }, function(error) {
+        alert(JSON.stringify(error, undefined, 2));
+      });
+  }
   // 렌더링
   return (
     <div className="login">
@@ -55,12 +67,15 @@ function Login(props) {
         </form>
         <Link to="/findpassword" className="find-password">Forgot password?</Link>
         <p className="or">or</p>
+        {/* sns 로그인 */}
         <div className="sns-login">
-          <GoogleLogin clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
-                       onSuccess={onSuccessGoogle}
-                       onFailure={onFailureGoogle}
-                       cookiePolicy='single_host_origin'/>
           <div id='naverIdLogin'/>
+          <div id="gSignInWrapper">
+            <div id="customBtn" className="customGPlusSignIn">
+              <span className="google-icon"/>
+              <span className="buttonText">Log in with google</span>
+            </div>
+          </div>
         </div>
         <p>Don't hav and accound? <Link to="/signup">sign up</Link></p>
       </div>
