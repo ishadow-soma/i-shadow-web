@@ -1,14 +1,14 @@
-import './AudioPlayer.css';
 import React from "react";
 import Header from "../../global/Header/Header";
 import Footer from "../../global/Footer/Footer";
+import "../CustomPlayer.css";
 
 function AudioPlayer() {
   return (
     <div className="wrap">
       <Header/>
       <div className="container">
-        <div className="audio-player">
+        <div className="audio-player custom-player">
           <div className="audio-frame">
             <h2><i className="xi-headset"/> 내가 변환한 음성 콘텐츠</h2>
             <h1>The Intern - Official Trailer [HD]</h1>

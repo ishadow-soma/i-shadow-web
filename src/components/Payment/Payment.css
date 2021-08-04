@@ -17,7 +17,7 @@
 
 /* payment model */
 
-.payment-model {
+.payment .payment-model {
     width: 544px;
     margin: 0 auto;
     background-color: white;
@@ -28,7 +28,7 @@
     font-weight: 500;
 }
 
-.payment-model li {
+.payment .payment-model li {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,15 +42,15 @@
     overflow: hidden;
 }
 
-.payment-model li:hover {
+.payment .payment-model li:hover {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.payment-model p {
+.payment .payment-model p {
     color: #001833;
 }
 
-.payment-model .p-icon {
+.payment .payment-model .p-icon {
     display: inline-block;
     width: 33px;
     height: 33px;
@@ -62,11 +62,11 @@
     margin-right: 10px;
 }
 
-.payment-model span {
+.payment .payment-model span {
     color: #2F7AF9;
 }
 
-.payment-model a {
+.payment .payment-model a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,6 +78,6 @@
     border-top-left-radius: 30px;
 }
 
-.payment-model a:hover {
+.payment .payment-model a:hover {
     background-color: #1A59FA;
 }

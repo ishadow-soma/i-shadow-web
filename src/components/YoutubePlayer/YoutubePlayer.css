@@ -5,24 +5,24 @@
 
 /* video frame */
 
-.video-frame {
+.youtube-player .video-frame {
     width: 920px;
     margin-right: 50px;
 }
 
-.video-frame h1 {
+.youtube-player .video-frame h1 {
     color: #001833;
     font-size: 40px;
     margin-bottom: 20px;
 }
 
-.video-frame h2 {
+.youtube-player .video-frame h2 {
     color: #2F7AF9;
     font-size: 18px;
     margin-bottom: 4px;
 }
 
-.video-frame a {
+.youtube-player .video-frame a {
     text-decoration: none;
     color: #8898BF;
     font-size: 18px;
@@ -30,7 +30,7 @@
 
 /* caption */
 
-.caption {
+.youtube-player .caption {
     border-top: rgba(255, 255, 255, 0.12) solid 1px;
     position: relative;
     top: -4px;
@@ -46,7 +46,7 @@
 
 /* script */
 
-.script .tab {
+.youtube-player .script .tab {
     margin-left: 20px;
     color: white;
     background-color: #8898BF;
@@ -57,7 +57,7 @@
     border-bottom: rgba(255, 255, 255, 0.12) solid 1px;
 }
 
-.script .tab.selected {
+.youtube-player .script .tab.selected {
     background-color: #001833;
 }
 
@@ -81,7 +81,7 @@
     margin-bottom: 10px;
 }
 
-.content .time-stamp {
+.youtube-player .content .time-stamp {
     color: #B4D0FF;
     background-color: transparent;
     border: none;
@@ -89,11 +89,11 @@
     font-size: 18px;
 }
 
-.time-stamp:hover {
+.youtube-player .time-stamp:hover {
     color: #FFCC00;
 }
 
-.content p {
+.youtube-player .content p {
     display: inline-block;
 }
 
