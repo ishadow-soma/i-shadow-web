@@ -26,9 +26,8 @@ function Home(props) {
   useEffect(() => {
     const location = props.location;
     if(location.hash) {
-      const token = props.location.hash.split('=')[1].split('&')[0];
-      store.token = token;
-      alert('새로운 로그인 확인 : ', store.token);
+      store.token = props.location.hash.split('=')[1].split('&')[0];
+      alert('새로운 로그인 확인 : ' + store.token);
       props.history.push('/');
     }
   })

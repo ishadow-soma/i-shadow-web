@@ -17,8 +17,8 @@ function Login(props) {
       clientId: process.env.REACT_APP_NAVER_CLIENT_ID,
       callbackUrl: 'http://localhost:3000/',
       isPopup: false,
-      loginButton: {color: 'white', type: 3, height: '67'},
-    })
+      /*loginButton: { color: 'white', type: 3, height: '67' },*/
+    });
     naverLogin.init();
   }
 
@@ -69,7 +69,9 @@ function Login(props) {
         <p className="or">or</p>
         {/* sns 로그인 */}
         <div className="sns-login">
-          <div id='naverIdLogin'/>
+          <div id='naverIdLogin'>
+            <p id="naverIdLogin_loginButton"><i className="xi-naver"/>Log in with naver</p>
+          </div>
           <div id="gSignInWrapper">
             <div id="customBtn" className="customGPlusSignIn">
               <span className="google-icon"/>
@@ -77,7 +79,7 @@ function Login(props) {
             </div>
           </div>
         </div>
-        <p>Don't hav and accound? <Link to="/signup">sign up</Link></p>
+        <p>Don't have and accound? <Link to="/signup">sign up</Link></p>
       </div>
 
       <div className="flex-right">

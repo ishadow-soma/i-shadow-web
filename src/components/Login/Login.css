@@ -12,7 +12,7 @@
 .login .flex-left h1 {
     text-transform: capitalize;
     text-align: center;
-    margin-top: 216px;
+    margin-top: 138px;
     margin-bottom: 56px;
     font-weight: 600;
 }
@@ -133,6 +133,7 @@
     border-radius: 10px;
     border: none;
     white-space: nowrap;
+    margin-bottom: 30px;
 }
 #customBtn .google-icon {
     width: 24px;
@@ -144,11 +145,36 @@
     cursor: pointer;
 }
 #customBtn span.buttonText {
-    display: inline-block;
     color: #2F3F65;
-    vertical-align: middle;
-    padding-left: 42px;
-    padding-right: 42px;
+    padding-left: 15px;
     font-size: 24px;
     font-weight: 600;
+}
+
+/* 네이버 아이디로 로그인 */
+
+#naverIdLogin {
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+#naverIdLogin .xi-naver {
+    color: #03C75A;
+    margin-right: 12px;
+    font-size: 30px;
+}
+
+#naverIdLogin_loginButton {
+    color: #2f3f65;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 24px;
+    font-weight: 600;
+    width: 550px;
+    height: 67px;
+    border: #e4e4e8 1px solid;
+    border-radius: 10px;
+    padding-right: 10px;
 }
