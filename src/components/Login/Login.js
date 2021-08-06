@@ -1,6 +1,7 @@
 import './Login.css';
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
+import axios from "axios";
 const { naver } = window;
 let { gapi, auth2 } = window;
 require('dotenv').config();
@@ -17,7 +18,6 @@ function Login(props) {
       clientId: process.env.REACT_APP_NAVER_CLIENT_ID,
       callbackUrl: 'http://localhost:3000/',
       isPopup: false,
-      /*loginButton: { color: 'white', type: 3, height: '67' },*/
     });
     naverLogin.init();
   }

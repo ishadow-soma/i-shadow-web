@@ -56,8 +56,8 @@
 .sign-up-page .email a {
     padding: 4px;
     display: block;
-    text-align: right;
     color: #2F7AF9;
+    text-align: right;
 }
 
 .sign-up-page .authorization {
