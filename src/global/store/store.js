@@ -1,7 +1,8 @@
 export let user = {
   isLogin: false,
   token: null,
-  email: 'algosketch@gamil.com'
+  email: null,
+  name: null
 };
 
 const http = {

@@ -2,6 +2,7 @@ import './Login.css';
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
+import {http, user} from "../../global/store/store";
 const { naver } = window;
 let { gapi, auth2 } = window;
 require('dotenv').config();
@@ -11,6 +12,21 @@ function Login(props) {
     initializeNaverLogin();
     startApp();
   }, []);
+
+  // 로그인
+  const requestLogin = () => {
+    const email = document.getElementById("id").value;
+    const password = document.getElementById("password").value;
+    axios.post(http.baseURL + "login", {
+      "email": email,
+      "password": password
+    })
+      .then((res) => {
+        user.token = res.data.jwt;
+        user.isLogin = true;
+        user.email = email;
+      });
+  }
 
   // 네이버 로그인
   const initializeNaverLogin = () => {
@@ -50,21 +66,19 @@ function Login(props) {
     <div className="login">
       <div className="flex-left">
         <h1>log in</h1>
+        <div className="input">
+          <span><i className="xi-at"/></span>
+          <input id="email" type="text" placeholder="Email"/>
+        </div>
 
-        <form id="login-form" action="" method="POST">
-          <div className="input">
-            <span><i className="xi-at"/></span>
-            <input type="text" placeholder="Email"/>
-          </div>
+        <br/>
+        <div className="input">
+          <span><i className="xi-lock-o"/></span>
+          <input id="password" type="password" placeholder="Password"/>
+        </div>
+        <br/>
+        <button className="btn-submit" onClick={requestLogin}>log in</button>
 
-          <br/>
-          <div className="input">
-            <span><i className="xi-lock-o"/></span>
-            <input type="password" placeholder="Password"/>
-          </div>
-          <br/>
-          <button type="submit" className="btn-submit">log in</button>
-        </form>
         <Link to="/findpassword" className="find-password">Forgot password?</Link>
         <p className="or">or</p>
         {/* sns 로그인 */}
