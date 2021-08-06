@@ -1,7 +1,62 @@
 import React from "react";
 import "./FindPassword.css"
+import axios from "axios";
+import http from "../../global/store/store";
 
 function FindPassword() {
+  // 인증번호 전송
+  const requestAuthorizationCode = () => {
+    const email = document.getElementById("email");
+    // 유효한 이메일인지 확인
+    axios.post(http.baseURL + "users/duplication-email", {"email": email})
+      .then((res) => {
+        if(res.data.isSuccess !== "YES") {
+          alert("유효하지 않은 이메일입니다.");
+          return;
+        }
+
+        axios.post(http.baseURL + "users/authentication-email", {"email": email});
+        alert("인증번호가 전송되었습니다.");
+      });
+  }
+
+  // 인증코드 확인
+  const requestAuthorization = () => {
+    const code = document.getElementById("authorizationCode");
+    axios.post(http.baseURL + "user/authentication-code", {"authenticationCode": code})
+      .then((res) => {
+        if(res.data.isSuccess === "YES")
+          alert("인증되었습니다.");
+        else
+          alert("인증번호가 일치하지 않습니다.");
+      });
+  }
+
+  // 비밀번호 변경
+  const requestNewPassword = () => {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password");
+    if(password !== confirmPassword) {
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
+    axios.post(http.baseURL + 'users',
+      {
+        "email": email,
+        "password": password,
+        "confirmPassword": confirmPassword
+      })
+      .then((res) => {
+        if(res.data.isSuccess) {
+          alert("비밀번호가 변경되었습니다.");
+        }
+        else {
+          alert("비밀번호 변경 실패 : " + res.code);
+        }
+      });
+  }
 
   return (
     <div className="find-password-page">
@@ -12,29 +67,29 @@ function FindPassword() {
             <div className="email">
               <div className="input">
                 <span><i className="xi-at"/></span>
-                <input type="text" placeholder="Email"/>
+                <input id="email" type="text" placeholder="Email"/>
               </div>
-              <a href="">인증번호 발송</a>
+              <a href="#" onClick={requestAuthorizationCode}>인증번호 발송</a>
             </div>
             <div className="authorization">
               <div className="input">
                 <span><i className="xi-shield-checked-o"/></span>
-                <input type="text" placeholder="인증번호"/>
+                <input id="authorizationCode" type="text" placeholder="인증번호"/>
               </div>
               <p>인증번호가 일치하지 않습니다.</p>
-              <a href="">인증하기</a>
+              <a href="#" onClick={requestAuthorization}>인증하기</a>
             </div>
             <div className="password">
               <div className="input">
                 <span><i className="xi-lock-o"/></span>
-                <input type="password" placeholder="Password"/>
+                <input id="password" type="password" placeholder="Password"/>
               </div>
               <div className="input">
                 <span><i className="xi-lock"/></span>
-                <input type="password" placeholder="Confirm Password"/>
+                <input id="confirm-password" type="password" placeholder="Confirm Password"/>
               </div>
             </div>
-            <button type="submit" className="btn-submit">비밀번호 변경</button>
+            <button className="btn-submit" onClick={requestNewPassword}>비밀번호 변경</button>
           </form>
         </div>
       </div>
