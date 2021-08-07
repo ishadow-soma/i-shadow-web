@@ -12,7 +12,7 @@ function Login(props) {
   useEffect(() => {
     initializeNaverLogin();
     startApp();
-  }, []);
+  }, );
 
   // 로그인
   const requestLogin = () => {

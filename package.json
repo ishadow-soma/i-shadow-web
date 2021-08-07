@@ -47,5 +47,6 @@
   },
   "devDependencies": {
     "gh-pages": "^3.2.3"
-  }
+  },
+  "proxy": "https://ishadow.kr"
 }

@@ -9,14 +9,14 @@ function Signup() {
   useEffect(() => {
     initializeNaverLogin();
     startApp();
-  }, []);
+  }, );
 
   // 이메일 중복 확인 및 인증번호 발송
   const requestAuthorizationCode = () => {
     const inputEmail = document.getElementById("email").value;
     // 중복 확인
     let canCreate;
-    axios.post(http.baseURL + 'users/duplication-email', {"email": inputEmail})
+    axios.post('/api/users/duplication-email', {"email": inputEmail})
       .then((res) => {
         alert("인증번호가 발송되었습니다.");
         canCreate = res.data.isSuccess === "YES";
@@ -76,18 +76,14 @@ function Signup() {
   /* 구글 로그인 */
   var startApp = function() {
     gapi.load('auth2', function(){
-      // Retrieve the singleton for the GoogleAuth library and set up the client.
       auth2 = gapi.auth2.init({
         client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
         cookiepolicy: 'single_host_origin',
-        // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
       });
       attachSignin(document.getElementById('customBtn'));
     });
   };
   function attachSignin(element) {
-    console.log(element.id);
     auth2.attachClickHandler(element, {},
       function(googleUser) {
         console.log(googleUser.Ts.Me);
@@ -106,7 +102,7 @@ function Signup() {
               <span><i className="xi-at"/></span>
               <input id="email" type="text" placeholder="Email"/>
             </div>
-            <a href="#" onClick={requestAuthorizationCode}>인증번호 발송</a>
+            <button onClick={requestAuthorizationCode}>인증번호 발송</button>
           </div>
           <div className="authorization">
             <div className="input">
@@ -114,7 +110,7 @@ function Signup() {
               <input type="text" placeholder="인증번호" id="authorizationCode"/>
             </div>
             <p>인증번호가 일치하지 않습니다.</p>
-            <a href="#" onClick={requestAuthorization}>인증하기</a>
+            <button onClick={requestAuthorization}>인증하기</button>
           </div>
           <div className="password">
             <div className="input">
@@ -126,7 +122,7 @@ function Signup() {
               <input id="confirm-password" type="password" placeholder="Confirm Password"/>
             </div>
           </div>
-          <button type="submit" className="btn-submit">Sign up</button>
+          <button className="btn-submit" onClick={requestSignUp}>Sign up</button>
           <p className="or">or</p>
           <div className="sns-login">
             <div id='naverIdLogin'>

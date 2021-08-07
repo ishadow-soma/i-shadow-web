@@ -25,7 +25,7 @@ function Dialog(props) {
 
   useEffect(() => {
     setDescription(props.description);
-  }, []);
+  }, [props.description]);
 
   useEffect(() => {
     if(mode === type.YOUTUBE_URL) {
@@ -36,7 +36,7 @@ function Dialog(props) {
       setTitle("File Upload");
       setDescription("음성파일 혹은 영상파일을 업로드 하세요.");
     }
-  }, [title, description]);
+  }, [title, description, mode]);
 
   const onOkClick = () => {
     setDescription("콘텐츠 제작 중...");

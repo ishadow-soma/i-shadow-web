@@ -1,15 +1,16 @@
 import './YoutubePlayer.css';
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import Footer from "../../global/Footer/Footer";
 import Header from "../../global/Header/Header";
 
 const youtubeCode = ['1eAZvWm0gE0', 'd-HK6DFi3MA'];
 const YTPlayer = require('yt-player');
 
-function YoutubePlayer({match}) {
+function YoutubePlayer() {
   var player, seconds = 0;
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     player = new YTPlayer('#player', {width: 920, height: 516});
     console.log('player');
 
@@ -38,7 +39,7 @@ function YoutubePlayer({match}) {
               <div className="caption">
                 Our hearts wore never broken
               </div>
-              <a href=""><i className="xi-link"/> https://www.youtube.com/watch?v=1abcde23abs</a>
+              <a href={"https://www.youtube.com/"}><i className="xi-link"/> https://www.youtube.com/watch?v=1abcde23abs</a>
               <Footer/>
             </div>
 

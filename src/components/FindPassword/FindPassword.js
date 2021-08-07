@@ -69,7 +69,7 @@ function FindPassword() {
                 <span><i className="xi-at"/></span>
                 <input id="email" type="text" placeholder="Email"/>
               </div>
-              <a href="#" onClick={requestAuthorizationCode}>인증번호 발송</a>
+              <button onClick={requestAuthorizationCode}>인증번호 발송</button>
             </div>
             <div className="authorization">
               <div className="input">
@@ -77,7 +77,7 @@ function FindPassword() {
                 <input id="authorizationCode" type="text" placeholder="인증번호"/>
               </div>
               <p>인증번호가 일치하지 않습니다.</p>
-              <a href="#" onClick={requestAuthorization}>인증하기</a>
+              <button onClick={requestAuthorization}>인증하기</button>
             </div>
             <div className="password">
               <div className="input">

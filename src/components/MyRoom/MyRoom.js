@@ -21,13 +21,12 @@ const customStyles = {
 
 function MyRoom() {
   const [point, setPoint] = useState(500);
-  const [nickname, setNickname] = useState('algosketch@gamil.com');
+  const [nickname, ] = useState('algosketch@gamil.com');
   const [modal, setModal] = useState(1);
 
   useEffect(() => {
       setPoint(500);
-    }
-  );
+    }, []);
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
