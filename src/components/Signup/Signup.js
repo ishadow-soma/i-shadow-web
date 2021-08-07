@@ -16,7 +16,7 @@ function Signup() {
     const inputEmail = document.getElementById("email").value;
     // 중복 확인
     let canCreate;
-    axios.post('/api/users/duplication-email', {"email": inputEmail})
+    axios.post(http.baseURL + '/users/duplication-email', {"email": inputEmail})
       .then((res) => {
         alert("인증번호가 발송되었습니다.");
         canCreate = res.data.isSuccess === "YES";
@@ -24,12 +24,15 @@ function Signup() {
         if (!canCreate) {
           alert("이미 가입된 이메일입니다.");
         }
+      })
+      .catch((e) => {
+        console.log('에러', e);
       });
 
     // 인증번호 발송
-    if(canCreate) {
-      axios.post(http.baseURL + 'users/authentication-email', {"email": inputEmail});
-    }
+    //if(canCreate) {
+      //axios.post(http.baseURL + 'users/authentication-email', {"email": inputEmail});
+    //}
   }
 
   // 이메일 인증하기
