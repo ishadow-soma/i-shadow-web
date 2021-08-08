@@ -1,6 +1,7 @@
 import React from "react";
 import "./Payment.css"
 import Header from "../../global/Header/Header";
+import {Link} from "react-router-dom";
 
 function Payment() {
   return (
@@ -17,27 +18,27 @@ function Payment() {
             <ul>
               <li>
                 <p><span className="p-icon">P</span><span>15</span>point</p>
-                <a href="">1,000원 결제하기</a>
+                <Link to="/">1,000원 결제하기</Link>
               </li>
               <li>
                 <p><span className="p-icon">P</span><span>45</span>point</p>
-                <a href="">3,000원 결제하기</a>
+                <Link to="/">3,000원 결제하기</Link>
               </li>
               <li>
-                <p><span className="p-icon">P</span><span>750</span>point</p>
-                <a href="">5,000원 결제하기</a>
+                <p><span className="p-icon">P</span><span>75</span>point</p>
+                <Link to="/">5,000원 결제하기</Link>
               </li>
               <li>
                 <p><span className="p-icon">P</span><span>150</span>point</p>
-                <a href="">10,000원 결제하기</a>
+                <Link to="/">10,000원 결제하기</Link>
               </li>
               <li>
                 <p><span className="p-icon">P</span><span>450</span>point</p>
-                <a href="">30,000원 결제하기</a>
+                <Link to="/">30,000원 결제하기</Link>
               </li>
               <li>
                 <p><span className="p-icon">P</span><span>750</span>point</p>
-                <a href="">50,000원 결제하기</a>
+                <Link to="/">50,000원 결제하기</Link>
               </li>
             </ul>
           </div>

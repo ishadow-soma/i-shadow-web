@@ -1,7 +1,13 @@
-let user = {
+export let user = {
   isLogin: false,
   token: null,
-  email: 'algosketch@gamil.com'
+  email: null,
+  name: null
 };
 
-export default user;
+const http = {
+  baseURL: "/api/"
+  //baseURL: "https://ishadow.kr/api/"
+}
+
+export default http;

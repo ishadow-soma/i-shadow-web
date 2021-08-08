@@ -1,12 +1,11 @@
-import YoutubeURL from "../../global/YoutubeURL/YoutubeURL";
-import {Link, Route, Switch} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import './Home.css';
-import store from '../../global/store/store';
+import http from '../../global/store/store';
 import Footer from "../../global/Footer/Footer";
 import Header from "../../global/Header/Header";
 import Dialog from "../../global/Dialog/Dialog";
 import Modal from "react-modal";
+import axios from "axios";
 
 const customStyles = {
   content: {
@@ -22,22 +21,31 @@ const customStyles = {
 };
 
 function Home(props) {
-  const [title, setTitle] = useState("Youtube URL");
-  const [description,setDescription] = useState("유튜브 URL을 입력해 주세요.");
+  const [modal, setModal] = useState(1);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const location = props.location;
     if(location.hash) {
       const token = props.location.hash.split('=')[1].split('&')[0];
-      store.token = token;
-      alert('새로운 로그인 확인 : ', store.token);
+      console.log(token);
+      axios.post(http.baseURL + 'users', {
+        "name": "",
+        "email": "",
+        "password": "",
+        "sns": "NAVER",
+        "userToken": token
+      })
+        .then((res) => {
+          console.log(res);
+        });
+      alert('네이버로 로그인 성공!');
       props.history.push('/');
     }
   })
 
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-
-  function openModal() {
+  function openModal(type) {
+    setModal(type);
     setIsOpen(true);
   }
 
@@ -50,7 +58,7 @@ function Home(props) {
       <Header/>
       <main>
         <div className="flex-left">
-          <div onClick={openModal} className="card">
+          <div onClick={() => {openModal(0)}} className="card">
             <h2>Youtube URL</h2>
             <p>
               유튜브 URL로 <br/>
@@ -60,7 +68,7 @@ function Home(props) {
             <i className="xi-youtube-play xi-5x"/>
           </div>
 
-          <div onClick={openModal} className="card">
+          <div onClick={() => {openModal(1)}} className="card">
             <h2>File Upload</h2>
             <p>영상 또는 음성 파일을 업로드해 <br/>
               손쉽게 콘텐츠를 추가해 보세요.</p>
@@ -71,13 +79,14 @@ function Home(props) {
         </div>
         <span className="home-background"/>
 
+        {/* 모달 */}
         <div id="modal">
           <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             style={customStyles}
           >
-            <Dialog title={title} description={description}/>
+            <Dialog type={modal} cancelAction={closeModal}/>
           </Modal>
         </div>
       </main>

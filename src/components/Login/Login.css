@@ -12,19 +12,35 @@
 .login .flex-left h1 {
     text-transform: capitalize;
     text-align: center;
-    margin-top: 216px;
+    margin-top: 138px;
     margin-bottom: 56px;
     font-weight: 600;
 }
 
-.login .flex-left input {
-    display: block;
+.login .flex-left .input {
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
     width: 552px;
     height: 68px;
     border-radius: 10px;
     border: 1px solid #B4D0FF;
     font-size: 20px;
+}
+
+.login .flex-left span {
+    color: #2F7AF9;
+}
+
+.login .flex-left input {
+    height: 28px;
+    border: none;
+    font-size: 20px;
     padding: 20px 24px;
+}
+
+.login .flex-left input:focus {
+    outline: none;
 }
 
 .login .btn-submit {
@@ -98,9 +114,60 @@
 }
 
 /* sns login */
+/* google sign in custom */
 
-.sns-login {
+#customBtn {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    background-color: #F2F6FE;
+    width: 550px;
+    height: 67px;
+    border-radius: 10px;
+    border: none;
+    white-space: nowrap;
+    margin-bottom: 30px;
+}
+#customBtn .google-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url("/src/assets/Google__G__Logo.svg");
+}
+
+#customBtn:hover {
+    cursor: pointer;
+}
+#customBtn span.buttonText {
+    color: #2F3F65;
+    padding-left: 15px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* 네이버 아이디로 로그인 */
+
+#naverIdLogin {
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+#naverIdLogin .xi-naver {
+    color: #03C75A;
+    margin-right: 12px;
+    font-size: 30px;
+}
+
+#naverIdLogin_loginButton {
+    color: #2f3f65;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 24px;
+    font-weight: 600;
+    width: 550px;
+    height: 67px;
+    border: #e4e4e8 1px solid;
+    border-radius: 10px;
+    padding-right: 10px;
 }

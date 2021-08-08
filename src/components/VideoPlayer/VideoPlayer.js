@@ -1,14 +1,14 @@
-import './VideoPlayer.css';
 import React from "react";
 import Header from "../../global/Header/Header";
 import Footer from "../../global/Footer/Footer";
+import "../CustomPlayer.css";
 
 function VideoPlayer() {
   return (
     <div className="wrap">
       <Header/>
       <div className="container">
-        <div className="audio-player">
+        <div className="audio-player custom-player">
           <div className="audio-frame">
             <h2><i className="xi-videocam"/> 내가 변환한 영상 콘텐츠</h2>
             <h1>The Intern - Official Trailer [HD]</h1>

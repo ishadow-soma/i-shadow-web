@@ -1,14 +1,15 @@
-import './AudioPlayer.css';
 import React from "react";
 import Header from "../../global/Header/Header";
 import Footer from "../../global/Footer/Footer";
+import "../CustomPlayer.css";
+import RecodedList from "../../global/RecodedList/RecodedList";
 
 function AudioPlayer() {
   return (
     <div className="wrap">
       <Header/>
       <div className="container">
-        <div className="audio-player">
+        <div className="audio-player custom-player">
           <div className="audio-frame">
             <h2><i className="xi-headset"/> 내가 변환한 음성 콘텐츠</h2>
             <h1>The Intern - Official Trailer [HD]</h1>
@@ -33,6 +34,7 @@ function AudioPlayer() {
             <button className="tab"><i className="xi-microphone tab-icon"/> Rec.</button>
 
             <div className="content">
+              {/* 스크립트 */}
               <ul>
                 <li>
                   <button className="time-stamp">0:59</button>
@@ -47,6 +49,8 @@ function AudioPlayer() {
                   <p>But it's the only thing that I know</p>
                 </li>
               </ul>
+              {/* 녹음 리스트 */}
+              <RecodedList/>
             </div>
           </div>
         </div>

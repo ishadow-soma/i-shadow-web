@@ -14,22 +14,19 @@ main .flex-left {
     margin: 112px 163px 0 263px;
 }
 
-.card {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
 main .card {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
-.card span {
+main .card span {
     position: absolute;
     bottom: 34px;
     color: #2F7AF9;
     font-size: 20px;
 }
 
-.flex-left .card {
+main .flex-left .card {
     position: relative;
     width: 573px;
     height: 287px;
@@ -41,11 +38,11 @@ main .card {
     margin-bottom: 45px;
 }
 
-.flex-left .card h2 {
+main .flex-left .card h2 {
     margin-bottom: 20px;
 }
 
-.flex-left .card i {
+main .flex-left .card i {
     color: white;
     justify-content: flex-end;
     align-items: flex-end;
