@@ -5,7 +5,9 @@ import http from "../../global/store/store";
 const { naver } = window;
 let { gapi, auth2 } = window;
 
-function Signup() {
+function Signup(props) {
+  let isAuthentication = false;
+
   useEffect(() => {
     initializeNaverLogin();
     startApp();
@@ -15,24 +17,16 @@ function Signup() {
   const requestAuthorizationCode = () => {
     const inputEmail = document.getElementById("email").value;
     // 중복 확인
-    let canCreate;
-    axios.post(http.baseURL + '/users/duplication-email', {"email": inputEmail})
+    axios.post(http.baseURL + 'users/duplication-email', {"email": inputEmail})
       .then((res) => {
-        alert("인증번호가 발송되었습니다.");
-        canCreate = res.data.isSuccess === "YES";
-        console.log("이메일 중복 확인 " + inputEmail + " 결과 : " + canCreate);
-        if (!canCreate) {
+        if (res.data.data.isSuccess === "YES") {
+          axios.post(http.baseURL + 'users/authentication-email', {"email": inputEmail});
+          alert("인증번호가 발송되었습니다.");
+        }
+        else {
           alert("이미 가입된 이메일입니다.");
         }
-      })
-      .catch((e) => {
-        console.log('에러', e);
       });
-
-    // 인증번호 발송
-    //if(canCreate) {
-      //axios.post(http.baseURL + 'users/authentication-email', {"email": inputEmail});
-    //}
   }
 
   // 이메일 인증하기
@@ -40,10 +34,13 @@ function Signup() {
     const code = document.getElementById("authorizationCode").value;
     axios.post(http.baseURL + 'users/authentication-code', {"authenticationCode": code})
       .then((res) => {
-        if(res.data.isSuccess === "YES")
-          alert("인증되었습니다.")
-        else
-          alert("인증번호가 일치하지 않습니다.")
+        if(res.data.data.isSuccess === "YES") {
+          isAuthentication = true;
+          alert("인증되었습니다.");
+        }
+        else {
+          alert("인증 번호가 일치하지 않습니다.");
+        }
       });
   }
 
@@ -51,18 +48,32 @@ function Signup() {
   const requestSignUp = () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirm-password");
+    const confirmPassword = document.getElementById("confirm-password").value;
     if(password !== confirmPassword) {
       alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+    if(!isAuthentication) {
+      alert("이메일을 인증 받아야 합니다.");
       return;
     }
 
     axios.post(http.baseURL + 'users',
       {
-        "neme": email,
+        "name": email,
         "email": email,
         "password": password,
         "sns": "NORMAL"
+      })
+      .then((res) => {
+        console.log(res);
+        if(res.data.success) {
+          alert("가입이 완료되었습니다.");
+          props.history.push("/");
+        }
+        else {
+          alert("알 수 없는 이유로 가입에 실패했습니다.");
+        }
       });
   }
 

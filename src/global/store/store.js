@@ -6,7 +6,8 @@ export let user = {
 };
 
 const http = {
-  baseURL: "https://ishadow.kr/api/"
+  baseURL: "/api/"
+  //baseURL: "https://ishadow.kr/api/"
 }
 
 export default http;

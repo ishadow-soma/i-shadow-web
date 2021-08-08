@@ -5,6 +5,7 @@ import Header from "../../global/Header/Header";
 import Footer from "../../global/Footer/Footer";
 import Dialog from "../../global/Dialog/Dialog";
 import Modal from "react-modal";
+import store from "../../global/store/store";
 
 const customStyles = {
   content: {
@@ -21,12 +22,16 @@ const customStyles = {
 
 function MyRoom() {
   const [point, setPoint] = useState(500);
-  const [nickname, ] = useState('algosketch@gamil.com');
+  const [nickname, setNickname] = useState('algosketch@gamil.com');
   const [modal, setModal] = useState(1);
 
   useEffect(() => {
       setPoint(500);
     }, []);
+
+  useEffect(() => {
+    console.log(store.user);
+  }, [nickname]);
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
 

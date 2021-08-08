@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import http from "../../global/store/store";
-import user from "../../global/store/store";
+import {user} from "../../global/store/store";
 const { naver } = window;
 let { gapi, auth2 } = window;
 require('dotenv').config();
@@ -16,16 +16,26 @@ function Login(props) {
 
   // 로그인
   const requestLogin = () => {
-    const email = document.getElementById("id").value;
+    const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     axios.post(http.baseURL + "login", {
       "email": email,
       "password": password
     })
       .then((res) => {
-        user.token = res.data.jwt;
-        user.isLogin = true;
-        user.email = email;
+        if(res.data.success) {
+          user.token = res.data.jwt;
+          user.isLogin = true;
+          user.email = email;
+          console.log(res);
+          console.log(user);
+          alert("로그인 완료");
+          props.history.push("/");
+        }
+        else {
+          console.log(res);
+          alert("로그인 실패");
+        }
       });
   }
 
