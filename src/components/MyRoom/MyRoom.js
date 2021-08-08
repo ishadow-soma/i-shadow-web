@@ -5,7 +5,7 @@ import Header from "../../global/Header/Header";
 import Footer from "../../global/Footer/Footer";
 import Dialog from "../../global/Dialog/Dialog";
 import Modal from "react-modal";
-import store from "../../global/store/store";
+import {user} from "../../global/store/store";
 
 const customStyles = {
   content: {
@@ -29,10 +29,6 @@ function MyRoom() {
       setPoint(500);
     }, []);
 
-  useEffect(() => {
-    console.log(store.user);
-  }, [nickname]);
-
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal(type) {
@@ -50,7 +46,7 @@ function MyRoom() {
       <div className="my-room">
         <div className="container">
           <div className="my-room-header">
-            <h1><span className="nickname">{nickname}</span> 님의 MY ROOM</h1>
+            <h1><span className="nickname">{user.email}</span> 님의 MY ROOM</h1>
             <div className="my-point">
               <p>보유 포인트 <span>{point}</span>point</p>
               <Link to="/payment">충전하기 <i className="xi-help-o"/></Link>

@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from "react";
 import './Home.css';
-import store from '../../global/store/store';
+import http from '../../global/store/store';
 import Footer from "../../global/Footer/Footer";
 import Header from "../../global/Header/Header";
 import Dialog from "../../global/Dialog/Dialog";
 import Modal from "react-modal";
+import axios from "axios";
 
 const customStyles = {
   content: {
@@ -26,12 +27,22 @@ function Home(props) {
   useEffect(() => {
     const location = props.location;
     if(location.hash) {
-      store.token = props.location.hash.split('=')[1].split('&')[0];
-      alert('새로운 로그인 확인 : ' + store.token);
+      const token = props.location.hash.split('=')[1].split('&')[0];
+      console.log(token);
+      axios.post(http.baseURL + 'users', {
+        "name": "",
+        "email": "",
+        "password": "",
+        "sns": "NAVER",
+        "userToken": token
+      })
+        .then((res) => {
+          console.log(res);
+        });
+      alert('네이버로 로그인 성공!');
       props.history.push('/');
     }
   })
-
 
   function openModal(type) {
     setModal(type);

@@ -25,6 +25,10 @@ header a {
     text-transform: uppercase;
 }
 
+header a:visited {
+    color: #2F7AF9;
+}
+
 /* logo */
 
 header .logo {
@@ -69,10 +73,9 @@ header .profile a {
     margin-left: 8px;
 }
 
-header .profile .sign-up a {
+header .profile a.sign-up {
     color: white;
     background-color: #2f7af9;
-    text-transform: none;
 }
 
 /* 로그인 됐을 경우 */
