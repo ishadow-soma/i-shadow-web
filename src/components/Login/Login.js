@@ -20,7 +20,8 @@ function Login(props) {
     const password = document.getElementById("password").value;
     axios.post(http.baseURL + "login", {
       "email": email,
-      "password": password
+      "password": password,
+      "sns": "NORMAL"
     })
       .then((res) => {
         if(res.data.success) {

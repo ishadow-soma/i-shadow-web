@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './Home.css';
 import http from '../../global/store/store';
+import { user } from '../../global/store/store';
 import Footer from "../../global/Footer/Footer";
 import Header from "../../global/Header/Header";
 import Dialog from "../../global/Dialog/Dialog";
@@ -37,9 +38,43 @@ function Home(props) {
         "userToken": token
       })
         .then((res) => {
-          console.log(res);
+          if(res.data.success) {
+            // 신규 회원임.
+            // 바로 jwt 토큰 받기
+          }
+          else {
+            // 기존 회원, 로그인으로 이동
+            axios.post(http.baseURL + 'login', {
+              "email": "",
+              "password": "",
+              "sns": "NAVER",
+              "userToken": token
+            })
+              .then((res) => {
+                if(res.data.success) {
+                  user.token = res.data.data.jwt;
+                  console.log("jwt 받는 곳");
+                  console.log(user.token);
+                  axios({
+                    method: "get",
+                    url: http.baseURL + "users",
+                    data: {},
+                    headers: {"ACCESS-TOKEN": user.token}
+                  })
+                    .then((res) => {
+                      console.log("마지막");
+                      console.log(res);
+                      if(res.data.success) {
+                        alert('네이버로 로그인 성공!');
+                      }
+                    })
+                }
+                else {
+                  console.log("실패!");
+                }
+              })
+          }
         });
-      alert('네이버로 로그인 성공!');
       props.history.push('/');
     }
   })
