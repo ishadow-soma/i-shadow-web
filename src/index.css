@@ -86,13 +86,17 @@
 @font-face {
   font-family: "NotoSansKR";
   font-weight: 400;
-  src: url("./fonts/NotoSansKR-Regular.otf");
+  src: url("./fonts/NotoSansKR-Regular.otf") format('opentype');
+  src: url("./fonts/NotoSansKR-Regular.woff") format('woff');
+  src: url("./fonts/NotoSansKR-Regular.woff2") format('woff2');
 }
 
 @font-face {
   font-family: "NotoSansKR";
   font-weight: 500;
-  src: url("./fonts/NotoSansKR-Medium.otf");
+  src: url("./fonts/NotoSansKR-Medium.otf") format('opentype');
+  src: url("./fonts/NotoSansKR-Medium.woff") format('woff');
+  src: url("./fonts/NotoSansKR-Medium.woff2") format('woff2');
 }
 
 * {
