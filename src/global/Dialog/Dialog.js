@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import "./Dialog.css"
-import FileUpload from "../FileUpload/FileUpload";
-import Loading from "../Loading/Loading";
-import Completion from "../Completion/Completion";
-import Fail from "../Fail/Fail";
+import FileUpload from "global/FileUpload/FileUpload";
+import Loading from "global/Loading/Loading";
+import Completion from "global/Completion/Completion";
+import Fail from "global/Fail/Fail";
 
 const type = {
   YOUTUBE_URL: 0,

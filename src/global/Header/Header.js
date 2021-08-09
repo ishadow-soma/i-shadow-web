@@ -1,7 +1,7 @@
 import './Header.css';
 import React from "react";
 import {Link} from "react-router-dom";
-import {user} from "../store/store";
+import {user} from "global/store/store";
 
 function Header() {
   const onLogout = () => {
