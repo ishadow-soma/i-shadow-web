@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "../../global/Header/Header";
-import Footer from "../../global/Footer/Footer";
-import "../CustomPlayer.css";
-import RecodedList from "../../global/RecodedList/RecodedList";
+import Header from "global/Header/Header";
+import Footer from "global/Footer/Footer";
+import "components/CustomPlayer.css";
+import RecodedList from "global/RecodedList/RecodedList";
 
 function AudioPlayer() {
   return (

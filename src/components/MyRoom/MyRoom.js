@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "./MyRoom.css"
 import {Link} from "react-router-dom";
-import Header from "../../global/Header/Header";
-import Footer from "../../global/Footer/Footer";
-import Dialog from "../../global/Dialog/Dialog";
+import Header from "global/Header/Header";
+import Footer from "global/Footer/Footer";
+import Dialog from "global/Dialog/Dialog";
 import Modal from "react-modal";
-import {user} from "../../global/store/store";
+import {user} from "global/store/store";
 
 const customStyles = {
   content: {

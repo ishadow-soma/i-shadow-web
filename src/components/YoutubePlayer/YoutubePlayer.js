@@ -1,7 +1,7 @@
 import './YoutubePlayer.css';
 import React, {useEffect} from "react";
-import Footer from "../../global/Footer/Footer";
-import Header from "../../global/Header/Header";
+import Footer from "global/Footer/Footer";
+import Header from "global/Header/Header";
 
 const youtubeCode = ['1eAZvWm0gE0', 'd-HK6DFi3MA'];
 const YTPlayer = require('yt-player');

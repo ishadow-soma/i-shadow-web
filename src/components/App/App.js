@@ -1,17 +1,17 @@
 import './App.css';
 import React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import VideoPlayer from "../VideoPlayer/VideoPlayer";
-import AudioPlayer from "../AudioPlayer/AudioPlayer";
-import YoutubePlayer from "../YoutubePlayer/YoutubePlayer";
-import Home from "../Home/Home";
-import Login from "../Login/Login";
-import Signup from "../Signup/Signup";
-import MyRoom from "../MyRoom/MyRoom";
-import Payment from "../Payment/Payment";
-import PaymentMethod from "../PaymentMethod/PaymentMethod";
-import FindPassword from "../FindPassword/FindPassword";
-import EditProfile from "../EditProfile/EditProfile";
+import VideoPlayer from "components/VideoPlayer/VideoPlayer";
+import AudioPlayer from "components/AudioPlayer/AudioPlayer";
+import YoutubePlayer from "components/YoutubePlayer/YoutubePlayer";
+import Home from "components/Home/Home";
+import Login from "components/Login/Login";
+import Signup from "components/Signup/Signup";
+import MyRoom from "components/MyRoom/MyRoom";
+import Payment from "components/Payment/Payment";
+import PaymentMethod from "components/PaymentMethod/PaymentMethod";
+import FindPassword from "components/FindPassword/FindPassword";
+import EditProfile from "components/EditProfile/EditProfile";
 
 function App() {
   return (
