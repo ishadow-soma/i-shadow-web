@@ -1,75 +1,29 @@
-# Getting Started with Create React App
+# i Shadow : React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+이 프로젝트는 npx create-react-app 을 통해 만들어졌습니다.
+현재 배포되어 있는 URL : https://ishadow.kr/
 
-## Available Scripts
+## 다음과 같은 스크립트를 실행할 수 있습니다.
 
-In the project directory, you can run:
+스크립트는 루트 디렉터리에서 실행되어야 합니다.
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+로컬에서 React 앱을 실행할 수 있습니다. 기본 포트 번호는 3000 입니다.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+프로젝트를 빌드합니다. 빌드 폴더가 업데이트 되며, 배포할 때 이 스크립트를 사용합니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 최신 버전은 dev branch 에서 확인할 수 있습니다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 다음과 같은 주요 화면이 있습니다.
 
-### `npm run eject`
+디자인된 모든 UI 가 구현되어 있으나, 일부 기능은 구현되어 있지 않습니다. 또한 데스크톱 환경(1920 x 1080)에 최적화 되어 있으며, 이후 해상도별 최적화된 화면을 추가로 제공할 예정입니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# ishadow-react
-
-Web for I-Shadow
-
+<메인 화면>
+<유튜브 URL 모달>
+<파일 업로드 모달>
+<유튜브 플레이어>
+<영상 플레이어>
+<마이 룸>
