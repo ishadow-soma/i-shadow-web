@@ -20,7 +20,50 @@ function YoutubePlayer() {
     player.on('playing', () => {
       console.log(player.getDuration())
     })
+
+    setScript();
   })
+
+  // 스크립트 렌더링
+  const setScript = () => {
+    const script = [
+      {
+        sentence: "Loving can hurt,",
+        begin: 59,
+        end: 0
+      },
+      {
+        sentence: "Loving can hurt somtimes",
+        begin: 83,
+        end: 0
+      },
+      {
+        sentence: "But it's the only thins that I know",
+        begin: 116,
+        end: 0
+      }
+    ];
+
+    const insertion = document.getElementById("script");
+    script.forEach(it => {
+      // li 태그에 button, p 를 넣음.
+      const li = document.createElement('li');
+      const button = document.createElement('button');
+      const p = document.createElement('p');
+
+      button.innerText = `${parseInt(it.begin / 60)}:${it.begin % 60}`;
+      button.className = "time-stamp";
+      button.onclick = () => onSeek(it.begin);
+
+      p.innerText = it.sentence;
+
+      li.append(button);
+      li.append(p);
+      insertion.append(li);
+
+      return li;
+    })
+  }
 
   const startRepeat = (begin, end) => {
     const len = (end - begin) * 1000;
@@ -63,7 +106,7 @@ function YoutubePlayer() {
               <button className="tab"><i className="xi-microphone xi-x"/> Rec.</button>
 
               <div className="content">
-                <ul>
+                <ul id="script">
                   <li>
                     <button onClick={() => onSeek(59)} className="time-stamp">0:59</button>
                     <p>Loving can hurt</p>
