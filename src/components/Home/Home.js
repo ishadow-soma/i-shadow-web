@@ -24,43 +24,35 @@ const customStyles = {
 function Home(props) {
   const [modal, setModal] = useState(1);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [login, setLogin] = useState(false);
+
+  const updateUser = () => {
+    axios({
+      method: "get",
+      url: http.baseURL + "users",
+      data: {},
+      headers: {"ACCESS-TOKEN": user.token}
+    })
+      .then((res) => {
+        console.log(res);
+        if(res.data.success) {
+          user.email = res.data.data.email;
+          user.name = res.data.data.name;
+          user.isLogin = true;
+          setLogin(true);
+          alert("로그인 성공");
+        }
+        else
+          alert("로그인 실패");
+      })
+  }
 
   useEffect(() => {
     const location = props.location;
+    // 네이버 로그인
     if(location.hash) {
       const token = props.location.hash.split('=')[1].split('&')[0];
       console.log(token);
-      // 기존 회원, 로그인으로 이동
-      axios.post(http.baseURL + 'login', {
-        "email": "",
-        "password": "",
-        "sns": "NAVER",
-        "userToken": token
-      })
-        .then((res) => {
-          if(res.data.success) {
-            user.token = res.data.data.jwt;
-            console.log("jwt 받는 곳");
-            console.log(user.token);
-            axios({
-              method: "get",
-              url: http.baseURL + "users",
-              data: {},
-              headers: {"ACCESS-TOKEN": user.token}
-            })
-              .then((res) => {
-                console.log("마지막");
-                console.log(res);
-                if(res.data.success) {
-                  alert('네이버로 로그인 성공!');
-                }
-              })
-          }
-          else {
-            console.log("실패!");
-          }
-        })
-      /*
       axios.post(http.baseURL + 'users', {
         "name": "",
         "email": "",
@@ -69,12 +61,12 @@ function Home(props) {
         "userToken": token
       })
         .then((res) => {
+          // 신규 회원임.
           if(res.data.success) {
-            // 신규 회원임.
-            // 바로 jwt 토큰 받기
+            user.token = res.data.data.jwt;
+            updateUser();
           }
-          else {
-            // 기존 회원, 로그인으로 이동
+          else { // 기존 회원 로그인
             axios.post(http.baseURL + 'login', {
               "email": "",
               "password": "",
@@ -84,28 +76,14 @@ function Home(props) {
               .then((res) => {
                 if(res.data.success) {
                   user.token = res.data.data.jwt;
-                  console.log("jwt 받는 곳");
-                  console.log(user.token);
-                  axios({
-                    method: "get",
-                    url: http.baseURL + "users",
-                    data: {},
-                    headers: {"ACCESS-TOKEN": user.token}
-                  })
-                    .then((res) => {
-                      console.log("마지막");
-                      console.log(res);
-                      if(res.data.success) {
-                        alert('네이버로 로그인 성공!');
-                      }
-                    })
+                  updateUser()
                 }
                 else {
                   console.log("실패!");
                 }
               })
           }
-        });*/
+        });
       props.history.push('/');
     }
   })

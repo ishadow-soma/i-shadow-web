@@ -2,7 +2,10 @@ export let user = {
   isLogin: false,
   token: null,
   email: null,
-  name: null
+  name: null,
+  gender: null,
+  myPoint: 0,
+  age: 0
 };
 
 const http = {
