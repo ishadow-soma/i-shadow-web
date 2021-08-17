@@ -76,6 +76,7 @@ function Home(props) {
               .then((res) => {
                 if(res.data.success) {
                   user.token = res.data.data.jwt;
+                  console.log("token : " + user.token);
                   updateUser()
                 }
                 else {

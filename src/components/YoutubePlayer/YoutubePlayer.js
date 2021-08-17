@@ -2,48 +2,34 @@ import './YoutubePlayer.css';
 import React, {useEffect, useState} from "react";
 import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
+import axios from "axios";
+import http, {user} from "global/store/store";
 
-const youtubeCode = ['1eAZvWm0gE0', 'd-HK6DFi3MA'];
+//const youtubeCode = ['1eAZvWm0gE0', 'd-HK6DFi3MA'];
 const YTPlayer = require('yt-player');
 
 function YoutubePlayer() {
-  var player, seconds = 0;
+  let player, seconds = 0;
   let repetition;
+  let script;
+  let videoCode;
 
   useEffect(() => {
+    requestVideo();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     player = new YTPlayer('#player', {width: 920, height: 516});
     console.log('player');
 
-    player.load(youtubeCode[0]);
+    player.load("ULK4BuPWgHY");
 
     player.on('playing', () => {
       console.log(player.getDuration())
     })
-
-    setScript();
   })
 
   // 스크립트 렌더링
   const setScript = () => {
-    const script = [
-      {
-        sentence: "Loving can hurt,",
-        begin: 59,
-        end: 0
-      },
-      {
-        sentence: "Loving can hurt somtimes",
-        begin: 83,
-        end: 0
-      },
-      {
-        sentence: "But it's the only thins that I know",
-        begin: 116,
-        end: 0
-      }
-    ];
-
     const insertion = document.getElementById("script");
     script.forEach(it => {
       // li 태그에 button, p 를 넣음.
@@ -84,6 +70,30 @@ function YoutubePlayer() {
     player.seek(seconds);
   };
 
+  // 영상 불러오기
+
+  const requestVideo = () => {
+    axios({
+      method: "get",
+      url: http.baseURL + "shadowing-player" + "?videoId=2",
+      data: {},
+      headers: {"ACCESS-TOKEN": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYyOTIxOTY4OCwiZXhwIjoxNjMwNDI5Mjg4fQ.R4ytQdxr-2wyfS7ojLbne5oN-xF126d1-8YcuAus9Eo"}
+    })
+      .then(res => {
+        console.log(res);
+        videoCode = res.data.data.videoURL.split("/")[3];
+        console.log(videoCode);
+        script = res.data.data.sentences.map(it => {
+          return {
+            sentence: it.content,
+            begin: parseInt(it.startTime.split(":")[0]) * 3600 + parseInt(it.startTime.split(":")[1]) * 60 + parseInt(it.startTime.split(":")[2]),
+            end: 0
+          }
+        })
+        setScript();
+      })
+  }
+
   return (
     <div className="wrap">
       <Header/>
@@ -108,23 +118,11 @@ function YoutubePlayer() {
               <div className="content">
                 <ul id="script">
                   <li>
-                    <button onClick={() => onSeek(59)} className="time-stamp">0:59</button>
-                    <p>Loving can hurt</p>
+                    <button onClick={() => startRepeat(30, 34)} className="time-stamp">0:30</button>
+                    <p>반복 0:30 ~ 0:34</p>
                   </li>
                   <li>
-                    <button onClick={() => onSeek(60+23)} className="time-stamp">1:23</button>
-                    <p>loving can hurt sometimes</p>
-                  </li>
-                  <li>
-                    <button onClick={() => onSeek(60+56)} className="time-stamp">1:56</button>
-                    <p>But it's the only thing that I know</p>
-                  </li>
-                  <li>
-                    <button onClick={() => startRepeat(120, 124)} className="time-stamp">2:00</button>
-                    <p>반복 2:00 ~ 2:04</p>
-                  </li>
-                  <li>
-                    <button onClick={() => endRepetition()} className="time-stamp">2:00</button>
+                    <button onClick={() => endRepetition()} className="time-stamp">0:30</button>
                     <p>반복 끝내기</p>
                   </li>
                 </ul>

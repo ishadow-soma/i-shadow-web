@@ -77,6 +77,8 @@
 }
 
 .youtube-player .content li {
+    display: flex;
+    align-items: flex-start;
     list-style: none;
     margin-bottom: 10px;
 }
