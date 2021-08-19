@@ -4,6 +4,7 @@ import FileUpload from "global/FileUpload/FileUpload";
 import Loading from "global/Loading/Loading";
 import Completion from "global/Completion/Completion";
 import Fail from "global/Fail/Fail";
+import { Redirect } from 'react-router-dom';
 
 const type = {
   YOUTUBE_URL: 0,
@@ -39,6 +40,12 @@ function Dialog(props) {
   }, [title, description, mode]);
 
   const onOkClick = () => {
+    if(mode === type.COMPLETION) {
+      console.log(window.history);
+      window.location.href = "/youtube";
+      return;
+    }
+
     setDescription("콘텐츠 제작 중...");
     setMode(2);
     setInterval(() => {onComplete()}, 1000);
