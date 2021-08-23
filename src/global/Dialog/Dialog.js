@@ -5,7 +5,9 @@ import Loading from "global/Loading/Loading";
 import Completion from "global/Completion/Completion";
 import Fail from "global/Fail/Fail";
 import { Redirect } from 'react-router-dom';
-import YoutubeURL from "../YoutubeURL/YoutubeURL";
+import YoutubeURL from "global/YoutubeURL/YoutubeURL";
+import axios from "axios";
+import http, {user} from "global/store/store"
 
 const type = {
   YOUTUBE_URL: 0,
@@ -78,11 +80,6 @@ function Dialog(props) {
       <Completion show={mode === type.COMPLETION}/>
       {/* 실패 */}
       <Fail show={mode === type.FAIL}/>
-
-      <div className="btn-container">
-        <button type="submit" value="ok" className="ok" style={{display: onlyCancel ? "none" : "block"}} onClick={onOkClick}>확인</button>
-        <button type="submit" value="cancel" className="cancel" onClick={props.cancelAction}>취소</button>
-      </div>
     </div>
   );
 }

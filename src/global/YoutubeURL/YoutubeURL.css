@@ -1,5 +1,9 @@
-.youtube-url {
+.youtube-url .url-input {
     border: 1px dashed #A6C4FB;
     padding: 16px 0;
     margin: 0 60px 32px;
+}
+
+.youtube-url .url-input input:focus {
+    outline: none;
 }
