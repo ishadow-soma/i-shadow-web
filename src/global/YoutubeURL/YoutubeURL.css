@@ -1,45 +1,5 @@
-#input-url-dialog {
-    width: 1080px;
-    height: 340px;
-    border: 0;
-    border-radius: 16px;
-}
-
-#input-url-dialog input {
-    display: block;
-    border-radius: 16px;
-    width: 768px;
-    height: 43px;
-    font-size: 36px;
-    padding: 16px 36px;
-    margin: 64px auto;
-}
-
-.baseline {
-    float: right;
-    width: content-box;
-    margin: 0 118px;
-    display: block;
-}
-
-#input-url-dialog button, #input-url-dialog .btn {
-    width: 160px;
-    height: 80px;
-    border: 1px solid black;
-    border-radius: 16px;
-    font-size: 36px;
-    background-color: white;
-    text-align: center;
-}
-
-#input-url-dialog .btn {
-    display: inline-block;
-    margin: 0 48px;
-}
-
-#input-url-dialog .btn a {
-    display: block;
-    color: black;
-    text-decoration: none;
-    margin-top: 14px;
+.youtube-url {
+    border: 1px dashed #A6C4FB;
+    padding: 16px 0;
+    margin: 0 60px 32px;
 }

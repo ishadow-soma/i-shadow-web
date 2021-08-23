@@ -5,6 +5,7 @@ import Loading from "global/Loading/Loading";
 import Completion from "global/Completion/Completion";
 import Fail from "global/Fail/Fail";
 import { Redirect } from 'react-router-dom';
+import YoutubeURL from "../YoutubeURL/YoutubeURL";
 
 const type = {
   YOUTUBE_URL: 0,
@@ -67,20 +68,17 @@ function Dialog(props) {
       <h1>{title}</h1>
       <p>{description}</p>
 
-      <form action="" method="GET">
-        {/* 유튜브 URL */}
-        <div style={mode === type.YOUTUBE_URL ? null : style} className="input-container">
-          <input type="text" placeholder="ex) https://www.youtube.com/watch?v=1abcde23abs"/>
-        </div>
-        {/* 파일 업로드 */}
-        <div id="file-upload" style={mode === type.UPLOAD ? null : style}><FileUpload/></div>
-        {/* 로딩 */}
-        <Loading show={mode === type.LOADING}/>
-        {/* 완료 */}
-        <Completion show={mode === type.COMPLETION}/>
-        {/* 실패 */}
-        <Fail show={mode === type.FAIL}/>
-      </form>
+      {/* 유튜브 URL */}
+      <YoutubeURL show={mode === type.YOUTUBE_URL}/>
+      {/* 파일 업로드 */}
+      <div id="file-upload" style={mode === type.UPLOAD ? null : style}><FileUpload/></div>
+      {/* 로딩 */}
+      <Loading show={mode === type.LOADING}/>
+      {/* 완료 */}
+      <Completion show={mode === type.COMPLETION}/>
+      {/* 실패 */}
+      <Fail show={mode === type.FAIL}/>
+
       <div className="btn-container">
         <button type="submit" value="ok" className="ok" style={{display: onlyCancel ? "none" : "block"}} onClick={onOkClick}>확인</button>
         <button type="submit" value="cancel" className="cancel" onClick={props.cancelAction}>취소</button>

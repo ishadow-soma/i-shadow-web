@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
 import axios from "axios";
-import http, {user} from "global/store/store";
+import http, {user, currentVideo} from "global/store/store";
 
 //const youtubeCode = ['1eAZvWm0gE0', 'd-HK6DFi3MA'];
 const YTPlayer = require('yt-player');
@@ -11,72 +11,21 @@ const YTPlayer = require('yt-player');
 function YoutubePlayer() {
   let player;
   let repetition;
-  let script = [
-      {
-        "sentence": "I'm in my bad",
-        "begin": 19,
-        "end": 24
-      },
-    {
-      "sentence": "And you're not here",
-      "begin": 24,
-      "end": 29
-    },
-    {
-      "sentence": "And there's no one to blame but the drink and my wandering hands",
-      "begin": 29,
-      "end": 37
-    },
-    {
-      "sentence": "Forget what I said",
-      "begin": 37,
-      "end": 41
-    },
-    {
-      "sentence": "It's not what I meant",
-      "begin": 41,
-      "end": 46
-    },
-    {
-      "sentence": "And I can't take it back, I can't unpack the baggage you left",
-      "begin": 46,
-      "end": 55
-    },
-    {
-      "sentence": "What am I now?",
-      "begin": 55,
-      "end": 56.5
-    },
-    {
-      "sentence": "What am I now?",
-      "begin": 56.5,
-      "end": 59
-    },
-    {
-      "sentence": "What if I'm someone I don't want around?",
-      "begin": 59,
-      "end": 64
-    },
-    {
-      "sentence": "I'm falling again, I'm falling again, I'm falling",
-      "begin": 64,
-      "end": 70
-    }
-    ];
+  let script;
   let videoCode;
 
   useEffect(() => {
-    //requestVideo();
+    requestVideo();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     player = new YTPlayer('#player', {width: 920, height: 516});
     console.log('player');
 
-    player.load("olGSAVOkkTI");
+    player.load("ztA3r-Oyj0M");
 
     player.on('playing', () => {
       console.log(player.getDuration())
-      setCurrentSentence();
+      //setCurrentSentence(); 자막 컨트롤
     })
   })
 
@@ -133,9 +82,9 @@ function YoutubePlayer() {
   const requestVideo = () => {
     axios({
       method: "get",
-      url: http.baseURL + "shadowing-player" + "?videoId=5",
+      url: http.baseURL + "shadowing-player" + "?videoId=8",
       data: {},
-      headers: {"ACCESS-TOKEN": ""}
+      headers: {"ACCESS-TOKEN": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYyOTM4NzkyNSwiZXhwIjoxNjMwNTk3NTI1fQ.j_Fn83Gyt6NmnyNqnO3QeY85kfcsvRKTKRDowplT7tw"}
     })
       .then(res => {
         console.log(res);
@@ -152,7 +101,7 @@ function YoutubePlayer() {
   }
 
   // 현재 스크립트 하이라이팅
-
+  /*
   const setCurrentSentence = () => {
     let curSecond = player.getCurrentTime();
     for(let i = 0; i < script.length; ++i) {
@@ -161,7 +110,7 @@ function YoutubePlayer() {
         break;
       }
     }
-  }
+  }*/
 
   return (
     <div className="wrap">
@@ -171,12 +120,12 @@ function YoutubePlayer() {
           <div className="youtube-player">
             <div className="video-frame">
               <h2><i className="xi-youtube-play xi-x"/> 내가 변환한 유튜브 콘텐츠</h2>
-              <h1>Harry Styles - Falling (Official Video)</h1>
+              <h1>{currentVideo.title}</h1>
               <element id="player"/>
               <div className="caption" id="caption">
                 Our hearts wore never broken
               </div>
-              <a href={"https://www.youtube.com/"}><i className="xi-link"/> https://youtu.be/olGSAVOkkTI</a>
+              <a href={currentVideo.url}><i className="xi-link"/> {currentVideo.url}</a>
               <Footer/>
             </div>
 
@@ -195,76 +144,6 @@ function YoutubePlayer() {
                     <button onClick={() => onSeek(24)} className="time-stamp">0:24</button>
                     <p draggable="false">And you're not here</p>
                     <i className="xi-repeat repetition" onClick={() => startRepeat(24, 27)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(29)} className="time-stamp">0:29</button>
-                    <p draggable="false">And there's no one to blame but the drink and my wandering hands</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(6, 10)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(37)} className="time-stamp">0:37</button>
-                    <p draggable="false">Forget what I said</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(10, 15)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(41)} className="time-stamp">0:41</button>
-                    <p draggable="false">It's not what I meant</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(46)} className="time-stamp">0:46</button>
-                    <p draggable="false">And I can't take it back, I can't unpack the baggage you left</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(55)} className="time-stamp">0:55</button>
-                    <p draggable="false">What am I now?</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(56)} className="time-stamp">0:56</button>
-                    <p draggable="false">What am I now?</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(59)} className="time-stamp">0:59</button>
-                    <p draggable="false">What if I'm someone I don't want around?</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(64)} className="time-stamp">1:04</button>
-                    <p draggable="false">I'm falling again, I'm falling again, I'm falling</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(73)} className="time-stamp">1:13</button>
-                    <p draggable="false">What if I'm down?</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(75)} className="time-stamp">1:15</button>
-                    <p draggable="false">What if I'm down?</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(77)} className="time-stamp">1:17</button>
-                    <p draggable="false">What if I'm someone you won't talk about?</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(82)} className="time-stamp">1:22</button>
-                    <p draggable="false">I'm falling again, I'm falling again, I'm falling</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(90)} className="time-stamp">1:30</button>
-                    <p draggable="false">You said you care, and you missed me too</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(94)} className="time-stamp">1:34</button>
-                    <p draggable="false">And I'm well aware I write too many songs about you</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(15, 60)}/>
                   </li>
                 </ul>
               </div>

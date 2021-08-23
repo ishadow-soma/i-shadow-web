@@ -1,17 +1,26 @@
 import React from "react";
 import './YoutubeURL.css'
+import axios from "axios";
+import http from "global/store/store";
+import {currentVideo, user} from "global/store/store";
 
-function YoutubeURL() {
+function YoutubeURL(props) {
+  const onOkClick = () => {
+    const inputUrl = document.getElementById("youtube-url").value;
+    console.log(inputUrl);
+
+    /*
+    axios({
+      method: "post",
+      url: http.baseURL + "api/media",
+      data: {""},
+      headers: {"ACCESS-TOKEN": user.token}
+    })*/
+  }
+
   return (
-    <div>
-      <h1>Youtube URL</h1>
-      <p>유튜브 URL을 입력해 주세요.</p>
-      <form name="youtube-form" method="get" action="">
-        <input placeholder="Youtube URL" name="url"/>
-
-        <button>확인</button>
-        <button>취소</button>
-      </form>
+    <div style={{display: props.show ? "block" : "none"}} className="youtube-url">
+      <input type="text" placeholder="ex) https://www.youtube.com/watch?v=1abcde23abs" id="youtube-url"/>
     </div>
   );
 }

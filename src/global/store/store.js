@@ -8,6 +8,12 @@ export let user = {
   age: 0
 };
 
+export let currentVideo = {
+  url: "null",
+  code: "null",
+  title: "null"
+}
+
 const http = {
   baseURL: "/api/"
   //baseURL: "https://ishadow.kr/api/"
