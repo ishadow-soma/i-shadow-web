@@ -1,7 +1,7 @@
 import React from "react";
 import "./FindPassword.css"
 import axios from "axios";
-import http from "../../global/store/store";
+import http from "global/store/store";
 
 function FindPassword() {
   // 인증번호 전송

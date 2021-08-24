@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "./MyRoom.css"
 import {Link} from "react-router-dom";
-import Header from "../../global/Header/Header";
-import Footer from "../../global/Footer/Footer";
-import Dialog from "../../global/Dialog/Dialog";
+import Header from "global/Header/Header";
+import Footer from "global/Footer/Footer";
+import Dialog from "global/Dialog/Dialog";
 import Modal from "react-modal";
-import {user} from "../../global/store/store";
+import {user} from "global/store/store";
 
 const customStyles = {
   content: {
@@ -61,6 +61,12 @@ function MyRoom() {
                 </div>
                 <h2>내가 변환한 유튜브 콘텐츠</h2>
                 <ul>
+                  <li>
+                    <div className="dummy" onClick={() => {openModal(0)}}>
+                      <i className="xi-play xi-2x"/>
+                      <p>Harry Styles - Falling (Official Video)</p>
+                    </div>
+                  </li>
                   <li>
                     <div className="add-content" onClick={() => {openModal(0)}}>
                       <i className="xi-plus-circle xi-3x"/>

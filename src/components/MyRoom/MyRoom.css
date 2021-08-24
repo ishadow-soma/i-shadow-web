@@ -99,8 +99,46 @@
     overflow: hidden;
 }
 
+.my-room .content ul {
+    display: flex;
+}
+
 .my-room .content li {
     list-style: none;
+    margin-right: 36px;
+}
+
+.my-room .dummy {
+    position: relative;
+    width: 285px;
+    height: 180px;
+    background-color: black;
+    background-image: url("https://i.ytimg.com/vi/olGSAVOkkTI/mqdefault.jpg");
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.my-room .dummy p {
+    padding-top: 12px;
+    color: white;
+    text-align: center;
+}
+
+
+.my-room .dummy .xi-play {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #2F7AF9;
+    color: white;
+    border-radius: 50%;
 }
 
 .my-room .content .add-content {

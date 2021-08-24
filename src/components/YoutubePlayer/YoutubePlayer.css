@@ -74,14 +74,42 @@
     padding: 30px;
     font-size: 18px;
     line-height: 24px;
+    overflow: scroll;
 }
 
 .youtube-player .content li {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
     list-style: none;
     margin-bottom: 10px;
 }
 
+.youtube-player .content li .repetition {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(0, 0, 0, 0);
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.youtube-player .content li p:hover:nth-child(2) {
+    color: white;
+}
+
+.youtube-player .content li .repetition:hover {
+    color: white;
+    background-color: #FFCC00;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+
 .youtube-player .content .time-stamp {
+    min-width: 32px;
+    text-align: left;
     color: #B4D0FF;
     background-color: transparent;
     border: none;

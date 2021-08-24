@@ -1,7 +1,7 @@
 import './Signup.css';
 import React, {useEffect} from "react";
 import axios from "axios";
-import http from "../../global/store/store";
+import http from "global/store/store";
 const { naver } = window;
 let { gapi, auth2 } = window;
 

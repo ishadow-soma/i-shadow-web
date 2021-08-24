@@ -81,49 +81,34 @@
   unicode-range:U+0041-005A, U+0061-007A, U+0030-0039;
 }
 
-/* NotoSans */
+/* NotoSansKR */
 
 @font-face {
-  font-family: "NotoSansCJKkr";
-  font-weight: 100;
-  src: url("./fonts/NotoSansCJKkr-Thin.otf");
-}
-
-@font-face {
-  font-family: "NotoSansCJKkr";
-  font-weight: 200;
-  src: url("./fonts/NotoSansCJKkr-Light.otf");
-}
-
-@font-face {
-  font-family: "NotoSansCJKkr";
-  font-weight: 300;
-  src: url("./fonts/NotoSansCJKkr-DemiLight.otf");
-}
-
-@font-face {
-  font-family: "NotoSansCJKkr";
+  font-family: "NotoSansKR";
   font-weight: 400;
-  src: url("./fonts/NotoSansCJKkr-Regular.otf");
+  src: url("./fonts/NotoSansKR-Regular-Hestia.otf") format('opentype');
+  src: url("./fonts/NotoSansKR-Regular-Hestia.woff") format('woff');
 }
 
 @font-face {
-  font-family: "NotoSansCJKkr";
+  font-family: "NotoSansKR";
   font-weight: 500;
-  src: url("./fonts/NotoSansCJKkr-Medium.otf");
+  src: url("./fonts/NotoSansKR-Medium-Hestia.otf") format('opentype');
+  src: url("./fonts/NotoSansKR-Medium-Hestia.woff") format('woff');
 }
 
 @font-face {
-  font-family: "NotoSansCJKkr";
+  font-family: "NotoSansKR";
   font-weight: 700;
-  src: url("./fonts/NotoSansCJKkr-Bold.otf");
+  src: url("./fonts/NotoSansKR-Bold-Hestia.otf") format('opentype');
+  src: url("./fonts/NotoSansKR-Bold-Hestia.woff") format('woff');
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "SourceSansPro", "NotoSansCJKkr", sans-serif;
+  font-family: "SourceSansPro", "NotoSansKR", sans-serif;
 }
 
 body {

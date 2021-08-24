@@ -2,8 +2,8 @@ import './Login.css';
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
-import http from "../../global/store/store";
-import {user} from "../../global/store/store";
+import http, {currentVideo} from "global/store/store";
+import {getCookie, setCookie} from "../../global/store/cookie";
 const { naver } = window;
 let { gapi, auth2 } = window;
 require('dotenv').config();
@@ -14,36 +14,47 @@ function Login(props) {
     startApp();
   }, );
 
-  // 로그인
-  const requestLogin = () => {
+  /* 일반 로그인 */
+  const normalLogin = () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
-    axios.post(http.baseURL + "login", {
-      "email": email,
-      "password": password
-    })
-      .then((res) => {
-        if(res.data.success) {
-          user.token = res.data.jwt;
-          user.isLogin = true;
-          user.email = email;
-          console.log(res);
-          console.log(user);
-          alert("로그인 완료");
-          props.history.push("/");
-        }
-        else {
-          console.log(res);
-          alert("로그인 실패");
-        }
-      });
+    // 로그인 시도
+    axios.post(http.baseURL + "login",
+      {
+        "email": email,
+        "password": password,
+        "sns": "NORMAL"
+      }).then(res => {
+
+      if(res.data.success) {
+        setCookie('jwt', res.data.data.jwt, {
+          path: "/",
+          secure: true,
+          sameSite: "none"
+        })
+        console.log("일반 로그인 성공");
+        console.log(res);
+        console.log(getCookie("jwt"));
+        props.history.push("/");
+      }
+
+      else {
+        console.log("일반 로그인 실패");
+        console.log(res);
+        alert("로그인 실패");
+      }
+    }).catch(err => {
+
+      console.log("일반 로그인 실패");
+      console.log(err)
+    });
   }
 
-  // 네이버 로그인
+  /* 네이버 로그인 */
   const initializeNaverLogin = () => {
     const naverLogin = new naver.LoginWithNaverId({
       clientId: process.env.REACT_APP_NAVER_CLIENT_ID,
-      callbackUrl: 'http://localhost:3000/',
+      callbackUrl: 'https://ishadow.kr/',
       isPopup: false,
     });
     naverLogin.init();
@@ -52,12 +63,9 @@ function Login(props) {
   /* 구글 로그인 */
   var startApp = function() {
     gapi.load('auth2', function(){
-      // Retrieve the singleton for the GoogleAuth library and set up the client.
       auth2 = gapi.auth2.init({
         client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
         cookiepolicy: 'single_host_origin',
-        // Request scopes in addition to 'profile' and 'email'
-        //scope: 'additional_scope'
       });
       attachSignin(document.getElementById('customBtn'));
     });
@@ -67,7 +75,7 @@ function Login(props) {
     console.log(element.id);
     auth2.attachClickHandler(element, {},
       function(googleUser) {
-        console.log(googleUser.Ts.Me);
+        console.log(googleUser);
       }, function(error) {
         alert(JSON.stringify(error, undefined, 2));
       });
@@ -88,7 +96,7 @@ function Login(props) {
           <input id="password" type="password" placeholder="Password"/>
         </div>
         <br/>
-        <button className="btn-submit" onClick={requestLogin}>log in</button>
+        <button className="btn-submit" onClick={normalLogin}>log in</button>
 
         <Link to="/findpassword" className="find-password">Forgot password?</Link>
         <p className="or">or</p>

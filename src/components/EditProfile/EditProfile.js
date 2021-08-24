@@ -1,6 +1,6 @@
 import React from "react";
 import "./EditProfile.css";
-import store from "../../global/store/store";
+import store from "global/store/store";
 
 function EditProfile() {
   const email = store.email;
