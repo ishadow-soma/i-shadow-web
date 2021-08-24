@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import './Home.css';
 import http from 'global/store/store';
-import { user } from 'global/store/store';
 import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
 import Dialog from "global/Dialog/Dialog";

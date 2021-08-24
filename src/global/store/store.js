@@ -1,5 +1,6 @@
 import {getCookie, setCookie} from "./cookie";
 import axios from "axios";
+import {createStore} from "@reduxjs/toolkit";
 
 export let user = {
   isLogin: false,
@@ -34,11 +35,13 @@ export let user = {
         }
 
         else {
+          user.clearUser();
           console.log("유저 정보 가져오기 실패!");
           console.log(res)
         }
       }).catch(err => {
 
+        user.clearUser();
         console.log("유저 정보 가져오기 실패!");
         console.log(err);
     })

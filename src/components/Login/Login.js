@@ -2,8 +2,8 @@ import './Login.css';
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
-import http, {currentVideo} from "global/store/store";
-import {getCookie, setCookie} from "../../global/store/cookie";
+import http, {user} from "global/store/store";
+import {setCookie} from "../../global/store/cookie";
 const { naver } = window;
 let { gapi, auth2 } = window;
 require('dotenv').config();
@@ -71,7 +71,7 @@ function Login(props) {
   };
 
   function attachSignin(element) {
-    console.log(element.id);
+    if(element === null) return;
     auth2.attachClickHandler(element, {},
       function(googleUser) {
         console.log(googleUser);
