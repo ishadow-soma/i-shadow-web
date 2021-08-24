@@ -1,14 +1,15 @@
 import './Header.css';
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import {user} from "global/store/store";
 
-function Header() {
+function Header(props) {
+  useEffect(() => {
+    user.verifyLogin();
+  }, [])
+
   const onLogout = () => {
-    user.token = null;
-    user.email = null;
-    user.isLogin = null;
-    user.name = null;
+    user.logout();
   }
 
   return (

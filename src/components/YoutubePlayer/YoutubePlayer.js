@@ -4,8 +4,8 @@ import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
 import axios from "axios";
 import http, {user, currentVideo} from "global/store/store";
+import {getCookie} from "global/store/cookie";
 
-//const youtubeCode = ['1eAZvWm0gE0', 'd-HK6DFi3MA'];
 const YTPlayer = require('yt-player');
 
 function YoutubePlayer() {
@@ -17,11 +17,15 @@ function YoutubePlayer() {
   useEffect(() => {
     requestVideo();
 
+    console.log("currentVideo");
+    console.log(currentVideo);
+    console.log("jwt cookie : " + getCookie("jwt"));
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
     player = new YTPlayer('#player', {width: 920, height: 516});
     console.log('player');
 
-    player.load("ztA3r-Oyj0M");
+    player.load(getCookie("code"));
 
     player.on('playing', () => {
       console.log(player.getDuration())
@@ -80,11 +84,12 @@ function YoutubePlayer() {
   // 영상 불러오기
 
   const requestVideo = () => {
+    console.log("request video : ", getCookie("videoId"))
     axios({
       method: "get",
-      url: http.baseURL + "shadowing-player" + "?videoId=8",
-      data: {},
-      headers: {"ACCESS-TOKEN": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOjQsImlhdCI6MTYyOTM4NzkyNSwiZXhwIjoxNjMwNTk3NTI1fQ.j_Fn83Gyt6NmnyNqnO3QeY85kfcsvRKTKRDowplT7tw"}
+      url: http.baseURL + "shadowing-player",
+      params: {"videoId": getCookie("videoId")},
+      headers: {"ACCESS-TOKEN": getCookie("jwt")}
     })
       .then(res => {
         console.log(res);
@@ -137,12 +142,12 @@ function YoutubePlayer() {
                 <ul id="script">
                   <li draggable="true">
                     <button onClick={() => onSeek(19)} className="time-stamp">0:19</button>
-                    <p draggable="false">I'm in my bad</p>
+                    <p draggable="false">더미 텍스트 입니다 ^^</p>
                     <i className="xi-repeat repetition" onClick={() => startRepeat(0, 3)}/>
                   </li>
                   <li draggable="true">
                     <button onClick={() => onSeek(24)} className="time-stamp">0:24</button>
-                    <p draggable="false">And you're not here</p>
+                    <p draggable="false">더미 텍스트 입니다 ^^</p>
                     <i className="xi-repeat repetition" onClick={() => startRepeat(24, 27)}/>
                   </li>
                 </ul>

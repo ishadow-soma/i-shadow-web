@@ -42,18 +42,6 @@ function Dialog(props) {
     }
   }, [title, description, mode]);
 
-  const onOkClick = () => {
-    if(mode === type.COMPLETION) {
-      console.log(window.history);
-      window.location.href = "/youtube";
-      return;
-    }
-
-    setDescription("콘텐츠 제작 중...");
-    setMode(2);
-    setInterval(() => {onComplete()}, 1000);
-  }
-
   const onComplete = () => {
     setDescription("콘텐츠 제작 완료");
     setMode(3);

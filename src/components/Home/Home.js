@@ -7,6 +7,7 @@ import Header from "global/Header/Header";
 import Dialog from "global/Dialog/Dialog";
 import Modal from "react-modal";
 import axios from "axios";
+import {getCookie, setCookie} from "../../global/store/cookie";
 
 const customStyles = {
   content: {
@@ -40,7 +41,6 @@ function Home(props) {
           user.name = res.data.data.name;
           user.isLogin = true;
           setLogin(true);
-          alert("로그인 성공");
         }
         else
           alert("로그인 실패");
@@ -76,6 +76,12 @@ function Home(props) {
               .then((res) => {
                 if(res.data.success) {
                   user.token = res.data.data.jwt;
+                  setCookie('jwt', user.token, {
+                    path: "/",
+                    secure: true,
+                    sameSite: "none"
+                  });
+                  console.log("save cookie : " + getCookie("jwt"));
                   console.log("token : " + user.token);
                   updateUser()
                 }
