@@ -31,10 +31,9 @@ function Login(props) {
           path: "/",
           secure: true,
           sameSite: "none"
-        })
+        });
         console.log("일반 로그인 성공");
         console.log(res);
-        console.log(getCookie("jwt"));
         props.history.push("/");
       }
 
@@ -54,7 +53,7 @@ function Login(props) {
   const initializeNaverLogin = () => {
     const naverLogin = new naver.LoginWithNaverId({
       clientId: process.env.REACT_APP_NAVER_CLIENT_ID,
-      callbackUrl: 'https://ishadow.kr/',
+      callbackUrl: process.env.REACT_APP_NAVER_CALLBACK_URL,
       isPopup: false,
     });
     naverLogin.init();

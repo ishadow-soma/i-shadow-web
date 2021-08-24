@@ -25,32 +25,12 @@ const customStyles = {
 function Home(props) {
   const [modal, setModal] = useState(1);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [login, setLogin] = useState(false);
-
-  const updateUser = () => {
-    axios({
-      method: "get",
-      url: http.baseURL + "users",
-      data: {},
-      headers: {"ACCESS-TOKEN": user.token}
-    })
-      .then((res) => {
-        console.log(res);
-        if(res.data.success) {
-          user.email = res.data.data.email;
-          user.name = res.data.data.name;
-          user.isLogin = true;
-          setLogin(true);
-        }
-        else
-          alert("로그인 실패");
-      })
-  }
 
   useEffect(() => {
     const location = props.location;
     // 네이버 로그인
     if(location.hash) {
+      // URI 에서 토큰 가져오기
       const token = props.location.hash.split('=')[1].split('&')[0];
       console.log(token);
       axios.post(http.baseURL + 'users', {
@@ -63,32 +43,34 @@ function Home(props) {
         .then((res) => {
           // 신규 회원임.
           if(res.data.success) {
-            user.token = res.data.data.jwt;
-            updateUser();
+            setCookie('jwt', res.data.data.jwt, {
+              path: "/",
+              secure: true,
+              sameSite: "none"
+            })
+            console.log("네이버 로그인 회원가입 및 로그인 성공");
+            console.log(res);
           }
-          else { // 기존 회원 로그인
+          // 기존 회원 로그인
+          else {
             axios.post(http.baseURL + 'login', {
               "email": "",
               "password": "",
               "sns": "NAVER",
               "userToken": token
+            }).then((res) => {
+
+              if(res.data.success) {
+                setCookie('jwt', res.data.data.jwt, {
+                  path: "/",
+                  secure: true,
+                  sameSite: "none" });
+                }
+              else {
+                console.log("네이버 로그인 실패!");
+                console.log(res);
+              }
             })
-              .then((res) => {
-                if(res.data.success) {
-                  user.token = res.data.data.jwt;
-                  setCookie('jwt', user.token, {
-                    path: "/",
-                    secure: true,
-                    sameSite: "none"
-                  });
-                  console.log("save cookie : " + getCookie("jwt"));
-                  console.log("token : " + user.token);
-                  updateUser()
-                }
-                else {
-                  console.log("실패!");
-                }
-              })
           }
         });
       props.history.push('/');
