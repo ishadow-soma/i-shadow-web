@@ -5,7 +5,9 @@ import Header from "global/Header/Header";
 import Footer from "global/Footer/Footer";
 import Dialog from "global/Dialog/Dialog";
 import Modal from "react-modal";
-import {user} from "global/store/store";
+import http, {user} from "global/store/store";
+import axios from "axios";
+import {getCookie} from "../../global/store/cookie";
 
 const customStyles = {
   content: {
@@ -27,6 +29,7 @@ function MyRoom() {
 
   useEffect(() => {
       setPoint(500);
+      requestYoutubeContent();
     }, []);
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -40,7 +43,22 @@ function MyRoom() {
     setIsOpen(false);
   }
 
-  function setYoutube() {
+  function requestYoutubeContent() {
+    axios({
+      method: "get",
+      url: http.baseURL + "users/my-room",
+      headers: {"ACCESS-TOKEN": getCookie("jwt")}
+    }).then(res => {
+
+      if(res.data.success) {
+        res.data.data.youtubeVideos.forEach(it => {
+          insertYoutubeContent(it.videoId, it.title, it.thumbNailURL);
+        })
+      }
+    })
+  }
+
+  function insertYoutubeContent(videoId = 1, title = "test title", thumbnail = "https://img.youtube.com/vi/YdD2aYIhdvU/0.jpg") {
     const target = document.getElementById("converted-youtube");
     const insert = document.createElement("li");
     const div = document.createElement("div");
@@ -48,9 +66,10 @@ function MyRoom() {
     const p = document.createElement("p");
 
     div.className = "youtube-content";
-    // todo : div onclick & background image  ex . button.onclick = () => onSeek(it.begin);
+    // todo : div onclick   ex. button.onclick = () => onSeek(it.begin);
+    div.style.backgroundImage = `url('${thumbnail}')`;
     i.className = "xi-play xi-2x";
-    p.innerText = "test title";
+    p.innerText = title;
 
     div.append(p);
     div.append(i);
@@ -81,7 +100,7 @@ function MyRoom() {
                 <h2>내가 변환한 유튜브 콘텐츠</h2>
                 <ul id="converted-youtube">
                   <li>
-                    <div className="dummy youtube-content" onClick={() => setYoutube()}>
+                    <div className="dummy youtube-content" onClick={() => insertYoutubeContent()}>
                       <i className="xi-play xi-2x"/>
                       <p>Harry Styles - Falling (Official Video)</p>
                     </div>

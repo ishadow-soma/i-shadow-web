@@ -118,7 +118,7 @@
     height: 180px;
     background-color: black;
     background-position: center center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     border-radius: 10px;
 }
