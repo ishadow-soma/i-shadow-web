@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {createElement, useEffect, useState} from "react";
 import "./MyRoom.css"
 import {Link} from "react-router-dom";
 import Header from "global/Header/Header";
@@ -40,6 +40,25 @@ function MyRoom() {
     setIsOpen(false);
   }
 
+  function setYoutube() {
+    const target = document.getElementById("converted-youtube");
+    const insert = document.createElement("li");
+    const div = document.createElement("div");
+    const i = document.createElement("i");
+    const p = document.createElement("p");
+
+    div.className = "youtube-content";
+    // todo : div onclick & background image  ex . button.onclick = () => onSeek(it.begin);
+    i.className = "xi-play xi-2x";
+    p.innerText = "test title";
+
+    div.append(p);
+    div.append(i);
+    insert.append(div);
+    //target.append(insert);
+    target.insertBefore(insert, target.firstChild)
+  }
+
   return (
     <div className="wrap">
       <Header/>
@@ -60,15 +79,15 @@ function MyRoom() {
                   <i className="xi-youtube-play xi-x"/>
                 </div>
                 <h2>내가 변환한 유튜브 콘텐츠</h2>
-                <ul>
+                <ul id="converted-youtube">
                   <li>
-                    <div className="dummy" onClick={() => {openModal(0)}}>
+                    <div className="dummy youtube-content" onClick={() => setYoutube()}>
                       <i className="xi-play xi-2x"/>
                       <p>Harry Styles - Falling (Official Video)</p>
                     </div>
                   </li>
                   <li>
-                    <div className="add-content" onClick={() => {openModal(0)}}>
+                    <div className="add-content" id="add-youtube-content" onClick={() => {openModal(0)}}>
                       <i className="xi-plus-circle xi-3x"/>
                       <p>유튜브 콘텐츠 추가하기</p>
                     </div>

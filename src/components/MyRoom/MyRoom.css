@@ -109,25 +109,28 @@
 }
 
 .my-room .dummy {
+    background-image: url("https://i.ytimg.com/vi/olGSAVOkkTI/mqdefault.jpg");
+}
+
+.my-room .youtube-content {
     position: relative;
     width: 285px;
     height: 180px;
     background-color: black;
-    background-image: url("https://i.ytimg.com/vi/olGSAVOkkTI/mqdefault.jpg");
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 10px;
 }
 
-.my-room .dummy p {
+.my-room .youtube-content p {
     padding-top: 12px;
     color: white;
     text-align: center;
 }
 
 
-.my-room .dummy .xi-play {
+.my-room .youtube-content .xi-play {
     position: absolute;
     right: 12px;
     bottom: 12px;
