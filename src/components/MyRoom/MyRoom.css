@@ -99,13 +99,14 @@
     overflow: hidden;
 }
 
-.my-room .content ul {
-    display: flex;
+.my-room .content .video-content ul {
+    column-count: 3;
 }
 
 .my-room .content li {
     list-style: none;
     margin-right: 36px;
+    margin-bottom: 18px;
 }
 
 .my-room .dummy {
@@ -128,7 +129,6 @@
     color: white;
     text-align: center;
 }
-
 
 .my-room .youtube-content .xi-play {
     position: absolute;
