@@ -7,7 +7,7 @@ import Dialog from "global/Dialog/Dialog";
 import Modal from "react-modal";
 import http, {user} from "global/store/store";
 import axios from "axios";
-import {getCookie} from "../../global/store/cookie";
+import {getCookie, setCookie} from "global/store/cookie";
 
 const customStyles = {
   content: {
@@ -22,7 +22,7 @@ const customStyles = {
   },
 };
 
-function MyRoom() {
+function MyRoom(props) {
   const [point, setPoint] = useState(500);
   const [nickname, setNickname] = useState('algosketch@gamil.com');
   const [modal, setModal] = useState(1);
@@ -66,7 +66,7 @@ function MyRoom() {
     const p = document.createElement("p");
 
     div.className = "youtube-content";
-    // todo : div onclick   ex. button.onclick = () => onSeek(it.begin);
+    div.onclick = () => redirectYoutube(videoId);
     div.style.backgroundImage = `url('${thumbnail}')`;
     i.className = "xi-play xi-2x";
     p.innerText = title;
@@ -76,6 +76,16 @@ function MyRoom() {
     insert.append(div);
     //target.append(insert);
     target.insertBefore(insert, target.firstChild)
+  }
+
+  function redirectYoutube(videoId) {
+    setCookie('videoId', videoId, {
+      path: "/",
+      secure: true,
+      sameSite: "none"
+    });
+
+    props.history.push("/youtube");
   }
 
   return (
