@@ -21,17 +21,46 @@ function YoutubePlayer() {
     console.log(currentVideo);
     console.log("jwt cookie : " + getCookie("jwt"));
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+  })
+
+  // 영상 불러오기
+
+  const requestVideo = () => {
+    console.log("request video : ", getCookie("videoId"))
+    axios({
+      method: "get",
+      url: http.baseURL + "shadowing-player",
+      params: {"videoId": getCookie("videoId")},
+      headers: {"ACCESS-TOKEN": getCookie("jwt")}
+    })
+      .then(res => {
+        console.log(res);
+        videoCode = res.data.data.videoURL.split("=")[1];
+        console.log(`video code : ${videoCode}`);
+        script = res.data.data.sentences.map(it => {
+          return {
+            sentence: it.content,
+            begin: parseInt(it.startTime.split(":")[0]) * 3600 + parseInt(it.startTime.split(":")[1]) * 60 + parseInt(it.startTime.split(":")[2]),
+            end: parseInt(it.endTime.split(":")[0]) * 3600 + parseInt(it.endTime.split(":")[1]) * 60 + parseInt(it.endTime.split(":")[2])
+          }
+        });
+        setVideo(videoCode);
+        setScript();
+      })
+  }
+
+  const setVideo = (videoCode) => {
     player = new YTPlayer('#player', {width: 920, height: 516});
     console.log('player');
 
-    player.load(getCookie("code"));
+    player.load(videoCode);
 
     player.on('playing', () => {
       console.log(player.getDuration())
       //setCurrentSentence(); 자막 컨트롤
     })
-  })
+  }
 
   // 스크립트 렌더링
   const setScript = () => {
@@ -80,30 +109,6 @@ function YoutubePlayer() {
   const onSeek = (seconds = 40) => {
     player.seek(seconds);
   };
-
-  // 영상 불러오기
-
-  const requestVideo = () => {
-    console.log("request video : ", getCookie("videoId"))
-    axios({
-      method: "get",
-      url: http.baseURL + "shadowing-player",
-      params: {"videoId": getCookie("videoId")},
-      headers: {"ACCESS-TOKEN": getCookie("jwt")}
-    })
-      .then(res => {
-        console.log(res);
-        videoCode = res.data.data.videoURL.split("/")[3];
-        script = res.data.data.sentences.map(it => {
-          return {
-            sentence: it.content,
-            begin: parseInt(it.startTime.split(":")[0]) * 3600 + parseInt(it.startTime.split(":")[1]) * 60 + parseInt(it.startTime.split(":")[2]),
-            end: parseInt(it.endTime.split(":")[0]) * 3600 + parseInt(it.endTime.split(":")[1]) * 60 + parseInt(it.endTime.split(":")[2])
-          }
-        });
-        setScript();
-      })
-  }
 
   // 현재 스크립트 하이라이팅
   /*

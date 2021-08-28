@@ -4,8 +4,15 @@ import {Link} from "react-router-dom";
 import {user} from "global/store/store";
 
 function Header(props) {
+  const [render, setRender] = useState(false);
+
   useEffect(() => {
+    if(user.isLogin) return;
+
     user.verifyLogin();
+    setTimeout(() => {
+      setRender(true);
+    }, 200);
   }, [])
 
   const onLogout = () => {

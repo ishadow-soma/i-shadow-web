@@ -2,8 +2,8 @@ import './Login.css';
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
-import http, {currentVideo} from "global/store/store";
-import {getCookie, setCookie} from "../../global/store/cookie";
+import http, {user} from "global/store/store";
+import {setCookie} from "../../global/store/cookie";
 const { naver } = window;
 let { gapi, auth2 } = window;
 require('dotenv').config();
@@ -31,10 +31,9 @@ function Login(props) {
           path: "/",
           secure: true,
           sameSite: "none"
-        })
+        });
         console.log("일반 로그인 성공");
         console.log(res);
-        console.log(getCookie("jwt"));
         props.history.push("/");
       }
 
@@ -54,7 +53,7 @@ function Login(props) {
   const initializeNaverLogin = () => {
     const naverLogin = new naver.LoginWithNaverId({
       clientId: process.env.REACT_APP_NAVER_CLIENT_ID,
-      callbackUrl: 'https://ishadow.kr/',
+      callbackUrl: process.env.REACT_APP_NAVER_CALLBACK_URL,
       isPopup: false,
     });
     naverLogin.init();
@@ -72,7 +71,7 @@ function Login(props) {
   };
 
   function attachSignin(element) {
-    console.log(element.id);
+    if(element === null) return;
     auth2.attachClickHandler(element, {},
       function(googleUser) {
         console.log(googleUser);
