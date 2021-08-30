@@ -5,6 +5,7 @@ import Header from "global/Header/Header";
 import axios from "axios";
 import http, {user} from "global/store/store";
 import {getCookie} from "global/store/cookie";
+import DragSelect from "dragselect";
 
 const YTPlayer = require('yt-player');
 
@@ -17,6 +18,10 @@ function YoutubePlayer() {
   let videoCode;
 
   useEffect(() => {
+    new DragSelect({
+      selectables: document.querySelectorAll('.item'),
+      callback: e => console.log(e)
+    })
     requestVideo();
   }, []);
 
@@ -78,6 +83,7 @@ function YoutubePlayer() {
       button.className = "time-stamp";
       button.onclick = () => onSeek(it.begin);
 
+      p.className = "item";
       p.innerText = it.sentence;
 
       li.append(button);

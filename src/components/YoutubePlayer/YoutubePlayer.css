@@ -129,3 +129,12 @@
 .youtube-player footer {
     margin-top: 100px;
 }
+
+/* drag select */
+
+.ds-selected {
+    outline: 3px solid black;
+    outline-offset: 3px;
+    color: black;
+    font-weight: bold;
+}
