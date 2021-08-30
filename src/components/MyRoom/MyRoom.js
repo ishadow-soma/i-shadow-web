@@ -23,16 +23,21 @@ const customStyles = {
 };
 
 function MyRoom(props) {
-  const [point, setPoint] = useState(500);
-  const [nickname, setNickname] = useState('algosketch@gamil.com');
+  const [point, setPoint] = useState(111);
+  const [nickname, setNickname] = useState('null');
   const [modal, setModal] = useState(1);
 
   useEffect(() => {
-      setPoint(500);
       requestYoutubeContent();
+      setMyRoom()
     }, []);
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  const setMyRoom = () => {
+    setNickname(user.name);
+    setPoint(user.myPoint);
+  }
 
   function openModal(type) {
     setIsOpen(true);
@@ -94,7 +99,7 @@ function MyRoom(props) {
       <div className="my-room">
         <div className="container">
           <div className="my-room-header">
-            <h1><span className="nickname">{user.email}</span> 님의 MY ROOM</h1>
+            <h1><span className="nickname">{nickname}</span> 님의 MY ROOM</h1>
             <div className="my-point">
               <p>보유 포인트 <span>{point}</span>point</p>
               <Link to="/payment">충전하기 <i className="xi-help-o"/></Link>

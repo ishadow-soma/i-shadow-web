@@ -59,7 +59,7 @@ function Dialog(props) {
       <p>{description}</p>
 
       {/* 유튜브 URL */}
-      <YoutubeURL show={mode === type.YOUTUBE_URL}/>
+      <YoutubeURL show={mode === type.YOUTUBE_URL} cancelAction={props.cancelAction}/>
       {/* 파일 업로드 */}
       <div id="file-upload" style={mode === type.UPLOAD ? null : style}><FileUpload/></div>
       {/* 로딩 */}
