@@ -2,7 +2,7 @@ import React from "react";
 import './YoutubeURL.css'
 import axios from "axios";
 import http from "global/store/store";
-import {currentVideo, user} from "global/store/store";
+import {user} from "global/store/store";
 import {getCookie, setCookie} from "../store/cookie";
 
 function YoutubeURL(props) {
@@ -19,23 +19,7 @@ function YoutubeURL(props) {
       headers: {"ACCESS-TOKEN": getCookie("jwt")}
     })
       .then(res => {
-        currentVideo.title = res.data.data.videoName;
-        currentVideo.url = res.data.data.url;
-        currentVideo.code = res.data.data.url.split("=")[1];
-        currentVideo.videoId = res.data.data.videoId;
-        console.log("code : " + currentVideo.code);
         console.log(res);
-        console.log(currentVideo);
-        setCookie('code', currentVideo.code, {
-          path: "/",
-          secure: true,
-          sameSite: "none"
-        })
-        setCookie('videoId', currentVideo.videoId, {
-          path: "/",
-          secure: true,
-          sameSite: "none"
-        })
         window.location.href = "/youtube";
       })
   }

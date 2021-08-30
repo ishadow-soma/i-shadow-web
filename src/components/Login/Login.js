@@ -2,7 +2,7 @@ import './Login.css';
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
-import http, {user} from "global/store/store";
+import http from "global/store/store";
 import {setCookie} from "../../global/store/cookie";
 const { naver } = window;
 let { gapi, auth2 } = window;

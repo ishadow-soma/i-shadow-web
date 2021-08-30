@@ -73,6 +73,7 @@ function Home(props) {
           }
         });
       props.history.push('/');
+      window.location.href = "/";
     }
   })
 

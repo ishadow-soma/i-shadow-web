@@ -3,12 +3,14 @@ import React, {useEffect, useState} from "react";
 import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
 import axios from "axios";
-import http, {user, currentVideo} from "global/store/store";
+import http, {user} from "global/store/store";
 import {getCookie} from "global/store/cookie";
 
 const YTPlayer = require('yt-player');
 
 function YoutubePlayer() {
+  const [title, setTitle] = useState("제목");
+  const [url, setUrl] = useState("null");
   let player;
   let repetition;
   let script;
@@ -17,11 +19,7 @@ function YoutubePlayer() {
   useEffect(() => {
     requestVideo();
 
-    console.log("currentVideo");
-    console.log(currentVideo);
     console.log("jwt cookie : " + getCookie("jwt"));
-
-
   })
 
   // 영상 불러오기
@@ -46,6 +44,7 @@ function YoutubePlayer() {
           }
         });
         setVideo(videoCode);
+        setUrl(`https://youtu.be/${videoCode}`);
         setScript();
       })
   }
@@ -130,12 +129,12 @@ function YoutubePlayer() {
           <div className="youtube-player">
             <div className="video-frame">
               <h2><i className="xi-youtube-play xi-x"/> 내가 변환한 유튜브 콘텐츠</h2>
-              <h1>{currentVideo.title}</h1>
+              <h1>{title}</h1>
               <element id="player"/>
               <div className="caption" id="caption">
                 Our hearts wore never broken
               </div>
-              <a href={currentVideo.url}><i className="xi-link"/> {currentVideo.url}</a>
+              <a href={url}><i className="xi-link"/> {url}</a>
               <Footer/>
             </div>
 
