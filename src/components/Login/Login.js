@@ -49,6 +49,12 @@ function Login(props) {
     });
   }
 
+  const onKeyPress = (e) => {
+    if(e.key === 'Enter') {
+      normalLogin();
+    }
+  }
+
   /* 네이버 로그인 */
   const initializeNaverLogin = () => {
     const naverLogin = new naver.LoginWithNaverId({
@@ -92,7 +98,7 @@ function Login(props) {
         <br/>
         <div className="input">
           <span><i className="xi-lock-o"/></span>
-          <input id="password" type="password" placeholder="Password"/>
+          <input id="password" type="password" placeholder="Password" onKeyPress={onKeyPress}/>
         </div>
         <br/>
         <button className="btn-submit" onClick={normalLogin}>log in</button>

@@ -167,7 +167,7 @@ function MyRoom(props) {
         onRequestClose={closeModal}
         style={customStyles}
       >
-        <Dialog type={modal}/>
+        <Dialog type={modal} cancelAction={closeModal}/>
       </Modal>
     </div>
   );
