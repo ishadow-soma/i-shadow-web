@@ -57,6 +57,10 @@ function YoutubePlayer() {
       console.log(player.getDuration())
       //setCurrentSentence(); 자막 컨트롤
     })
+
+    player.on('timeupdate', (seconds) => {
+      setCurrentSentence();
+    })
   }
 
   // 스크립트 렌더링
@@ -101,17 +105,18 @@ function YoutubePlayer() {
     player.seek(seconds);
   };
 
-  // 현재 스크립트 하이라이팅
-  /*
+  // 현재 스크립트 -> 자막
   const setCurrentSentence = () => {
     let curSecond = player.getCurrentTime();
     for(let i = 0; i < script.length; ++i) {
       if(script[`${i}`].begin <= curSecond && curSecond <= script[`${i}`].end) {
-        document.getElementById("caption").innerText = script[`${i}`].sentence;
+        const targetTag = document.getElementById("caption");
+        if(targetTag != null)
+          targetTag.innerText = script[`${i}`].sentence;
         break;
       }
     }
-  }*/
+  }
 
   return (
     <div className="wrap">
