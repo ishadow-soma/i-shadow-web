@@ -1,9 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import "./EditProfile.css";
-import store from "global/store/store";
+import {user} from "global/store/store";
 
 function EditProfile() {
-  const email = store.email;
+  const email = user.email;
+  const [name, setName] = useState(user.name);
+  const [age, setAge] = useState(user.age);
+
+  const handleChange = (e) => {
+    setName(e.target.value);
+  }
+
+  const ageChange = (e) => {
+    setAge(e.target.value);
+  }
 
   return (
     <div className="edit-profile">
@@ -16,11 +26,11 @@ function EditProfile() {
         <form action="">
           <div className="input">
             <span><i className="xi-user-o"/></span>
-            <input type="text" value={email} placeholder="닉네임"/>
+            <input type="text" value={name} placeholder="닉네임" onChange={handleChange}/>
           </div>
           <div className="input">
             <span><i className="xi-user"/></span>
-            <input type="text" placeholder="Age"/>
+            <input type="text" placeholder="Age" value={age} onChange={ageChange}/>
           </div>
           <div className="sex-container">
             <div className="sex-component">
