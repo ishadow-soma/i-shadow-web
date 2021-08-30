@@ -100,12 +100,13 @@
 }
 
 .my-room .content .video-content ul {
-    column-count: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .my-room .content li {
     list-style: none;
-    margin-right: 36px;
     margin-bottom: 18px;
 }
 

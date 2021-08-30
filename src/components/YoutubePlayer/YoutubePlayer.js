@@ -80,7 +80,7 @@ function YoutubePlayer() {
       const p = document.createElement('p');
 
       button.innerText = `${parseInt(it.begin / 60)}:${it.begin % 60}`;
-      button.className = "time-stamp";
+      button.className = "time-stamp item";
       button.onclick = () => onSeek(it.begin);
 
       p.className = "item";
