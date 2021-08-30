@@ -18,9 +18,7 @@ function YoutubePlayer() {
 
   useEffect(() => {
     requestVideo();
-
-    console.log("jwt cookie : " + getCookie("jwt"));
-  })
+  }, []);
 
   // 영상 불러오기
 
@@ -63,13 +61,14 @@ function YoutubePlayer() {
 
   // 스크립트 렌더링
   const setScript = () => {
+    console.log("set script called!!");
     const insertion = document.getElementById("script");
     script.forEach(it => {
       // li 태그에 button, p 를 넣음.
+
       const li = document.createElement('li');
       const button = document.createElement('button');
       const p = document.createElement('p');
-      const i = document.createElement('i');
 
       button.innerText = `${parseInt(it.begin / 60)}:${it.begin % 60}`;
       button.className = "time-stamp";
@@ -77,18 +76,11 @@ function YoutubePlayer() {
 
       p.innerText = it.sentence;
 
-      i.className = "xi-repeat repetition";
-
-      i.onClick = () => startRepeat(it.begin, it.end);
-      console.log("it : ", it.begin, it.end);
-
       li.append(button);
       li.append(p);
-      li.append(i);
       insertion.append(li);
-
-      return li;
     })
+    console.log("set script end!");
   }
 
   const startRepeat = (begin, end) => {
@@ -144,16 +136,7 @@ function YoutubePlayer() {
 
               <div className="content">
                 <ul id="script">
-                  <li draggable="true">
-                    <button onClick={() => onSeek(19)} className="time-stamp">0:19</button>
-                    <p draggable="false">더미 텍스트 입니다 ^^</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(0, 3)}/>
-                  </li>
-                  <li draggable="true">
-                    <button onClick={() => onSeek(24)} className="time-stamp">0:24</button>
-                    <p draggable="false">더미 텍스트 입니다 ^^</p>
-                    <i className="xi-repeat repetition" onClick={() => startRepeat(24, 27)}/>
-                  </li>
+                  {/* 이곳에 스크립트 렌더링 */}
                 </ul>
               </div>
             </div>
