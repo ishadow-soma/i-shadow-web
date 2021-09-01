@@ -29,16 +29,18 @@ function Header(props) {
       </div>
 
       <div className="profile">
-        {/* 로그인 안 됐을 때 */}
-        <div style={user.isLogin ? {display: "none"} : null}>
-          <Link to="/login">log in</Link>
-          <Link to="/signup" className="sign-up">sign up</Link>
-        </div>
-        {/* 로그인 됐을 때 */}
-        <div className="authenticated" style={user.isLogin ? null : {display: "none"}}>
-          <div><Link to="/editprofile" className="profile-info">{user.email}</Link> 님, 안녕하세요!</div>
-          <Link to="/" className="log-out" onClick={onLogout}>Log out</Link>
-        </div>
+        { user.isLogin
+          ?
+          <div className="authenticated">
+            <div><Link to="/editprofile" className="profile-info">{user.email}</Link> 님, 안녕하세요!</div>
+            <Link to="/" className="log-out" onClick={onLogout}>Log out</Link>
+          </div>
+          :
+          <div>
+            <Link to="/login">log in</Link>
+            <Link to="/signup" className="sign-up">sign up</Link>
+          </div>
+        }
       </div>
     </header>
   );
