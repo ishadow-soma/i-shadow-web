@@ -13,7 +13,7 @@ function YoutubePlayer() {
   const [title, setTitle] = useState("제목");
   const [url, setUrl] = useState("null");
   let player;
-  let repetition;
+  let repetition = null;
   let script;
   let videoCode;
 
@@ -38,8 +38,8 @@ function YoutubePlayer() {
         script = res.data.data.sentences.map(it => {
           return {
             sentence: it.content,
-            begin: parseInt(it.startTime.split(":")[0]) * 3600 + parseInt(it.startTime.split(":")[1]) * 60 + parseInt(it.startTime.split(":")[2]),
-            end: parseInt(it.endTime.split(":")[0]) * 3600 + parseInt(it.endTime.split(":")[1]) * 60 + parseInt(it.endTime.split(":")[2])
+            begin: parseInt(it.startTime.split(":")[0]) * 3600 + parseInt(it.startTime.split(":")[1]) * 60 + parseFloat(it.startTime.split(":")[2]),
+            end: parseInt(it.endTime.split(":")[0]) * 3600 + parseInt(it.endTime.split(":")[1]) * 60 + parseFloat(it.endTime.split(":")[2])
           }
         });
         setVideo(videoCode);
@@ -74,14 +74,16 @@ function YoutubePlayer() {
       const li = document.createElement('li');
       const button = document.createElement('button');
       const p = document.createElement('p');
-      const repetitionIcon = document.createElement('span');
+      const repetitionIcon = document.createElement('i');
 
-      button.innerText = `${parseInt(it.begin / 60)}:${it.begin % 60}`;
+      button.innerText = `${parseInt(it.begin / 60)}:${parseInt(it.begin % 60)}`;
       button.className = "time-stamp";
       button.onclick = () => onSeek(it.begin);
 
       p.innerText = it.sentence;
-      repetitionIcon.className = "repetition";
+      repetitionIcon.className = "repetition xi-repeat";
+      repetitionIcon.onclick = () => {startRepeat(it.begin, parseFloat(it.end) + 1)};
+      console.log(it.begin + ":" + it.end + " : " + (parseFloat(it.end) + 1));
 
       li.className = "item";
       li.append(button);
@@ -92,13 +94,20 @@ function YoutubePlayer() {
 
       new DragSelect({
         selectables: document.querySelectorAll('.item'),
-        callback: e => console.log(e)
+        callback: e => {
+          console.log(e);
+          if(e.length !== 0);
+            console.log(e[e.length - 1]);
+        }
       })
     })
     console.log("set script end!");
   }
 
   const startRepeat = (begin, end) => {
+    if(repetition !== null)
+      clearInterval(repetition);
+
     const len = (end - begin) * 1000;
 
     player.seek(begin);
@@ -155,6 +164,7 @@ function YoutubePlayer() {
                   <li className="item">
                     <button className="time-stamp">1:23</button>
                     <p>더미 텍스트 ^^</p>
+                    <i className="xi-repeat repetition"/>
                   </li>
                   {/* 이곳에 스크립트 렌더링  */}
                 </ul>

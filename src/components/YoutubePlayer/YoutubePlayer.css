@@ -40,7 +40,7 @@
     align-items: center;
     color: white;
     background-color: #2f3f65;
-    font-size: 40px;
+    font-size: 32px;
     margin-bottom: 20px;
 }
 
@@ -85,28 +85,6 @@
     padding-bottom: 8px;
 }
 
-.youtube-player .content li .repetition {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 30px;
-    background-color: rgba(0, 0, 0, 0);
-    color: rgba(0, 0, 0, 0);
-    border-radius: 20px;
-    padding: 5px;
-}
-
-.youtube-player .content li p:hover:nth-child(2) {
-    color: white;
-}
-
-.youtube-player .content li .repetition:hover {
-    color: white;
-    background-color: #FFCC00;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-}
-
-
 .youtube-player .content .time-stamp {
     min-width: 32px;
     text-align: left;
@@ -137,6 +115,31 @@
 }
 
 .ds-selected {
-    color: #FF81BC;
+    color: #FFCC00;
     background-color: #2F3F65;
+}
+
+.youtube-player .content li .repetition {
+    display: none;
+}
+
+.youtube-player .content li.ds-selected .repetition {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 30px;
+    background-color: #FFCC00;
+    color: white;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.youtube-player .content li.ds-hover:last-child .repetition {
+    display: block;
+}
+
+.youtube-player .content li.ds-selected .repetition:hover {
+    cursor: pointer;
+    box-shadow: 0 0 8px white;
 }
