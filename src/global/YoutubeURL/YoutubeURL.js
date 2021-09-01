@@ -25,7 +25,7 @@ function YoutubeURL(props) {
   }
 
   return (
-    <div style={{display: props.show ? "block" : "none"}} className="youtube-url">
+    <div className="youtube-url">
       <div className="url-input">
         <input type="text" placeholder="ex) https://www.youtube.com/watch?v=1abcde23abs" id="youtube-url"/>
       </div>

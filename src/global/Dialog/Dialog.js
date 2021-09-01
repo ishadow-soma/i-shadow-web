@@ -53,21 +53,22 @@ function Dialog(props) {
     setMode(4);
   }
 
+  const getModal = () => {
+    switch (mode) {
+      case type.YOUTUBE_URL:  return <YoutubeURL cancelAction={props.cancelAction}/>
+      case type.UPLOAD:       return <div id="file-upload"><FileUpload/></div>
+      case type.LOADING:      return <Loading/>
+      case type.COMPLETION:   return <Completion/>
+      case type.FAIL:
+      default:                return <Fail show={mode === type.FAIL}/>
+    }
+  }
+
   return (
     <div className="modal">
       <h1>{title}</h1>
       <p>{description}</p>
-
-      {/* 유튜브 URL */}
-      <YoutubeURL show={mode === type.YOUTUBE_URL} cancelAction={props.cancelAction}/>
-      {/* 파일 업로드 */}
-      <div id="file-upload" style={mode === type.UPLOAD ? null : style}><FileUpload/></div>
-      {/* 로딩 */}
-      <Loading show={mode === type.LOADING}/>
-      {/* 완료 */}
-      <Completion show={mode === type.COMPLETION}/>
-      {/* 실패 */}
-      <Fail show={mode === type.FAIL}/>
+      {getModal()}
     </div>
   );
 }
