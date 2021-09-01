@@ -49,7 +49,7 @@ function YoutubePlayer() {
   }
 
   const setVideo = (videoCode) => {
-    player = new YTPlayer('#player', {width: 920, height: 516});
+    player = new YTPlayer('#player', {width: 840, height: 480});
     console.log('player');
 
     player.load(videoCode);
