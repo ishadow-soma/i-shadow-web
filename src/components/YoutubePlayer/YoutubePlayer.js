@@ -6,6 +6,7 @@ import axios from "axios";
 import http, {user} from "global/store/store";
 import {getCookie} from "global/store/cookie";
 import DragSelect from "dragselect";
+import { Scrollbar } from "react-scrollbars-custom";
 
 const YTPlayer = require('yt-player');
 
@@ -160,14 +161,16 @@ function YoutubePlayer() {
               <button className="tab"><i className="xi-microphone xi-x"/> Rec.</button>
 
               <div className="content">
-                <ul id="script">
-                  <li className="item">
-                    <button className="time-stamp">1:23</button>
-                    <p>더미 텍스트 ^^</p>
-                    <i className="xi-repeat repetition"/>
-                  </li>
-                  {/* 이곳에 스크립트 렌더링  */}
-                </ul>
+                <Scrollbar style={{ width: 400, height: document.documentElement.clientHeight * 0.74}}>
+                  <ul id="script">
+                    <li className="item">
+                      <button className="time-stamp">1:23</button>
+                      <p>더미 텍스트 ^^</p>
+                      <i className="xi-repeat repetition"/>
+                    </li>
+                    {/* 이곳에 스크립트 렌더링  */}
+                  </ul>
+                </Scrollbar>
               </div>
             </div>
           </div>
