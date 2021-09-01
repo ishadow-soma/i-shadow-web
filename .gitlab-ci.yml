@@ -1,8 +1,0 @@
-deploy:
-    stage: deploy
-    only:
-        - dev
-    script:
-        - echo 'test ci cd'
-        - cd /home/ubuntu/ishadow-react
-        - ./deploy.sh
