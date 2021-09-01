@@ -128,5 +128,6 @@ code {
 /* container */
 
 .container {
-  padding: 0 240px;
+  width: 1320px;
+  margin: 0 auto;
 }

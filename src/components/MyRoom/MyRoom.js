@@ -1,4 +1,4 @@
-import React, {createElement, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./MyRoom.css"
 import {Link} from "react-router-dom";
 import Header from "global/Header/Header";
@@ -79,7 +79,6 @@ function MyRoom(props) {
     div.append(p);
     div.append(i);
     insert.append(div);
-    //target.append(insert);
     target.insertBefore(insert, target.firstChild)
   }
 
