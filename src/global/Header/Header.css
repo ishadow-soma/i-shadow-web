@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 header {
+    width: 1320px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 240px;
-    background-color: #F2F6FE;
 }
 
 header::after {
@@ -40,7 +40,9 @@ header .logo {
     color: white;
     background-color: #2f7af9;
     border-radius: 0 0 200px 0;
-    padding-left: 240px;
+    position: relative;
+    padding-left: 300px;
+    left: -300px;
 }
 
 header .logo h1 {
