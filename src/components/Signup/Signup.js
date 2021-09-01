@@ -2,7 +2,7 @@ import './Signup.css';
 import React, {useEffect} from "react";
 import axios from "axios";
 import http from "global/store/store";
-import {setCookie} from "../../global/store/cookie";
+import {setCookie} from "global/store/cookie";
 const { naver } = window;
 let { gapi, auth2 } = window;
 
@@ -35,13 +35,8 @@ function Signup(props) {
     const code = document.getElementById("authorizationCode").value;
     axios.post(http.baseURL + 'users/authentication-code', {"authenticationCode": code})
       .then((res) => {
-        if(res.data.data.isSuccess === "YES") {
+        if(res.data.data.isSuccess === "YES")
           isAuthentication = true;
-          alert("인증되었습니다.");
-        }
-        else {
-          alert("인증 번호가 일치하지 않습니다.");
-        }
       });
   }
 
@@ -169,7 +164,11 @@ function Signup(props) {
               <span><i className="xi-shield-checked-o"/></span>
               <input type="text" placeholder="인증번호" id="authorizationCode"/>
             </div>
-            <p>인증번호가 일치하지 않습니다.</p>
+            {
+              isAuthentication
+                ? <p style={{color: "#1A59FA"}}>인증되었습니다.</p>
+                : <p style={{color: "#FF1100"}}>인증이 필요합니다.</p>
+            }
             <button onClick={requestAuthorization}>인증하기</button>
           </div>
           <div className="password">

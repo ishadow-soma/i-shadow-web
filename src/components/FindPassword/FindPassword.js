@@ -4,6 +4,8 @@ import axios from "axios";
 import http from "global/store/store";
 
 function FindPassword() {
+  let isAuthentication = false;
+
   // 인증번호 전송
   const requestAuthorizationCode = () => {
     const email = document.getElementById("email");
@@ -26,9 +28,7 @@ function FindPassword() {
     axios.post(http.baseURL + "user/authentication-code", {"authenticationCode": code})
       .then((res) => {
         if(res.data.isSuccess === "YES")
-          alert("인증되었습니다.");
-        else
-          alert("인증번호가 일치하지 않습니다.");
+          isAuthentication = true;
       });
   }
 
@@ -76,7 +76,11 @@ function FindPassword() {
                 <span><i className="xi-shield-checked-o"/></span>
                 <input id="authorizationCode" type="text" placeholder="인증번호"/>
               </div>
-              <p>인증번호가 일치하지 않습니다.</p>
+              {
+                isAuthentication
+                  ? <p style={{color: "#1A59FA"}}>인증되었습니다.</p>
+                  : <p style={{color: "#FF1100"}}>인증이 필요합니다.</p>
+              }
               <button onClick={requestAuthorization}>인증하기</button>
             </div>
             <div className="password">
