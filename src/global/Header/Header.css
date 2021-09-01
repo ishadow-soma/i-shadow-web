@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+/* header */
+
+header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 300px;
+    height: 100px;
+    background-color: #2F7AF9;
+}
+
 header {
     width: 1320px;
     margin: 0 auto;
@@ -33,16 +44,13 @@ header a:visited {
 
 header .logo {
     display: flex;
-    min-width: 750px;
-    width: 1030px;
+    width: 720px;
     height: 100px;
     align-items: center;
     color: white;
     background-color: #2f7af9;
     border-radius: 0 0 200px 0;
     position: relative;
-    padding-left: 300px;
-    left: -300px;
 }
 
 header .logo h1 {
@@ -62,12 +70,6 @@ header .logo a {
 
 /* profile */
 
-header .profile {
-    min-width: 350px;
-    color: #2F3F65;
-    text-align: right;
-}
-
 header .profile a {
     padding: 6px 22px;
     border-radius: 21px;
@@ -75,12 +77,25 @@ header .profile a {
     margin-left: 8px;
 }
 
-header .profile a.sign-up {
+header .profile .unauthorized {
+    min-width: 350px;
+    color: #2F3F65;
+    text-align: right;
+}
+
+header .profile .unauthorized a.sign-up {
     color: white;
     background-color: #2f7af9;
 }
 
 /* 로그인 됐을 경우 */
+
+header .profile .authenticated {
+    min-width: 500px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
 
 header .profile .authenticated a {
     text-transform: none;
@@ -88,7 +103,6 @@ header .profile .authenticated a {
 
 header .profile .authenticated div {
     display: inline-block;
-    margin-right: 24px;
 }
 
 header .profile .authenticated .profile-info {

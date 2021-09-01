@@ -36,7 +36,7 @@ function Header(props) {
             <Link to="/" className="log-out" onClick={onLogout}>Log out</Link>
           </div>
           :
-          <div>
+          <div className="unauthorized">
             <Link to="/login">log in</Link>
             <Link to="/signup" className="sign-up">sign up</Link>
           </div>
