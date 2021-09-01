@@ -1,5 +1,8 @@
 main {
+    width: 1320px;
+    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
     color: #2F3F65;
     padding-top: 50px;
 }
@@ -11,7 +14,9 @@ main h2 {
 /* left */
 
 main .flex-left {
-    margin: 112px 163px 0 263px;
+    min-width: 660px;
+    padding: 0 24px;
+    margin: 112px 1px 0 0;
 }
 
 main .card {
@@ -58,6 +63,12 @@ main .flex-left .card i {
 }
 
 /* right */
+
+main .flex-right {
+    width: 660px;
+    position: relative;
+    padding-left: 40px;
+}
 
 main .home-background {
     display: block;

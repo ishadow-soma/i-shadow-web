@@ -109,7 +109,9 @@ function Home(props) {
           </div>
           <Footer/>
         </div>
-        <span className="home-background"/>
+        <div className="flex-right">
+          <span className="home-background"/>
+        </div>
 
         {/* 모달 */}
         <div id="modal">
