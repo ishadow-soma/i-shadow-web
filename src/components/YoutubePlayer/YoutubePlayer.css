@@ -82,7 +82,7 @@
     display: flex;
     align-items: flex-start;
     list-style: none;
-    margin-bottom: 10px;
+    padding-bottom: 8px;
 }
 
 .youtube-player .content li .repetition {
@@ -132,9 +132,11 @@
 
 /* drag select */
 
+.youtube-player * {
+    user-select: none;
+}
+
 .ds-selected {
-    outline: 3px solid black;
-    outline-offset: 3px;
-    color: black;
-    font-weight: bold;
+    color: #FF81BC;
+    background-color: #2F3F65;
 }

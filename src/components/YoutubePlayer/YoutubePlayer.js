@@ -18,10 +18,6 @@ function YoutubePlayer() {
   let videoCode;
 
   useEffect(() => {
-    new DragSelect({
-      selectables: document.querySelectorAll('.item'),
-      callback: e => console.log(e)
-    })
     requestVideo();
   }, []);
 
@@ -78,17 +74,26 @@ function YoutubePlayer() {
       const li = document.createElement('li');
       const button = document.createElement('button');
       const p = document.createElement('p');
+      const repetitionIcon = document.createElement('span');
 
       button.innerText = `${parseInt(it.begin / 60)}:${it.begin % 60}`;
-      button.className = "time-stamp item";
+      button.className = "time-stamp";
       button.onclick = () => onSeek(it.begin);
 
-      p.className = "item";
       p.innerText = it.sentence;
+      repetitionIcon.className = "repetition";
 
+      li.className = "item";
       li.append(button);
       li.append(p);
+      li.append(repetitionIcon);
+
       insertion.append(li);
+
+      new DragSelect({
+        selectables: document.querySelectorAll('.item'),
+        callback: e => console.log(e)
+      })
     })
     console.log("set script end!");
   }
@@ -147,7 +152,11 @@ function YoutubePlayer() {
 
               <div className="content">
                 <ul id="script">
-                  {/* 이곳에 스크립트 렌더링 */}
+                  <li className="item">
+                    <button className="time-stamp">1:23</button>
+                    <p>더미 텍스트 ^^</p>
+                  </li>
+                  {/* 이곳에 스크립트 렌더링  */}
                 </ul>
               </div>
             </div>
