@@ -14,7 +14,6 @@
 }
 
 .my-room-header {
-    width: 1320px;
     margin-top: 60px;
     margin-bottom: 30px;
     display: flex;
@@ -122,9 +121,10 @@
 }
 
 .my-room .youtube-content {
+    cursor: pointer;
     position: relative;
-    width: 256px;
-    height: 160px;
+    width: 248px;
+    height: 156px;
     background-color: black;
     background-position: center center;
     background-size: cover;
@@ -162,8 +162,8 @@
     justify-content: center;
     align-items: center;
     color: #8898BF;
-    width: 256px;
-    height: 160px;
+    width: 248px;
+    height: 156px;
     background-color: #F2F6FE;
     border-radius: 10px;
     border: 1px dashed #8898BF;

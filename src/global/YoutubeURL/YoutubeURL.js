@@ -2,11 +2,10 @@ import React from "react";
 import './YoutubeURL.css'
 import axios from "axios";
 import http from "global/store/store";
-import {user} from "global/store/store";
 import {getCookie, setCookie} from "../store/cookie";
 
 function YoutubeURL(props) {
-  const onOkClick = () => {
+  const onClickOk = () => {
     const inputUrl = document.getElementById("youtube-url").value;
     console.log("input url : " + inputUrl);
 
@@ -20,8 +19,15 @@ function YoutubeURL(props) {
     })
       .then(res => {
         console.log(res);
+        setCookie('videoId', res.data.data.videoId, {
+          path: "/",
+          secure: true,
+          sameSite: "none"
+        });
         window.location.href = "/youtube";
       })
+
+    props.setMode(props.type.LOADING);
   }
 
   return (
@@ -31,7 +37,7 @@ function YoutubeURL(props) {
       </div>
 
       <div className="btn-container">
-        <button type="submit" value="ok" className="ok" onClick={onOkClick}>확인</button>
+        <button type="submit" value="ok" className="ok" onClick={onClickOk}>확인</button>
         <button type="submit" value="cancel" className="cancel" onClick={props.cancelAction}>취소</button>
       </div>
     </div>

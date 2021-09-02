@@ -114,12 +114,6 @@ function MyRoom(props) {
                 <h2>내가 변환한 유튜브 콘텐츠</h2>
                 <ul id="converted-youtube">
                   <li>
-                    <div className="dummy youtube-content" onClick={() => insertYoutubeContent()}>
-                      <i className="xi-play xi-2x"/>
-                      <p>Harry Styles - Falling (Official Video)</p>
-                    </div>
-                  </li>
-                  <li>
                     <div className="add-content" id="add-youtube-content" onClick={() => {openModal(0)}}>
                       <i className="xi-plus-circle xi-3x"/>
                       <p>유튜브 콘텐츠 추가하기</p>
