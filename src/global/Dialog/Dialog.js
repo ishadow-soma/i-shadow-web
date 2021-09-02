@@ -4,10 +4,7 @@ import FileUpload from "global/FileUpload/FileUpload";
 import Loading from "global/Loading/Loading";
 import Completion from "global/Completion/Completion";
 import Fail from "global/Fail/Fail";
-import { Redirect } from 'react-router-dom';
 import YoutubeURL from "global/YoutubeURL/YoutubeURL";
-import axios from "axios";
-import http, {user} from "global/store/store"
 
 const type = {
   YOUTUBE_URL: 0,
@@ -55,7 +52,7 @@ function Dialog(props) {
 
   const getModal = () => {
     switch (mode) {
-      case type.YOUTUBE_URL:  return <YoutubeURL cancelAction={props.cancelAction}/>
+      case type.YOUTUBE_URL:  return <YoutubeURL cancelAction={props.cancelAction} setMode={setMode} type={type}/>
       case type.UPLOAD:       return <div id="file-upload"><FileUpload/></div>
       case type.LOADING:      return <Loading/>
       case type.COMPLETION:   return <Completion/>

@@ -53,6 +53,7 @@ function Home(props) {
           // 기존 회원 로그인
           else {
             axios.post(http.baseURL + 'login', {
+              "name": "",
               "email": "",
               "password": "",
               "sns": "NAVER",
