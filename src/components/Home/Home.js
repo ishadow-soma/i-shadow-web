@@ -73,7 +73,10 @@ function Home(props) {
               }
             })
           }
-        });
+        }).catch(err => {
+          console.log("실패 ㅠㅠ");
+          console.log(err);
+      });
       props.history.push('/');
     }
   })
