@@ -38,8 +38,7 @@ function Home(props) {
         "password": "",
         "sns": "NAVER",
         "userToken": token
-      })
-        .then((res) => {
+      }).then((res) => {
           // 신규 회원임.
           if(res.data.success) {
             setCookie('jwt', res.data.data.jwt, {
@@ -52,6 +51,7 @@ function Home(props) {
           }
           // 기존 회원 로그인
           else {
+            console.log("네이버 로그인 로그인 시도");
             axios.post(http.baseURL + 'login', {
               "name": "",
               "email": "",
@@ -65,6 +65,7 @@ function Home(props) {
                   path: "/",
                   secure: true,
                   sameSite: "none" });
+                console.log("네이버 로그인 로그인 성공!");
                 }
               else {
                 console.log("네이버 로그인 실패!");
