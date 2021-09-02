@@ -22,25 +22,27 @@ function Header(props) {
 
   return (
     <header>
-      <div className="logo">
-        <h1>i-Shadow</h1>
-        <Link to="/">home</Link>
-        <Link to="/MyRoom">my room</Link>
-      </div>
+      <div className="container">
+        <div className="logo">
+          <h1>i-Shadow</h1>
+          <Link to="/">home</Link>
+          <Link to="/MyRoom">my room</Link>
+        </div>
 
-      <div className="profile">
-        { user.isLogin
-          ?
-          <div className="authenticated">
-            <div><Link to="/editprofile" className="profile-info">{user.email}</Link> 님, 안녕하세요!</div>
-            <Link to="/" className="log-out" onClick={onLogout}>Log out</Link>
-          </div>
-          :
-          <div className="unauthorized">
-            <Link to="/login">log in</Link>
-            <Link to="/signup" className="sign-up">sign up</Link>
-          </div>
-        }
+        <div className="profile">
+          { user.isLogin
+            ?
+            <div className="authenticated">
+              <div><Link to="/editprofile" className="profile-info">{user.email}</Link> 님, 안녕하세요!</div>
+              <Link to="/" className="log-out" onClick={onLogout}>Log out</Link>
+            </div>
+            :
+            <div className="unauthorized">
+              <Link to="/login">log in</Link>
+              <Link to="/signup" className="sign-up">sign up</Link>
+            </div>
+          }
+        </div>
       </div>
     </header>
   );

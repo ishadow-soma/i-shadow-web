@@ -1,14 +1,10 @@
 .youtube-player {
     padding-top: 70px;
     display: flex;
+    justify-content: space-between;
 }
 
 /* video frame */
-
-.youtube-player .video-frame {
-    width: 920px;
-    margin-right: 50px;
-}
 
 .youtube-player .video-frame h1 {
     color: #001833;
@@ -66,7 +62,7 @@
 .youtube-player .content {
     min-width: 360px;
     width: 448px;
-    height: 80vh;
+    height: 700px;
     color: white;
     background-color: #001833;
     border: none;

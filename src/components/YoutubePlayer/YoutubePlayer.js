@@ -50,7 +50,7 @@ function YoutubePlayer() {
   }
 
   const setVideo = (videoCode) => {
-    player = new YTPlayer('#player', {width: 840, height: 480});
+    player = new YTPlayer('#player', {width: 800, height: 456});
     console.log('player');
 
     player.load(videoCode);
@@ -161,7 +161,7 @@ function YoutubePlayer() {
               <button className="tab"><i className="xi-microphone xi-x"/> Rec.</button>
 
               <div className="content">
-                <Scrollbar style={{ width: 400, height: document.documentElement.clientHeight * 0.74}}>
+                <Scrollbar style={{ width: 400, height: 640}}>
                   <ul id="script">
                     <li className="item">
                       <button className="time-stamp">1:23</button>
