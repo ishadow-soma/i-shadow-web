@@ -169,38 +169,35 @@ function YoutubePlayer() {
 
               <div className="content">
                 <Scrollbar style={{ width: 400, height: 640}}>
-                  {
-                    contentType === 0
-                      ?
-                      <ul id="script">
-                        <li className="item">
-                          <button className="time-stamp">1:23</button>
-                          <p>더미 텍스트 ^^</p>
-                          <i className="xi-repeat repetition"/>
-                        </li>
-                        {/* 이곳에 스크립트 렌더링  */}
-                      </ul>
-                      :
-                      <div className="recoded-list" style={{display: "none"}}>
-                        <ul>
-                          <li>
-                            <i className="xi-microphone icon"/>
-                            <h3>녹음된 목록 3</h3>
-                            <p>2021.07.29. 13:41</p>
-                          </li>
-                          <li>
-                            <i className="xi-microphone icon"/>
-                            <h3>녹음된 목록 2</h3>
-                            <p>2021.07.28. 13:41</p>
-                          </li>
-                          <li>
-                            <i className="xi-microphone icon"/>
-                            <h3>녹음된 목록 1</h3>
-                            <p>2021.07.27. 13:41</p>
-                          </li>
-                        </ul>
-                      </div>
-                  }
+                  <ul id="script" style={{display: contentType === 0 ? "block" : "none"}}>
+                    <li className="item">
+                      <button className="time-stamp">1:23</button>
+                      <p>더미 텍스트 ^^</p>
+                      <i className="xi-repeat repetition"/>
+                    </li>
+                    {/* 이곳에 스크립트 렌더링  */}
+                  </ul>
+
+                  <ul className="recoded-list" style={{display: contentType === 1 ? "block" : "none"}}>
+                    <li>
+                      <i className="xi-microphone icon"/>
+                      <h3>녹음된 목록 3</h3>
+                      <p className="time-line">00:08 - 00:42</p>
+                      <p className="datetime">2021.07.29. 13:41</p>
+                    </li>
+                    <li>
+                      <i className="xi-microphone icon"/>
+                      <h3>녹음된 목록 2</h3>
+                      <p className="time-line">00:08 - 00:42</p>
+                      <p>2021.07.28. 13:41</p>
+                    </li>
+                    <li>
+                      <i className="xi-microphone icon"/>
+                      <h3>녹음된 목록 1</h3>
+                      <p className="time-line">00:08 - 00:42</p>
+                      <p>2021.07.27. 13:41</p>
+                    </li>
+                  </ul>
                 </Scrollbar>
               </div>
             </div>
