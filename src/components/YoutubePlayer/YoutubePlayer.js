@@ -13,6 +13,7 @@ const YTPlayer = require('yt-player');
 function YoutubePlayer() {
   const [title, setTitle] = useState("제목");
   const [url, setUrl] = useState("null");
+  const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
   let player;
   let repetition = null;
   let script;
@@ -139,6 +140,12 @@ function YoutubePlayer() {
     }
   }
 
+  const selectTab = (type) => {
+    setContentType(type);
+    document.getElementsByClassName("tab")[type].classList.add("selected");
+    document.getElementsByClassName("tab")[(type + 1) % 2].classList.remove("selected");
+  }
+
   return (
     <div className="wrap">
       <Header/>
@@ -157,19 +164,43 @@ function YoutubePlayer() {
             </div>
 
             <div className="script">
-              <button className="tab selected"><i className="xi-file-text-o"/>Script</button>
-              <button className="tab"><i className="xi-microphone xi-x"/> Rec.</button>
+              <button className="tab selected" onClick={ () => { selectTab(0) } }><i className="xi-file-text-o"/>Script</button>
+              <button className="tab" onClick={ () => { selectTab(1)} }><i className="xi-microphone xi-x"/> Rec.</button>
 
               <div className="content">
                 <Scrollbar style={{ width: 400, height: 640}}>
-                  <ul id="script">
-                    <li className="item">
-                      <button className="time-stamp">1:23</button>
-                      <p>더미 텍스트 ^^</p>
-                      <i className="xi-repeat repetition"/>
-                    </li>
-                    {/* 이곳에 스크립트 렌더링  */}
-                  </ul>
+                  {
+                    contentType === 0
+                      ?
+                      <ul id="script">
+                        <li className="item">
+                          <button className="time-stamp">1:23</button>
+                          <p>더미 텍스트 ^^</p>
+                          <i className="xi-repeat repetition"/>
+                        </li>
+                        {/* 이곳에 스크립트 렌더링  */}
+                      </ul>
+                      :
+                      <div className="recoded-list" style={{display: "none"}}>
+                        <ul>
+                          <li>
+                            <i className="xi-microphone icon"/>
+                            <h3>녹음된 목록 3</h3>
+                            <p>2021.07.29. 13:41</p>
+                          </li>
+                          <li>
+                            <i className="xi-microphone icon"/>
+                            <h3>녹음된 목록 2</h3>
+                            <p>2021.07.28. 13:41</p>
+                          </li>
+                          <li>
+                            <i className="xi-microphone icon"/>
+                            <h3>녹음된 목록 1</h3>
+                            <p>2021.07.27. 13:41</p>
+                          </li>
+                        </ul>
+                      </div>
+                  }
                 </Scrollbar>
               </div>
             </div>

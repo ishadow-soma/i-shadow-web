@@ -43,6 +43,7 @@
 /* script */
 
 .youtube-player .script .tab {
+    cursor: pointer;
     margin-left: 20px;
     color: white;
     background-color: #8898BF;
