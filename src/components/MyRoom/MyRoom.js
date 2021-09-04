@@ -72,17 +72,23 @@ function MyRoom(props) {
 
   const createListItem = (videoId, title, thumbnail) => {
     const result = document.createElement("li");
-    const div = document.createElement("div");
-    const i = createPlayIcon();
-    const p = createContentTitle(title);
+    const thumbnailElement = createThumbnail(videoId, title, thumbnail);
 
-    div.className = "youtube-content";
-    div.onclick = () => redirectYoutube(videoId);
-    div.style.backgroundImage = `url('${thumbnail}')`;
+    result.append(thumbnailElement);
 
-    div.append(p);
-    div.append(i);
-    result.append(div);
+    return result;
+  }
+
+  const createThumbnail = (videoId, title, thumbnail) => {
+    const result = document.createElement("div");
+    const icon = createPlayIcon();
+    const titleElement = createContentTitle(title);
+
+    result.className = "youtube-content";
+    result.onclick = () => redirectYoutube(videoId);
+    result.style.backgroundImage = `url('${thumbnail}')`;
+    result.append(titleElement);
+    result.append(icon);
 
     return result;
   }
