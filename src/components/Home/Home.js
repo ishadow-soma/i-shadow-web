@@ -38,14 +38,14 @@ function Home(props) {
       }).then((res) => {
           // if 신규 회원 else 기존 회원
           if(res.data.success) setCookieDefaultOption("jwt", res.data.data.jwt);
-          else loginForNaver(token);
+          else loginWithNaver(token);
           props.history.push('/');
           window.location.reload();
         }).catch(err => console.log("실패", err));
     }
   })
 
-  const loginForNaver = async (token) => {
+  const loginWithNaver = async (token) => {
     console.log("네이버 로그인 로그인 시도");
     await axios.post(network.baseURL + 'login', {
       "sns": "NAVER",
