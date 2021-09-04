@@ -74,13 +74,9 @@ function YoutubePlayer() {
       // li 태그에 button, p 를 넣음.
 
       const li = document.createElement('li');
-      const button = document.createElement('button');
+      const timeStamp = createTimeStamp(it);
       const p = document.createElement('p');
       const repetitionIcon = document.createElement('i');
-
-      button.innerText = `${parseInt(it.begin / 60)}:${parseInt(it.begin % 60)}`;
-      button.className = "time-stamp";
-      button.onclick = () => onSeek(it.begin);
 
       p.innerText = it.sentence;
       repetitionIcon.className = "repetition xi-repeat";
@@ -88,7 +84,7 @@ function YoutubePlayer() {
       console.log(it.begin + ":" + it.end + " : " + (parseFloat(it.end) + 1));
 
       li.className = "item";
-      li.append(button);
+      li.append(timeStamp);
       li.append(p);
       li.append(repetitionIcon);
 
@@ -97,6 +93,14 @@ function YoutubePlayer() {
       setDragSelect();
     })
     console.log("set script end!");
+  }
+
+  const createTimeStamp = (sentence) => {
+    const button = document.createElement('button');
+    button.innerText = `${parseInt(sentence.begin / 60)}:${parseInt(sentence.begin % 60)}`;
+    button.className = "time-stamp";
+    button.onclick = () => onSeek(sentence.begin);
+    return button;
   }
 
   const setDragSelect = () => {
