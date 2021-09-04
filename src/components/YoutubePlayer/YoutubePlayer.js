@@ -68,22 +68,16 @@ function YoutubePlayer() {
 
   // 스크립트 렌더링
   const setScript = () => {
-    console.log("set script called!!");
     const insertHere = document.getElementById("script");
-    script.forEach(it => {
-      // li 태그에 button, p 를 넣음.
+    script.forEach(it => insertHere.append(createListItem(createElements(it))));
+    setDragSelect();
+  }
 
-      const timeStamp = createTimeStamp(it);
-      const p = createSentence(it);
-      const repetitionIcon = createRepetitionIcon(it);
-
-      const listItem = createListItem([timeStamp, p, repetitionIcon]);
-
-      insertHere.append(listItem);
-
-      setDragSelect();
-    })
-    console.log("end set script!");
+  const createElements = (sentence) => {
+    const timeStamp = createTimeStamp(sentence);
+    const p = createSentence(sentence);
+    const repetitionIcon = createRepetitionIcon(sentence);
+    return [timeStamp, p, repetitionIcon];
   }
 
   const createListItem = (elements) => {
