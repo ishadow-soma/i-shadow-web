@@ -2,7 +2,7 @@ import './Signup.css';
 import React, {useEffect} from "react";
 import axios from "axios";
 import network from "global/store/store";
-import {setCookie} from "global/store/cookie";
+import {setCookieDefaultOption} from "global/store/cookie";
 const { naver } = window;
 let { gapi, auth2 } = window;
 
@@ -97,54 +97,39 @@ function Signup(props) {
   function attachSignin(element) {
     if(element === null) return;
     auth2.attachClickHandler(element, {},
-      function(googleUser) {
+      (googleUser) => {
         console.log(googleUser);
         axios({
           method: "post",
           url: network.baseURL + "users",
           data: {
             "name": googleUser.Ws.Pe,
-            "email": "",
-            "password": "",
             "sns": "GOOGLE",
             "userToken": googleUser.Zb.access_token
           }
         }).then(res => {
           // 신규 회원
           if(res.data.success) {
-            setCookie('jwt', res.data.data.jwt, {
-              path: "/",
-              secure: true,
-              sameSite: "none"
-            })
-            console.log("구글로 로그인 회원가입 및 로그인 성공");
-            console.log(res);
+            setCookieDefaultOption("jwt", res.data.data.jwt);
+            console.log("구글로 로그인 회원가입 및 로그인 성공", res);
           }
-          else {
-            axios.post(network.baseURL + "login", {
-              "email": "",
-              "password": "",
-              "sns": "GOOGLE",
-              "userToken": googleUser.Zb.access_token
-            }).then(res => {
-              if(res.data.success) {
-                setCookie('jwt', res.data.data.jwt, {
-                  path: "/",
-                  secure: true,
-                  sameSite: "none"
-                })
-                console.log("구글로 로그인 성공");
-                console.log(res);
-              }
-              else
-                console.log("구글로 로그인 실패");
-            })
-          }
+          else loginWithGoogle(googleUser);
+          props.history.push("/");
         })
-        props.history.push("/");
-      }, function(error) {
-        alert(JSON.stringify(error, undefined, 2));
-      });
+      }, err => alert(JSON.stringify(err, undefined, 2)));
+  }
+
+  const loginWithGoogle = async (googleUser) => {
+    await axios.post(network.baseURL + "login", {
+      "sns": "GOOGLE",
+      "userToken": googleUser.Zb.access_token
+    }).then(res => {
+      if(res.data.success) {
+        setCookieDefaultOption("jwt", res.data.data.jwt);
+        console.log("구글로 로그인 성공", res);
+      }
+      else console.log("구글로 로그인 실패");
+    }).catch(err => console.log(err))
   }
 
   return (

@@ -49,12 +49,8 @@ function FindPassword() {
         "confirmPassword": confirmPassword
       })
       .then((res) => {
-        if(res.data.isSuccess) {
-          alert("비밀번호가 변경되었습니다.");
-        }
-        else {
-          alert("비밀번호 변경 실패 : " + res.code);
-        }
+        if(res.data.isSuccess) alert("비밀번호가 변경되었습니다.");
+        else alert("비밀번호 변경 실패 : " + res.code);
       });
   }
 
