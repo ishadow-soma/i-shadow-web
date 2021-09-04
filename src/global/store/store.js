@@ -1,4 +1,4 @@
-import {getCookie, setCookie} from "./cookie";
+import {getCookie, setCookieDefaultOption} from "./cookie";
 import axios from "axios";
 
 export let user = {
@@ -11,19 +11,18 @@ export let user = {
   age: 0,
 
   // 로그인 확인 후 유저 정보 세팅
-  verifyLogin: () => {
+  verifyLogin: async () => {
     user.token = getCookie("jwt")
     if(user.token == null)
       return;
 
-    axios({
+    await axios({
       method: "get",
       url: network.baseURL + "users",
       headers: {"ACCESS-TOKEN": user.token}
     }).then(res => {
         if(res.data.success) {
-          console.log("유저 정보 가져오기 성공!");
-          console.log(res)
+          console.log("유저 정보 가져오기 성공!", res);
           user.setUser(res.data.data);
         }
 
@@ -48,7 +47,7 @@ export let user = {
   },
 
   logout: () => {
-    setCookie("jwt", null);
+    setCookieDefaultOption("jwt", null);
     user.clearUser();
   },
 

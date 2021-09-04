@@ -94,16 +94,18 @@ function YoutubePlayer() {
 
       insertion.append(li);
 
-      new DragSelect({
-        selectables: document.querySelectorAll('.item'),
-        callback: e => {
-          console.log(e);
-          if(e.length !== 0);
-            console.log(e[e.length - 1]);
-        }
-      })
+      setDragSelect();
     })
     console.log("set script end!");
+  }
+
+  const setDragSelect = () => {
+    new DragSelect({
+      selectables: document.querySelectorAll('.item'),
+      callback: e => {
+        console.log(e);
+      }
+    });
   }
 
   const startRepeat = (begin, end) => {
