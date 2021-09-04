@@ -73,21 +73,24 @@ function YoutubePlayer() {
     script.forEach(it => {
       // li 태그에 button, p 를 넣음.
 
-      const li = document.createElement('li');
       const timeStamp = createTimeStamp(it);
       const p = createSentence(it);
       const repetitionIcon = createRepetitionIcon(it);
 
-      li.className = "item";
-      li.append(timeStamp);
-      li.append(p);
-      li.append(repetitionIcon);
+      const listItem = createListItem([timeStamp, p, repetitionIcon]);
 
-      insertHere.append(li);
+      insertHere.append(listItem);
 
       setDragSelect();
     })
     console.log("end set script!");
+  }
+
+  const createListItem = (elements) => {
+    const result = document.createElement('li');
+    result.className = "item";
+    elements.forEach(it => result.append(it));
+    return result;
   }
 
   const createTimeStamp = (sentence) => {
