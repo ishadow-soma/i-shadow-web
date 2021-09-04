@@ -6,7 +6,7 @@ import Header from "global/Header/Header";
 import Dialog from "global/Dialog/Dialog";
 import Modal from "react-modal";
 import axios from "axios";
-import {getCookie, setCookie, setCookieDefaultOption} from "../../global/store/cookie";
+import {setCookieDefaultOption} from "global/store/cookie";
 
 const customStyles = {
   content: {
@@ -33,9 +33,6 @@ function Home(props) {
       const token = props.location.hash.split('=')[1].split('&')[0];
       console.log(token);
       axios.post(network.baseURL + 'users', {
-        "name": "",
-        "email": "",
-        "password": "",
         "sns": "NAVER",
         "userToken": token
       }).then((res) => {
@@ -51,9 +48,6 @@ function Home(props) {
   const loginForNaver = async (token) => {
     console.log("네이버 로그인 로그인 시도");
     await axios.post(network.baseURL + 'login', {
-      "name": "",
-      "email": "",
-      "password": "",
       "sns": "NAVER",
       "userToken": token
     }).then((res) => {
