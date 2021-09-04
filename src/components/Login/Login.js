@@ -2,7 +2,7 @@ import './Login.css';
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
-import http from "global/store/store";
+import network from "global/store/store";
 import {setCookie} from "global/store/cookie";
 const { naver } = window;
 let { gapi, auth2 } = window;
@@ -19,7 +19,7 @@ function Login(props) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     // 로그인 시도
-    axios.post(http.baseURL + "login",
+    axios.post(network.baseURL + "login",
       {
         "email": email,
         "password": password,
@@ -83,7 +83,7 @@ function Login(props) {
         console.log(googleUser);
         axios({
           method: "post",
-          url: http.baseURL + "users",
+          url: network.baseURL + "users",
           data: {
             "name": googleUser.Ws.Pe,
             "email": "",
@@ -103,7 +103,7 @@ function Login(props) {
             console.log(res);
           }
           else {
-            axios.post(http.baseURL + "login", {
+            axios.post(network.baseURL + "login", {
               "email": "",
               "password": "",
               "sns": "GOOGLE",

@@ -1,7 +1,7 @@
 import React from "react";
 import './YoutubeURL.css'
 import axios from "axios";
-import http from "global/store/store";
+import network from "global/store/store";
 import {getCookie, setCookie} from "../store/cookie";
 
 function YoutubeURL(props) {
@@ -11,7 +11,7 @@ function YoutubeURL(props) {
 
     axios({
       method: "post",
-      url: http.baseURL + "media",
+      url: network.baseURL + "media",
       params: {"category": "메롱",
         "type": "YOUTUBE",
         "youtubeURL": inputUrl},

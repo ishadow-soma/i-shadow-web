@@ -1,6 +1,5 @@
 import {getCookie, setCookie} from "./cookie";
 import axios from "axios";
-import {createStore} from "@reduxjs/toolkit";
 
 export let user = {
   isLogin: false,
@@ -19,7 +18,7 @@ export let user = {
 
     axios({
       method: "get",
-      url: http.baseURL + "users",
+      url: network.baseURL + "users",
       headers: {"ACCESS-TOKEN": user.token}
     }).then(res => {
         if(res.data.success) {
@@ -72,9 +71,9 @@ export let user = {
   }
 };
 
-const http = {
+const network = {
   baseURL: "/api/"
   //baseURL: "https://ishadow.kr/api/"
 }
 
-export default http;
+export default network;

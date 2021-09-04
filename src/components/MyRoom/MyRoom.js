@@ -5,7 +5,7 @@ import Header from "global/Header/Header";
 import Footer from "global/Footer/Footer";
 import Dialog from "global/Dialog/Dialog";
 import Modal from "react-modal";
-import http, {user} from "global/store/store";
+import network, {user} from "global/store/store";
 import axios from "axios";
 import {getCookie, setCookie} from "global/store/cookie";
 
@@ -51,7 +51,7 @@ function MyRoom(props) {
   function requestYoutubeContent() {
     axios({
       method: "get",
-      url: http.baseURL + "users/my-room",
+      url: network.baseURL + "users/my-room",
       headers: {"ACCESS-TOKEN": getCookie("jwt")}
     }).then(res => {
 

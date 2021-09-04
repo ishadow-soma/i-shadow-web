@@ -1,7 +1,7 @@
 import React from "react";
 import "./FindPassword.css"
 import axios from "axios";
-import http from "global/store/store";
+import network from "global/store/store";
 
 function FindPassword() {
   let isAuthentication = false;
@@ -10,14 +10,14 @@ function FindPassword() {
   const requestAuthorizationCode = () => {
     const email = document.getElementById("email");
     // 유효한 이메일인지 확인
-    axios.post(http.baseURL + "users/duplication-email", {"email": email})
+    axios.post(network.baseURL + "users/duplication-email", {"email": email})
       .then((res) => {
         if(res.data.isSuccess !== "YES") {
           alert("유효하지 않은 이메일입니다.");
           return;
         }
 
-        axios.post(http.baseURL + "users/authentication-email", {"email": email});
+        axios.post(network.baseURL + "users/authentication-email", {"email": email});
         alert("인증번호가 전송되었습니다.");
       });
   }
@@ -25,7 +25,7 @@ function FindPassword() {
   // 인증코드 확인
   const requestAuthorization = () => {
     const code = document.getElementById("authorizationCode");
-    axios.post(http.baseURL + "user/authentication-code", {"authenticationCode": code})
+    axios.post(network.baseURL + "user/authentication-code", {"authenticationCode": code})
       .then((res) => {
         if(res.data.isSuccess === "YES")
           isAuthentication = true;
@@ -42,7 +42,7 @@ function FindPassword() {
       return;
     }
 
-    axios.post(http.baseURL + 'users',
+    axios.post(network.baseURL + 'users',
       {
         "email": email,
         "password": password,

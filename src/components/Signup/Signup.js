@@ -1,7 +1,7 @@
 import './Signup.css';
 import React, {useEffect} from "react";
 import axios from "axios";
-import http from "global/store/store";
+import network from "global/store/store";
 import {setCookie} from "global/store/cookie";
 const { naver } = window;
 let { gapi, auth2 } = window;
@@ -18,10 +18,10 @@ function Signup(props) {
   const requestAuthorizationCode = () => {
     const inputEmail = document.getElementById("email").value;
     // 중복 확인
-    axios.post(http.baseURL + 'users/duplication-email', {"email": inputEmail})
+    axios.post(network.baseURL + 'users/duplication-email', {"email": inputEmail})
       .then((res) => {
         if (res.data.data.isSuccess === "YES") {
-          axios.post(http.baseURL + 'users/authentication-email', {"email": inputEmail});
+          axios.post(network.baseURL + 'users/authentication-email', {"email": inputEmail});
           alert("인증번호가 발송되었습니다.");
         }
         else {
@@ -33,7 +33,7 @@ function Signup(props) {
   // 이메일 인증하기
   const requestAuthorization = () => {
     const code = document.getElementById("authorizationCode").value;
-    axios.post(http.baseURL + 'users/authentication-code', {"authenticationCode": code})
+    axios.post(network.baseURL + 'users/authentication-code', {"authenticationCode": code})
       .then((res) => {
         if(res.data.data.isSuccess === "YES")
           isAuthentication = true;
@@ -54,7 +54,7 @@ function Signup(props) {
       return;
     }
 
-    axios.post(http.baseURL + 'users',
+    axios.post(network.baseURL + 'users',
       {
         "name": email,
         "email": email,
@@ -101,7 +101,7 @@ function Signup(props) {
         console.log(googleUser);
         axios({
           method: "post",
-          url: http.baseURL + "users",
+          url: network.baseURL + "users",
           data: {
             "name": googleUser.Ws.Pe,
             "email": "",
@@ -121,7 +121,7 @@ function Signup(props) {
             console.log(res);
           }
           else {
-            axios.post(http.baseURL + "login", {
+            axios.post(network.baseURL + "login", {
               "email": "",
               "password": "",
               "sns": "GOOGLE",

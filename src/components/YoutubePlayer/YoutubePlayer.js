@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
 import axios from "axios";
-import http, {user} from "global/store/store";
+import network, {user} from "global/store/store";
 import {getCookie} from "global/store/cookie";
 import DragSelect from "dragselect";
 import { Scrollbar } from "react-scrollbars-custom";
@@ -29,7 +29,7 @@ function YoutubePlayer() {
     console.log("request video : ", getCookie("videoId"))
     axios({
       method: "get",
-      url: http.baseURL + "shadowing-player",
+      url: network.baseURL + "shadowing-player",
       params: {"videoId": getCookie("videoId")},
       headers: {"ACCESS-TOKEN": getCookie("jwt")}
     })

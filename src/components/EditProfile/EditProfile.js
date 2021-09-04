@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./EditProfile.css";
-import http, {user} from "global/store/store";
+import network, {user} from "global/store/store";
 import {getCookie} from "../../global/store/cookie";
 import axios from "axios";
 
@@ -20,7 +20,7 @@ function EditProfile(props) {
   const updateUser = () => {
     axios({
       method: "patch",
-      url: `${http.baseURL}users`,
+      url: `${network.baseURL}users`,
       headers: {"ACCESS-TOKEN": getCookie("jwt")},
       body: {
         "name": name,

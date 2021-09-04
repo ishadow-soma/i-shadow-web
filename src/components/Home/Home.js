@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import './Home.css';
-import http from 'global/store/store';
+import network from 'global/store/store';
 import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
 import Dialog from "global/Dialog/Dialog";
@@ -32,7 +32,7 @@ function Home(props) {
       // URI 에서 토큰 가져오기
       const token = props.location.hash.split('=')[1].split('&')[0];
       console.log(token);
-      axios.post(http.baseURL + 'users', {
+      axios.post(network.baseURL + 'users', {
         "name": "",
         "email": "",
         "password": "",
@@ -52,7 +52,7 @@ function Home(props) {
           // 기존 회원 로그인
           else {
             console.log("네이버 로그인 로그인 시도");
-            axios.post(http.baseURL + 'login', {
+            axios.post(network.baseURL + 'login', {
               "name": "",
               "email": "",
               "password": "",
