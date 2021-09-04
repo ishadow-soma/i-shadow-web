@@ -3,7 +3,7 @@ import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import network from "global/store/store";
-import {setCookie, setCookieDefaultOption} from "global/store/cookie";
+import {setCookieDefaultOption} from "global/store/cookie";
 const { naver } = window;
 let { gapi, auth2 } = window;
 require('dotenv').config();
@@ -15,11 +15,11 @@ function Login(props) {
   }, );
 
   /* 일반 로그인 */
-  const normalLogin = () => {
+  const normalLogin = async () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     // 로그인 시도
-    axios.post(network.baseURL + "login",
+    await axios.post(network.baseURL + "login",
       {
         "email": email,
         "password": password,
@@ -27,26 +27,16 @@ function Login(props) {
       }).then(res => {
 
       if(res.data.success) {
-        setCookie('jwt', res.data.data.jwt, {
-          path: "/",
-          secure: true,
-          sameSite: "none"
-        });
-        console.log("일반 로그인 성공");
-        console.log(res);
-        props.history.push("/");
+        setCookieDefaultOption("jwt", res.data.data.jwt);
+        console.log("일반 로그인 성공", res);
       }
 
       else {
-        console.log("일반 로그인 실패");
-        console.log(res);
+        console.log("일반 로그인 실패", res);
         alert("로그인 실패");
       }
-    }).catch(err => {
-
-      console.log("일반 로그인 실패");
-      console.log(err)
-    });
+    }).catch(err => console.log("일반 로그인 실패", err))
+    props.history.push("/");
   }
 
   const onKeyPress = (e) => {
