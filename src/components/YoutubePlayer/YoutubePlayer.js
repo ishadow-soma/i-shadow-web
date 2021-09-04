@@ -69,43 +69,46 @@ function YoutubePlayer() {
   // 스크립트 렌더링
   const setScript = () => {
     console.log("set script called!!");
-    const insertion = document.getElementById("script");
+    const insertHere = document.getElementById("script");
     script.forEach(it => {
       // li 태그에 button, p 를 넣음.
 
       const li = document.createElement('li');
       const timeStamp = createTimeStamp(it);
-      const p = document.createElement('p');
+      const p = createSentence(it);
       const repetitionIcon = createRepetitionIcon(it);
-
-      p.innerText = it.sentence;
-      console.log(it.begin + ":" + it.end + " : " + (parseFloat(it.end) + 1));
 
       li.className = "item";
       li.append(timeStamp);
       li.append(p);
       li.append(repetitionIcon);
 
-      insertion.append(li);
+      insertHere.append(li);
 
       setDragSelect();
     })
-    console.log("set script end!");
+    console.log("end set script!");
   }
 
   const createTimeStamp = (sentence) => {
-    const resultElement = document.createElement('button');
-    resultElement.innerText = `${parseInt(sentence.begin / 60)}:${parseInt(sentence.begin % 60)}`;
-    resultElement.className = "time-stamp";
-    resultElement.onclick = () => onSeek(sentence.begin);
-    return resultElement;
+    const result = document.createElement('button');
+    result.innerText = `${parseInt(sentence.begin / 60)}:${parseInt(sentence.begin % 60)}`;
+    result.className = "time-stamp";
+    result.onclick = () => onSeek(sentence.begin);
+    return result;
+  }
+
+  const createSentence = (sentence) => {
+    const result = document.createElement('p');
+    result.innerText = sentence.sentence;
+    return result;
   }
 
   const createRepetitionIcon = (sentence) => {
-    const resultElement = document.createElement('i');
-    resultElement.className = "repetition xi-repeat";
-    resultElement.onclick = () => {startRepeat(sentence.begin, parseFloat(sentence.end) + 1)};
-    return resultElement;
+    const result = document.createElement('i');
+    result.className = "repetition xi-repeat";
+    result.onclick = () => {startRepeat(sentence.begin, parseFloat(sentence.end) + 1)};
+    return result;
   }
 
   const setDragSelect = () => {
