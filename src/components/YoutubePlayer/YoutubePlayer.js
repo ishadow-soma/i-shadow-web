@@ -117,7 +117,7 @@ function YoutubePlayer() {
 
   const startRepeat = (begin, end) => {
     if(repetition !== null)
-      clearInterval(repetition);
+      endRepetition();
 
     const len = (end - begin) * 1000;
 
@@ -164,7 +164,7 @@ function YoutubePlayer() {
             <div className="video-frame">
               <h2><i className="xi-youtube-play xi-x"/> 내가 변환한 유튜브 콘텐츠</h2>
               <h1>{title}</h1>
-              <element id="player"/>
+              <div id="player"/>
               <div className="caption" id="caption">
                 Our hearts wore never broken
               </div>
