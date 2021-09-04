@@ -39,8 +39,8 @@ function Home(props) {
         "sns": "NAVER",
         "userToken": token
       }).then((res) => {
-          // 신규 회원임.
-          if(res.data.success) {
+
+          if(res.data.success) { // 신규 회원
             setCookie('jwt', res.data.data.jwt, {
               path: "/",
               secure: true,
@@ -49,30 +49,8 @@ function Home(props) {
             console.log("네이버 로그인 회원가입 및 로그인 성공");
             console.log(res);
           }
-          // 기존 회원 로그인
-          else {
-            console.log("네이버 로그인 로그인 시도");
-            axios.post(network.baseURL + 'login', {
-              "name": "",
-              "email": "",
-              "password": "",
-              "sns": "NAVER",
-              "userToken": token
-            }).then((res) => {
+          else loginForNaver(token);
 
-              if(res.data.success) {
-                setCookie('jwt', res.data.data.jwt, {
-                  path: "/",
-                  secure: true,
-                  sameSite: "none" });
-                console.log("네이버 로그인 로그인 성공!");
-                }
-              else {
-                console.log("네이버 로그인 실패!");
-                console.log(res);
-              }
-            })
-          }
         }).catch(err => {
           console.log("실패 ㅠㅠ");
           console.log(err);
@@ -80,6 +58,30 @@ function Home(props) {
       props.history.push('/');
     }
   })
+
+  const loginForNaver = (token) => {
+    console.log("네이버 로그인 로그인 시도");
+    axios.post(network.baseURL + 'login', {
+      "name": "",
+      "email": "",
+      "password": "",
+      "sns": "NAVER",
+      "userToken": token
+    }).then((res) => {
+
+      if(res.data.success) {
+        setCookie('jwt', res.data.data.jwt, {
+          path: "/",
+          secure: true,
+          sameSite: "none" });
+        console.log("네이버 로그인 로그인 성공!");
+      }
+      else {
+        console.log(res);
+        console.log("네이버 로그인 실패!");
+      }
+    }).catch(err => console.log(err))
+  }
 
   function openModal(type) {
     setModal(type);
