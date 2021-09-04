@@ -76,11 +76,9 @@ function YoutubePlayer() {
       const li = document.createElement('li');
       const timeStamp = createTimeStamp(it);
       const p = document.createElement('p');
-      const repetitionIcon = document.createElement('i');
+      const repetitionIcon = createRepetitionIcon(it);
 
       p.innerText = it.sentence;
-      repetitionIcon.className = "repetition xi-repeat";
-      repetitionIcon.onclick = () => {startRepeat(it.begin, parseFloat(it.end) + 1)};
       console.log(it.begin + ":" + it.end + " : " + (parseFloat(it.end) + 1));
 
       li.className = "item";
@@ -96,11 +94,18 @@ function YoutubePlayer() {
   }
 
   const createTimeStamp = (sentence) => {
-    const button = document.createElement('button');
-    button.innerText = `${parseInt(sentence.begin / 60)}:${parseInt(sentence.begin % 60)}`;
-    button.className = "time-stamp";
-    button.onclick = () => onSeek(sentence.begin);
-    return button;
+    const resultElement = document.createElement('button');
+    resultElement.innerText = `${parseInt(sentence.begin / 60)}:${parseInt(sentence.begin % 60)}`;
+    resultElement.className = "time-stamp";
+    resultElement.onclick = () => onSeek(sentence.begin);
+    return resultElement;
+  }
+
+  const createRepetitionIcon = (sentence) => {
+    const resultElement = document.createElement('i');
+    resultElement.className = "repetition xi-repeat";
+    resultElement.onclick = () => {startRepeat(sentence.begin, parseFloat(sentence.end) + 1)};
+    return resultElement;
   }
 
   const setDragSelect = () => {
