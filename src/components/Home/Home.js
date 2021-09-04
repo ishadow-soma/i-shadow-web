@@ -6,7 +6,7 @@ import Header from "global/Header/Header";
 import Dialog from "global/Dialog/Dialog";
 import Modal from "react-modal";
 import axios from "axios";
-import {getCookie, setCookie} from "../../global/store/cookie";
+import {getCookie, setCookie, setCookieDefaultOption} from "../../global/store/cookie";
 
 const customStyles = {
   content: {
@@ -39,23 +39,11 @@ function Home(props) {
         "sns": "NAVER",
         "userToken": token
       }).then((res) => {
-
-          if(res.data.success) { // 신규 회원
-            setCookie('jwt', res.data.data.jwt, {
-              path: "/",
-              secure: true,
-              sameSite: "none"
-            })
-            console.log("네이버 로그인 회원가입 및 로그인 성공");
-            console.log(res);
-          }
+          // if 신규 회원 else 기존 회원
+          if(res.data.success) setCookieDefaultOption("jwt", res.data.data.jwt);
           else loginForNaver(token);
-
-        }).catch(err => {
-          console.log("실패 ㅠㅠ");
-          console.log(err);
-      });
-      props.history.push('/');
+          props.history.push('/');
+        }).catch(err => console.log("실패", err));
     }
   })
 

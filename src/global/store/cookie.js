@@ -6,7 +6,7 @@ export const setCookie = (name, value, option) => {
   return cookies.set(name, value, { ...option })
 }
 
-export const setCookieDefault = (name, value) => {
+export const setCookieDefaultOption = (name, value) => {
   setCookie(name, value, {
     path: "/",
     secure: true,
