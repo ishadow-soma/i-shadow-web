@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
 import axios from "axios";
-import network, {user} from "global/store/store";
+import network from "global/store/store";
 import {getCookie} from "global/store/cookie";
 import DragSelect from "dragselect";
 import { Scrollbar } from "react-scrollbars-custom";
@@ -58,7 +58,6 @@ function YoutubePlayer() {
 
     player.on('playing', () => {
       console.log(player.getDuration())
-      //setCurrentSentence(); 자막 컨트롤
     })
 
     player.on('timeupdate', (seconds) => {
@@ -66,10 +65,9 @@ function YoutubePlayer() {
     })
   }
 
-  // 스크립트 렌더링
   const setScript = () => {
     const insertHere = document.getElementById("script");
-    script.forEach(it => insertHere.append(createListItem(createElements(it))));
+    script.forEach(sentence => insertHere.append(createListItem(createElements(sentence))));
     setDragSelect();
   }
 

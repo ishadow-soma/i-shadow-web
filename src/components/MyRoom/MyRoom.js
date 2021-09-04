@@ -63,9 +63,15 @@ function MyRoom(props) {
     })
   }
 
-  function insertYoutubeContent(videoId = 1, title = "test title", thumbnail = "https://img.youtube.com/vi/YdD2aYIhdvU/0.jpg") {
-    const target = document.getElementById("converted-youtube");
-    const insert = document.createElement("li");
+  function insertYoutubeContent(videoId, title, thumbnail) {
+    const insertHere = document.getElementById("converted-youtube");
+    const li = createListItem(videoId, title, thumbnail);
+
+    insertHere.insertBefore(li, insertHere.firstChild)
+  }
+
+  const createListItem = (videoId, title, thumbnail) => {
+    const result = document.createElement("li");
     const div = document.createElement("div");
     const i = document.createElement("i");
     const p = document.createElement("p");
@@ -78,8 +84,9 @@ function MyRoom(props) {
 
     div.append(p);
     div.append(i);
-    insert.append(div);
-    target.insertBefore(insert, target.firstChild)
+    result.append(div);
+
+    return result;
   }
 
   function redirectYoutube(videoId) {
