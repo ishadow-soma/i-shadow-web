@@ -24,35 +24,27 @@ export let user = {
         if(res.data.success) {
           console.log("유저 정보 가져오기 성공!");
           console.log(res)
-          user.setUser(
-            res.data.data.email,
-            res.data.data.name,
-            res.data.data.gender,
-            res.data.data.myPoint,
-            res.data.data.age,
-          );
+          user.setUser(res.data.data);
         }
 
         else {
           user.clearUser();
-          console.log("유저 정보 가져오기 실패!");
-          console.log(res)
+          console.log("유저 정보 가져오기 실패!", res);
         }
       }).catch(err => {
 
         user.clearUser();
-        console.log("유저 정보 가져오기 실패!");
-        console.log(err);
+        console.log("유저 정보 가져오기 실패!", err);
     })
   },
 
-  setUser: (email, name, gender, myPoint, age) => {
+  setUser: (getUser) => {
     user.isLogin = true;
-    user.email = email;
-    user.name = name;
-    user.gender = gender;
-    user.myPoint = myPoint;
-    user.age = age;
+    user.email = getUser.email;
+    user.name = getUser.name;
+    user.gender = getUser.gender;
+    user.myPoint = getUser.myPoint;
+    user.age = getUser.age;
   },
 
   logout: () => {
@@ -73,7 +65,6 @@ export let user = {
 
 const network = {
   baseURL: "/api/"
-  //baseURL: "https://ishadow.kr/api/"
 }
 
 export default network;
