@@ -74,17 +74,22 @@ function MyRoom(props) {
     const result = document.createElement("li");
     const div = document.createElement("div");
     const i = createPlayIcon();
-    const p = document.createElement("p");
+    const p = createContentTitle(title);
 
     div.className = "youtube-content";
     div.onclick = () => redirectYoutube(videoId);
     div.style.backgroundImage = `url('${thumbnail}')`;
-    p.innerText = title;
 
     div.append(p);
     div.append(i);
     result.append(div);
 
+    return result;
+  }
+
+  const createContentTitle = (title) => {
+    const result = document.createElement("p");
+    result.innerText = title;
     return result;
   }
 
