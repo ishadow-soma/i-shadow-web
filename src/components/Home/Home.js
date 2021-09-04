@@ -43,13 +43,14 @@ function Home(props) {
           if(res.data.success) setCookieDefaultOption("jwt", res.data.data.jwt);
           else loginForNaver(token);
           props.history.push('/');
+          window.location.reload();
         }).catch(err => console.log("실패", err));
     }
   })
 
-  const loginForNaver = (token) => {
+  const loginForNaver = async (token) => {
     console.log("네이버 로그인 로그인 시도");
-    axios.post(network.baseURL + 'login', {
+    await axios.post(network.baseURL + 'login', {
       "name": "",
       "email": "",
       "password": "",
@@ -57,17 +58,8 @@ function Home(props) {
       "userToken": token
     }).then((res) => {
 
-      if(res.data.success) {
-        setCookie('jwt', res.data.data.jwt, {
-          path: "/",
-          secure: true,
-          sameSite: "none" });
-        console.log("네이버 로그인 로그인 성공!");
-      }
-      else {
-        console.log(res);
-        console.log("네이버 로그인 실패!");
-      }
+      if(res.data.success) setCookieDefaultOption("jwt", res.data.data.jwt);
+      else console.log("네이버 로그인 실패!");
     }).catch(err => console.log(err))
   }
 
