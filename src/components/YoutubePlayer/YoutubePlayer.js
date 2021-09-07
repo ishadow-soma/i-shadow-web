@@ -18,6 +18,7 @@ function YoutubePlayer() {
   let repetition = null;
   let script;
   let videoCode;
+  let preRepetitionIcon;
 
   useEffect(() => {
     requestVideo();
@@ -102,11 +103,15 @@ function YoutubePlayer() {
   const setDragSelect = () => {
     new DragSelect({
       selectables: document.querySelectorAll('.item'),
+      draggability: false,
       callback: e => {
-        // TODO : 기존 아이콘 삭제
+        // TODO : 기존 반복 아이콘 삭제
+        // if(document.getElementsByClassName("repetition").length > 1) preRepetitionIcon.remove();
+
         const selectedElements = document.getElementsByClassName("ds-selected");
         if(selectedElements.length !== 0) {
           const repetitionIcon = createRepetitionIcon(getRepeatSection(selectedElements));
+          preRepetitionIcon = repetitionIcon;
           selectedElements[selectedElements.length - 1].append(repetitionIcon);
         }
       }
