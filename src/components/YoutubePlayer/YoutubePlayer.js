@@ -67,22 +67,22 @@ function YoutubePlayer() {
 
   const setScript = () => {
     const insertHere = document.getElementById("script");
-    script.forEach(sentence => insertHere.append(createListItem(createElements(sentence))));
+    script.forEach((sentence, index) => insertHere.append(createListItem(index, createElements(sentence))));
     setDragSelect();
+  }
+
+  const createListItem = (index, elements) => {
+    const result = document.createElement('li');
+    result.className = "item";
+    result.id = `idx${index}`;
+    elements.forEach(it => result.append(it));
+    return result;
   }
 
   const createElements = (sentence) => {
     const timeStamp = createTimeStamp(sentence);
     const p = createSentence(sentence);
-    const repetitionIcon = createRepetitionIcon(sentence);
-    return [timeStamp, p, repetitionIcon];
-  }
-
-  const createListItem = (elements) => {
-    const result = document.createElement('li');
-    result.className = "item";
-    elements.forEach(it => result.append(it));
-    return result;
+    return [timeStamp, p];
   }
 
   const createTimeStamp = (sentence) => {
@@ -99,20 +99,44 @@ function YoutubePlayer() {
     return result;
   }
 
-  const createRepetitionIcon = (sentence) => {
-    const result = document.createElement('i');
-    result.className = "repetition xi-repeat";
-    result.onclick = () => {startRepeat(sentence.begin, parseFloat(sentence.end) + 1)};
-    return result;
-  }
-
   const setDragSelect = () => {
     new DragSelect({
       selectables: document.querySelectorAll('.item'),
       callback: e => {
-        console.log(e);
+        // TODO : 기존 아이콘 삭제
+        const selectedElements = document.getElementsByClassName("ds-selected");
+        if(selectedElements.length !== 0) {
+          const repetitionIcon = createRepetitionIcon(getRepeatSection(selectedElements));
+          selectedElements[selectedElements.length - 1].append(repetitionIcon);
+        }
       }
     });
+  }
+
+  const createRepetitionIcon = (section) => {
+    const result = document.createElement('i');
+    result.className = "repetition xi-repeat";
+    result.onclick = () => {startRepeat(section.begin, section.end + 1)};
+    return result;
+  }
+
+  const getRepeatSection = (selectedElements) => {
+    const beginIndex = parseInt(selectedElements[0].id.slice(3));
+    const endIndex = parseInt(selectedElements[selectedElements.length - 1].id.slice(3));
+    const begin = getBegin(beginIndex);
+    const end = getEnd(endIndex);
+    return {
+      begin: begin,
+      end: end
+    }
+  }
+
+  const getBegin = (idx) => {
+    return script[idx].begin;
+  }
+
+  const getEnd = (idx) => {
+    return script[idx].end;
   }
 
   const startRepeat = (begin, end) => {
@@ -142,8 +166,7 @@ function YoutubePlayer() {
     for(let i = 0; i < script.length; ++i) {
       if(script[`${i}`].begin <= curSecond && curSecond <= script[`${i}`].end) {
         const targetTag = document.getElementById("caption");
-        if(targetTag != null)
-          targetTag.innerText = script[`${i}`].sentence;
+        if(targetTag != null) targetTag.innerText = script[`${i}`].sentence;
         break;
       }
     }
