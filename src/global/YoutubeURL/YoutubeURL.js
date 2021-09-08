@@ -8,14 +8,19 @@ function YoutubeURL(props) {
   const onClickOk = () => {
     const inputUrl = document.getElementById("youtube-url").value;
     console.log("input url : " + inputUrl);
+    const formBody = new FormData();
+    formBody.append("type", "YOUTUBE");
+    formBody.append("youtubeURL", inputUrl);
+    formBody.append("categoryId", JSON.stringify([20]));
 
     axios({
       method: "post",
       url: network.baseURL + "media",
-      params: {"category": "메롱",
-        "type": "YOUTUBE",
-        "youtubeURL": inputUrl},
-      headers: {"ACCESS-TOKEN": getCookie("jwt")}
+      data: formBody,
+      headers: {
+        "ACCESS-TOKEN": getCookie("jwt"),
+        "Content-Type": "multipart/form-data"
+      }
     })
       .then(res => {
         console.log(res);
@@ -25,7 +30,7 @@ function YoutubeURL(props) {
           sameSite: "none"
         });
         window.location.href = "/youtube";
-      })
+      }).catch(err => console.log("변환 실패!", err))
 
     props.setMode(props.type.LOADING);
   }
