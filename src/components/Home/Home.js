@@ -40,7 +40,7 @@ function Home(props) {
           if(res.data.success) setCookieDefaultOption("jwt", res.data.data.jwt);
           else loginWithNaver(token);
           props.history.push('/');
-          //window.location.reload();
+          setTimeout(() => window.location.reload(), 200);
         }).catch(err => console.log("실패", err));
     }
   })
