@@ -1,0 +1,13 @@
+test:
+    stage: deploy
+    only:
+        - dev
+    script:
+        - cd /home/ubuntu/ishadow-react
+        - git add .
+        - git commit -m "build"
+        - git pull
+        - npm install
+        - npm run build
+    tags:
+        - test
