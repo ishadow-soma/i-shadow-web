@@ -18,7 +18,6 @@ function YoutubePlayer() {
   let repetition = null;
   let script;
   let videoCode;
-  let preRepetitionIcon;
 
   useEffect(() => {
     requestVideo();
@@ -101,6 +100,7 @@ function YoutubePlayer() {
     return result;
   }
 
+  let preIcon = null;
   const setDragSelect = () => {
     new DragSelect({
       selectables: document.querySelectorAll('.item'),
@@ -110,11 +110,14 @@ function YoutubePlayer() {
         // if(document.getElementsByClassName("repetition").length > 1) preRepetitionIcon.remove();
 
         const selectedElements = document.getElementsByClassName("ds-selected");
-        if(selectedElements.length !== 0) {
+        if(selectedElements.length > 0) {
           const repetitionIcon = createRepetitionIcon(getRepeatSection(selectedElements));
-          preRepetitionIcon = repetitionIcon;
           selectedElements[selectedElements.length - 1].append(repetitionIcon);
         }
+
+        const repetitionIcons = document.getElementsByClassName("repetition");
+        if(preIcon !== null) preIcon.remove();
+        if(repetitionIcons.length > 0) preIcon = repetitionIcons[repetitionIcons.length - 1];
       }
     });
   }
