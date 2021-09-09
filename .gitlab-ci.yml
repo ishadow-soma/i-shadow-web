@@ -1,0 +1,10 @@
+stages:
+    - build
+
+build:
+    script: 
+        - git add .
+        - git commit -m "build"
+        - git pull
+        - npm install
+        - npm run build
