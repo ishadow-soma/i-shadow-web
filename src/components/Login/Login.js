@@ -37,6 +37,7 @@ function Login(props) {
       }
     }).catch(err => console.log("일반 로그인 실패", err))
     props.history.push("/");
+    setTimeout(() => window.location.reload(), 100);
   }
 
   const onKeyPress = (e) => {
@@ -86,6 +87,7 @@ function Login(props) {
             console.log("구글로 로그인 회원가입 및 로그인 성공", res);
           }
           else loginWithGoogle(googleUser);
+          setTimeout(() => window.location.reload(), 200);
           props.history.push("/");
         })
       }, err => alert(JSON.stringify(err, undefined, 2)));

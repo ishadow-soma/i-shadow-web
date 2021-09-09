@@ -1,5 +1,6 @@
 import {getCookie, setCookieDefaultOption} from "./cookie";
 import axios from "axios";
+import {createStore} from "@reduxjs/toolkit";
 
 export let user = {
   isLogin: false,
@@ -24,6 +25,8 @@ export let user = {
         if(res.data.success) {
           console.log("유저 정보 가져오기 성공!", res);
           user.setUser(res.data.data);
+          userInfo.dispatch({type: "LOGIN"});
+          console.log(userInfo.getState())
         }
 
         else {
@@ -49,6 +52,7 @@ export let user = {
   logout: () => {
     setCookieDefaultOption("jwt", null);
     user.clearUser();
+    userInfo.dispatch({type: "LOGOUT"});
   },
 
   clearUser: () => {
@@ -65,5 +69,18 @@ export let user = {
 const network = {
   baseURL: "/api/"
 }
+
+function testUser(state = false, action) {
+  switch (action.type) {
+    case 'LOGIN':
+      return true;
+    case 'LOGOUT':
+      return false;
+    default:
+      return false;
+  }
+}
+
+export let userInfo = createStore(testUser);
 
 export default network;
