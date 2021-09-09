@@ -37,7 +37,7 @@ function YoutubePlayer() {
       .then(res => {
         console.log(res);
         videoCode = res.data.data.videoURL.split("=")[1];
-        setTitle(res.data.data.videoTitle);
+        setTitle(res.data.data.videoName);
         console.log(`video code : ${videoCode}`);
         script = res.data.data.sentences.map(it => {
           return {
