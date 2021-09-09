@@ -23,5 +23,3 @@ deploy:
         - git pull
         - npm install
         - npm run build
-    tags:
-        - test
