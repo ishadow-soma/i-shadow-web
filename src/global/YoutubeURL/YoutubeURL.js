@@ -11,7 +11,7 @@ function YoutubeURL(props) {
     const formBody = new FormData();
     formBody.append("type", "YOUTUBE");
     formBody.append("youtubeURL", inputUrl);
-    formBody.append("categoryId", JSON.stringify([20]));
+    formBody.append("categoryId", [20]);
 
     axios({
       method: "post",
