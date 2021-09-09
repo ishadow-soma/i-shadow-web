@@ -1,17 +1,18 @@
 stages:
-    - test
     - build
+    - test
     - deploy
-
-test:
-    stage: test
-    script:
-        - echo test
 
 build:
     stage: build
     script:
         - echo test
+
+test:
+    stage: test
+    script:
+        - echo test
+        - touch runnertest
 
 deploy:
     stage: deploy
