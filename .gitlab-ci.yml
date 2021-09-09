@@ -3,6 +3,16 @@ stages:
     - build
     - deploy
 
+test:
+    stage: test
+    script:
+        - echo test
+
+build:
+    stage: build
+    script:
+        - echo test
+
 deploy:
     stage: deploy
     script:
