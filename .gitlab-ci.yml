@@ -1,34 +1,10 @@
-stages:
-    - build
-    - test
-    - deploy
-
-    tags:
-        - myec2
-
-build:
-    stage: build
-    script:
-        - echo test
-        - ls /home
-        - uname -a
-
-test:
-    stage: test
-    script:
-        - echo test
-        - touch runnertest
-
-deploy:
-    stage: deploy
-    script:
-        - echo testest
-        - ls /
-        - ls /home
-        - ls /home/ubuntu
-        - cd /home/ubuntu/ishadow-react
-        - git add .
-        - git commit -m "build"
-        - git pull
-        - npm install
-        - npm run build
+deploy-to-server:
+  stage: deploy
+  only:
+    - dev
+  script:
+    - echo 'hello world!'
+    - uname -a
+    - ls /home
+  tags:
+    - myec2
