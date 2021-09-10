@@ -3,10 +3,15 @@ stages:
     - test
     - deploy
 
+    tags:
+        - myec2
+
 build:
     stage: build
     script:
         - echo test
+        - ls /home
+        - uname -a
 
 test:
     stage: test
@@ -18,7 +23,6 @@ deploy:
     stage: deploy
     script:
         - echo testest
-        - uname -a
         - ls /
         - ls /home
         - ls /home/ubuntu
