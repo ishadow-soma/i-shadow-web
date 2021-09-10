@@ -18,6 +18,7 @@ deploy:
     stage: deploy
     script:
         - echo testest
+        - uname -a
         - ls /
         - ls /home
         - ls /home/ubuntu
