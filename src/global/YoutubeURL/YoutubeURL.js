@@ -21,18 +21,28 @@ function YoutubeURL(props) {
         "ACCESS-TOKEN": getCookie("jwt"),
         "Content-Type": "multipart/form-data"
       }
-    })
-      .then(res => {
-        console.log(res);
-        setCookie('videoId', res.data.data.videoId, {
-          path: "/",
-          secure: true,
-          sameSite: "none"
-        });
-        window.location.href = "/youtube";
-      }).catch(err => console.log("변환 실패!", err))
+    }).then(res => {
 
-    props.setMode(props.type.LOADING);
+        console.log(res);
+        if(res.data.success) {
+          setCookie('videoId', res.data.data.videoId, {
+            path: "/",
+            secure: true,
+            sameSite: "none"
+          });
+          window.location.href = "/youtube";
+          props.setMode(props.type.LOADING);
+        }
+        else {
+          alert("서버로 요청하는 과정에서 변환에 실패했습니다!")
+        }
+      }).catch(err => {
+
+        // TODO : 잘못된 input 값 front 에서 판별하기
+        // TODO : 만약 서버에서 공유 URL 처리가 안 되어 있다면 프론트에서 파싱해서 주기.
+        alert("예외 발생! 변환에 실패했습니다.");
+        console.log("변환 실패!", err)
+    })
   }
 
   return (
