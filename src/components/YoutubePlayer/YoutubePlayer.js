@@ -106,9 +106,6 @@ function YoutubePlayer() {
       selectables: document.querySelectorAll('.item'),
       draggability: false,
       callback: e => {
-        // TODO : 기존 반복 아이콘 삭제
-        // if(document.getElementsByClassName("repetition").length > 1) preRepetitionIcon.remove();
-
         const selectedElements = document.getElementsByClassName("ds-selected");
         if(selectedElements.length > 0) {
           const repetitionIcon = createRepetitionIcon(getRepeatSection(selectedElements));
@@ -128,6 +125,8 @@ function YoutubePlayer() {
     result.onclick = () => {startRepeat(section.begin, section.end + 1)};
     return result;
   }
+
+  let beginIndex;
 
   const getRepeatSection = (selectedElements) => {
     const beginIndex = parseInt(selectedElements[0].id.slice(3));

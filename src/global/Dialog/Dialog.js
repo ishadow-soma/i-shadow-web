@@ -53,7 +53,7 @@ function Dialog(props) {
   const getModal = () => {
     switch (mode) {
       case type.YOUTUBE_URL:  return <YoutubeURL cancelAction={props.cancelAction} setMode={setMode} type={type}/>
-      case type.UPLOAD:       return <div id="file-upload"><FileUpload/></div>
+      case type.UPLOAD:       return <div id="file-upload"><FileUpload cancelAction={props.cancelAction}/></div>
       case type.LOADING:      return <Loading/>
       case type.COMPLETION:   return <Completion/>
       case type.FAIL:

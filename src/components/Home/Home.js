@@ -4,6 +4,7 @@ import network from 'global/store/store';
 import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
 import Dialog from "global/Dialog/Dialog";
+import {user} from "global/store/store";
 import Modal from "react-modal";
 import axios from "axios";
 import {setCookieDefaultOption} from "global/store/cookie";
@@ -59,7 +60,11 @@ function Home(props) {
 
   function openModal(type) {
     setModal(type);
-    setIsOpen(true);
+    if(user.isLogin) setIsOpen(true);
+    else {
+      alert("로그인이 필요합니다.");
+      props.history.push("/login");
+    }
   }
 
   function closeModal() {

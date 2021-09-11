@@ -1,7 +1,7 @@
 import React from "react";
 import "./FileUpload.css"
 
-function FileUpload() {
+function FileUpload(props) {
   return (
     <div>
       <div className="file-upload">
@@ -24,9 +24,9 @@ function FileUpload() {
       </div>
 
       <div className="btn-container">
-        <button type="submit" value="ok" className="ok">확인
+        <button type="submit" value="ok" className="ok" onClick={() => {alert("아직 지원하지 않는 기능입니다.")}}>확인
         </button>
-        <button type="submit" value="cancel" className="cancel">취소</button>
+        <button type="submit" value="cancel" className="cancel" onClick={props.cancelAction}>취소</button>
       </div>
     </div>
 
