@@ -106,15 +106,23 @@ function YoutubePlayer() {
       selectables: document.querySelectorAll('.item'),
       draggability: false,
       callback: e => {
+        // 새 버튼 생성
         const selectedElements = document.getElementsByClassName("ds-selected");
         if(selectedElements.length > 0) {
           const repetitionIcon = createRepetitionIcon(getRepeatSection(selectedElements));
           selectedElements[selectedElements.length - 1].append(repetitionIcon);
         }
 
+        // 이전 버튼 삭제, 버튼 클릭시 드래그 셀렉트도 발생하므로 딜레이 주고 삭제
         const repetitionIcons = document.getElementsByClassName("repetition");
-        if(preIcon !== null) preIcon.remove();
-        if(repetitionIcons.length > 0) preIcon = repetitionIcons[repetitionIcons.length - 1];
+        if(preIcon !== null && repetitionIcons.length > 1) {
+          setTimeout(() => {
+            preIcon.remove()
+            preIcon = repetitionIcons[0];
+            console.log("remove")
+          }, 100);
+        }
+        else preIcon = repetitionIcons[0];
       }
     });
   }
@@ -125,8 +133,6 @@ function YoutubePlayer() {
     result.onclick = () => {startRepeat(section.begin, section.end + 1)};
     return result;
   }
-
-  let beginIndex;
 
   const getRepeatSection = (selectedElements) => {
     const beginIndex = parseInt(selectedElements[0].id.slice(3));
@@ -213,7 +219,6 @@ function YoutubePlayer() {
                     <li className="item">
                       <button className="time-stamp">1:23</button>
                       <p>더미 텍스트 ^^</p>
-                      <i className="xi-repeat repetition"/>
                     </li>
                     {/* 이곳에 스크립트 렌더링  */}
                   </ul>
