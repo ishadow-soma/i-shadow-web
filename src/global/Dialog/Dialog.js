@@ -37,6 +37,9 @@ function Dialog(props) {
       setTitle("File Upload");
       setDescription("음성파일 혹은 영상파일을 업로드 하세요.");
     }
+    if(mode === type.LOADING) {
+      setDescription("섀도잉 콘텐츠를 만들고 있습니다.");
+    }
   }, [title, description, mode]);
 
   const onComplete = () => {
