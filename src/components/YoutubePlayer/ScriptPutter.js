@@ -1,4 +1,16 @@
-export default function ScriptPutter(player, sentence) {
+export default function ScriptPutter(player, sentence, index) {
+  const createListItem = (index) => {
+    const result = document.createElement('li');
+    result.className = "item";
+    result.id = `idx${index}`;
+    createElements(sentence).forEach(it => result.append(it));
+    return result;
+  }
+
+  const createElements = (sentence) => {
+    return [createTimeStamp(sentence), createSentence(sentence)]
+  }
+
   const createTimeStamp = (sentence) => {
     const result = document.createElement('button');
     result.innerText = `${parseInt(sentence.begin / 60)}:${parseInt(sentence.begin % 60)}`;
@@ -26,5 +38,5 @@ export default function ScriptPutter(player, sentence) {
       element.className = element.className.replace(className, " ").trim();
   }
 
-  return [createTimeStamp(sentence), createSentence(sentence)];
+  return createListItem(index);
 }

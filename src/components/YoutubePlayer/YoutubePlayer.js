@@ -70,20 +70,8 @@ function YoutubePlayer() {
 
   const setScript = () => {
     const insertHere = document.getElementById("script");
-    script.forEach((sentence, index) => insertHere.append(createListItem(index, createElements(sentence))));
+    script.forEach((sentence, index) => insertHere.append(ScriptPutter(player, sentence, index)));
     setDragSelect();
-  }
-
-  const createListItem = (index, elements) => {
-    const result = document.createElement('li');
-    result.className = "item";
-    result.id = `idx${index}`;
-    elements.forEach(it => result.append(it));
-    return result;
-  }
-
-  const createElements = (sentence) => {
-    return ScriptPutter(player, sentence);
   }
 
   let preIcon = null;
