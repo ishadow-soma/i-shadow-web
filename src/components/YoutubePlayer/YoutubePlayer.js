@@ -50,7 +50,6 @@ function YoutubePlayer() {
         setVideo(videoCode);
         setUrl(`https://youtu.be/${videoCode}`);
         setScript();
-        //ScriptPutter(script, createListItem, createElements());
       })
   }
 
@@ -84,17 +83,7 @@ function YoutubePlayer() {
   }
 
   const createElements = (sentence) => {
-    const timeStamp = createTimeStamp(sentence);
-    const p = ScriptPutter(sentence);
-    return [timeStamp, p];
-  }
-
-  const createTimeStamp = (sentence) => {
-    const result = document.createElement('button');
-    result.innerText = `${parseInt(sentence.begin / 60)}:${parseInt(sentence.begin % 60)}`;
-    result.className = "time-stamp";
-    result.onclick = () => onSeek(sentence.begin);
-    return result;
+    return ScriptPutter(player, sentence);
   }
 
   let preIcon = null;
@@ -178,19 +167,6 @@ function YoutubePlayer() {
 
   const endRepetition = () => {
     clearInterval(repetition);
-  }
-
-  const onSeek = (seconds = 40) => {
-    player.seek(seconds);
-    const selectedItem = document.getElementsByClassName("ds-selected")[0];
-    removeClass(selectedItem, "ds-selected");
-  };
-
-  const removeClass = (element, className) => {
-    if(element === undefined) return;
-
-    if(element.className.search(className) !== -1)
-      element.className = element.className.replace(className, " ").trim();
   }
 
   // 현재 스크립트 -> 자막
