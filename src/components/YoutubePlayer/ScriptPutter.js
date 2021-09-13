@@ -1,5 +1,11 @@
-export default function ScriptPutter(player, sentence, index) {
-  const createListItem = (index) => {
+export default function ScriptPutter(player, script) {
+  const setScript = () => {
+    const insertHere = document.getElementById("script");
+    script.forEach((sentence, index) => insertHere.append(createListItem(index, sentence)));
+    //setDragSelect();
+  }
+
+  const createListItem = (index, sentence) => {
     const result = document.createElement('li');
     result.className = "item";
     result.id = `idx${index}`;
@@ -38,5 +44,5 @@ export default function ScriptPutter(player, sentence, index) {
       element.className = element.className.replace(className, " ").trim();
   }
 
-  return createListItem(index);
+  setScript();
 }

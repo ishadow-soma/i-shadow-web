@@ -69,8 +69,9 @@ function YoutubePlayer() {
   }
 
   const setScript = () => {
-    const insertHere = document.getElementById("script");
-    script.forEach((sentence, index) => insertHere.append(ScriptPutter(player, sentence, index)));
+    //const insertHere = document.getElementById("script");
+    //script.forEach((sentence, index) => insertHere.append(ScriptPutter(player, sentence, index)));
+    ScriptPutter(player, script);
     setDragSelect();
   }
 
