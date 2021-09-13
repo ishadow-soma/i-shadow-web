@@ -1,5 +1,5 @@
 import './YoutubePlayer.css';
-import React, {useEffect, useState} from "react";
+import React, {createElement, useEffect, useState} from "react";
 import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
 import axios from "axios";
@@ -7,6 +7,7 @@ import network from "global/store/store";
 import {getCookie} from "global/store/cookie";
 import DragSelect from "dragselect";
 import { Scrollbar } from "react-scrollbars-custom";
+import ScriptPutter from "./ScriptPutter";
 
 const YTPlayer = require('yt-player');
 
@@ -18,6 +19,7 @@ function YoutubePlayer() {
   let repetition = null;
   let script;
   let videoCode;
+  let ds;
 
   useEffect(() => {
     requestVideo();
@@ -48,6 +50,7 @@ function YoutubePlayer() {
         setVideo(videoCode);
         setUrl(`https://youtu.be/${videoCode}`);
         setScript();
+        //ScriptPutter(script, createListItem, createElements());
       })
   }
 
@@ -82,7 +85,7 @@ function YoutubePlayer() {
 
   const createElements = (sentence) => {
     const timeStamp = createTimeStamp(sentence);
-    const p = createSentence(sentence);
+    const p = ScriptPutter(sentence);
     return [timeStamp, p];
   }
 
@@ -94,15 +97,9 @@ function YoutubePlayer() {
     return result;
   }
 
-  const createSentence = (sentence) => {
-    const result = document.createElement('p');
-    result.innerText = sentence.sentence;
-    return result;
-  }
-
   let preIcon = null;
   const setDragSelect = () => {
-    new DragSelect({
+    ds = new DragSelect({
       selectables: document.querySelectorAll('.item'),
       draggability: false,
       callback: e => {
@@ -134,9 +131,16 @@ function YoutubePlayer() {
     return result;
   }
 
+  let originBegin;
+  let originEnd;
+  let setTime;
   const getRepeatSection = (selectedElements) => {
     const beginIndex = parseInt(selectedElements[0].id.slice(3));
     const endIndex = parseInt(selectedElements[selectedElements.length - 1].id.slice(3));
+    setTime = setTimeout(()=> {
+      originBegin = beginIndex;
+      originEnd = endIndex;
+    }, 100);
     const begin = getBegin(beginIndex);
     const end = getEnd(endIndex);
     return {
@@ -154,6 +158,12 @@ function YoutubePlayer() {
   }
 
   const startRepeat = (begin, end) => {
+    // TODO : 그냥 기존 아이콘 지우고 새로 만들자
+    clearTimeout(setTime);
+    for(let i = originBegin; i <= originEnd; ++i) {
+      ds.addSelection(document.getElementsByClassName("item")[i], false, false);
+    }
+
     if(repetition !== null)
       endRepetition();
 
@@ -225,7 +235,7 @@ function YoutubePlayer() {
               <div className="content">
                 <Scrollbar style={{ width: 400, height: 640}}>
                   <ul id="script" style={{display: contentType === 0 ? "block" : "none"}}>
-                    <li className="item">
+                    <li className="">
                       <button className="time-stamp">1:23</button>
                       <p>더미 텍스트 ^^</p>
                     </li>
