@@ -2,7 +2,6 @@ export default function ScriptPutter(player, script) {
   const setScript = () => {
     const insertHere = document.getElementById("script");
     script.forEach((sentence, index) => insertHere.append(createListItem(index, sentence)));
-    //setDragSelect();
   }
 
   const createListItem = (index, sentence) => {
