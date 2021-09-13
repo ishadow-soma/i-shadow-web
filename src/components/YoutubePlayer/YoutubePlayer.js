@@ -6,7 +6,7 @@ import axios from "axios";
 import network from "global/store/store";
 import {getCookie} from "global/store/cookie";
 import { Scrollbar } from "react-scrollbars-custom";
-import ScriptPutter from "./scriptPutter";
+import setScript from "./setScript";
 import setDragSelect from "./setDragSelect";
 
 const YTPlayer = require('yt-player');
@@ -47,7 +47,7 @@ function YoutubePlayer() {
         });
         setVideo(videoCode);
         setUrl(`https://youtu.be/${videoCode}`);
-        ScriptPutter(player, script);
+        setScript(player, script);
         setDragSelect(player, script);
       })
   }

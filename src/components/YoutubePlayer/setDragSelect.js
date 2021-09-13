@@ -9,7 +9,7 @@ export default function setDragSelect(player, script) {
       // 새 버튼 생성
       const selectedElements = document.getElementsByClassName("ds-selected");
       if(selectedElements.length > 0) {
-        const repetitionIcon = createRepetitionIcon(getRepeatSection(selectedElements));
+        const repetitionIcon = createRepetitionIcon();
         selectedElements[selectedElements.length - 1].append(repetitionIcon);
       }
 
@@ -26,30 +26,23 @@ export default function setDragSelect(player, script) {
   });
 
   let repetition = null;
-
-  const createRepetitionIcon = (section) => {
-    const result = document.createElement('i');
-    result.className = "repetition xi-repeat";
-    result.onclick = () => {startRepeat(section.begin, section.end + 1)};
-    return result;
-  }
-
   let originBegin;
   let originEnd;
   let setTime;
-  const getRepeatSection = (selectedElements) => {
+  const createRepetitionIcon = () => {
+    const result = document.createElement('i');
+    result.className = "repetition xi-repeat";
+    result.onclick = () => {startRepeat()};
+
+    const selectedElements = document.getElementsByClassName("ds-selected");
     const beginIndex = parseInt(selectedElements[0].id.slice(3));
     const endIndex = parseInt(selectedElements[selectedElements.length - 1].id.slice(3));
     setTime = setTimeout(()=> {
       originBegin = beginIndex;
       originEnd = endIndex;
     }, 100);
-    const begin = getBegin(beginIndex);
-    const end = getEnd(endIndex);
-    return {
-      begin: begin,
-      end: end
-    }
+
+    return result;
   }
 
   const getBegin = (idx) => {
@@ -60,8 +53,22 @@ export default function setDragSelect(player, script) {
     return script[idx].end;
   }
 
-  const startRepeat = (begin, end) => {
-    // TODO : 그냥 기존 아이콘 지우고 새로 만들자
+  const startRepeat = () => {
+    setTimeout(() => {
+      const selectedElements = document.getElementsByClassName("ds-selected");
+      const beginIndex = parseInt(selectedElements[0].id.slice(3));
+      const endIndex = parseInt(selectedElements[selectedElements.length - 1].id.slice(3));
+      const begin = getBegin(beginIndex);
+      const end = getEnd(endIndex) + 1;
+
+      player.seek(begin);
+
+      const len = (end - begin) * 1000;
+      repetition = setInterval(() => {
+        player.seek(begin);
+      }, len);
+    }, 100);
+
     clearTimeout(setTime);
     for(let i = originBegin; i <= originEnd; ++i) {
       ds.addSelection(document.getElementsByClassName("item")[i], false, false);
@@ -69,14 +76,6 @@ export default function setDragSelect(player, script) {
 
     if(repetition !== null)
       endRepetition();
-
-    const len = (end - begin) * 1000;
-
-    player.seek(begin);
-
-    repetition = setInterval(() => {
-      player.seek(begin);
-    }, len);
   }
 
   const endRepetition = () => {
