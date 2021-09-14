@@ -8,6 +8,7 @@ import Modal from "react-modal";
 import network, {user} from "global/store/store";
 import axios from "axios";
 import {getCookie, setCookie} from "global/store/cookie";
+import setMyContents from "./setMyContents";
 
 const customStyles = {
   content: {
@@ -57,62 +58,10 @@ function MyRoom(props) {
 
       if(res.data.success) {
         res.data.data.youtubeVideos.forEach(it => {
-          insertYoutubeContent(it.videoId, it.title, it.thumbNailURL);
+          setMyContents(it.videoId, it.title, it.thumbNailURL, props);
         })
       }
     })
-  }
-
-  function insertYoutubeContent(videoId, title, thumbnail) {
-    const insertHere = document.getElementById("converted-youtube");
-    const li = createListItem(videoId, title, thumbnail);
-
-    insertHere.insertBefore(li, insertHere.firstChild)
-  }
-
-  const createListItem = (videoId, title, thumbnail) => {
-    const result = document.createElement("li");
-    const thumbnailElement = createThumbnail(videoId, title, thumbnail);
-
-    result.append(thumbnailElement);
-
-    return result;
-  }
-
-  const createThumbnail = (videoId, title, thumbnail) => {
-    const result = document.createElement("div");
-    const icon = createPlayIcon();
-    const titleElement = createContentTitle(title);
-
-    result.className = "youtube-content";
-    result.onclick = () => redirectYoutube(videoId);
-    result.style.backgroundImage = `url('${thumbnail}')`;
-    result.append(titleElement);
-    result.append(icon);
-
-    return result;
-  }
-
-  const createContentTitle = (title) => {
-    const result = document.createElement("p");
-    result.innerText = title;
-    return result;
-  }
-
-  const createPlayIcon = () => {
-    const result = document.createElement("i");
-    result.className = "xi-play xi-2x";
-    return result;
-  }
-
-  function redirectYoutube(videoId) {
-    setCookie('videoId', videoId, {
-      path: "/",
-      secure: true,
-      sameSite: "none"
-    });
-
-    props.history.push("/youtube");
   }
 
   return (
