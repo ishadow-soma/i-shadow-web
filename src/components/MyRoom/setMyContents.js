@@ -1,30 +1,30 @@
-import {setCookie} from "../../global/store/cookie";
+import {setCookie} from "global/store/cookie";
 
-export default function setMyContents(videoId, title, thumbnail, props) {
-  function insertYoutubeContent(videoId, title, thumbnail) {
+export default function setMyContents(video, props) {
+  function insertYoutubeContent(video) {
     const insertHere = document.getElementById("converted-youtube");
-    const li = createListItem(videoId, title, thumbnail);
+    const li = createListItem(video);
 
     insertHere.insertBefore(li, insertHere.firstChild)
   }
 
-  const createListItem = (videoId, title, thumbnail) => {
+  const createListItem = (video) => {
     const result = document.createElement("li");
-    const thumbnailElement = createThumbnail(videoId, title, thumbnail);
+    const thumbnailElement = createThumbnail(video);
 
     result.append(thumbnailElement);
 
     return result;
   }
 
-  const createThumbnail = (videoId, title, thumbnail) => {
+  const createThumbnail = (video) => {
     const result = document.createElement("div");
     const icon = createPlayIcon();
-    const titleElement = createContentTitle(title);
+    const titleElement = createContentTitle(video.title);
 
     result.className = "youtube-content";
-    result.onclick = () => redirectYoutube(videoId);
-    result.style.backgroundImage = `url('${thumbnail}')`;
+    result.onclick = () => redirectYoutube(video.videoId);
+    result.style.backgroundImage = `url('${video.thumbNailURL}')`;
     result.append(titleElement);
     result.append(icon);
 
@@ -53,5 +53,5 @@ export default function setMyContents(videoId, title, thumbnail, props) {
     props.history.push("/youtube");
   }
 
-  insertYoutubeContent(videoId, title, thumbnail);
+  insertYoutubeContent(video);
 }

@@ -58,7 +58,7 @@ function MyRoom(props) {
 
       if(res.data.success) {
         res.data.data.youtubeVideos.forEach(it => {
-          setMyContents(it.videoId, it.title, it.thumbNailURL, props);
+          setMyContents(it, props);
         })
       }
     })
