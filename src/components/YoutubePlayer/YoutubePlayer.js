@@ -68,12 +68,16 @@ function YoutubePlayer() {
   }
 
   // 현재 스크립트 -> 자막
+  let preSentence = null
   const setCurrentSentence = () => {
     let curSecond = player.getCurrentTime();
     for(let i = 0; i < script.length; ++i) {
       if(script[`${i}`].begin <= curSecond && curSecond <= script[`${i}`].end) {
         const targetTag = document.getElementById("caption");
         if(targetTag != null) targetTag.innerText = script[`${i}`].sentence;
+        if(preSentence !== null) preSentence.style.color = "#FFFFFF";
+        preSentence = document.getElementById(`idx${i}`);
+        preSentence.style.color = "#00FFD3";
         break;
       }
     }
