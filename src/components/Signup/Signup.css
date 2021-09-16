@@ -1,157 +1,333 @@
-.sign-up-page {
-    display: flex;
-    justify-content: space-between;
+@media screen and (min-width: 1025px) {
+    .sign-up-page {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* left */
+
+    .sign-up-page .flex-left {
+        margin-left: 240px;
+    }
+
+    .sign-up-page h1 {
+        margin-top: 138px;
+        margin-bottom: 56px;
+        font-size: 46px;
+        font-weight: 600;
+        color: #2F3F65;
+        text-align: center;
+    }
+
+    .sign-up-page a {
+        font-size: 18px;
+    }
+
+    .sign-up-page .authorization,
+    .sign-up-page .email {
+        margin-bottom: 30px;
+    }
+
+    .sign-up-page .flex-left .input {
+        display: flex;
+        align-items: center;
+        padding-left: 24px;
+        width: 552px;
+        height: 68px;
+        border-radius: 10px;
+        border: 1px solid #B4D0FF;
+        font-size: 20px;
+    }
+
+    .sign-up-page .flex-left span {
+        color: #2F7AF9;
+    }
+
+    .sign-up-page .flex-left input {
+        height: 28px;
+        border: none;
+        font-size: 20px;
+        padding: 20px 24px;
+    }
+
+    .sign-up-page .flex-left input:focus {
+        outline: none;
+    }
+
+    .sign-up-page .email button {
+        padding: 4px;
+        display: block;
+        margin-left: auto;
+        font-size: 18px;
+        border: none;
+        background-color: white;
+        color: #2F7AF9;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .sign-up-page .authorization {
+        position: relative;
+    }
+
+    .sign-up-page .authorization a {
+        position: absolute;
+        color: #2F7AF9;
+        right: 4px;
+        bottom: 4px;
+    }
+
+    .sign-up-page .authorization button {
+        position: absolute;
+        color: #2F7AF9;
+        right: 4px;
+        bottom: 4px;
+        border: none;
+        background-color: white;
+        font-size: 18px;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .sign-up-page .authorization p {
+        padding: 4px;
+    }
+
+    .sign-up-page .password .input {
+        margin-bottom: 30px
+    }
+
+    .sign-up-page .btn-submit {
+        display: block;
+        width: 552px;
+        height: 68px;
+        border-radius: 10px;
+        border: none;
+        background-color: #2F7AF9;
+        color: white;
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+
+    .sign-up-page .or {
+        color: #8898BF;
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 32px;
+    }
+
+    /* right */
+
+    .sign-up-page .signup-background {
+        background-image: url("/src/assets/member.jpg");
+        background-size: cover;
+        background-position: center center;
+        display: block;
+        width: 888px;
+        height: 627px;
+        border-bottom-right-radius: 100px;
+    }
+
+    .sign-up-page .flex-right {
+        width: 888px;
+        height: 1080px;
+        background-color: #2F7AF9;
+        border-bottom-left-radius: 200px;
+        color: white;
+    }
+
+    .sign-up-page .flex-right h2 {
+        font-size: 56px;
+        margin-top: 72px;
+        margin-left: 108px;
+        line-height: 69px;
+        margin-bottom: 36px;
+    }
+
+    .sign-up-page .flex-right p {
+        font-size: 22px;
+        margin-left: 108px;
+    }
+
+    /* sns login */
+
+    .sns-login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
-/* left */
+@media screen and (max-width: 1024px) {
+    .sign-up-page .flex-left {
+        margin: 0 auto;
+        padding: 0 24px;
+    }
 
-.sign-up-page .flex-left {
-    margin-left: 240px;
-}
+    .sign-up-page .flex-left h1 {
+        text-transform: capitalize;
+        text-align: center;
+        margin-top: 64px;
+        margin-bottom: 40px;
+        font-weight: 600;
+    }
 
-.sign-up-page h1 {
-    margin-top: 138px;
-    margin-bottom: 56px;
-    font-size: 46px;
-    font-weight: 600;
-    color: #2F3F65;
-    text-align: center;
-}
+    .sign-up-page .flex-left p {
+        font-size: 16px;
+        color: #8898BF;
+        text-align: left;
+    }
 
-.sign-up-page a {
-    font-size: 18px;
-}
+    .sign-up-page .flex-left .input {
+        display: flex;
+        align-items: center;
+        padding-left: 24px;
+        width: 100%;
+        height: 68px;
+        border-radius: 10px;
+        border: 1px solid #B4D0FF;
+        font-size: 20px;
+    }
 
-.sign-up-page .authorization,
-.sign-up-page .email {
-    margin-bottom: 30px;
-}
+    .sign-up-page .flex-left span {
+        color: #2F7AF9;
+    }
 
-.sign-up-page .flex-left .input {
-    display: flex;
-    align-items: center;
-    padding-left: 24px;
-    width: 552px;
-    height: 68px;
-    border-radius: 10px;
-    border: 1px solid #B4D0FF;
-    font-size: 20px;
-}
+    .sign-up-page .flex-left input {
+        height: 28px;
+        border: none;
+        font-size: 20px;
+        padding: 20px 24px;
+    }
 
-.sign-up-page .flex-left span {
-    color: #2F7AF9;
-}
+    .sign-up-page .flex-left input:focus {
+        outline: none;
+    }
 
-.sign-up-page .flex-left input {
-    height: 28px;
-    border: none;
-    font-size: 20px;
-    padding: 20px 24px;
-}
+    .sign-up-page .authorization,
+    .sign-up-page .email,
+    .sign-up-page .password .input {
+        margin-bottom: 24px;
+    }
 
-.sign-up-page .flex-left input:focus {
-    outline: none;
-}
+    .sign-up-page .email button {
+        padding: 4px;
+        display: block;
+        margin-left: auto;
+        font-size: 18px;
+        border: none;
+        background-color: white;
+        color: #2F7AF9;
+        text-decoration: underline;
+        cursor: pointer;
+    }
 
-.sign-up-page .email button {
-    padding: 4px;
-    display: block;
-    margin-left: auto;
-    font-size: 18px;
-    border: none;
-    background-color: white;
-    color: #2F7AF9;
-    text-decoration: underline;
-    cursor: pointer;
-}
+    .sign-up-page .authorization button {
+        display: block;
+        width: 100%;
+        text-align: right;
+        position: relative;
+        color: #2F7AF9;
+        bottom: 24px;
+        right: 4px;
+        border: none;
+        background-color: white;
+        font-size: 18px;
+        text-decoration: underline;
+        cursor: pointer;
+        z-index: -1;
+    }
 
-.sign-up-page .authorization {
-    position: relative;
-}
+    .sign-up-page .btn-submit {
+        display: block;
+        width: 100%;
+        height: 68px;
+        border-radius: 10px;
+        border: none;
+        background-color: #2F7AF9;
+        text-transform: uppercase;
+        color: white;
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
 
-.sign-up-page .authorization a {
-    position: absolute;
-    color: #2F7AF9;
-    right: 4px;
-    bottom: 4px;
-}
+    .sign-up-page p.or {
+        color: #8898BF;
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
 
-.sign-up-page .authorization button {
-    position: absolute;
-    color: #2F7AF9;
-    right: 4px;
-    bottom: 4px;
-    border: none;
-    background-color: white;
-    font-size: 18px;
-    text-decoration: underline;
-    cursor: pointer;
-}
+    .sign-up-page p a {
+        color: #2F7AF9;
+    }
 
-.sign-up-page .authorization p {
-    padding: 4px;
-}
+    .sign-up-page .flex-right {
+        display: none;
+    }
 
-.sign-up-page .password .input {
-    margin-bottom: 30px
-}
+    /* 네이버 로그인 */
 
-.sign-up-page .btn-submit {
-    display: block;
-    width: 552px;
-    height: 68px;
-    border-radius: 10px;
-    border: none;
-    background-color: #2F7AF9;
-    color: white;
-    font-size: 24px;
-    margin-bottom: 40px;
-}
+    #naverIdLogin {
+        margin-bottom: 30px;
+        width: 100%;
+        cursor: pointer;
+    }
 
-.sign-up-page .or {
-    color: #8898BF;
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 32px;
-}
+    #naverIdLogin .xi-naver {
+        color: #03C75A;
+        margin-right: 12px;
+        font-size: 30px;
+    }
 
-/* right */
+    #naverIdLogin_loginButton {
+        color: #2f3f65;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        vertical-align: middle;
+        font-size: 24px;
+        font-weight: 600;
+        width: 100%;
+        height: 67px;
+        border: #e4e4e8 1px solid;
+        border-radius: 10px;
+        padding-right: 10px;
+    }
 
-.sign-up-page .signup-background {
-    background-image: url("/src/assets/member.jpg");
-    background-size: cover;
-    background-position: center center;
-    display: block;
-    width: 888px;
-    height: 627px;
-    border-bottom-right-radius: 100px;
-}
+    /* 구글 로그인 */
 
-.sign-up-page .flex-right {
-    width: 888px;
-    height: 1080px;
-    background-color: #2F7AF9;
-    border-bottom-left-radius: 200px;
-    color: white;
-}
+    #customBtn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #F2F6FE;
+        width: 100%;
+        height: 67px;
+        border-radius: 10px;
+        border: none;
+        white-space: nowrap;
+        margin-bottom: 30px;
+    }
 
-.sign-up-page .flex-right h2 {
-    font-size: 56px;
-    margin-top: 72px;
-    margin-left: 108px;
-    line-height: 69px;
-    margin-bottom: 36px;
-}
+    #gSignInWrapper {
+        width: 100%;
+    }
 
-.sign-up-page .flex-right p {
-    font-size: 22px;
-    margin-left: 108px;
-}
+    #customBtn .google-icon {
+        width: 24px;
+        height: 24px;
+        background-image: url("/src/assets/Google__G__Logo.svg");
+    }
 
-/* sns login */
+    #customBtn:hover {
+        cursor: pointer;
+    }
 
-.sns-login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    #customBtn span.buttonText {
+        color: #2F3F65;
+        padding-left: 15px;
+        font-size: 24px;
+        font-weight: 600;
+    }
 }
