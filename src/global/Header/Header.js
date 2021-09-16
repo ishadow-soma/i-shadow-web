@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import { user } from "global/store/store";
 
 function Header(props) {
-  // eslint-disable-next-line no-unused-vars
-  const [render, setRender] = useState(false);
+  const [, setRender] = useState(false);
 
   useEffect(() => {
     if (user.isLogin) return;

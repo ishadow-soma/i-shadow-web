@@ -17,6 +17,12 @@ function Signup(props) {
   // 이메일 중복 확인 및 인증번호 발송
   const requestAuthorizationCode = () => {
     const inputEmail = document.getElementById("email").value;
+
+    if(!validateEmail(inputEmail)) {
+      alert("이메일 형식이 잘못되었습니다.");
+      return;
+    }
+
     // 중복 확인
     axios
       .post(network.baseURL + "users/duplication-email", { email: inputEmail })
@@ -30,6 +36,13 @@ function Signup(props) {
           alert("이미 가입된 이메일입니다.");
         }
       });
+  };
+
+  const validateEmail = (email) => {
+    const regExpression =
+      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+    return email.match(regExpression) != null;
   };
 
   // 이메일 인증하기
