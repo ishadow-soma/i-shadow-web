@@ -1,17 +1,17 @@
 .fail {
-    background-color: #F2F6FE;
-    padding: 22px;
-    margin: 0 40px 34px;
-    border-radius: 10px;
+  background-color: #f2f6fe;
+  padding: 22px;
+  margin: 0 40px 34px;
+  border-radius: 10px;
 }
 
 .fail p {
-    color: #001833;
-    font-size: 20px;
-    margin-bottom: 0;
-    text-align: center;
+  color: #001833;
+  font-size: 20px;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .fail span {
-    color: #FF1100;
+  color: #ff1100;
 }

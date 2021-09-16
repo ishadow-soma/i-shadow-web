@@ -1,6 +1,6 @@
-import {getCookie, setCookieDefaultOption} from "./cookie";
+import { getCookie, setCookieDefaultOption } from "./cookie";
 import axios from "axios";
-import {createStore} from "@reduxjs/toolkit";
+import { createStore } from "@reduxjs/toolkit";
 
 export let user = {
   isLogin: false,
@@ -13,31 +13,29 @@ export let user = {
 
   // 로그인 확인 후 유저 정보 세팅
   verifyLogin: async () => {
-    user.token = getCookie("jwt")
-    if(user.token == null)
-      return;
+    user.token = getCookie("jwt");
+    if (user.token == null) return;
 
     await axios({
       method: "get",
       url: network.baseURL + "users",
-      headers: {"ACCESS-TOKEN": user.token}
-    }).then(res => {
-        if(res.data.success) {
+      headers: { "ACCESS-TOKEN": user.token },
+    })
+      .then((res) => {
+        if (res.data.success) {
           console.log("유저 정보 가져오기 성공!", res);
           user.setUser(res.data.data);
-          userInfo.dispatch({type: "LOGIN"});
-          console.log(userInfo.getState())
-        }
-
-        else {
+          userInfo.dispatch({ type: "LOGIN" });
+          console.log(userInfo.getState());
+        } else {
           user.clearUser();
           console.log("유저 정보 가져오기 실패!", res);
         }
-      }).catch(err => {
-
+      })
+      .catch((err) => {
         user.clearUser();
         console.log("유저 정보 가져오기 실패!", err);
-    })
+      });
   },
 
   setUser: (getUser) => {
@@ -52,7 +50,7 @@ export let user = {
   logout: () => {
     setCookieDefaultOption("jwt", null);
     user.clearUser();
-    userInfo.dispatch({type: "LOGOUT"});
+    userInfo.dispatch({ type: "LOGOUT" });
   },
 
   clearUser: () => {
@@ -63,18 +61,18 @@ export let user = {
     user.gender = null;
     user.myPoint = 0;
     user.age = 0;
-  }
+  },
 };
 
 const network = {
-  baseURL: "/api/"
-}
+  baseURL: "/api/",
+};
 
 function testUser(state = false, action) {
   switch (action.type) {
-    case 'LOGIN':
+    case "LOGIN":
       return true;
-    case 'LOGOUT':
+    case "LOGOUT":
       return false;
     default:
       return false;

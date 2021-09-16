@@ -49,5 +49,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://ishadow.kr"
+  "proxy": "https://ishadow.kr",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "prettier": "^2.4.1"
+  }
 }

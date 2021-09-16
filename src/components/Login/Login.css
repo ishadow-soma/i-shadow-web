@@ -1,323 +1,322 @@
 @media screen and (min-width: 1025px) {
-    .login {
-        display: flex;
-        justify-content: space-between;
-    }
+  .login {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    /* left */
+  /* left */
 
-    .login .flex-left {
-        margin-left: 240px;
-    }
+  .login .flex-left {
+    margin-left: 240px;
+  }
 
-    .login .flex-left h1 {
-        text-transform: capitalize;
-        text-align: center;
-        margin-top: 138px;
-        margin-bottom: 56px;
-        font-weight: 600;
-    }
+  .login .flex-left h1 {
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 138px;
+    margin-bottom: 56px;
+    font-weight: 600;
+  }
 
-    .login .flex-left .input {
-        display: flex;
-        align-items: center;
-        padding-left: 24px;
-        width: 552px;
-        height: 68px;
-        border-radius: 10px;
-        border: 1px solid #B4D0FF;
-        font-size: 20px;
-    }
+  .login .flex-left .input {
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    width: 552px;
+    height: 68px;
+    border-radius: 10px;
+    border: 1px solid #b4d0ff;
+    font-size: 20px;
+  }
 
-    .login .flex-left span {
-        color: #2F7AF9;
-    }
+  .login .flex-left span {
+    color: #2f7af9;
+  }
 
-    .login .flex-left input {
-        height: 28px;
-        border: none;
-        font-size: 20px;
-        padding: 20px 24px;
-    }
+  .login .flex-left input {
+    height: 28px;
+    border: none;
+    font-size: 20px;
+    padding: 20px 24px;
+  }
 
-    .login .flex-left input:focus {
-        outline: none;
-    }
+  .login .flex-left input:focus {
+    outline: none;
+  }
 
-    .login .btn-submit {
-        display: block;
-        width: 552px;
-        height: 68px;
-        border-radius: 10px;
-        border: none;
-        background-color: #2F7AF9;
-        text-transform: uppercase;
-        color: white;
-        font-size: 24px;
-        margin-bottom: 8px;
-    }
+  .login .btn-submit {
+    display: block;
+    width: 552px;
+    height: 68px;
+    border-radius: 10px;
+    border: none;
+    background-color: #2f7af9;
+    text-transform: uppercase;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
 
-    .login .find-password {
-        display: block;
-        color: #2F3F65;
-        text-align: center;
-        margin-bottom: 40px;
-    }
+  .login .find-password {
+    display: block;
+    color: #2f3f65;
+    text-align: center;
+    margin-bottom: 40px;
+  }
 
-    .login .or {
-        color: #8898BF;
-        text-align: center;
-        font-size: 24px;
-        margin-bottom: 32px;
-    }
+  .login .or {
+    color: #8898bf;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
 
-    .login .flex-left p {
-        font-size: 22px;
-        color: #8898BF;
-        text-align: center;
-    }
+  .login .flex-left p {
+    font-size: 22px;
+    color: #8898bf;
+    text-align: center;
+  }
 
-    .login p a {
-        color: #2F7AF9;
-    }
+  .login p a {
+    color: #2f7af9;
+  }
 
-    /* right */
+  /* right */
 
-    .login .flex-right {
-        width: 888px;
-        height: 1080px;
-        border-bottom-left-radius: 200px;
-        background-color: #2F7AF9;
-        overflow: hidden;
-        color: white;
-    }
+  .login .flex-right {
+    width: 888px;
+    height: 1080px;
+    border-bottom-left-radius: 200px;
+    background-color: #2f7af9;
+    overflow: hidden;
+    color: white;
+  }
 
-    .login .flex-right h2 {
-        font-size: 56px;
-        font-weight: 500;
-        line-height: 68px;
-        padding: 72px 108px 36px;
-    }
+  .login .flex-right h2 {
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 68px;
+    padding: 72px 108px 36px;
+  }
 
-    .login .flex-right p {
-        font-size: 22px;
-        padding-left: 108px;
-    }
+  .login .flex-right p {
+    font-size: 22px;
+    padding-left: 108px;
+  }
 
-    .login .flex-right span {
-        background-image: url("/src/assets/member.jpg");
-        background-position: center center;
-        background-size: cover;
-        display: block;
-        width: 888px;
-        height: 627px;
-        border-bottom-right-radius: 100px;
-    }
+  .login .flex-right span {
+    background-image: url("/src/assets/member.jpg");
+    background-position: center center;
+    background-size: cover;
+    display: block;
+    width: 888px;
+    height: 627px;
+    border-bottom-right-radius: 100px;
+  }
 
-    /* sns login */
-    /* google sign in custom */
+  /* sns login */
+  /* google sign in custom */
 
-    #customBtn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #F2F6FE;
-        width: 550px;
-        height: 67px;
-        border-radius: 10px;
-        border: none;
-        white-space: nowrap;
-        margin-bottom: 30px;
-    }
-    #customBtn .google-icon {
-        width: 24px;
-        height: 24px;
-        background-image: url("/src/assets/Google__G__Logo.svg");
-    }
+  #customBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f6fe;
+    width: 550px;
+    height: 67px;
+    border-radius: 10px;
+    border: none;
+    white-space: nowrap;
+    margin-bottom: 30px;
+  }
+  #customBtn .google-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url("/src/assets/Google__G__Logo.svg");
+  }
 
-    #customBtn:hover {
-        cursor: pointer;
-    }
-    #customBtn span.buttonText {
-        color: #2F3F65;
-        padding-left: 15px;
-        font-size: 24px;
-        font-weight: 600;
-    }
+  #customBtn:hover {
+    cursor: pointer;
+  }
+  #customBtn span.buttonText {
+    color: #2f3f65;
+    padding-left: 15px;
+    font-size: 24px;
+    font-weight: 600;
+  }
 
-    /* 네이버 아이디로 로그인 */
+  /* 네이버 아이디로 로그인 */
 
-    #naverIdLogin {
-        margin-bottom: 30px;
-        cursor: pointer;
-    }
+  #naverIdLogin {
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
 
-    #naverIdLogin .xi-naver {
-        color: #03C75A;
-        margin-right: 12px;
-        font-size: 30px;
-    }
+  #naverIdLogin .xi-naver {
+    color: #03c75a;
+    margin-right: 12px;
+    font-size: 30px;
+  }
 
-    #naverIdLogin_loginButton {
-        color: #2f3f65;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        vertical-align: middle;
-        font-size: 24px;
-        font-weight: 600;
-        width: 550px;
-        height: 67px;
-        border: #e4e4e8 1px solid;
-        border-radius: 10px;
-        padding-right: 10px;
-    }
+  #naverIdLogin_loginButton {
+    color: #2f3f65;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 24px;
+    font-weight: 600;
+    width: 550px;
+    height: 67px;
+    border: #e4e4e8 1px solid;
+    border-radius: 10px;
+    padding-right: 10px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
+  .login .flex-left {
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-    .login .flex-left {
-        margin: 0 auto;
-        padding: 0 24px;
-    }
+  .login .flex-left h1 {
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 64px;
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
 
-    .login .flex-left h1 {
-        text-transform: capitalize;
-        text-align: center;
-        margin-top: 64px;
-        margin-bottom: 40px;
-        font-weight: 600;
-    }
+  .login .flex-left .input {
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    width: 100%;
+    height: 68px;
+    border-radius: 10px;
+    border: 1px solid #b4d0ff;
+    font-size: 20px;
+  }
 
-    .login .flex-left .input {
-        display: flex;
-        align-items: center;
-        padding-left: 24px;
-        width: 100%;
-        height: 68px;
-        border-radius: 10px;
-        border: 1px solid #B4D0FF;
-        font-size: 20px;
-    }
+  .login .flex-left span {
+    color: #2f7af9;
+  }
 
-    .login .flex-left span {
-        color: #2F7AF9;
-    }
+  .login .flex-left input {
+    height: 28px;
+    border: none;
+    font-size: 20px;
+    padding: 20px 24px;
+  }
 
-    .login .flex-left input {
-        height: 28px;
-        border: none;
-        font-size: 20px;
-        padding: 20px 24px;
-    }
+  .login .flex-left input:focus {
+    outline: none;
+  }
 
-    .login .flex-left input:focus {
-        outline: none;
-    }
+  .login .btn-submit {
+    display: block;
+    width: 100%;
+    height: 68px;
+    border-radius: 10px;
+    border: none;
+    background-color: #2f7af9;
+    text-transform: uppercase;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
 
-    .login .btn-submit {
-        display: block;
-        width: 100%;
-        height: 68px;
-        border-radius: 10px;
-        border: none;
-        background-color: #2F7AF9;
-        text-transform: uppercase;
-        color: white;
-        font-size: 24px;
-        margin-bottom: 8px;
-    }
+  .login .find-password {
+    display: block;
+    color: #2f3f65;
+    margin-bottom: 24px;
+    text-align: center;
+  }
 
-    .login .find-password {
-        display: block;
-        color: #2F3F65;
-        margin-bottom: 24px;
-        text-align: center;
-    }
+  .login .or {
+    color: #8898bf;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
 
-    .login .or {
-        color: #8898BF;
-        text-align: center;
-        font-size: 24px;
-        margin-bottom: 24px;
-    }
+  .login .flex-left p {
+    font-size: 22px;
+    color: #8898bf;
+    text-align: center;
+  }
 
-    .login .flex-left p {
-        font-size: 22px;
-        color: #8898BF;
-        text-align: center;
-    }
+  .login p a {
+    color: #2f7af9;
+  }
 
-    .login p a {
-        color: #2F7AF9;
-    }
+  .login .flex-right {
+    display: none;
+  }
 
-    .login .flex-right {
-        display: none;
-    }
+  /* 네이버 로그인 */
 
-    /* 네이버 로그인 */
+  #naverIdLogin {
+    margin-bottom: 30px;
+    width: 100%;
+    cursor: pointer;
+  }
 
-    #naverIdLogin {
-        margin-bottom: 30px;
-        width: 100%;
-        cursor: pointer;
-    }
+  #naverIdLogin .xi-naver {
+    color: #03c75a;
+    margin-right: 12px;
+    font-size: 30px;
+  }
 
-    #naverIdLogin .xi-naver {
-        color: #03C75A;
-        margin-right: 12px;
-        font-size: 30px;
-    }
+  #naverIdLogin_loginButton {
+    color: #2f3f65;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    font-size: 24px;
+    font-weight: 600;
+    width: 100%;
+    height: 67px;
+    border: #e4e4e8 1px solid;
+    border-radius: 10px;
+    padding-right: 10px;
+  }
 
-    #naverIdLogin_loginButton {
-        color: #2f3f65;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        vertical-align: middle;
-        font-size: 24px;
-        font-weight: 600;
-        width: 100%;
-        height: 67px;
-        border: #e4e4e8 1px solid;
-        border-radius: 10px;
-        padding-right: 10px;
-    }
+  /* 구글 로그인 */
 
-    /* 구글 로그인 */
+  #customBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f6fe;
+    width: 100%;
+    height: 67px;
+    border-radius: 10px;
+    border: none;
+    white-space: nowrap;
+    margin-bottom: 30px;
+  }
 
-    #customBtn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #F2F6FE;
-        width: 100%;
-        height: 67px;
-        border-radius: 10px;
-        border: none;
-        white-space: nowrap;
-        margin-bottom: 30px;
-    }
+  #gSignInWrapper {
+    width: 100%;
+  }
 
-    #gSignInWrapper {
-        width: 100%;
-    }
+  #customBtn .google-icon {
+    width: 24px;
+    height: 24px;
+    background-image: url("/src/assets/Google__G__Logo.svg");
+  }
 
-    #customBtn .google-icon {
-        width: 24px;
-        height: 24px;
-        background-image: url("/src/assets/Google__G__Logo.svg");
-    }
+  #customBtn:hover {
+    cursor: pointer;
+  }
 
-    #customBtn:hover {
-        cursor: pointer;
-    }
-
-    #customBtn span.buttonText {
-        color: #2F3F65;
-        padding-left: 15px;
-        font-size: 24px;
-        font-weight: 600;
-    }
+  #customBtn span.buttonText {
+    color: #2f3f65;
+    padding-left: 15px;
+    font-size: 24px;
+    font-weight: 600;
+  }
 }

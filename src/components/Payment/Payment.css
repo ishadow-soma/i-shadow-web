@@ -1,83 +1,83 @@
 .payment .payment-header {
-    text-align: center;
-    color: #2F3F65
+  text-align: center;
+  color: #2f3f65;
 }
 
 .payment h1 {
-    margin-top: 60px;
-    margin-bottom: 15px;
-    font-size: 40px;
-    font-weight: 500;
+  margin-top: 60px;
+  margin-bottom: 15px;
+  font-size: 40px;
+  font-weight: 500;
 }
 
 .payment .description {
-    font-size: 22px;
-    margin-bottom: 32px;
+  font-size: 22px;
+  margin-bottom: 32px;
 }
 
 /* payment model */
 
 .payment .payment-model {
-    width: 544px;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 30px;
-    padding: 55px 42px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.16);
-    font-size: 20px;
-    font-weight: 500;
+  width: 544px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 30px;
+  padding: 55px 42px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.16);
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .payment .payment-model li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 460px;
-    height: 60px;
-    margin-bottom: 26px;
-    padding: 13px 0 13px 32px;
-    list-style: none;
-    border-radius: 30px;
-    background-color: #F2F6FE;
-    overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 460px;
+  height: 60px;
+  margin-bottom: 26px;
+  padding: 13px 0 13px 32px;
+  list-style: none;
+  border-radius: 30px;
+  background-color: #f2f6fe;
+  overflow: hidden;
 }
 
 .payment .payment-model li:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .payment .payment-model p {
-    color: #001833;
+  color: #001833;
 }
 
 .payment .payment-model .p-icon {
-    display: inline-block;
-    width: 33px;
-    height: 33px;
-    background-color: #2F7AF9;
-    font-size: 22px;
-    color: white;
-    text-align: center;
-    border-radius: 50%;
-    margin-right: 10px;
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  background-color: #2f7af9;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 .payment .payment-model span {
-    color: #2F7AF9;
+  color: #2f7af9;
 }
 
 .payment .payment-model a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 245px;
-    height: 60px;
-    background-color: #2F7AF9;
-    color: white;
-    text-decoration: none;
-    border-top-left-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 245px;
+  height: 60px;
+  background-color: #2f7af9;
+  color: white;
+  text-decoration: none;
+  border-top-left-radius: 30px;
 }
 
 .payment .payment-model a:hover {
-    background-color: #1A59FA;
+  background-color: #1a59fa;
 }

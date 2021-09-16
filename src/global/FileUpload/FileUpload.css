@@ -1,52 +1,52 @@
 .file-upload {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 32px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 32px;
 }
 
 .file-upload .btn-upload {
-    border: #A6C4FB 1px dashed;
-    background-color: #F2F6FE;
-    border-radius: 10px;
-    width: 540px;
-    height: 200px;
+  border: #a6c4fb 1px dashed;
+  background-color: #f2f6fe;
+  border-radius: 10px;
+  width: 540px;
+  height: 200px;
 }
 
 .file-upload .btn-upload h2 {
-    text-align: center;
-    margin-bottom: 12px;
-    font-size: 18px;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 18px;
 }
 
 .file-upload .btn-upload .large-icon {
-    display: block;
-    color: #8898BF;
-    margin-top: 26px;
-    text-align: center;
-    font-size: 70px;
+  display: block;
+  color: #8898bf;
+  margin-top: 26px;
+  text-align: center;
+  font-size: 70px;
 }
 
 .file-upload .filebox label {
-    display: flex;
-    width: 160px;
-    height: 42px;
-    color: #2F7AF9;
-    background-color: white;
-    cursor: pointer;
-    border: #A6C4FB 1px solid;
-    border-radius: 21px;
-    margin: 0 auto;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  width: 160px;
+  height: 42px;
+  color: #2f7af9;
+  background-color: white;
+  cursor: pointer;
+  border: #a6c4fb 1px solid;
+  border-radius: 21px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .file-upload .filebox input[type="file"] {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip:rect(0,0,0,0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }

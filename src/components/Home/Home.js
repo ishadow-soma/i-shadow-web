@@ -1,24 +1,24 @@
-import React, {useEffect, useState} from "react";
-import './Home.css';
-import network from 'global/store/store';
+import React, { useEffect, useState } from "react";
+import "./Home.css";
+import network from "global/store/store";
 import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
 import Dialog from "global/Dialog/Dialog";
-import {user} from "global/store/store";
+import { user } from "global/store/store";
 import Modal from "react-modal";
 import axios from "axios";
-import {setCookieDefaultOption} from "global/store/cookie";
+import { setCookieDefaultOption } from "global/store/cookie";
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    border: 'none',
-    borderRadius: '15px',
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    border: "none",
+    borderRadius: "15px",
   },
 };
 
@@ -29,38 +29,44 @@ function Home(props) {
   useEffect(() => {
     const location = props.location;
     // 네이버 로그인
-    if(location.hash) {
+    if (location.hash) {
       // URI 에서 토큰 가져오기
-      const token = props.location.hash.split('=')[1].split('&')[0];
+      const token = props.location.hash.split("=")[1].split("&")[0];
       console.log(token);
-      axios.post(network.baseURL + 'users', {
-        "sns": "NAVER",
-        "userToken": token
-      }).then((res) => {
+      axios
+        .post(network.baseURL + "users", {
+          sns: "NAVER",
+          userToken: token,
+        })
+        .then((res) => {
           // if 신규 회원 else 기존 회원
-          if(res.data.success) setCookieDefaultOption("jwt", res.data.data.jwt);
+          if (res.data.success)
+            setCookieDefaultOption("jwt", res.data.data.jwt);
           else loginWithNaver(token);
-          props.history.push('/');
+          props.history.push("/");
           setTimeout(() => window.location.reload(), 200);
-        }).catch(err => console.log("실패", err));
+        })
+        .catch((err) => console.log("실패", err));
     }
-  })
+  });
 
   const loginWithNaver = async (token) => {
     console.log("네이버 로그인 로그인 시도");
-    await axios.post(network.baseURL + 'login', {
-      "sns": "NAVER",
-      "userToken": token
-    }).then((res) => {
-
-      if(res.data.success) setCookieDefaultOption("jwt", res.data.data.jwt);
-      else console.log("네이버 로그인 실패!");
-    }).catch(err => console.log(err))
-  }
+    await axios
+      .post(network.baseURL + "login", {
+        sns: "NAVER",
+        userToken: token,
+      })
+      .then((res) => {
+        if (res.data.success) setCookieDefaultOption("jwt", res.data.data.jwt);
+        else console.log("네이버 로그인 실패!");
+      })
+      .catch((err) => console.log(err));
+  };
 
   function openModal(type) {
     setModal(type);
-    if(user.isLogin) setIsOpen(true);
+    if (user.isLogin) setIsOpen(true);
     else {
       alert("로그인이 필요합니다.");
       props.history.push("/login");
@@ -73,30 +79,42 @@ function Home(props) {
 
   return (
     <div className="wrap">
-      <Header/>
+      <Header />
       <main>
         <div className="flex-left">
-          <div onClick={() => {openModal(0)}} className="card">
+          <div
+            onClick={() => {
+              openModal(0);
+            }}
+            className="card"
+          >
             <h2>Youtube URL</h2>
             <p>
-              유튜브 URL로 <br/>
+              유튜브 URL로 <br />
               손쉽게 콘텐츠를 추가해 보세요.
             </p>
             <span>start now →</span>
-            <i className="xi-youtube-play xi-5x"/>
+            <i className="xi-youtube-play xi-5x" />
           </div>
 
-          <div onClick={() => {openModal(1)}} className="card">
+          <div
+            onClick={() => {
+              openModal(1);
+            }}
+            className="card"
+          >
             <h2>File Upload</h2>
-            <p>영상 또는 음성 파일을 업로드해 <br/>
-              손쉽게 콘텐츠를 추가해 보세요.</p>
+            <p>
+              영상 또는 음성 파일을 업로드해 <br />
+              손쉽게 콘텐츠를 추가해 보세요.
+            </p>
             <span>start now →</span>
-            <i className="xi-upload xi-5x"/>
+            <i className="xi-upload xi-5x" />
           </div>
-          <Footer/>
+          <Footer />
         </div>
         <div className="flex-right">
-          <span className="home-background"/>
+          <span className="home-background" />
         </div>
 
         {/* 모달 */}
@@ -106,12 +124,12 @@ function Home(props) {
             onRequestClose={closeModal}
             style={customStyles}
           >
-            <Dialog type={modal} cancelAction={closeModal}/>
+            <Dialog type={modal} cancelAction={closeModal} />
           </Modal>
         </div>
       </main>
     </div>
-  )
+  );
 }
 
 export default Home;

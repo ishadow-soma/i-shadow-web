@@ -1,138 +1,138 @@
 /* left */
 
 .edit-profile {
-    display: flex;
-    justify-content: space-between;
-    color: #2F3F65;
-    margin-left: 240px;
-    font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: #2f3f65;
+  margin-left: 240px;
+  font-size: 20px;
 }
 
 .edit-profile h1 {
-    font-size: 46px;
-    font-weight: 600;
-    margin-top: 168px;
-    margin-bottom: 60px;
-    text-align: center;
+  font-size: 46px;
+  font-weight: 600;
+  margin-top: 168px;
+  margin-bottom: 60px;
+  text-align: center;
 }
 
 .edit-profile .my-email {
-    width: 550px;
-    border: none;
-    border-radius: 10px;
-    background-color: #F2F6FE;
-    padding: 18px 24px;
-    margin-bottom: 30px;
+  width: 550px;
+  border: none;
+  border-radius: 10px;
+  background-color: #f2f6fe;
+  padding: 18px 24px;
+  margin-bottom: 30px;
 }
 
 .edit-profile .my-email p {
-    display: inline;
-    margin-left: 24px;
+  display: inline;
+  margin-left: 24px;
 }
 
 .edit-profile .flex-left .input {
-    display: flex;
-    align-items: center;
-    padding-left: 24px;
-    width: 552px;
-    height: 68px;
-    border-radius: 10px;
-    border: 1px solid #B4D0FF;
-    font-size: 20px;
-    margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  width: 552px;
+  height: 68px;
+  border-radius: 10px;
+  border: 1px solid #b4d0ff;
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 
 .edit-profile .flex-left span {
-    color: #2F7AF9;
+  color: #2f7af9;
 }
 
 .edit-profile .flex-left input {
-    height: 28px;
-    border: none;
-    font-size: 20px;
-    padding: 20px 24px;
+  height: 28px;
+  border: none;
+  font-size: 20px;
+  padding: 20px 24px;
 }
 
 .edit-profile input:focus {
-    outline: none;
-    color: #2F7AF9;
+  outline: none;
+  color: #2f7af9;
 }
 
 .edit-profile .sex-container {
-    display: flex;
-    justify-content: space-between;
-    width: 550px;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 550px;
+  margin-bottom: 30px;
 }
 
 .edit-profile .sex-container .sex-component {
-    width: 260px;
-    border: #B4D0FF solid 1px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  width: 260px;
+  border: #b4d0ff solid 1px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .edit-profile .sex-container .sex-component input {
-    width: 24px;
-    height: 24px;
-    margin: 18px 24px;
+  width: 24px;
+  height: 24px;
+  margin: 18px 24px;
 }
 
 .edit-profile button {
-    font-size: 22px;
-    color: #2F3F65;
-    width: 550px;
-    height: 65px;
-    border: 1px solid #8898BF;
-    border-radius: 10px;
-    background-color: white;
+  font-size: 22px;
+  color: #2f3f65;
+  width: 550px;
+  height: 65px;
+  border: 1px solid #8898bf;
+  border-radius: 10px;
+  background-color: white;
 }
 
 .edit-profile button.btn-submit {
-    font-size: 24px;
-    font-weight: 600;
-    background-color: #2F7AF9;
-    border: none;
-    color: white;
+  font-size: 24px;
+  font-weight: 600;
+  background-color: #2f7af9;
+  border: none;
+  color: white;
 }
 
 .edit-profile .or {
-    text-align: center;
-    margin: 40px 0 30px 0;
-    color: #8898BF;
+  text-align: center;
+  margin: 40px 0 30px 0;
+  color: #8898bf;
 }
 
 /* right */
 
 .edit-profile .flex-right {
-    width: 888px;
-    height: 1080px;
-    background-color: #2F7AF9;
-    color: white;
-    border-bottom-left-radius: 200px;
+  width: 888px;
+  height: 1080px;
+  background-color: #2f7af9;
+  color: white;
+  border-bottom-left-radius: 200px;
 }
 
 .edit-profile .flex-right h2 {
-    font-size: 56px;
-    line-height: 68px;
-    margin-left: 108px;
-    margin-top: 72px;
-    margin-bottom: 32px;
-    font-weight: 400;
+  font-size: 56px;
+  line-height: 68px;
+  margin-left: 108px;
+  margin-top: 72px;
+  margin-bottom: 32px;
+  font-weight: 400;
 }
 
 .edit-profile .flex-right p {
-    margin-left: 108px;
+  margin-left: 108px;
 }
 
 .edit-profile .flex-right span {
-    background-image: url("/src/assets/member.jpg");
-    background-position: center center;
-    background-size: cover;
-    display: block;
-    width: 888px;
-    height: 627px;
-    border-bottom-right-radius: 100px;
+  background-image: url("/src/assets/member.jpg");
+  background-position: center center;
+  background-size: cover;
+  display: block;
+  width: 888px;
+  height: 627px;
+  border-bottom-right-radius: 100px;
 }

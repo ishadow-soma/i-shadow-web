@@ -1,11 +1,11 @@
-import {setCookie} from "global/store/cookie";
+import { setCookie } from "global/store/cookie";
 
 export default function setMyContents(video, props) {
   function insertYoutubeContent(video) {
     const insertHere = document.getElementById("converted-youtube");
     const li = createListItem(video);
 
-    insertHere.insertBefore(li, insertHere.firstChild)
+    insertHere.insertBefore(li, insertHere.firstChild);
   }
 
   const createListItem = (video) => {
@@ -15,7 +15,7 @@ export default function setMyContents(video, props) {
     result.append(thumbnailElement);
 
     return result;
-  }
+  };
 
   const createThumbnail = (video) => {
     const result = document.createElement("div");
@@ -29,25 +29,25 @@ export default function setMyContents(video, props) {
     result.append(icon);
 
     return result;
-  }
+  };
 
   const createContentTitle = (title) => {
     const result = document.createElement("p");
     result.innerText = title;
     return result;
-  }
+  };
 
   const createPlayIcon = () => {
     const result = document.createElement("i");
     result.className = "xi-play xi-2x";
     return result;
-  }
+  };
 
   function redirectYoutube(videoId) {
-    setCookie('videoId', videoId, {
+    setCookie("videoId", videoId, {
       path: "/",
       secure: true,
-      sameSite: "none"
+      sameSite: "none",
     });
 
     props.history.push("/youtube");

@@ -1,88 +1,121 @@
-.ReactModalPortal {
+@media screen and (min-width: 1025px) {
+  .ReactModalPortal {
     border-radius: 15px;
     overflow: hidden;
-}
+  }
 
-dialog {
+  dialog {
     border-radius: 15px;
     margin: auto auto;
     z-index: 1;
     font-family: "NotoSansCJKkr", serif;
-}
+  }
 
-#modal {
+  #modal {
     border-radius: 15px;
     margin: auto auto;
     font-family: "NotoSansCJKkr", serif;
-}
+  }
 
-.modal {
+  .modal {
     display: block;
     width: 1200px;
-    color: #2F3F65;
+    color: #2f3f65;
     background-color: white;
     z-index: 10;
     padding-top: 45px;
     padding-bottom: 50px;
-}
+  }
 
-.modal h1 {
+  .modal h1 {
     font-size: 40px;
     margin-bottom: 10px;
     font-weight: 500;
-}
+  }
 
-.modal p {
+  .modal p {
     margin-bottom: 28px;
     font-size: 20px;
-}
+  }
 
-.modal button {
+  .modal button {
     cursor: pointer;
-}
+  }
 
-.modal h1,
-.modal p {
+  .modal h1,
+  .modal p {
     text-align: center;
-}
+  }
 
-.modal input {
+  .modal input {
     width: 950px;
     margin: 0 auto;
     display: block;
-    background-color: #F2F6FE;
+    background-color: #f2f6fe;
     font-size: 18px;
     padding: 8px 24px;
     border: none;
-}
+  }
 
-.modal input::placeholder {
-    color: #8898BF;
-}
+  .modal input::placeholder {
+    color: #8898bf;
+  }
 
-.modal .btn-container {
+  .modal .btn-container {
     display: flex;
     justify-content: center;
-}
+  }
 
-.modal .btn-container button {
+  .modal .btn-container button {
     font-size: 20px;
     margin: 0 15px;
-}
+  }
 
-.modal button {
+  .modal button {
     display: block;
     width: 200px;
     height: 60px;
     border: none;
     border-radius: 30px;
     color: white;
+  }
+
+  .modal button.ok {
+    background-color: #2f7af9;
+  }
+
+  .modal button.cancel {
+    background-color: #2f3f65;
+  }
 }
 
-.modal button.ok {
-    background-color: #2F7AF9;
-}
+@media screen and (max-width: 1024px) {
+  .ReactModalPortal {
+    border-radius: 15px;
+    overflow: hidden;
+  }
 
-.modal button.cancel {
-    background-color: #2F3F65;
+  dialog {
+    border-radius: 15px;
+    margin: auto auto;
+    z-index: 1;
+    font-family: "NotoSansCJKkr", serif;
+    padding: 24px;
+  }
+
+  #modal {
+    border-radius: 15px;
+    margin: auto auto;
+    font-family: "NotoSansCJKkr", serif;
+  }
+
+  .modal {
+    display: block;
+    width: 100%;
+    color: #2f3f65;
+    background-color: white;
+    z-index: 10;
+    padding-top: 45px;
+    padding-bottom: 50px;
+  }
 }

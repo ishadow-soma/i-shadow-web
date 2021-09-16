@@ -1,197 +1,197 @@
 .youtube-player {
-    padding-top: 70px;
-    display: flex;
-    justify-content: space-between;
+  padding-top: 70px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* video frame */
 
 .youtube-player .video-frame h1 {
-    color: #001833;
-    font-size: 40px;
-    margin-bottom: 20px;
+  color: #001833;
+  font-size: 40px;
+  margin-bottom: 20px;
 }
 
 .youtube-player .video-frame h2 {
-    color: #2F7AF9;
-    font-size: 18px;
-    margin-bottom: 4px;
+  color: #2f7af9;
+  font-size: 18px;
+  margin-bottom: 4px;
 }
 
 .youtube-player .video-frame a {
-    text-decoration: none;
-    color: #8898BF;
-    font-size: 18px;
+  text-decoration: none;
+  color: #8898bf;
+  font-size: 18px;
 }
 
 /* caption */
 
 .youtube-player .caption {
-    border-top: rgba(255, 255, 255, 0.12) solid 1px;
-    position: relative;
-    top: -4px;
-    height: 108px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-color: #2f3f65;
-    font-size: 32px;
-    margin-bottom: 20px;
+  border-top: rgba(255, 255, 255, 0.12) solid 1px;
+  position: relative;
+  top: -4px;
+  height: 108px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: #2f3f65;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
 /* script */
 
 .youtube-player .script .tab {
-    cursor: pointer;
-    margin-left: 20px;
-    color: white;
-    background-color: #8898BF;
-    width: 110px;
-    height: 38px;
-    border-radius: 5px 20px 0 0;
-    border: none;
-    border-bottom: rgba(255, 255, 255, 0.12) solid 1px;
+  cursor: pointer;
+  margin-left: 20px;
+  color: white;
+  background-color: #8898bf;
+  width: 110px;
+  height: 38px;
+  border-radius: 5px 20px 0 0;
+  border: none;
+  border-bottom: rgba(255, 255, 255, 0.12) solid 1px;
 }
 
 .youtube-player .script .tab.selected {
-    background-color: #001833;
+  background-color: #001833;
 }
 
 /* content */
 
 .youtube-player .content {
-    min-width: 360px;
-    width: 448px;
-    height: 700px;
-    color: white;
-    background-color: #001833;
-    border: none;
-    border-radius: 20px;
-    padding: 30px;
-    font-size: 18px;
-    line-height: 24px;
+  min-width: 360px;
+  width: 448px;
+  height: 700px;
+  color: white;
+  background-color: #001833;
+  border: none;
+  border-radius: 20px;
+  padding: 30px;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .youtube-player .content li {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    list-style: none;
-    padding-bottom: 8px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  padding-bottom: 8px;
 }
 
 .youtube-player .content .time-stamp {
-    min-width: 32px;
-    text-align: left;
-    color: #B4D0FF;
-    background-color: transparent;
-    border: none;
-    margin-right: 30px;
-    font-size: 18px;
+  min-width: 32px;
+  text-align: left;
+  color: #b4d0ff;
+  background-color: transparent;
+  border: none;
+  margin-right: 30px;
+  font-size: 18px;
 }
 
 .youtube-player .time-stamp:hover {
-    color: #FFCC00;
+  color: #ffcc00;
 }
 
 .youtube-player .content p {
-    display: inline-block;
+  display: inline-block;
 }
 
 /* recoded-list */
 
 .youtube-player .content .recoded-list li {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 390px;
-    height: 80px;
-    background-color: #2F3F65;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 390px;
+  height: 80px;
+  background-color: #2f3f65;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 16px;
 }
 
 .youtube-player .content .recoded-list li .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    color: #FF0077;
-    background-color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: #ff0077;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 16px;
 }
 
 .youtube-player .content .recoded-list li:hover {
-    cursor: pointer;
-    background-color: #F2F6FE;
-    color: #001833;
+  cursor: pointer;
+  background-color: #f2f6fe;
+  color: #001833;
 }
 
 .youtube-player .content .recoded-list li h3 {
-    position: relative;
-    top: -15px;
-    font-size: 16px;
-    font-weight: normal;
+  position: relative;
+  top: -15px;
+  font-size: 16px;
+  font-weight: normal;
 }
 
 .youtube-player .content .recoded-list li p.time-line {
-    position: absolute;
-    left: 81px;
-    bottom: 15px;
-    font-size: 16px;
-    font-weight: normal;
+  position: absolute;
+  left: 81px;
+  bottom: 15px;
+  font-size: 16px;
+  font-weight: normal;
 }
 
 .youtube-player .content .recoded-list li p.datetime {
-    position: absolute;
-    font-size: 16px;
-    font-style: italic;
-    right: 15px;
-    bottom: 15px;
+  position: absolute;
+  font-size: 16px;
+  font-style: italic;
+  right: 15px;
+  bottom: 15px;
 }
 
 /* footer */
 .youtube-player footer {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
 /* drag select */
 
 .youtube-player * {
-    user-select: none;
+  user-select: none;
 }
 
 .ds-selected {
-    color: #FFCC00;
-    background-color: #2F3F65;
+  color: #ffcc00;
+  background-color: #2f3f65;
 }
 
 .youtube-player .content li .repetition {
-    display: none;
+  display: none;
 }
 
 .youtube-player .content li.ds-selected .repetition {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 30px;
-    background-color: #FFCC00;
-    color: white;
-    border-radius: 20px;
-    padding: 5px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 30px;
+  background-color: #ffcc00;
+  color: white;
+  border-radius: 20px;
+  padding: 5px;
 }
 
 .youtube-player .content li.ds-hover:last-child .repetition {
-    display: block;
+  display: block;
 }
 
 .youtube-player .content li.ds-selected .repetition:hover {
-    cursor: pointer;
-    box-shadow: 0 0 8px white;
+  cursor: pointer;
+  box-shadow: 0 0 8px white;
 }
