@@ -12,6 +12,7 @@ function YoutubeURL(props) {
     formBody.append("type", "YOUTUBE");
     formBody.append("youtubeURL", inputUrl);
     formBody.append("categoryId", [20]);
+    props.setMode(props.type.LOADING);
 
     axios({
       method: "post",
@@ -31,9 +32,9 @@ function YoutubeURL(props) {
             sameSite: "none",
           });
           window.location.href = "/youtube";
-          props.setMode(props.type.LOADING);
         } else {
           alert("서버로 요청하는 과정에서 변환에 실패했습니다!");
+          props.history.push("/");
         }
       })
       .catch((err) => {
@@ -41,6 +42,7 @@ function YoutubeURL(props) {
         // TODO : 만약 서버에서 공유 URL 처리가 안 되어 있다면 프론트에서 파싱해서 주기.
         alert("예외 발생! 변환에 실패했습니다.");
         console.log("변환 실패!", err);
+        props.history.push("/");
       });
   };
 
@@ -55,7 +57,7 @@ function YoutubeURL(props) {
       </div>
 
       <div className="btn-container">
-        <button type="submit" value="ok" className="ok" onClick={onClickOk}>
+        <button className="ok" onClick={onClickOk}>
           확인
         </button>
         <button
