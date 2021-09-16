@@ -127,8 +127,16 @@ code {
 
 /* container */
 
-.container {
-  width: 1320px;
-  margin: 0 auto;
-  padding: 0 24px;
+@media screen and (min-width: 1025px) {
+  .container {
+    width: 1320px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 100vw;
+  }
 }

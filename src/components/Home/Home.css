@@ -1,85 +1,93 @@
-main {
-    width: 1320px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    color: #2F3F65;
-    padding-top: 50px;
+@media screen and (min-width: 0px) {
+    main {
+        width: 1320px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        color: #2F3F65;
+        padding-top: 50px;
+    }
+
+    main h2 {
+        font-size: 32px;
+    }
+
+    /* left */
+
+    main .flex-left {
+        min-width: 660px;
+        padding: 0 24px;
+        margin: 112px 1px 0 0;
+    }
+
+    main .card {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+    }
+
+    main .card span {
+        position: absolute;
+        bottom: 34px;
+        color: #2F7AF9;
+        font-size: 20px;
+    }
+
+    main .flex-left .card {
+        position: relative;
+        width: 573px;
+        height: 287px;
+        padding: 30px;
+        background-color: white;
+        border-radius: 15px;
+        overflow: hidden;
+        font-size: 16px;
+        margin-bottom: 45px;
+    }
+
+    main .flex-left .card h2 {
+        margin-bottom: 20px;
+    }
+
+    main .flex-left .card i {
+        color: white;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 24px 30px;
+        display: flex;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 186px;
+        height: 186px;
+        background-color: #2F7AF9;
+        border-top-left-radius: 100%;
+    }
+
+    /* right */
+
+    main .flex-right {
+        width: 660px;
+        position: relative;
+        padding-left: 40px;
+    }
+
+    main .home-background {
+        display: block;
+        width: 920px;
+        height: 900px;
+        background-image: url("/src/assets/home.jpg");
+        background-position: center center;
+        background-size: cover;
+        border-top-left-radius: 200px;
+    }
+
+    main footer {
+        margin-top: 112px;
+    }
 }
 
-main h2 {
-    font-size: 32px;
-}
+/* 가로 1024 px 이하 */
 
-/* left */
+@media screen and (max-width: 1024px) {
 
-main .flex-left {
-    min-width: 660px;
-    padding: 0 24px;
-    margin: 112px 1px 0 0;
-}
-
-main .card {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-
-main .card span {
-    position: absolute;
-    bottom: 34px;
-    color: #2F7AF9;
-    font-size: 20px;
-}
-
-main .flex-left .card {
-    position: relative;
-    width: 573px;
-    height: 287px;
-    padding: 30px;
-    background-color: white;
-    border-radius: 15px;
-    overflow: hidden;
-    font-size: 16px;
-    margin-bottom: 45px;
-}
-
-main .flex-left .card h2 {
-    margin-bottom: 20px;
-}
-
-main .flex-left .card i {
-    color: white;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding: 24px 30px;
-    display: flex;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 186px;
-    height: 186px;
-    background-color: #2F7AF9;
-    border-top-left-radius: 100%;
-}
-
-/* right */
-
-main .flex-right {
-    width: 660px;
-    position: relative;
-    padding-left: 40px;
-}
-
-main .home-background {
-    display: block;
-    width: 920px;
-    height: 900px;
-    background-image: url("/src/assets/home.jpg");
-    background-position: center center;
-    background-size: cover;
-    border-top-left-radius: 200px;
-}
-
-main footer {
-    margin-top: 112px;
 }
