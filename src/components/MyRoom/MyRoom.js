@@ -110,17 +110,19 @@ function MyRoom(props) {
                   <i className="xi-videocam xi-x" />
                 </div>
                 <h2>내가 변환한 영상 콘텐츠</h2>
-                <li>
-                  <div
-                    className="add-content"
-                    onClick={() => {
-                      openModal(1);
-                    }}
-                  >
-                    <i className="xi-plus-circle xi-3x" />
-                    <p>영상 콘텐츠 추가하기</p>
-                  </div>
-                </li>
+                <ul>
+                  <li>
+                    <div
+                      className="add-content"
+                      onClick={() => {
+                        openModal(1);
+                      }}
+                    >
+                      <i className="xi-plus-circle xi-3x" />
+                      <p>영상 콘텐츠 추가하기</p>
+                    </div>
+                  </li>
+                </ul>
               </div>
               <Footer />
             </div>

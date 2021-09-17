@@ -105,10 +105,10 @@
   overflow: hidden;
 }
 
-.my-room .content .video-content ul {
+.my-room .content ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .my-room .content li {
@@ -187,4 +187,33 @@
 
 .my-room .content .audio-content .add-content .xi-plus-circle {
   margin: 0 12px;
+}
+
+@media screen and (max-width: 1024px){
+  .my-room h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .my-room-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24px;
+  }
+
+  .my-room-header .my-point {
+    font-size: 16px;
+    width: 100%;
+    height: 60px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    display: none;
+  }
 }
