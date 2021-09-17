@@ -1,9 +1,43 @@
-.youtube-url .url-input {
-  border: 1px dashed #a6c4fb;
-  padding: 16px 0;
-  margin: 0 60px 32px;
+@media screen and (min-width: 1025px) {
+  .youtube-url .url-input {
+    border: 1px dashed #a6c4fb;
+    padding: 16px 0;
+    margin: 0 60px 32px;
+  }
+
+  .youtube-url .url-input input:focus {
+    outline: none;
+  }
+
+  .youtube-url input {
+    width: 950px;
+    margin: 0 auto;
+    display: block;
+    background-color: #f2f6fe;
+    font-size: 18px;
+    padding: 8px 24px;
+    border: none;
+  }
 }
 
-.youtube-url .url-input input:focus {
-  outline: none;
+@media screen and (max-width: 1024px) {
+  .youtube-url .url-input {
+    border: 1px dashed #a6c4fb;
+    padding: 16px 24px;
+    margin-bottom: 24px;
+  }
+
+  .youtube-url .url-input input:focus {
+    outline: none;
+  }
+
+  .youtube-url input {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    background-color: #f2f6fe;
+    font-size: 14px;
+    padding: 8px 24px;
+    border: none;
+  }
 }

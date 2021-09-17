@@ -47,16 +47,6 @@
     text-align: center;
   }
 
-  .modal input {
-    width: 950px;
-    margin: 0 auto;
-    display: block;
-    background-color: #f2f6fe;
-    font-size: 18px;
-    padding: 8px 24px;
-    border: none;
-  }
-
   .modal input::placeholder {
     color: #8898bf;
   }
@@ -66,12 +56,9 @@
     justify-content: center;
   }
 
-  .modal .btn-container button {
+  .modal button {
     font-size: 20px;
     margin: 0 15px;
-  }
-
-  .modal button {
     display: block;
     width: 200px;
     height: 60px;
@@ -111,11 +98,44 @@
 
   .modal {
     display: block;
-    width: 100%;
+    width: 90vw;
     color: #2f3f65;
     background-color: white;
     z-index: 10;
     padding-top: 45px;
     padding-bottom: 50px;
+  }
+
+  .modal h1,
+  .modal p {
+    text-align: center;
+  }
+
+  .modal p {
+    margin-bottom: 24px;
+  }
+
+  .modal .btn-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .modal .btn-container button {
+    font-size: 14px;
+    margin: 0 15px;
+    display: block;
+    width: 120px;
+    height: 36px;
+    border: none;
+    border-radius: 18px;
+    color: white;
+  }
+
+  .modal button.ok {
+    background-color: #2f7af9;
+  }
+
+  .modal button.cancel {
+    background-color: #2f3f65;
   }
 }
