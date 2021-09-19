@@ -137,6 +137,19 @@ function YoutubePlayer() {
       document.querySelector('input[name="evaluation"]:checked').value
     );
     console.log(value);
+    axios({
+      method: "post",
+      url: network.baseURL + `media${getCookie("videoId")}/level`,
+      headers: { "ACCESS-TOKEN": getCookie("jwt") },
+      body: {
+        Level: value,
+        content: "???",
+      },
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log("실패", err));
   };
 
   return (
