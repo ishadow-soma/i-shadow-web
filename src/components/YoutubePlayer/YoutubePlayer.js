@@ -18,6 +18,7 @@ function YoutubePlayer() {
   let player;
   let script;
   let videoCode;
+  let shouldVideoEvaluation;
 
   useEffect(() => {
     requestVideo();
@@ -35,6 +36,7 @@ function YoutubePlayer() {
     }).then((res) => {
       console.log(res);
       videoCode = res.data.data.videoURL.split("=")[1];
+      shouldVideoEvaluation = res.data.data.videoEvaluation;
       setTitle(res.data.data.videoName);
       console.log(`video code : ${videoCode}`);
       script = res.data.data.sentences.map((it) => {
@@ -69,6 +71,8 @@ function YoutubePlayer() {
 
     player.on("timeupdate", (seconds) => {
       setCurrentSentence();
+      if (shouldVideoEvaluation && seconds / player.getDuration() > 0.9)
+        requestVideoEvaluation();
     });
   };
 
@@ -89,6 +93,12 @@ function YoutubePlayer() {
         break;
       }
     }
+  };
+
+  const requestVideoEvaluation = () => {
+    alert("영상 평가 팝업을 띄우자!");
+    // 일단 두 번은 안 물어보도록
+    shouldVideoEvaluation = false;
   };
 
   const selectTab = (type) => {
