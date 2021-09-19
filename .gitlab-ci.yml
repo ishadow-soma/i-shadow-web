@@ -7,6 +7,8 @@ build-job:
   stage: build
   script:
     - echo "Compiling the code..."
+    - cd /home/ubuntu/ishadow-react
+    - ./deploy.sh
     - echo "Compile complete."
   tags:
     - react
