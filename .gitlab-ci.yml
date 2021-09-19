@@ -1,10 +1,27 @@
-deploy-to-server:
-  stage: deploy
-  only:
-    - dev
+stages:          
+  - build
+  - test
+  - deploy
+
+build-job:     
+  stage: build
   script:
-    - echo 'hello world!'
-    - uname -a
-    - ls /home
+    - echo "Compiling the code..."
+    - echo "Compile complete."
   tags:
-    - myec2
+    - react
+
+unit-test-job:   
+  stage: test    
+  script:
+    - echo "Test complete"
+  tags:
+    - react
+
+deploy-job:      
+  stage: deploy  
+  script:
+    - echo "Deploying application..."
+    - echo "Application successfully deployed."
+  tags:
+    - react
