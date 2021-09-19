@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Compeletion.css";
 
 function Completion() {
-  const [content, setContent] = useState("제작된 콘텐츠");
+  const [content] = useState("제작된 콘텐츠");
 
   return (
     <div className="completion">

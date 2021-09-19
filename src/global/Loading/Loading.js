@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./Loading.css";
 
 function Loading(props) {
-  let progress = 0;
+  const [progress, setProgress] = useState(0);
   useEffect(() => {
     setInterval(() => {
       moveProgress(progress);
-      progress += 10;
+      setProgress(progress + 10);
     }, 1000);
-  }, []);
+  }, [progress]);
 
   const moveProgress = (progress) => {
     document.getElementsByClassName("progress")[0].style.width = `${

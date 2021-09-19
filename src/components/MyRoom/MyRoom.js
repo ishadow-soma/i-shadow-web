@@ -29,9 +29,13 @@ function MyRoom(props) {
   const [modal, setModal] = useState(1);
 
   useEffect(() => {
+    if (!user.isLogin) {
+      alert("로그인이 필요합니다.");
+      props.history.push("/login");
+    }
     requestYoutubeContent();
     setMyRoom();
-  }, []);
+  }, [requestYoutubeContent]);
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
 

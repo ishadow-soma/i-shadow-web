@@ -22,7 +22,7 @@ function Dialog(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [mode, setMode] = useState(props.type);
-  const [onlyCancel, setOnlyCancel] = useState(false);
+  const [, setOnlyCancel] = useState(false);
 
   useEffect(() => {
     setDescription(props.description);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Fail.css";
 
 function Fail() {
-  const [reason, setReason] = useState("잘못된 형식입니다.");
+  const [reason] = useState("잘못된 형식입니다.");
 
   return (
     <div className="fail">
