@@ -3,13 +3,27 @@ import React, { useEffect, useState } from "react";
 import Footer from "global/Footer/Footer";
 import Header from "global/Header/Header";
 import axios from "axios";
-import network from "global/store/store";
+import network, { user } from "global/store/store";
 import { getCookie } from "global/store/cookie";
 import { Scrollbar } from "react-scrollbars-custom";
 import setScript from "./setScript";
 import setDragSelect from "./setDragSelect";
+import Modal from "react-modal";
+import Dialog from "../../global/Dialog/Dialog";
 
 const YTPlayer = require("yt-player");
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    border: "none",
+    borderRadius: "15px",
+  },
+};
 
 function YoutubePlayer() {
   const [title, setTitle] = useState("제목");
@@ -19,6 +33,7 @@ function YoutubePlayer() {
   let script;
   let videoCode;
   let shouldVideoEvaluation;
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     requestVideo();
@@ -96,7 +111,7 @@ function YoutubePlayer() {
   };
 
   const requestVideoEvaluation = () => {
-    alert("영상 평가 팝업을 띄우자!");
+    openModal();
     // 일단 두 번은 안 물어보도록
     shouldVideoEvaluation = false;
   };
@@ -107,6 +122,21 @@ function YoutubePlayer() {
     document
       .getElementsByClassName("tab")
       [(type + 1) % 2].classList.remove("selected");
+  };
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  const evaluate = () => {
+    const value = parseFloat(
+      document.querySelector('input[name="evaluation"]:checked').value
+    );
+    console.log(value);
   };
 
   return (
@@ -191,6 +221,38 @@ function YoutubePlayer() {
           </div>
         </div>
       </div>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+      >
+        <h1>영상의 난이도를 평가해 주세요.</h1>
+        <p>1.0 - NH, 2.0 - IL, 3.0 - IM2, 4.0 - IH, 5.0 - AL</p>
+        <input type="radio" name="evaluation" value="0.5" />
+        0.5
+        <input type="radio" name="evaluation" value="1.0" />
+        1.0
+        <input type="radio" name="evaluation" value="1.5" />
+        1.5
+        <input type="radio" name="evaluation" value="2.0" />
+        2.0
+        <input type="radio" name="evaluation" value="2.5" />
+        2.5
+        <input type="radio" name="evaluation" value="3.0" />
+        3.0
+        <input type="radio" name="evaluation" value="3.5" />
+        3.5
+        <input type="radio" name="evaluation" value="4.0" />
+        4.0
+        <input type="radio" name="evaluation" value="4.5" />
+        4.5
+        <input type="radio" name="evaluation" value="5.0" />
+        5.0
+        <br />
+        <button onClick={evaluate}>평가하기</button>
+        <button onClick={closeModal}>건너뛰기</button>
+      </Modal>
     </div>
   );
 }
