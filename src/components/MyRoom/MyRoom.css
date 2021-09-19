@@ -212,8 +212,4 @@
     display: flex;
     flex-direction: column;
   }
-
-  footer {
-    display: none;
-  }
 }
