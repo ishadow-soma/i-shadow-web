@@ -18,7 +18,7 @@ function Signup(props) {
   const requestAuthorizationCode = () => {
     const inputEmail = document.getElementById("email").value;
 
-    if(!validateEmail(inputEmail)) {
+    if (!validateEmail(inputEmail)) {
       alert("이메일 형식이 잘못되었습니다.");
       return;
     }
@@ -38,20 +38,6 @@ function Signup(props) {
       });
   };
 
-  const validateEmail = (email) => {
-    const regExpression =
-      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-
-    return email.match(regExpression) != null;
-  };
-
-  const validatePassword = (password) => {
-    const regExpression =
-      /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
-
-    return password.match(regExpression) != null;
-  }
-
   // 이메일 인증하기
   const requestAuthorization = () => {
     const code = document.getElementById("authorizationCode").value;
@@ -69,8 +55,10 @@ function Signup(props) {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirm-password").value;
-    if(!validatePassword(password)) {
-      alert("유효하지 않은 비밀번호입니다. 문자와 숫자를 포함한 8~20자로 작성해 주세요.");
+    if (!validatePassword(password)) {
+      alert(
+        "유효하지 않은 비밀번호입니다. 문자와 숫자를 포함한 8~20자로 작성해 주세요."
+      );
       return;
     }
 
@@ -252,3 +240,16 @@ function Signup(props) {
 }
 
 export default Signup;
+
+export function validateEmail(email) {
+  const regExpression =
+    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+  return email.match(regExpression) != null;
+}
+
+export function validatePassword(password) {
+  const regExpression = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
+
+  return password.match(regExpression) != null;
+}
