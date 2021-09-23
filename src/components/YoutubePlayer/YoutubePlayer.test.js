@@ -1,5 +1,25 @@
 import { getIndex } from "./setDragSelect";
 import { getTimeStamp } from "./setScript";
+import { getSecondsFromTime } from "./YoutubePlayer";
+
+describe("YoutubePlayer", () => {
+  it("getSecondsFromTime", () => {
+    // given
+    const time1 = "1:23:45.56";
+    const time2 = "0:23:45.56";
+    const time3 = "0:03:45.56";
+
+    // when
+    const result1 = getSecondsFromTime(time1);
+    const result2 = getSecondsFromTime(time2);
+    const result3 = getSecondsFromTime(time3);
+
+    // then
+    expect(result1).toBe(5025.56);
+    expect(result2).toBe(1425.56);
+    expect(result3).toBe(225.56);
+  });
+});
 
 describe("setScript", () => {
   it("getTimeStamp", () => {

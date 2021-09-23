@@ -220,7 +220,7 @@ function YoutubePlayer() {
   );
 }
 
-function getSecondsFromTime(seconds) {
+export function getSecondsFromTime(seconds) {
   return (
     parseInt(seconds.split(":")[0]) * 3600 +
     parseInt(seconds.split(":")[1]) * 60 +
