@@ -57,14 +57,8 @@ function YoutubePlayer() {
       script = res.data.data.sentences.map((it) => {
         return {
           sentence: it.content,
-          begin:
-            parseInt(it.startTime.split(":")[0]) * 3600 +
-            parseInt(it.startTime.split(":")[1]) * 60 +
-            parseFloat(it.startTime.split(":")[2]),
-          end:
-            parseInt(it.endTime.split(":")[0]) * 3600 +
-            parseInt(it.endTime.split(":")[1]) * 60 +
-            parseFloat(it.endTime.split(":")[2]),
+          begin: getSecondsFromTime(it.startTime),
+          end: getSecondsFromTime(it.endTime),
         };
       });
       setVideo(videoCode);
@@ -223,6 +217,14 @@ function YoutubePlayer() {
         <EvaluationModal closeModal={closeModal} />
       </Modal>
     </div>
+  );
+}
+
+function getSecondsFromTime(seconds) {
+  return (
+    parseInt(seconds.split(":")[0]) * 3600 +
+    parseInt(seconds.split(":")[1]) * 60 +
+    parseFloat(seconds.split(":")[2])
   );
 }
 
