@@ -82,7 +82,6 @@ export default function setDragSelect(player, script) {
 }
 
 export function getIndex(selectedElements) {
-  console.log("test", selectedElements);
   const beginIndex = parseInt(selectedElements[0].id.slice(3));
   const endIndex = parseInt(
     selectedElements[selectedElements.length - 1].id.slice(3)
