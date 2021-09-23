@@ -59,10 +59,7 @@ export default function setDragSelect(player, script) {
   const startRepeat = () => {
     setTimeout(() => {
       const selectedElements = document.getElementsByClassName("ds-selected");
-      const beginIndex = parseInt(selectedElements[0].id.slice(3));
-      const endIndex = parseInt(
-        selectedElements[selectedElements.length - 1].id.slice(3)
-      );
+      const [beginIndex, endIndex] = getIndex(selectedElements);
       const begin = getBegin(beginIndex);
       const end = getEnd(endIndex) + 1;
 
@@ -85,4 +82,13 @@ export default function setDragSelect(player, script) {
   const endRepetition = () => {
     clearInterval(repetition);
   };
+}
+
+function getIndex(selectedElements) {
+  const beginIndex = parseInt(selectedElements[0].id.slice(3));
+  const endIndex = parseInt(
+    selectedElements[selectedElements.length - 1].id.slice(3)
+  );
+
+  return [beginIndex, endIndex];
 }
