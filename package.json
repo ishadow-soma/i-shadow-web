@@ -10,6 +10,7 @@
     "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "dragselect": "^2.2.2",
+    "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
@@ -20,6 +21,7 @@
     "react-scripts": "4.0.3",
     "react-scrollbars-custom": "^4.0.27",
     "redux": "^4.1.1",
+    "sass": "^1.42.1",
     "web-vitals": "^1.1.2",
     "yt-player": "^3.5.0"
   },
@@ -28,7 +30,8 @@
     "build": "CI=false react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build"
+    "predeploy": "npm run build",
+    "node-sass": "node-sass -wr --source-map true src/index.scss src/index.css"
   },
   "eslintConfig": {
     "extends": [
