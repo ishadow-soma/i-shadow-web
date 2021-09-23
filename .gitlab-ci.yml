@@ -17,6 +17,7 @@ unit-test-job:
   stage: test    
   script:
     - echo "Compling the test..."
+    - npm install
     - npm run test
     - echo "Test complete"
   tags:
