@@ -8,20 +8,22 @@ export default function EvaluationModal(props) {
     const value = parseFloat(
       document.querySelector('input[name="evaluation"]:checked').value
     );
-    console.log(value);
+    console.log(typeof value);
     axios({
       method: "post",
-      url: network.baseURL + `media${getCookie("videoId")}/level`,
+      url: network.baseURL + `media/${getCookie("videoId")}/level`,
       headers: { "ACCESS-TOKEN": getCookie("jwt") },
-      body: {
+      data: {
         Level: value,
         content: "???",
       },
     })
       .then((res) => {
-        console.log(res);
+        console.log("평가", res);
       })
       .catch((err) => console.log("실패", err));
+
+    props.closeModal();
   };
 
   return (
