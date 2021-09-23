@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./EditProfile.css";
 import network, { user } from "global/store/store";
-import { getCookie } from "../../global/store/cookie";
+import { getCookie } from "global/store/cookie";
 import axios from "axios";
 
 function EditProfile(props) {
