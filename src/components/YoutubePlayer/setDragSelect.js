@@ -36,10 +36,7 @@ export default function setDragSelect(player, script) {
     };
 
     const selectedElements = document.getElementsByClassName("ds-selected");
-    const beginIndex = parseInt(selectedElements[0].id.slice(3));
-    const endIndex = parseInt(
-      selectedElements[selectedElements.length - 1].id.slice(3)
-    );
+    const [beginIndex, endIndex] = getIndex(selectedElements);
     setTime = setTimeout(() => {
       originBegin = beginIndex;
       originEnd = endIndex;
@@ -84,7 +81,8 @@ export default function setDragSelect(player, script) {
   };
 }
 
-function getIndex(selectedElements) {
+export function getIndex(selectedElements) {
+  console.log("test", selectedElements);
   const beginIndex = parseInt(selectedElements[0].id.slice(3));
   const endIndex = parseInt(
     selectedElements[selectedElements.length - 1].id.slice(3)
