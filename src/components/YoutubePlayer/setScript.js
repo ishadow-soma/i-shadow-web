@@ -20,9 +20,7 @@ export default function setScript(player, script) {
 
   const createTimeStamp = (sentence) => {
     const result = document.createElement("button");
-    result.innerText = `${parseInt(sentence.begin / 60)}:${parseInt(
-      sentence.begin % 60
-    )}`;
+    result.innerText = getTimeStamp(sentence);
     result.className = "time-stamp";
     result.onclick = () => onSeek(sentence.begin);
     return result;
@@ -48,4 +46,8 @@ export default function setScript(player, script) {
   };
 
   setScript();
+}
+
+export function getTimeStamp(sentence) {
+  return `${parseInt(sentence.begin / 60)}:${parseInt(sentence.begin % 60)}`;
 }
