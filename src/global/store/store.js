@@ -3,13 +3,17 @@ import axios from "axios";
 import { createStore } from "@reduxjs/toolkit";
 
 export let user = {
-  isLogin: false,
   token: null,
   email: null,
   name: null,
   gender: null,
   myPoint: 0,
   age: 0,
+
+  get isLogin() {
+    const token = getCookie("jwt");
+    return token.length > 10;
+  },
 
   // 로그인 확인 후 유저 정보 세팅
   verifyLogin: async () => {
@@ -39,7 +43,6 @@ export let user = {
   },
 
   setUser: (getUser) => {
-    user.isLogin = true;
     user.email = getUser.email;
     user.name = getUser.name;
     user.gender = getUser.gender;
@@ -54,7 +57,6 @@ export let user = {
   },
 
   clearUser: () => {
-    user.isLogin = false;
     user.token = null;
     user.email = null;
     user.name = null;
