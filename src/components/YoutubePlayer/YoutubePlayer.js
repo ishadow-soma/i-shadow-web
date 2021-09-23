@@ -51,7 +51,7 @@ function YoutubePlayer() {
     }).then((res) => {
       console.log(res);
       videoCode = res.data.data.videoURL.split("=")[1];
-      shouldVideoEvaluation = res.data.data.videoEvaluation;
+      shouldVideoEvaluation = !res.data.data.videoEvaluation;
       setTitle(res.data.data.videoName);
       console.log(`video code : ${videoCode}`);
       script = res.data.data.sentences.map((it) => {

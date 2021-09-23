@@ -35,7 +35,7 @@ function MyRoom(props) {
     }
     requestYoutubeContent();
     setMyRoom();
-  }, [requestYoutubeContent]);
+  }, []);
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -60,6 +60,7 @@ function MyRoom(props) {
       headers: { "ACCESS-TOKEN": getCookie("jwt") },
     }).then((res) => {
       if (res.data.success) {
+        console.log(res.data);
         res.data.data.youtubeVideos.forEach((it) => {
           setMyContents(it, props);
         });

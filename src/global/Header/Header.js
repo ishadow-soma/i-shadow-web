@@ -7,8 +7,6 @@ function Header(props) {
   const [, setRender] = useState(false);
 
   useEffect(() => {
-    //if (user.isLogin) return;
-
     user.verifyLogin();
     setTimeout(() => {
       setRender(true);
