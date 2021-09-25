@@ -10,6 +10,7 @@ import setScript from "./setScript";
 import setDragSelect from "./setDragSelect";
 import EvaluationModal from "./EvaluationModal";
 import Modal from "react-modal";
+import Record from "global/record/Record";
 
 const YTPlayer = require("yt-player");
 const customStyles = {
@@ -37,6 +38,7 @@ function YoutubePlayer() {
 
   useEffect(() => {
     requestVideo();
+    new Record().getPermission();
   }, []);
 
   // 영상 불러오기

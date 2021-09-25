@@ -12,7 +12,8 @@ export let user = {
 
   get isLogin() {
     const token = getCookie("jwt");
-    return token.length > 10;
+    if (token) return token.length > 10;
+    else return false;
   },
 
   // 로그인 확인 후 유저 정보 세팅
