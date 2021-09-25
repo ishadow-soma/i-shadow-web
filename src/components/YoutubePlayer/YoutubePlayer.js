@@ -38,7 +38,7 @@ function YoutubePlayer() {
 
   useEffect(() => {
     requestVideo();
-    new Record().getPermission();
+    new Record().doSomething();
   }, []);
 
   // 영상 불러오기
@@ -169,6 +169,10 @@ function YoutubePlayer() {
               </button>
 
               <div className="content">
+                <button id="record">녹음</button>
+                <button id="stop">중지</button>
+                <audio id="audio" src="#" controls="true" />
+                <input type="checkbox" id="chk-hear-mic" />
                 <Scrollbar style={{ width: 400, height: 640 }}>
                   <ul
                     id="script"
