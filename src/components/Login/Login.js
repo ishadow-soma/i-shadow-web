@@ -12,7 +12,7 @@ require("dotenv").config();
 function Login(props) {
   useEffect(() => {
     initializeNaverLogin();
-    startApp();
+    new Oauth(props).startApp();
   });
 
   /* 일반 로그인 */
@@ -54,20 +54,6 @@ function Login(props) {
       isPopup: false,
     });
     naverLogin.init();
-  };
-
-  /* 구글 로그인 */
-  var startApp = function () {
-    gapi.load("auth2", function () {
-      auth2 = gapi.auth2.init({
-        client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-        cookiepolicy: "single_host_origin",
-      });
-      new Oauth(auth2).attachSignin(
-        document.getElementById("customBtn"),
-        props
-      );
-    });
   };
 
   // 렌더링

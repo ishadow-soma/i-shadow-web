@@ -1,39 +1,22 @@
 import axios from "axios";
 import network from "global/store/store";
-import { setCookieDefaultOption } from "../store/cookie";
+import { setCookieDefaultOption } from "global/store/cookie";
 let { auth2, gapi } = window;
+let props;
 
 export default class Oauth {
-  constructor(auth) {
-    auth2 = auth;
+  constructor(prop) {
+    props = prop;
   }
 
-  attachSignin(element, props) {
-    if (element === null) return;
-    auth2.attachClickHandler(
-      element,
-      {},
-      (googleUser) => {
-        const auth = googleUser.getAuthResponse();
-        axios({
-          method: "post",
-          url: network.baseURL + "users",
-          data: {
-            name: googleUser.getBasicProfile().getName(),
-            sns: "GOOGLE",
-            userToken: auth.access_token,
-          },
-        }).then((res) => {
-          // 신규 회원
-          if (res.data.success) {
-            setCookieDefaultOption("jwt", res.data.data.jwt);
-            console.log("구글로 로그인 회원가입 및 로그인 성공", res);
-          } else new Oauth().loginWithGoogle(googleUser);
-          props.history.push("/");
-        });
-      },
-      (err) => alert(JSON.stringify(err, undefined, 2))
-    );
+  startApp() {
+    gapi.load("auth2", function () {
+      auth2 = gapi.auth2.init({
+        client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+        cookiepolicy: "single_host_origin",
+      });
+      attachSignin(document.getElementById("customBtn"), props);
+    });
   }
 
   loginWithGoogle(googleUser) {
@@ -50,4 +33,32 @@ export default class Oauth {
       })
       .catch((err) => console.log(err));
   }
+}
+
+function attachSignin(element, props) {
+  if (element === null) return;
+  auth2.attachClickHandler(
+    element,
+    {},
+    (googleUser) => {
+      const auth = googleUser.getAuthResponse();
+      axios({
+        method: "post",
+        url: network.baseURL + "users",
+        data: {
+          name: googleUser.getBasicProfile().getName(),
+          sns: "GOOGLE",
+          userToken: auth.access_token,
+        },
+      }).then((res) => {
+        // 신규 회원
+        if (res.data.success) {
+          setCookieDefaultOption("jwt", res.data.data.jwt);
+          console.log("구글로 로그인 회원가입 및 로그인 성공", res);
+        } else new Oauth().loginWithGoogle(googleUser);
+        props.history.push("/");
+      });
+    },
+    (err) => alert(JSON.stringify(err, undefined, 2))
+  );
 }
