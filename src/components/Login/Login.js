@@ -63,37 +63,12 @@ function Login(props) {
         client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
         cookiepolicy: "single_host_origin",
       });
-      attachSignin(document.getElementById("customBtn"));
+      new Oauth(auth2).attachSignin(
+        document.getElementById("customBtn"),
+        props
+      );
     });
   };
-
-  function attachSignin(element) {
-    if (element === null) return;
-    auth2.attachClickHandler(
-      element,
-      {},
-      (googleUser) => {
-        const auth = googleUser.getAuthResponse();
-        axios({
-          method: "post",
-          url: network.baseURL + "users",
-          data: {
-            name: googleUser.getBasicProfile().getName(),
-            sns: "GOOGLE",
-            userToken: auth.access_token,
-          },
-        }).then((res) => {
-          // 신규 회원
-          if (res.data.success) {
-            setCookieDefaultOption("jwt", res.data.data.jwt);
-            console.log("구글로 로그인 회원가입 및 로그인 성공", res);
-          } else new Oauth().loginWithGoogle(googleUser);
-          props.history.push("/");
-        });
-      },
-      (err) => alert(JSON.stringify(err, undefined, 2))
-    );
-  }
 
   // 렌더링
   return (
