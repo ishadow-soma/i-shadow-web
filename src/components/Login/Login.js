@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import network from "global/store/store";
 import { setCookieDefaultOption } from "global/store/cookie";
+import Oauth from "global/Oauth/Oauth";
 const { naver } = window;
 let { gapi, auth2 } = window;
 require("dotenv").config();
@@ -72,43 +73,27 @@ function Login(props) {
       element,
       {},
       (googleUser) => {
-        console.log(googleUser);
+        const auth = googleUser.getAuthResponse();
         axios({
           method: "post",
           url: network.baseURL + "users",
           data: {
-            name: googleUser.Ws.Pe,
+            name: googleUser.getBasicProfile().getName(),
             sns: "GOOGLE",
-            userToken: googleUser.Zb.access_token,
+            userToken: auth.access_token,
           },
         }).then((res) => {
           // 신규 회원
           if (res.data.success) {
             setCookieDefaultOption("jwt", res.data.data.jwt);
             console.log("구글로 로그인 회원가입 및 로그인 성공", res);
-          } else loginWithGoogle(googleUser);
-          setTimeout(() => window.location.reload(), 200);
+          } else new Oauth().loginWithGoogle(googleUser);
           props.history.push("/");
         });
       },
       (err) => alert(JSON.stringify(err, undefined, 2))
     );
   }
-
-  const loginWithGoogle = async (googleUser) => {
-    await axios
-      .post(network.baseURL + "login", {
-        sns: "GOOGLE",
-        userToken: googleUser.Zb.access_token,
-      })
-      .then((res) => {
-        if (res.data.success) {
-          setCookieDefaultOption("jwt", res.data.data.jwt);
-          console.log("구글로 로그인 성공", res);
-        } else console.log("구글로 로그인 실패");
-      })
-      .catch((err) => console.log(err));
-  };
 
   // 렌더링
   return (
