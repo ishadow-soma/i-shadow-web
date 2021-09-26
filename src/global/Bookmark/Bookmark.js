@@ -17,10 +17,23 @@ export default class Bookmark {
       .then((res) => {
         console.log(res);
         if (res.data.success) console.log("즐겨찾기 목록에 저장되었습니다.");
-        else console.log("저장에 실패했습니다.");
+        else alert("알 수 없는 이유로 저장에 실패했습니다.");
       })
       .catch((err) => console.log(err));
   }
 
-  getSentence() {}
+  getSentence(videoId) {
+    axios({
+      method: "get",
+      url: network + "bookmark",
+      headers: getCookie("jwt"),
+      params: {
+        videoId: videoId,
+      },
+    })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  }
 }
