@@ -100,45 +100,6 @@ function Signup(props) {
     naverLogin.init();
   };
 
-  /* 구글 로그인 */
-  var startApp = function () {
-    gapi.load("auth2", function () {
-      auth2 = gapi.auth2.init({
-        client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-        cookiepolicy: "single_host_origin",
-      });
-      attachSignin(document.getElementById("customBtn"));
-    });
-  };
-
-  function attachSignin(element) {
-    if (element === null) return;
-    auth2.attachClickHandler(
-      element,
-      {},
-      (googleUser) => {
-        const auth = googleUser.getAuthResponse();
-        axios({
-          method: "post",
-          url: network.baseURL + "users",
-          data: {
-            name: googleUser.getBasicProfile().getName(),
-            sns: "GOOGLE",
-            userToken: auth.access_token,
-          },
-        }).then((res) => {
-          // 신규 회원
-          if (res.data.success) {
-            setCookieDefaultOption("jwt", res.data.data.jwt);
-            console.log("구글로 로그인 회원가입 및 로그인 성공", res);
-          } else new Oauth().loginWithGoogle(googleUser);
-          props.history.push("/");
-        });
-      },
-      (err) => alert(JSON.stringify(err, undefined, 2))
-    );
-  }
-
   return (
     <div className="sign-up-page">
       <div className="flex-left">
