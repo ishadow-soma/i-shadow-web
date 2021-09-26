@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.scss";
+import "./Footer.css";
 import { SiAppstore } from "react-icons/si";
 
 function Header() {

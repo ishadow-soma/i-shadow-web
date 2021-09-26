@@ -1,44 +1,28 @@
-@media screen and (min-width: 1025px) {
-  footer {
-    font-size: 14px;
-    color: #b4d0ff;
-  }
+@import "../../../global/styles/text-size";
 
-  footer p {
-    display: flex;
-    align-items: center;
-  }
-
-  footer p i {
-    margin-left: 20px;
-  }
-
-  footer .app-store {
-    margin-left: 12px;
-    width: 24px;
-    height: 24px;
-  }
+footer p {
+  display: flex;
+  align-items: center;
 }
 
-@media screen and (max-width: 1024px) {
+footer p i {
+  margin-left: 20px;
+}
+
+footer .app-store {
+  margin-left: 12px;
+  width: 24px;
+  height: 24px;
+}
+
+footer {
+  margin-left: 24px;
+  font-size: 12px;
+  color: #b4d0ff;
+}
+
+@media screen and (min-width: 1024px) {
   footer {
-    margin-left: 24px;
-    font-size: 12px;
-    color: #b4d0ff;
-  }
-
-  footer p {
-    display: flex;
-    align-items: center;
-  }
-
-  footer p i {
-    margin-left: 20px;
-  }
-
-  footer .app-store {
-    margin-left: 12px;
-    width: 24px;
-    height: 24px;
+    font-size: $small-font-size;
   }
 }
