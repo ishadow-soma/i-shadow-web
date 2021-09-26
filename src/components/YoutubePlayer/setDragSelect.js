@@ -4,6 +4,7 @@ export default function setDragSelect(player, script) {
   let preIcon = null;
   let ds = new DragSelect({
     selectables: document.querySelectorAll(".item"),
+    area: document.getElementsByClassName("content")[0],
     draggability: false,
     callback: (e) => {
       // 새 버튼 생성
