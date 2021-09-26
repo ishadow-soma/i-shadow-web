@@ -12,7 +12,7 @@ function Signup(props) {
 
   useEffect(() => {
     initializeNaverLogin();
-    startApp();
+    new Oauth(props).startApp();
   });
 
   // 이메일 중복 확인 및 인증번호 발송
