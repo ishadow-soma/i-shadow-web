@@ -2,17 +2,15 @@ import "./Signup.css";
 import React, { useEffect } from "react";
 import axios from "axios";
 import network from "global/store/store";
-import { setCookieDefaultOption } from "global/store/cookie";
-import Oauth from "global/Oauth/Oauth";
+import setGoogleLogin from "global/Oauth/setGoogleLogin";
 const { naver } = window;
-let { gapi, auth2 } = window;
 
 function Signup(props) {
   let isAuthentication = false;
 
   useEffect(() => {
     initializeNaverLogin();
-    new Oauth(props).startApp();
+    setGoogleLogin(props);
   });
 
   // 이메일 중복 확인 및 인증번호 발송

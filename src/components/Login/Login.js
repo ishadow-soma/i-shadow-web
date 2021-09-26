@@ -4,15 +4,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import network from "global/store/store";
 import { setCookieDefaultOption } from "global/store/cookie";
-import Oauth from "global/Oauth/Oauth";
+import setGoogleLogin from "global/Oauth/setGoogleLogin";
 const { naver } = window;
-let { gapi, auth2 } = window;
 require("dotenv").config();
 
 function Login(props) {
   useEffect(() => {
     initializeNaverLogin();
-    new Oauth(props).startApp();
+    setGoogleLogin(props);
   });
 
   /* 일반 로그인 */
