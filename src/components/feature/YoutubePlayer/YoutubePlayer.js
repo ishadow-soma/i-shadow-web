@@ -1,7 +1,7 @@
 import "./YoutubePlayer.css";
 import React, { useEffect, useState } from "react";
-import Footer from "global/Footer/Footer";
-import Header from "global/Header/Header";
+import Footer from "components/common/Footer/Footer";
+import Header from "components/common/Header/Header";
 import axios from "axios";
 import network from "global/store/store";
 import { getCookie } from "global/store/cookie";

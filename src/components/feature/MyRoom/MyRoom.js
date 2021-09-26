@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./MyRoom.css";
 import { Link } from "react-router-dom";
-import Header from "global/Header/Header";
-import Footer from "global/Footer/Footer";
-import Dialog from "global/Dialog/Dialog";
+import Header from "components/common/Header/Header";
+import Footer from "components/common/Footer/Footer";
+import Dialog from "components/common/Dialog/Dialog";
 import Modal from "react-modal";
 import network, { user } from "global/store/store";
 import axios from "axios";

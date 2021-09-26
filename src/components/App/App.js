@@ -1,16 +1,16 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import VideoPlayer from "components/VideoPlayer/VideoPlayer";
-import AudioPlayer from "components/AudioPlayer/AudioPlayer";
-import YoutubePlayer from "components/YoutubePlayer/YoutubePlayer";
-import Home from "components/Home/Home";
-import Login from "components/Login/Login";
-import Signup from "components/Signup/Signup";
-import MyRoom from "components/MyRoom/MyRoom";
-import Payment from "components/Payment/Payment";
-import PaymentMethod from "components/PaymentMethod/PaymentMethod";
-import FindPassword from "components/FindPassword/FindPassword";
-import EditProfile from "components/EditProfile/EditProfile";
+import VideoPlayer from "components/feature/VideoPlayer/VideoPlayer";
+import AudioPlayer from "components/feature/AudioPlayer/AudioPlayer";
+import YoutubePlayer from "components/feature/YoutubePlayer/YoutubePlayer";
+import Home from "components/feature/Home/Home";
+import Login from "components/feature/Login/Login";
+import Signup from "components/feature/Signup/Signup";
+import MyRoom from "components/feature/MyRoom/MyRoom";
+import Payment from "components/feature/Payment/Payment";
+import PaymentMethod from "components/feature/PaymentMethod/PaymentMethod";
+import FindPassword from "components/feature/FindPassword/FindPassword";
+import EditProfile from "components/feature/EditProfile/EditProfile";
 
 function App() {
   return (

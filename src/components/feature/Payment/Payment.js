@@ -1,6 +1,6 @@
 import React from "react";
 import "./Payment.css";
-import Header from "global/Header/Header";
+import Header from "components/common/Header/Header";
 import { Link } from "react-router-dom";
 
 function Payment() {

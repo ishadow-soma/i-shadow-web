@@ -1,10 +1,9 @@
 import React from "react";
-import Header from "global/Header/Header";
-import Footer from "global/Footer/Footer";
-import "components/CustomPlayer.css";
-import RecodedList from "global/RecodedList/RecodedList";
+import Header from "components/common/Header/Header";
+import Footer from "components/common/Footer/Footer";
+import "components/feature/CustomPlayer.css";
 
-function AudioPlayer() {
+function VideoPlayer() {
   return (
     <div className="wrap">
       <Header />
@@ -12,7 +11,7 @@ function AudioPlayer() {
         <div className="audio-player custom-player">
           <div className="audio-frame">
             <h2>
-              <i className="xi-headset" /> 내가 변환한 음성 콘텐츠
+              <i className="xi-videocam" /> 내가 변환한 영상 콘텐츠
             </h2>
             <h1>The Intern - Official Trailer [HD]</h1>
             <span className="audio-background">
@@ -39,7 +38,6 @@ function AudioPlayer() {
             </button>
 
             <div className="content">
-              {/* 스크립트 */}
               <ul>
                 <li>
                   <button className="time-stamp">0:59</button>
@@ -54,8 +52,6 @@ function AudioPlayer() {
                   <p>But it's the only thing that I know</p>
                 </li>
               </ul>
-              {/* 녹음 리스트 */}
-              <RecodedList />
             </div>
           </div>
         </div>
@@ -64,4 +60,4 @@ function AudioPlayer() {
   );
 }
 
-export default AudioPlayer;
+export default VideoPlayer;

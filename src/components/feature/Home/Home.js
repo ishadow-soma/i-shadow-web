@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import network from "global/store/store";
-import Footer from "global/Footer/Footer";
-import Header from "global/Header/Header";
-import Dialog from "global/Dialog/Dialog";
+import Footer from "components/common/Footer/Footer";
+import Header from "components/common/Header/Header";
+import Dialog from "components/common/Dialog/Dialog";
 import { user } from "global/store/store";
 import Modal from "react-modal";
 import axios from "axios";
