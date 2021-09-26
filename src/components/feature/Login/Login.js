@@ -29,13 +29,13 @@ function Login(props) {
         if (res.data.success) {
           setCookieDefaultOption("jwt", res.data.data.jwt);
           console.log("일반 로그인 성공", res);
+          props.history.push("/");
         } else {
           console.log("일반 로그인 실패", res);
           alert("로그인 실패");
         }
       })
       .catch((err) => console.log("일반 로그인 실패", err));
-    props.history.push("/");
     setTimeout(() => window.location.reload(), 100);
   };
 
