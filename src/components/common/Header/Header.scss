@@ -1,6 +1,7 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
 /* header */
+
 header .logo h1 {
   margin-left: 24px;
 }
@@ -15,6 +16,7 @@ header .logo h1 {
   }
 
   /* logo */
+
   header .logo {
     display: flex;
     align-items: center;
@@ -37,6 +39,7 @@ header .logo h1 {
   }
 
   /* 로그인 */
+
   header .profile a {
     color: #2f7af9;
     font-size: 16px;
@@ -55,6 +58,7 @@ header .logo h1 {
     z-index: -1;
   }
 }
+
 @media screen and (min-width: 1025px) {
   header::before {
     content: "";
@@ -95,6 +99,7 @@ header .logo h1 {
   }
 
   /* logo */
+
   header .logo {
     display: flex;
     width: 720px;
@@ -122,6 +127,7 @@ header .logo h1 {
   }
 
   /* profile */
+
   header .profile a {
     padding: 6px 22px;
     border-radius: 21px;
@@ -141,6 +147,7 @@ header .logo h1 {
   }
 
   /* 로그인 됐을 경우 */
+
   header .profile .authenticated {
     min-width: 500px;
     display: flex;
@@ -166,5 +173,3 @@ header .logo h1 {
     background-color: white;
   }
 }
-
-/*# sourceMappingURL=Header.css.map */
