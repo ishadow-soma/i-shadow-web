@@ -38,7 +38,9 @@ function Dialog(props) {
       setDescription("음성파일 혹은 영상파일을 업로드 하세요.");
     }
     if (mode === type.LOADING) {
-      setDescription("섀도잉 콘텐츠를 만들고 있습니다.");
+      setDescription(
+        "제작이 완료되면 화면이 전환됩니다. 이 화면에서 벗어나도 됩니다."
+      );
     }
   }, [title, description, mode]);
 
@@ -56,13 +58,7 @@ function Dialog(props) {
   const getModal = () => {
     switch (mode) {
       case type.YOUTUBE_URL:
-        return (
-          <YoutubeURL
-            cancelAction={props.cancelAction}
-            setMode={setMode}
-            type={type}
-          />
-        );
+        return <Loading />;
       case type.UPLOAD:
         return (
           <div id="file-upload">
