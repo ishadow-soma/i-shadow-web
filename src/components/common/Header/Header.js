@@ -29,7 +29,7 @@ function Header(props) {
         <div className="profile">
           {user.isLogin ? (
             <div className="authenticated">
-              <div>
+              <div className="welcome">
                 <Link to="/editprofile" className="profile-info">
                   {user.email}
                 </Link>{" "}
