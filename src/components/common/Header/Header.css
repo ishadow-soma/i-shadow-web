@@ -95,6 +95,7 @@ header::after {
     border-radius: 21px;
     text-align: center;
     margin-left: 8px;
+    font-size: 22px;
   }
   header .profile .unauthorized {
     min-width: 350px;

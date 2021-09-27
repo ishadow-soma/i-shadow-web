@@ -5,7 +5,6 @@ export default class Record {
     const record = document.getElementById("record");
     const stop = document.getElementById("stop");
     const audio = document.getElementById("audio");
-    //const soundClips = document.getElementById("sound-clips");
     const chkHearMic = document.getElementById("chk-hear-mic");
 
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)(); // 오디오 컨텍스트 정의
@@ -22,7 +21,9 @@ export default class Record {
     if (navigator.mediaDevices) {
       console.log("getUserMedia supported.");
 
-      const constraint = { audio: true };
+      const constraint = {
+        audio: true,
+      };
       let chunks = [];
 
       navigator.mediaDevices
@@ -75,3 +76,16 @@ export default class Record {
     }
   }
 }
+
+async function getConnectedDevices() {
+  const devices = await navigator.mediaDevices.enumerateDevices();
+  return devices.filter((device) => device.kind === "audioinput");
+}
+
+// const audioDevices = this.getConnectedDevices("audioinput");
+// console.log(audioDevices);
+// const audioSource =
+//   "7ba0e27826642f1f4db8d1acee18c4f875f6979d57e21d2a08c3e051ca2a81a5";
+// const constraint = {
+//   audio: { deviceId: audioSource ? { exact: audioSource } : undefined },
+// };

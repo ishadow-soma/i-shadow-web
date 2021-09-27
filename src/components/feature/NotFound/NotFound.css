@@ -1,0 +1,18 @@
+.not-found {
+  text-align: center;
+}
+.not-found h1 {
+  font-size: 40px;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  font-family: Roboto sans-serif;
+  color: #2f7af9;
+}
+.not-found h2 {
+  font-size: 32px;
+}
+.not-found a:visited {
+  color: #2f3f65;
+}
+
+/*# sourceMappingURL=NotFound.css.map */
