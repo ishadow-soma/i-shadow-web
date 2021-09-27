@@ -2,7 +2,7 @@ import React from "react";
 import "./YoutubeURL.css";
 import axios from "axios";
 import network from "global/store/store";
-import { getCookie, setCookie } from "../../../global/store/cookie";
+import { getCookie, setCookie } from "global/store/cookie";
 
 function YoutubeURL(props) {
   const onClickOk = () => {
