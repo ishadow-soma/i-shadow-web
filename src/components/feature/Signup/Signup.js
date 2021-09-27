@@ -1,12 +1,13 @@
 import "./Signup.css";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import network from "global/store/store";
 import setGoogleLogin from "global/Oauth/setGoogleLogin";
 const { naver } = window;
 
 function Signup(props) {
-  let isAuthentication = false;
+  const [isAuthentication, setAuthentication] = useState(false);
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     initializeNaverLogin();
@@ -30,6 +31,7 @@ function Signup(props) {
           axios.post(network.baseURL + "users/authentication-email", {
             email: inputEmail,
           });
+          setEmail(inputEmail);
           alert("인증번호가 발송되었습니다.");
         } else {
           alert("이미 가입된 이메일입니다.");
@@ -45,7 +47,7 @@ function Signup(props) {
         authenticationCode: code,
       })
       .then((res) => {
-        if (res.data.data.isSuccess === "YES") isAuthentication = true;
+        if (res.data.data.isSuccess === "YES") setAuthentication(true);
       });
   };
 
@@ -108,7 +110,11 @@ function Signup(props) {
               <span>
                 <i className="xi-at" />
               </span>
-              <input id="email" type="text" placeholder="Email" />
+              {isAuthentication ? (
+                <input id="email" type="text" value={email} />
+              ) : (
+                <input id="email" type="text" placeholder="Email" />
+              )}
             </div>
             <button onClick={requestAuthorizationCode}>인증번호 발송</button>
           </div>
