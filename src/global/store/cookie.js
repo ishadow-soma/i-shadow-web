@@ -11,6 +11,7 @@ export const setCookieDefaultOption = (name, value) => {
     path: "/",
     secure: true,
     sameSite: "none",
+    maxAge: 1209600,
   });
 };
 
