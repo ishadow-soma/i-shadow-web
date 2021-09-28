@@ -9,6 +9,8 @@ import network, { user } from "global/store/store";
 import axios from "axios";
 import { getCookie, setCookie } from "global/store/cookie";
 import setMyContents from "./setMyContents";
+import { FaPlay } from "react-icons/fa";
+import YoutubeContents from "./YoutubeContents";
 
 const customStyles = {
   content: {
@@ -27,6 +29,7 @@ function MyRoom(props) {
   const [point, setPoint] = useState(111);
   const [nickname, setNickname] = useState("null");
   const [modal, setModal] = useState(1);
+  let [videos, setVideos] = useState([]);
 
   useEffect(() => {
     if (!user.isLogin) {
@@ -53,19 +56,14 @@ function MyRoom(props) {
     setIsOpen(false);
   }
 
-  function requestYoutubeContent() {
-    axios({
+  async function requestYoutubeContent() {
+    const res = await axios({
       method: "get",
       url: network.baseURL + "users/my-room",
       headers: { "ACCESS-TOKEN": getCookie("jwt") },
-    }).then((res) => {
-      if (res.data.success) {
-        console.log(res.data);
-        res.data.data.youtubeVideos.forEach((it) => {
-          setMyContents(it, props);
-        });
-      }
     });
+    setVideos(res.data.data.youtubeVideos);
+    console.log(videos);
   }
 
   return (
@@ -94,6 +92,7 @@ function MyRoom(props) {
                   <i className="xi-youtube-play xi-x" />
                 </div>
                 <h2>내가 변환한 유튜브 콘텐츠</h2>
+                <YoutubeContents videos={videos} />
                 <ul id="converted-youtube">
                   <li>
                     <div

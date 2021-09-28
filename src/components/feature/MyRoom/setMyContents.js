@@ -1,4 +1,6 @@
 import { setCookie } from "global/store/cookie";
+import { FaPlay } from "react-icons/fa";
+import React from "react";
 
 export default function setMyContents(video, props) {
   function insertYoutubeContent(video) {
