@@ -125,4 +125,12 @@ body {
   margin: 0;
 }
 
+.button-ok {
+  background-color: #2f7af9;
+}
+
+.button-cancel {
+  background-color: #2f3f65;
+}
+
 /*# sourceMappingURL=index.css.map */

@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["EvaluationModal.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;EACA","file":"EvaluationModal.css"}
+{"version":3,"sourceRoot":"","sources":["EvaluationModal.scss","../../../global/styles/_text-size.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EACA;EACA;;AAEA;EACE,WCTa;EDUb;EACA;;AAGF;EACE,WCbe","file":"EvaluationModal.css"}

@@ -1,6 +1,19 @@
+@import "../../../global/styles/text-size";
+
 .evaluation-modal {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #2f3f65;
+
+  h1 {
+    font-size: $sub-title-size;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  p {
+    font-size: $normal-font-size;
+  }
 }
