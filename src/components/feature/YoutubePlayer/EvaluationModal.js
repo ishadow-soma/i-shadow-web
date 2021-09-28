@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import network from "global/store/store";
 import { getCookie } from "global/store/cookie";
+import ReactStars from "react-rating-stars-component";
+import "./EvaluationModal.css";
 
 export default function EvaluationModal(props) {
   const evaluate = () => {
@@ -27,32 +29,25 @@ export default function EvaluationModal(props) {
   };
 
   return (
-    <div>
+    <div className="evaluation-modal">
       <h1>영상의 난이도를 평가해 주세요.</h1>
-      <p>1.0 - NH, 2.0 - IL, 3.0 - IM2, 4.0 - IH, 5.0 - AL</p>
-      <input type="radio" name="evaluation" value="0.5" />
-      0.5
-      <input type="radio" name="evaluation" value="1.0" />
-      1.0
-      <input type="radio" name="evaluation" value="1.5" />
-      1.5
-      <input type="radio" name="evaluation" value="2.0" />
-      2.0
-      <input type="radio" name="evaluation" value="2.5" />
-      2.5
-      <input type="radio" name="evaluation" value="3.0" />
-      3.0
-      <input type="radio" name="evaluation" value="3.5" />
-      3.5
-      <input type="radio" name="evaluation" value="4.0" />
-      4.0
-      <input type="radio" name="evaluation" value="4.5" />
-      4.5
-      <input type="radio" name="evaluation" value="5.0" />
-      5.0
-      <br />
-      <button onClick={evaluate}>평가하기</button>
-      <button onClick={props.closeModal}>건너뛰기</button>
+      <p>
+        난이도 평가 가이드
+        <br /> 1.0 - NH, 2.0 - IL, 3.0 - IM2, 4.0 - IH, 5.0 - AL
+      </p>
+      <ReactStars
+        count={5}
+        size={36}
+        isHalf={true}
+        emptyIcon={<i className="far fa-star" />}
+        halfIcon={<i className="fa fa-star-half-alt" />}
+        fullIcon={<i className="fa fa-star" />}
+        activeColor="#ffd700"
+      />
+      <div>
+        <button onClick={evaluate}>평가하기</button>
+        <button onClick={props.closeModal}>건너뛰기</button>
+      </div>
     </div>
   );
 }
