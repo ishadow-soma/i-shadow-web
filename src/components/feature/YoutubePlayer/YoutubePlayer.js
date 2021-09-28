@@ -41,10 +41,14 @@ function YoutubePlayer() {
   const [defaultOption, setDefaultOption] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
   const recorder = new Record(setIsRecording);
-  const [, render] = useState();
 
   useEffect(() => {
     requestVideo();
+    setRecorder();
+  }, []);
+
+  // 녹음 세팅
+  const setRecorder = () => {
     recorder.doSomething(null);
     recorder.getConnectedAudioDevices().then((devices) => {
       for (let i = 0; i < devices.length; ++i) {
@@ -53,8 +57,7 @@ function YoutubePlayer() {
       setOptions(options);
       setDefaultOption(options[0]);
     });
-    render(true);
-  }, []);
+  };
 
   // 영상 불러오기
 
@@ -218,7 +221,6 @@ function YoutubePlayer() {
                     contentType={contentType}
                     script={script}
                     player={player}
-                    junk={render}
                   />
                   <ul
                     className="recoded-list"
