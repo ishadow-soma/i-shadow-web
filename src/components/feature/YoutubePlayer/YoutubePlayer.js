@@ -181,8 +181,8 @@ function YoutubePlayer() {
               </h2>
               <h1>{title}</h1>
               <div id="player" />
-              <div className="caption" id="caption">
-                Our hearts were never broken
+              <div className="caption">
+                <p id="caption">Our hearts were never broken</p>
                 <div
                   className="record-icon"
                   style={{ visibility: isRecording ? "visible" : "hidden" }}
@@ -228,7 +228,10 @@ function YoutubePlayer() {
 
               <div className="content">
                 <Scrollbar style={{ width: 400, height: 640 }}>
-                  <ul id="script" />
+                  <ul
+                    id="script"
+                    style={{ display: contentType === 0 ? "block" : "none" }}
+                  />
                   <ul
                     className="recoded-list"
                     style={{ display: contentType === 1 ? "block" : "none" }}
