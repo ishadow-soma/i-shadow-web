@@ -10,7 +10,7 @@ export default class Record {
       });
   }
 
-  doSomething() {
+  doSomething(deviceId) {
     const record = document.getElementById("record");
     const stop = document.getElementById("stop");
     const audio = document.getElementById("audio");
@@ -31,7 +31,7 @@ export default class Record {
       console.log("getUserMedia supported.");
 
       const constraint = {
-        audio: true,
+        audio: { deviceId: deviceId ? { exact: deviceId } : undefined },
       };
       let chunks = [];
 
