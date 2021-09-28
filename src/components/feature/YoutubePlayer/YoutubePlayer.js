@@ -49,7 +49,7 @@ function YoutubePlayer() {
 
   // 녹음 세팅
   const setRecorder = () => {
-    recorder.doSomething(null);
+    recorder.setAudioEnvironment(null);
     recorder.getConnectedAudioDevices().then((devices) => {
       for (let i = 0; i < devices.length; ++i) {
         options.push(devices[i]);
@@ -154,7 +154,7 @@ function YoutubePlayer() {
 
   function onSelect(item) {
     console.log("onselect", item);
-    recorder.doSomething(item.value);
+    recorder.setAudioEnvironment(item.value);
   }
 
   return (
