@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Record {
+export default class Recorder {
   constructor(doAfterOnStart) {
     this.doAfterOnRecording = doAfterOnStart;
   }

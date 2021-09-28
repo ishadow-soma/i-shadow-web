@@ -8,7 +8,7 @@ import { getCookie } from "global/store/cookie";
 import { Scrollbar } from "react-scrollbars-custom";
 import EvaluationModal from "./EvaluationModal";
 import Modal from "react-modal";
-import Record from "global/record/Record";
+import Recorder from "global/record/Recorder";
 import Dropdown from "react-dropdown";
 import { FaStop } from "react-icons/fa";
 import Script from "../../common/Completion/Script";
@@ -40,7 +40,7 @@ function YoutubePlayer() {
   const [options, setOptions] = useState([]);
   const [defaultOption, setDefaultOption] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
-  const recorder = new Record(setIsRecording);
+  const recorder = new Recorder(setIsRecording);
 
   useEffect(() => {
     requestVideo();
