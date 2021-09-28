@@ -51,7 +51,7 @@
   height: 48px;
   font-size: 30px;
   background-color: #ff0077;
-  opacity: 50%;
+  opacity: 0.5;
   border-radius: 24px;
   cursor: pointer;
 }
@@ -60,7 +60,7 @@
   height: 20px;
 }
 .youtube-player .caption .record-icon:hover {
-  opacity: 100%;
+  opacity: 1;
 }
 
 /* script */
