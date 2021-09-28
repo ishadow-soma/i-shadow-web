@@ -13,6 +13,7 @@ import Modal from "react-modal";
 import Record from "global/record/Record";
 import Dropdown from "react-dropdown";
 import { FaStop } from "react-icons/fa";
+import Script from "../../common/Completion/Script";
 
 const YTPlayer = require("yt-player");
 const customStyles = {
@@ -33,7 +34,7 @@ function YoutubePlayer() {
   const [url, setUrl] = useState("null");
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
   let player;
-  let script;
+  const [script, initScript] = useState([]);
   let videoCode;
   let shouldVideoEvaluation;
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -91,7 +92,7 @@ function YoutubePlayer() {
   };
 
   const setVideo = (data) => {
-    script = getScript(data.sentences);
+    initScript(getScript(data.sentences));
 
     player = new YTPlayer("#player", { width: 800, height: 456 });
     console.log("player");
@@ -214,6 +215,7 @@ function YoutubePlayer() {
               </button>
 
               <div className="content">
+                <Script contentType={contentType} script={script} />
                 <Scrollbar style={{ width: 400, height: 640 }}>
                   <ul
                     id="script"
@@ -232,6 +234,7 @@ function YoutubePlayer() {
                   >
                     <li>
                       <input type="checkbox" id="chk-hear-mic" />
+                      에코
                       <audio id="audio" src="#" controls="true" />
                     </li>
                     <li>

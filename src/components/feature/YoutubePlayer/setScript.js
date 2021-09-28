@@ -8,8 +8,8 @@ export default function setScript(player, script) {
 
   const createListItem = (index, sentence) => {
     const result = document.createElement("li");
-    result.className = "item";
-    result.id = `idx${index}`;
+    // result.className = "item";
+    // result.id = `idx${index}`;
     createElements(sentence).forEach((it) => result.append(it));
     return result;
   };
