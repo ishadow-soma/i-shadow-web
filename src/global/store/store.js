@@ -18,29 +18,29 @@ export let user = {
 
   // 로그인 확인 후 유저 정보 세팅
   verifyLogin: async () => {
+    console.log("start verify login");
     user.token = getCookie("jwt");
     if (user.token == null) return;
 
-    await axios({
-      method: "get",
-      url: network.baseURL + "users",
-      headers: { "ACCESS-TOKEN": user.token },
-    })
-      .then((res) => {
-        if (res.data.success) {
-          console.log("유저 정보 가져오기 성공!", res);
-          user.setUser(res.data.data);
-          userInfo.dispatch({ type: "LOGIN" });
-          console.log(userInfo.getState());
-        } else {
-          user.clearUser();
-          console.log("유저 정보 가져오기 실패!", res);
-        }
-      })
-      .catch((err) => {
-        user.clearUser();
-        console.log("유저 정보 가져오기 실패!", err);
+    try {
+      const res = await axios({
+        method: "get",
+        url: network.baseURL + "users",
+        headers: { "ACCESS-TOKEN": user.token },
       });
+      if (res.data.success) {
+        console.log("유저 정보 가져오기 성공!", res);
+        user.setUser(res.data.data);
+        userInfo.dispatch({ type: "LOGIN" });
+        console.log(userInfo.getState());
+      } else {
+        user.clearUser();
+        console.log("유저 정보 가져오기 실패!", res);
+      }
+    } catch (err) {
+      user.clearUser();
+      console.log("유저 정보 가져오기 실패!", err);
+    }
   },
 
   setUser: (getUser) => {

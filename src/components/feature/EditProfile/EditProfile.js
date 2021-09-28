@@ -8,13 +8,14 @@ function EditProfile(props) {
   const email = user.email;
   const [name, setName] = useState(user.name);
   const [age, setAge] = useState(user.age);
-  const [, setRender] = useState(false);
+  const [render, setRender] = useState(0);
 
   useEffect(() => {
+    console.log(0, user.name);
     user.verifyLogin();
-    setTimeout(() => {
-      setRender(true);
-    }, 200);
+    console.log(1, user.name);
+    setRender(render + 1);
+    console.log(2, user.name);
   }, []);
 
   const handleChange = (e) => {
