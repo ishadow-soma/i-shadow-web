@@ -1,5 +1,6 @@
 import React from "react";
-import { setCookie } from "../../../global/store/cookie";
+import { setCookie } from "global/store/cookie";
+import { FaPlay } from "react-icons/fa";
 
 export default function YoutubeContents(props) {
   return (
@@ -16,8 +17,10 @@ export default function YoutubeContents(props) {
           style={{ backgroundImage: `url('${video.thumbNailURL}')` }}
           onClick={() => redirectYoutube(video.videoId)}
         >
-          <i className="xi-play xi-2x" />
           <p>{video.title}</p>
+          <div className="icon-wrap">
+            <FaPlay className="play-icon" />
+          </div>
         </div>
       </li>
     );
