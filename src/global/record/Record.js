@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default class Record {
+  async getConnectedAudioDevices() {
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    return devices
+      .filter((device) => device.kind === "audioinput")
+      .map((device) => {
+        return { value: device.deviceId, label: device.label };
+      });
+  }
+
   doSomething() {
     const record = document.getElementById("record");
     const stop = document.getElementById("stop");
@@ -76,16 +85,3 @@ export default class Record {
     }
   }
 }
-
-async function getConnectedDevices() {
-  const devices = await navigator.mediaDevices.enumerateDevices();
-  return devices.filter((device) => device.kind === "audioinput");
-}
-
-// const audioDevices = this.getConnectedDevices("audioinput");
-// console.log(audioDevices);
-// const audioSource =
-//   "7ba0e27826642f1f4db8d1acee18c4f875f6979d57e21d2a08c3e051ca2a81a5";
-// const constraint = {
-//   audio: { deviceId: audioSource ? { exact: audioSource } : undefined },
-// };

@@ -11,6 +11,7 @@ import setDragSelect from "./setDragSelect";
 import EvaluationModal from "./EvaluationModal";
 import Modal from "react-modal";
 import Record from "global/record/Record";
+import Dropdown from "react-dropdown";
 
 const YTPlayer = require("yt-player");
 const customStyles = {
@@ -36,9 +37,20 @@ function YoutubePlayer() {
   let shouldVideoEvaluation;
   const [modalIsOpen, setIsOpen] = useState(false);
 
+  const [options, setOptions] = useState([]);
+  const [defaultOption, setDefaultOption] = useState(null);
+
   useEffect(() => {
     requestVideo();
-    new Record().doSomething();
+    const recorder = new Record();
+    recorder.doSomething();
+    recorder.getConnectedAudioDevices().then((devices) => {
+      for (let i = 0; i < devices.length; ++i) {
+        options.push(devices[i]);
+      }
+      setOptions(options);
+      setDefaultOption(options[0]);
+    });
   }, []);
 
   // 영상 불러오기
@@ -146,6 +158,11 @@ function YoutubePlayer() {
               <a href={url}>
                 <i className="xi-link" /> {url}
               </a>
+              <Dropdown
+                options={options}
+                value={defaultOption}
+                placeholder="Select an option"
+              />
               <Footer />
             </div>
 
