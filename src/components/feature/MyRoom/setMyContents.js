@@ -21,29 +21,29 @@ export default function setMyContents(video, props) {
 
   const createThumbnail = (video) => {
     const result = document.createElement("div");
-    const icon = createPlayIcon();
-    const titleElement = createContentTitle(video.title);
+    // const icon = createPlayIcon();
+    // const titleElement = createContentTitle(video.title);
 
     result.className = "youtube-content";
     result.onclick = () => redirectYoutube(video.videoId);
     result.style.backgroundImage = `url('${video.thumbNailURL}')`;
-    result.append(titleElement);
-    result.append(icon);
+    // result.append(titleElement);
+    // result.append(icon);
 
     return result;
   };
 
-  const createContentTitle = (title) => {
-    const result = document.createElement("p");
-    result.innerText = title;
-    return result;
-  };
+  // const createContentTitle = (title) => {
+  //   const result = document.createElement("p");
+  //   result.innerText = title;
+  //   return result;
+  // };
 
-  const createPlayIcon = () => {
-    const result = document.createElement("i");
-    result.className = "xi-play xi-2x";
-    return result;
-  };
+  // const createPlayIcon = () => {
+  //   const result = document.createElement("i");
+  //   result.className = "xi-play xi-2x";
+  //   return result;
+  // };
 
   function redirectYoutube(videoId) {
     setCookie("videoId", videoId, {

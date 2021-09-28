@@ -6,12 +6,15 @@ export default function YoutubeContents(props) {
       {props.videos.map((it) => createListItem(it))}
     </ul>
   );
-
+  //    result.style.backgroundImage = `url('${video.thumbNailURL}')`;
   function createListItem(video) {
     console.log(video);
     return (
       <li>
-        <div className="youtube-content">
+        <div
+          className="youtube-content"
+          style={{ backgroundImage: `url('${video.thumbNailURL}')` }}
+        >
           <i className="xi-play xi-2x" />
           <p>{video.title}</p>
         </div>
