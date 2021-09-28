@@ -249,6 +249,7 @@ function YoutubePlayer() {
       </div>
 
       <Modal
+        ariaHideApp={false}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}

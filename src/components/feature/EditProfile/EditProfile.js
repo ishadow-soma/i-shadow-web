@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./EditProfile.css";
 import network, { user } from "global/store/store";
 import { getCookie } from "global/store/cookie";
@@ -8,6 +8,14 @@ function EditProfile(props) {
   const email = user.email;
   const [name, setName] = useState(user.name);
   const [age, setAge] = useState(user.age);
+  const [, setRender] = useState(false);
+
+  useEffect(() => {
+    user.verifyLogin();
+    setTimeout(() => {
+      setRender(true);
+    }, 200);
+  }, []);
 
   const handleChange = (e) => {
     setName(e.target.value);
