@@ -57,13 +57,13 @@ function FileUpload(props) {
       </div>
 
       <div className="btn-container">
-        <button type="submit" value="ok" className="ok" onClick={onOk}>
+        <button type="submit" value="ok" className="button-ok" onClick={onOk}>
           확인
         </button>
         <button
           type="submit"
           value="cancel"
-          className="cancel"
+          className="button-cancel"
           onClick={props.cancelAction}
         >
           취소

@@ -125,6 +125,19 @@ body {
   margin: 0;
 }
 
+.button-cancel, .button-ok {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 60px;
+  margin: 0 15px;
+  font-size: 16px;
+  color: white;
+  border-radius: 30px;
+  border: none;
+}
+
 .button-ok {
   background-color: #2f7af9;
 }

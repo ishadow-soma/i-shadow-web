@@ -55,25 +55,6 @@
     display: flex;
     justify-content: center;
   }
-
-  .modal button {
-    font-size: 20px;
-    margin: 0 15px;
-    display: block;
-    width: 200px;
-    height: 60px;
-    border: none;
-    border-radius: 30px;
-    color: white;
-  }
-
-  .modal button.ok {
-    background-color: #2f7af9;
-  }
-
-  .modal button.cancel {
-    background-color: #2f3f65;
-  }
 }
 
 @media screen and (max-width: 1024px) {

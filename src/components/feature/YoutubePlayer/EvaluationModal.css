@@ -4,14 +4,19 @@
   flex-direction: column;
   align-items: center;
   color: #2f3f65;
+  width: 1200px;
 }
 .evaluation-modal h1 {
   font-size: 32px;
   margin-top: 24px;
-  margin-bottom: 24px;
 }
 .evaluation-modal p {
-  font-size: 16px;
+  font-size: 14px;
+  margin-top: 24px;
+  margin-bottom: 36px;
+}
+.evaluation-modal .btn-container {
+  display: flex;
 }
 
 /*# sourceMappingURL=EvaluationModal.css.map */

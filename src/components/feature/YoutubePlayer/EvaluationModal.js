@@ -31,22 +31,26 @@ export default function EvaluationModal(props) {
   return (
     <div className="evaluation-modal">
       <h1>영상의 난이도를 평가해 주세요.</h1>
-      <p>
-        난이도 평가 가이드
-        <br /> 1.0 - NH, 2.0 - IL, 3.0 - IM2, 4.0 - IH, 5.0 - AL
-      </p>
       <ReactStars
         count={5}
-        size={36}
+        size={48}
         isHalf={true}
         emptyIcon={<i className="far fa-star" />}
         halfIcon={<i className="fa fa-star-half-alt" />}
         fullIcon={<i className="fa fa-star" />}
         activeColor="#ffd700"
       />
-      <div>
-        <button onClick={evaluate}>평가하기</button>
-        <button onClick={props.closeModal}>건너뛰기</button>
+      <p>
+        난이도 평가 가이드
+        <br /> 1.0 - NH, 2.0 - IL, 3.0 - IM2, 4.0 - IH, 5.0 - AL
+      </p>
+      <div className="btn-container">
+        <button onClick={evaluate} className="button-ok">
+          평가하기
+        </button>
+        <button onClick={props.closeModal} className="button-cancel">
+          건너뛰기
+        </button>
       </div>
     </div>
   );

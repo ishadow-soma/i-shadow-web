@@ -6,14 +6,20 @@
   flex-direction: column;
   align-items: center;
   color: #2f3f65;
+  width: 1200px;
 
   h1 {
     font-size: $sub-title-size;
     margin-top: 24px;
-    margin-bottom: 24px;
   }
 
   p {
-    font-size: $normal-font-size;
+    font-size: $small-font-size;
+    margin-top: 24px;
+    margin-bottom: 36px;
+  }
+
+  .btn-container {
+    display: flex;
   }
 }

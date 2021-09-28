@@ -57,13 +57,13 @@ function YoutubeURL(props) {
       </div>
 
       <div className="btn-container">
-        <button className="ok" onClick={onClickOk}>
+        <button className="button-ok" onClick={onClickOk}>
           확인
         </button>
         <button
           type="submit"
           value="cancel"
-          className="cancel"
+          className="button-cancel"
           onClick={props.cancelAction}
         >
           취소
