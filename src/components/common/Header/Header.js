@@ -8,7 +8,12 @@ function Header(props) {
 
   useEffect(async () => {
     const flag = await user.verifyLogin();
-    if (flag) setRender(true);
+    if (flag) {
+      setRender(true);
+      if (props.doAfterLogin) {
+        props.doAfterLogin();
+      }
+    }
   }, []);
 
   const onLogout = () => {

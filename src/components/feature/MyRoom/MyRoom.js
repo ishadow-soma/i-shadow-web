@@ -70,7 +70,7 @@ function MyRoom(props) {
 
   return (
     <div className="wrap">
-      <Header />
+      <Header doAfterLogin={setMyRoom} />
       <div className="my-room">
         <div className="container">
           <div className="my-room-header">
