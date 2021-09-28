@@ -8,7 +8,6 @@ import Modal from "react-modal";
 import network, { user } from "global/store/store";
 import axios from "axios";
 import { getCookie, setCookie } from "global/store/cookie";
-import setMyContents from "./setMyContents";
 import { FaPlay } from "react-icons/fa";
 import YoutubeContents from "./YoutubeContents";
 
