@@ -38,10 +38,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   color: white;
   background-color: #2f3f65;
-  font-size: $sub-title-size;
+  font-size: $large-font-size;
   margin-bottom: 20px;
+  padding: 0 48px;
+  overflow: hidden;
 
   .record-icon {
     @include inline-flexbox;
@@ -51,6 +54,7 @@
     height: 48px;
     font-size: 30px;
     background-color: #ff0077;
+    opacity: 50%;
     border-radius: 24px;
     cursor: pointer;
 
@@ -58,6 +62,10 @@
       width: 20px;
       height: 20px;
     }
+  }
+
+  .record-icon:hover {
+    opacity: 100%;
   }
 }
 
