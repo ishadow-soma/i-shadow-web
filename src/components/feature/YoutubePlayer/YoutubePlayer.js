@@ -12,6 +12,8 @@ import Recorder from "global/record/Recorder";
 import Dropdown from "react-dropdown";
 import { FaStop } from "react-icons/fa";
 import Script from "../../common/Completion/Script";
+import setScript from "./setScript";
+import setDragSelect from "./setDragSelect";
 
 const YTPlayer = require("yt-player");
 const customStyles = {
@@ -32,7 +34,7 @@ function YoutubePlayer() {
   const [url, setUrl] = useState("null");
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
   let player;
-  const [script, initScript] = useState([]);
+  let script;
   let videoCode;
   let shouldVideoEvaluation;
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -60,7 +62,6 @@ function YoutubePlayer() {
   };
 
   // 영상 불러오기
-
   const requestVideo = async () => {
     console.log("request video : ", getCookie("videoId"));
     const res = await axios({
@@ -71,6 +72,8 @@ function YoutubePlayer() {
     });
     setVideoInfo(res.data.data);
     setVideo(res.data.data);
+    setScript(player, script);
+    setDragSelect(player, script);
   };
 
   const setVideoInfo = (data) => {
@@ -81,18 +84,10 @@ function YoutubePlayer() {
     shouldVideoEvaluation = !data.videoEvaluation;
   };
 
-  const getScript = (sentences) => {
-    return sentences.map((sentence) => {
-      return {
-        sentence: sentence.content,
-        begin: getSecondsFromTime(sentence.startTime),
-        end: getSecondsFromTime(sentence.endTime),
-      };
-    });
-  };
-
   const setVideo = (data) => {
-    initScript(getScript(data.sentences));
+    script = getScript(data.sentences);
+
+    console.log("setScript");
 
     player = new YTPlayer("#player", { width: 800, height: 456 });
     console.log("player");
@@ -107,6 +102,16 @@ function YoutubePlayer() {
       setCurrentSentence();
       if (shouldVideoEvaluation && seconds / player.getDuration() > 0.9)
         requestVideoEvaluation();
+    });
+  };
+
+  const getScript = (sentences) => {
+    return sentences.map((sentence) => {
+      return {
+        sentence: sentence.content,
+        begin: getSecondsFromTime(sentence.startTime),
+        end: getSecondsFromTime(sentence.endTime),
+      };
     });
   };
 
@@ -216,11 +221,7 @@ function YoutubePlayer() {
 
               <div className="content">
                 <Scrollbar style={{ width: 400, height: 640 }}>
-                  <Script
-                    contentType={contentType}
-                    script={script}
-                    player={player}
-                  />
+                  <ul id="script"></ul>
                   <ul
                     className="recoded-list"
                     style={{ display: contentType === 1 ? "block" : "none" }}
