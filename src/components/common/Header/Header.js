@@ -6,11 +6,9 @@ import { user } from "global/store/store";
 function Header(props) {
   const [, setRender] = useState(false);
 
-  useEffect(() => {
-    user.verifyLogin();
-    setTimeout(() => {
-      setRender(true);
-    }, 200);
+  useEffect(async () => {
+    const flag = await user.verifyLogin();
+    if (flag) setRender(true);
   }, []);
 
   const onLogout = () => {

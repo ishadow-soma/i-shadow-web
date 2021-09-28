@@ -37,9 +37,11 @@ export let user = {
         user.clearUser();
         console.log("유저 정보 가져오기 실패!", res);
       }
+      return true;
     } catch (err) {
       user.clearUser();
       console.log("유저 정보 가져오기 실패!", err);
+      return false;
     }
   },
 

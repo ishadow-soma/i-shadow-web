@@ -8,14 +8,11 @@ function EditProfile(props) {
   const email = user.email;
   const [name, setName] = useState(user.name);
   const [age, setAge] = useState(user.age);
-  const [render, setRender] = useState(0);
+  const [render, setRender] = useState(false);
 
-  useEffect(() => {
-    console.log(0, user.name);
-    user.verifyLogin();
-    console.log(1, user.name);
-    setRender(render + 1);
-    console.log(2, user.name);
+  useEffect(async () => {
+    const flag = await user.verifyLogin();
+    if (flag) setRender(true);
   }, []);
 
   const handleChange = (e) => {
