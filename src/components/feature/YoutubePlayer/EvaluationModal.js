@@ -6,17 +6,15 @@ import ReactStars from "react-rating-stars-component";
 import "./EvaluationModal.css";
 
 export default function EvaluationModal(props) {
+  let rating = 2.5;
+
   const evaluate = () => {
-    const value = parseFloat(
-      document.querySelector('input[name="evaluation"]:checked').value
-    );
-    console.log(typeof value);
     axios({
       method: "post",
       url: network.baseURL + `media/${getCookie("videoId")}/level`,
       headers: { "ACCESS-TOKEN": getCookie("jwt") },
       data: {
-        Level: value,
+        Level: rating,
         content: "???",
       },
     })
@@ -28,6 +26,10 @@ export default function EvaluationModal(props) {
     props.closeModal();
   };
 
+  const ratingChanged = (value) => {
+    rating = value;
+  };
+
   return (
     <div className="evaluation-modal">
       <h1>영상의 난이도를 평가해 주세요.</h1>
@@ -35,6 +37,8 @@ export default function EvaluationModal(props) {
         count={5}
         size={48}
         isHalf={true}
+        value={2.5}
+        onChange={ratingChanged}
         emptyIcon={<i className="far fa-star" />}
         halfIcon={<i className="fa fa-star-half-alt" />}
         fullIcon={<i className="fa fa-star" />}
