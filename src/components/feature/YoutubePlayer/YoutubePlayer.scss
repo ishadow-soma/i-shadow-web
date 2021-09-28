@@ -1,4 +1,5 @@
 @import "../../../global/styles/text-size";
+@import "../../../global/styles/mixin";
 
 .youtube-player {
   padding-top: 70px;
@@ -29,6 +30,7 @@
 /* caption */
 
 .youtube-player .caption {
+  width: 800px;
   border-top: rgba(255, 255, 255, 0.12) solid 1px;
   position: relative;
   top: -4px;
@@ -40,6 +42,18 @@
   background-color: #2f3f65;
   font-size: $sub-title-size;
   margin-bottom: 20px;
+
+  .record-icon {
+    @include inline-flexbox;
+    position: absolute;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    font-size: 30px;
+    background-color: #ff0077;
+    border-radius: 24px;
+    cursor: pointer;
+  }
 }
 
 /* script */

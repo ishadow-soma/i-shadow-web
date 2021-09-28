@@ -39,7 +39,8 @@ function YoutubePlayer() {
 
   const [options, setOptions] = useState([]);
   const [defaultOption, setDefaultOption] = useState(null);
-  const recorder = new Record();
+  const [isRecording, setIsRecording] = useState(false);
+  const recorder = new Record(setIsRecording);
 
   useEffect(() => {
     requestVideo();
@@ -161,12 +162,18 @@ function YoutubePlayer() {
           <div className="youtube-player">
             <div className="video-frame">
               <h2>
-                <i className="xi-youtube-play xi-x" /> 내가 변환한 유튜브 콘텐츠
+                <i className="xi-youtube-play xi-x" />
+                내가 변환한 유튜브 콘텐츠
               </h2>
               <h1>{title}</h1>
               <div id="player" />
               <div className="caption" id="caption">
-                Our hearts wore never broken
+                Our hearts were never broken
+                {isRecording ? (
+                  <button id="stop">중지</button>
+                ) : (
+                  <i className="xi-microphone record-icon" id="record" />
+                )}
               </div>
               <a href={url}>
                 <i className="xi-link" /> {url}
@@ -218,8 +225,6 @@ function YoutubePlayer() {
                   >
                     <li>
                       <input type="checkbox" id="chk-hear-mic" />
-                      <button id="record">녹음</button>
-                      <button id="stop">중지</button>
                       <audio id="audio" src="#" controls="true" />
                     </li>
                     <li>

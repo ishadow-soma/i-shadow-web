@@ -54,8 +54,6 @@ export default class Record {
             mediaRecorder.start();
             console.log(mediaRecorder.state);
             console.log("recorder started");
-            record.style.background = "red";
-            record.style.color = "black";
           };
 
           stop.onclick = () => {
