@@ -68,17 +68,21 @@ function YoutubePlayer() {
       shouldVideoEvaluation = !res.data.data.videoEvaluation;
       setTitle(res.data.data.videoName);
       console.log(`video code : ${videoCode}`);
-      script = res.data.data.sentences.map((it) => {
-        return {
-          sentence: it.content,
-          begin: getSecondsFromTime(it.startTime),
-          end: getSecondsFromTime(it.endTime),
-        };
-      });
+      script = getScript(res.data.data.sentences);
       setVideo(videoCode);
       setUrl(`https://youtu.be/${videoCode}`);
       setScript(player, script);
       setDragSelect(player, script);
+    });
+  };
+
+  const getScript = (sentences) => {
+    return sentences.map((sentence) => {
+      return {
+        sentence: sentence.content,
+        begin: getSecondsFromTime(sentence.startTime),
+        end: getSecondsFromTime(sentence.endTime),
+      };
     });
   };
 

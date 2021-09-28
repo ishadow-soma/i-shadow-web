@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "components/common/Header/Header";
 import Footer from "components/common/Footer/Footer";
 import ReactPlayer from "react-player";
 import "components/feature/CustomPlayer.css";
 import { Scrollbar } from "react-scrollbars-custom";
+import { getCookie } from "../../../global/store/cookie";
+import axios from "axios";
+import network from "../../../global/store/store";
+import setScript from "../YoutubePlayer/setScript";
+import setDragSelect from "../YoutubePlayer/setDragSelect";
+import { getSecondsFromTime } from "../YoutubePlayer/YoutubePlayer";
 
 function VideoPlayer() {
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
+  const player = useRef(null);
 
   const selectTab = (type) => {
     setContentType(type);
@@ -14,6 +21,10 @@ function VideoPlayer() {
     document
       .getElementsByClassName("tab")
       [(type + 1) % 2].classList.remove("selected");
+  };
+
+  const onSeek = (seconds) => {
+    player.current.seekTo(seconds, "seconds");
   };
 
   return (
@@ -28,18 +39,13 @@ function VideoPlayer() {
             <h1>The Intern - Official Trailer [HD]</h1>
             <span className="audio-background">
               <ReactPlayer
+                ref={player}
+                controls={true}
+                playing={true}
                 width="800px"
                 height="456px"
                 url="https://www.youtube.com/watch?v=DToWYMc2Y-I"
               />
-              <span className="operation-menu">
-                <i className="xi-step-backward" />
-                <i className="xi-pause pause" />
-                <i className="xi-step-forward" />
-              </span>
-              <span className="volume">
-                <i className="xi-volume-up" />
-              </span>
             </span>
             <div className="caption">Our hearts wore never broken</div>
             <Footer />
@@ -71,7 +77,9 @@ function VideoPlayer() {
                   style={{ display: contentType === 0 ? "block" : "none" }}
                 >
                   <li className="">
-                    <button className="time-stamp">1:23</button>
+                    <button className="time-stamp" onClick={() => onSeek(12)}>
+                      0:12
+                    </button>
                     <p>더미 텍스트 ^^</p>
                   </li>
                   {/* 이곳에 스크립트 렌더링  */}
