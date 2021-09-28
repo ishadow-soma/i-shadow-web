@@ -63,17 +63,19 @@ function YoutubePlayer() {
       params: { videoId: getCookie("videoId") },
       headers: { "ACCESS-TOKEN": getCookie("jwt") },
     }).then((res) => {
-      console.log(res);
-      videoCode = res.data.data.videoURL.split("=")[1];
-      shouldVideoEvaluation = !res.data.data.videoEvaluation;
-      setTitle(res.data.data.videoName);
-      console.log(`video code : ${videoCode}`);
-      script = getScript(res.data.data.sentences);
-      setVideo(videoCode);
-      setUrl(`https://youtu.be/${videoCode}`);
+      setVideoInfo(res.data.data);
+      setVideo(res.data.data);
       setScript(player, script);
       setDragSelect(player, script);
     });
+  };
+
+  const setVideoInfo = (data) => {
+    console.log(data);
+    videoCode = data.videoURL.split("=")[1];
+    setTitle(data.videoName);
+    setUrl(`https://youtu.be/${videoCode}`);
+    shouldVideoEvaluation = !data.videoEvaluation;
   };
 
   const getScript = (sentences) => {
@@ -86,7 +88,9 @@ function YoutubePlayer() {
     });
   };
 
-  const setVideo = (videoCode) => {
+  const setVideo = (data) => {
+    script = getScript(data.sentences);
+
     player = new YTPlayer("#player", { width: 800, height: 456 });
     console.log("player");
 

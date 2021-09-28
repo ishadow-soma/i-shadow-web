@@ -14,6 +14,7 @@ import { getSecondsFromTime } from "../YoutubePlayer/YoutubePlayer";
 function VideoPlayer() {
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
   const player = useRef(null);
+  const [title, setTitle] = useState("제목");
 
   const selectTab = (type) => {
     setContentType(type);
@@ -36,7 +37,7 @@ function VideoPlayer() {
             <h2>
               <i className="xi-videocam" /> 내가 변환한 영상 콘텐츠
             </h2>
-            <h1>The Intern - Official Trailer [HD]</h1>
+            <h1>{title}</h1>
             <span className="audio-background">
               <ReactPlayer
                 ref={player}
