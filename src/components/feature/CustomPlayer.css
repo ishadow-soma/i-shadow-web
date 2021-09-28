@@ -25,11 +25,6 @@
 .custom-player .audio-frame .audio-background {
   position: relative;
   display: block;
-  width: 920px;
-  height: 515px;
-  background-image: url("/src/assets/audio_player.jpg");
-  background-position: center center;
-  background-size: cover;
 }
 
 .custom-player .audio-frame .operation-menu {

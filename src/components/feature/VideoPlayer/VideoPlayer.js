@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "components/common/Header/Header";
 import Footer from "components/common/Footer/Footer";
+import ReactPlayer from "react-player";
 import "components/feature/CustomPlayer.css";
 
 function VideoPlayer() {
@@ -15,6 +16,11 @@ function VideoPlayer() {
             </h2>
             <h1>The Intern - Official Trailer [HD]</h1>
             <span className="audio-background">
+              <ReactPlayer
+                width="800px"
+                height="456px"
+                url="https://www.youtube.com/watch?v=DToWYMc2Y-I"
+              />
               <span className="operation-menu">
                 <i className="xi-step-backward" />
                 <i className="xi-pause pause" />
