@@ -26,7 +26,7 @@ export default function setMyContents(video, props) {
 
     result.className = "youtube-content";
     result.onclick = () => redirectYoutube(video.videoId);
-    result.style.backgroundImage = `url('${video.thumbNailURL}')`;
+    // result.style.backgroundImage = `url('${video.thumbNailURL}')`;
     // result.append(titleElement);
     // result.append(icon);
 
