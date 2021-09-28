@@ -6,8 +6,6 @@ import axios from "axios";
 import network from "global/store/store";
 import { getCookie } from "global/store/cookie";
 import { Scrollbar } from "react-scrollbars-custom";
-import setScript from "./setScript";
-import setDragSelect from "./setDragSelect";
 import EvaluationModal from "./EvaluationModal";
 import Modal from "react-modal";
 import Record from "global/record/Record";
@@ -43,6 +41,7 @@ function YoutubePlayer() {
   const [defaultOption, setDefaultOption] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
   const recorder = new Record(setIsRecording);
+  const [, render] = useState();
 
   useEffect(() => {
     requestVideo();
@@ -54,6 +53,7 @@ function YoutubePlayer() {
       setOptions(options);
       setDefaultOption(options[0]);
     });
+    render(true);
   }, []);
 
   // 영상 불러오기
@@ -68,8 +68,6 @@ function YoutubePlayer() {
     }).then((res) => {
       setVideoInfo(res.data.data);
       setVideo(res.data.data);
-      setScript(player, script);
-      setDragSelect(player, script);
     });
   };
 
@@ -215,19 +213,13 @@ function YoutubePlayer() {
               </button>
 
               <div className="content">
-                <Script contentType={contentType} script={script} />
                 <Scrollbar style={{ width: 400, height: 640 }}>
-                  <ul
-                    id="script"
-                    style={{ display: contentType === 0 ? "block" : "none" }}
-                  >
-                    <li className="">
-                      <button className="time-stamp">1:23</button>
-                      <p>더미 텍스트 ^^</p>
-                    </li>
-                    {/* 이곳에 스크립트 렌더링  */}
-                  </ul>
-
+                  <Script
+                    contentType={contentType}
+                    script={script}
+                    player={player}
+                    junk={render}
+                  />
                   <ul
                     className="recoded-list"
                     style={{ display: contentType === 1 ? "block" : "none" }}

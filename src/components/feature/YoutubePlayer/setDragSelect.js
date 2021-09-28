@@ -47,6 +47,7 @@ export default function setDragSelect(player, script) {
   };
 
   const getBegin = (idx) => {
+    console.log("idx", idx);
     return script[idx].begin;
   };
 
