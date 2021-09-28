@@ -1,6 +1,10 @@
 import React from "react";
 
 export default class Record {
+  constructor(doAfterOnStart) {
+    this.doAfterOnRecording = doAfterOnStart;
+  }
+
   async getConnectedAudioDevices() {
     const devices = await navigator.mediaDevices.enumerateDevices();
     return devices
@@ -54,14 +58,14 @@ export default class Record {
             mediaRecorder.start();
             console.log(mediaRecorder.state);
             console.log("recorder started");
+            this.doAfterOnRecording(true);
           };
 
           stop.onclick = () => {
             mediaRecorder.stop();
             console.log(mediaRecorder.state);
             console.log("recorder stopped");
-            record.style.background = "";
-            record.style.color = "";
+            this.doAfterOnRecording(false);
           };
 
           mediaRecorder.onstop = (e) => {

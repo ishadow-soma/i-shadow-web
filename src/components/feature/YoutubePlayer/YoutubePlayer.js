@@ -12,6 +12,7 @@ import EvaluationModal from "./EvaluationModal";
 import Modal from "react-modal";
 import Record from "global/record/Record";
 import Dropdown from "react-dropdown";
+import { FaStop } from "react-icons/fa";
 
 const YTPlayer = require("yt-player");
 const customStyles = {
@@ -169,11 +170,17 @@ function YoutubePlayer() {
               <div id="player" />
               <div className="caption" id="caption">
                 Our hearts were never broken
-                {isRecording ? (
-                  <button id="stop">중지</button>
-                ) : (
-                  <i className="xi-microphone record-icon" id="record" />
-                )}
+                <div
+                  className="record-icon"
+                  style={{ visibility: isRecording ? "visible" : "hidden" }}
+                >
+                  <FaStop id="stop" />
+                </div>
+                <i
+                  className="xi-microphone record-icon"
+                  id="record"
+                  style={{ visibility: isRecording ? "hidden" : "visible" }}
+                />
               </div>
               <a href={url}>
                 <i className="xi-link" /> {url}
