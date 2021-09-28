@@ -90,21 +90,7 @@ function MyRoom(props) {
                   <i className="xi-youtube-play xi-x" />
                 </div>
                 <h2>내가 변환한 유튜브 콘텐츠</h2>
-                <YoutubeContents videos={videos} />
-                <ul id="converted-youtube">
-                  <li>
-                    <div
-                      className="add-content"
-                      id="add-youtube-content"
-                      onClick={() => {
-                        openModal(0);
-                      }}
-                    >
-                      <i className="xi-plus-circle xi-3x" />
-                      <p>유튜브 콘텐츠 추가하기</p>
-                    </div>
-                  </li>
-                </ul>
+                <YoutubeContents videos={videos} openModal={openModal} />
               </div>
 
               <div className="converted-content video-content">
