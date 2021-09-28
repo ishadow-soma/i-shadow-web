@@ -120,6 +120,7 @@ function Home(props) {
         {/* 모달 */}
         <div id="modal">
           <Modal
+            ariaHideApp={false}
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             style={customStyles}

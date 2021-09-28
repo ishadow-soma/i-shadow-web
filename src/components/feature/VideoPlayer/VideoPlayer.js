@@ -4,17 +4,16 @@ import Footer from "components/common/Footer/Footer";
 import ReactPlayer from "react-player";
 import "components/feature/CustomPlayer.css";
 import { Scrollbar } from "react-scrollbars-custom";
-import { getCookie } from "../../../global/store/cookie";
-import axios from "axios";
-import network from "../../../global/store/store";
-import setScript from "../YoutubePlayer/setScript";
 import setDragSelect from "../YoutubePlayer/setDragSelect";
-import { getSecondsFromTime } from "../YoutubePlayer/YoutubePlayer";
 
 function VideoPlayer() {
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
   const player = useRef(null);
   const [title, setTitle] = useState("제목");
+
+  useEffect(() => {
+    setDragSelect();
+  });
 
   const selectTab = (type) => {
     setContentType(type);
