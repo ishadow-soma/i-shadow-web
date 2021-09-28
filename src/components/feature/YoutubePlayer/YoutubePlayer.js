@@ -126,12 +126,19 @@ function YoutubePlayer() {
       ) {
         const targetTag = document.getElementById("caption");
         if (targetTag != null) targetTag.innerText = script[`${i}`].sentence;
-        if (preSentence !== null) preSentence.style.color = "#FFFFFF";
+        if (preSentence !== null) removeClass(preSentence, "current-sentence");
         preSentence = document.getElementById(`idx${i}`);
-        preSentence.style.color = "#00FFD3";
+        preSentence.classList.add("current-sentence");
         break;
       }
     }
+  };
+
+  const removeClass = (element, className) => {
+    if (element === undefined) return;
+
+    if (element.className.search(className) !== -1)
+      element.className = element.className.replace(className, " ").trim();
   };
 
   const requestVideoEvaluation = () => {
@@ -221,7 +228,7 @@ function YoutubePlayer() {
 
               <div className="content">
                 <Scrollbar style={{ width: 400, height: 640 }}>
-                  <ul id="script"></ul>
+                  <ul id="script" />
                   <ul
                     className="recoded-list"
                     style={{ display: contentType === 1 ? "block" : "none" }}
