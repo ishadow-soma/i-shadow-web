@@ -61,17 +61,16 @@ function YoutubePlayer() {
 
   // 영상 불러오기
 
-  const requestVideo = () => {
+  const requestVideo = async () => {
     console.log("request video : ", getCookie("videoId"));
-    axios({
+    const res = await axios({
       method: "get",
       url: network.baseURL + "shadowing-player",
       params: { videoId: getCookie("videoId") },
       headers: { "ACCESS-TOKEN": getCookie("jwt") },
-    }).then((res) => {
-      setVideoInfo(res.data.data);
-      setVideo(res.data.data);
     });
+    setVideoInfo(res.data.data);
+    setVideo(res.data.data);
   };
 
   const setVideoInfo = (data) => {
