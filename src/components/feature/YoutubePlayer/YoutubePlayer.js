@@ -11,6 +11,7 @@ import Modal from "react-modal";
 import Recorder from "global/record/Recorder";
 import Dropdown from "react-dropdown";
 import { FaStop } from "react-icons/fa";
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import Script from "../../common/Completion/Script";
 import setScript from "./setScript";
 import setDragSelect from "./setDragSelect";
@@ -203,6 +204,10 @@ function YoutubePlayer() {
                 value={defaultOption}
                 onChange={onSelect}
                 placeholder="Select an option"
+                className="dropdown"
+                placeholderClassName="test1"
+                arrowClosed={<AiOutlineArrowDown className="arrow-closed" />}
+                arrowOpen={<AiOutlineArrowUp className="arrow-open" />}
               />
               <Footer />
             </div>

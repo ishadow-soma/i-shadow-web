@@ -244,3 +244,31 @@
   cursor: pointer;
   box-shadow: 0 0 8px white;
 }
+
+/* dropdown */
+.dropdown {
+  margin-top: 24px;
+  max-width: 400px;
+  color: #2f3f65;
+  background-color: white;
+  border-radius: 4px;
+  border: #8898bf 1px solid;
+}
+
+.Dropdown-option{
+  padding: 8px;
+  border-top: #8898bf 1px solid;
+}
+
+.Dropdown-placeholder{
+  display: inline-block;
+  padding: 8px;
+}
+
+.Dropdown-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8px;
+  color: #001833;
+}
