@@ -208,23 +208,25 @@ function YoutubePlayer() {
             </div>
 
             <div className="script">
-              <button
-                className="tab selected"
-                onClick={() => {
-                  selectTab(0);
-                }}
-              >
-                <i className="xi-file-text-o" />
-                Script
-              </button>
-              <button
-                className="tab"
-                onClick={() => {
-                  selectTab(1);
-                }}
-              >
-                <i className="xi-microphone xi-x" /> Rec.
-              </button>
+              <div className="tabs">
+                <button
+                  className="tab selected"
+                  onClick={() => {
+                    selectTab(0);
+                  }}
+                >
+                  <i className="xi-file-text-o" />
+                  Script
+                </button>
+                <button
+                  className="tab"
+                  onClick={() => {
+                    selectTab(1);
+                  }}
+                >
+                  <i className="xi-microphone xi-x" /> Rec.
+                </button>
+              </div>
 
               <div className="content">
                 <Scrollbar style={{ width: 400, height: 640 }}>

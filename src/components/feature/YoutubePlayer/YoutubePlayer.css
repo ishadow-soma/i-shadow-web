@@ -64,7 +64,10 @@
 }
 
 /* script */
-.youtube-player .script .tab {
+.youtube-player .script .tabs {
+  display: flex;
+}
+.youtube-player .script .tabs .tab {
   cursor: pointer;
   margin-left: 20px;
   color: white;
@@ -74,6 +77,15 @@
   border-radius: 5px 20px 0 0;
   border: none;
   border-bottom: rgba(255, 255, 255, 0.12) solid 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 8px;
+}
+.youtube-player .script .tabs .xi-file-text-o,
+.youtube-player .script .tabs .xi-microphone {
+  font-size: 24px;
+  margin-right: 6px;
 }
 
 .youtube-player .script .tab.selected {
