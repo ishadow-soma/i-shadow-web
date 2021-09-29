@@ -80,10 +80,15 @@ function YoutubePlayer() {
   const setVideoInfo = (data) => {
     console.log(data);
     videoCode = data.videoURL.split("=")[1];
-    setTitle(data.videoName);
+    setTitle(getTitle(data.videoName));
     setUrl(`https://youtu.be/${videoCode}`);
     shouldVideoEvaluation = !data.videoEvaluation;
   };
+
+  function getTitle(title) {
+    if (title.length < 50) return title;
+    else return title.slice(0, 50) + "...";
+  }
 
   const setVideo = (data) => {
     script = getScript(data.sentences);
