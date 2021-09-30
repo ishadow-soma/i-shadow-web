@@ -128,19 +128,13 @@ function YoutubePlayer() {
       ) {
         const targetTag = document.getElementById("caption");
         if (targetTag != null) targetTag.innerText = script[`${i}`].sentence;
-        if (preSentence !== null) removeClass(preSentence, "current-sentence");
+        if (preSentence !== null)
+          preSentence.classList.remove("current-sentence");
         preSentence = document.getElementById(`idx${i}`);
         preSentence.classList.add("current-sentence");
         break;
       }
     }
-  };
-
-  const removeClass = (element, className) => {
-    if (element === undefined) return;
-
-    if (element.className.search(className) !== -1)
-      element.className = element.className.replace(className, " ").trim();
   };
 
   const requestVideoEvaluation = () => {

@@ -10,14 +10,7 @@ export default function Script(props) {
     console.log("player", props.player);
     props.player.seek(seconds);
     const selectedItem = document.getElementsByClassName("ds-selected")[0];
-    removeClass(selectedItem, "ds-selected");
-  };
-
-  const removeClass = (element, className) => {
-    if (element === undefined) return;
-
-    if (element.className.search(className) !== -1)
-      element.className = element.className.replace(className, " ").trim();
+    selectedItem.classList.remove("ds-selected");
   };
 
   return (
