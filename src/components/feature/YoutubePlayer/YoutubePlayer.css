@@ -101,7 +101,7 @@
   background-color: #001833;
   border: none;
   border-radius: 20px;
-  padding: 30px;
+  padding: 24px;
   font-size: 16px;
   line-height: 24px;
 }
@@ -111,7 +111,7 @@
   display: flex;
   align-items: flex-start;
   list-style: none;
-  padding-bottom: 8px;
+  padding: 0 8px 8px;
 }
 
 .youtube-player .content .time-stamp {
