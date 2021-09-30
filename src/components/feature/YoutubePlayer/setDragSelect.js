@@ -33,7 +33,7 @@ export default function setDragSelect(player, script) {
     const result = document.createElement("i");
     result.className = "repetition xi-repeat";
     result.onclick = () => {
-      startRepeat();
+      repeat();
     };
 
     const selectedElements = document.getElementsByClassName("ds-selected");
@@ -55,15 +55,20 @@ export default function setDragSelect(player, script) {
     return script[idx].end;
   };
 
-  const startRepeat = () => {
+  const repeat = () => {
     setTimeout(() => {
       const selectedElements = document.getElementsByClassName("ds-selected");
       const [beginIndex, endIndex] = getIndex(selectedElements);
       const begin = getBegin(beginIndex);
       const end = getEnd(endIndex) + 1;
 
-      console.log(`idx${endIndex}`);
-      document.getElementById(`idx${endIndex}`).classList.add("playing");
+      const lastElement = document.getElementById(`idx${endIndex}`);
+      if (document.getElementsByClassName("playing").length > 0) {
+        lastElement.classList.remove("playing");
+        clearInterval(repetition);
+        return;
+      }
+      lastElement.classList.add("playing");
 
       player.seek(begin);
 
@@ -78,11 +83,7 @@ export default function setDragSelect(player, script) {
       ds.addSelection(document.getElementsByClassName("item")[i], false, false);
     }
 
-    if (repetition !== null) endRepetition();
-  };
-
-  const endRepetition = () => {
-    clearInterval(repetition);
+    if (repetition !== null) clearInterval(repetition);
   };
 }
 
