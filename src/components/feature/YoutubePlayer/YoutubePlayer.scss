@@ -231,18 +231,19 @@
   right: 0;
   font-size: 30px;
   background-color: #ffcc00;
-  color: white;
+  color: #8898bf;
   border-radius: 20px;
   padding: 5px;
 }
 
-.youtube-player .content li.ds-hover:last-child .repetition {
-  display: block;
+.youtube-player .content li.ds-selected.playing .repetition {
+  color: white;
 }
 
 .youtube-player .content li.ds-selected .repetition:hover {
   cursor: pointer;
   box-shadow: 0 0 8px white;
+  color: white;
 }
 
 /* dropdown */

@@ -62,6 +62,9 @@ export default function setDragSelect(player, script) {
       const begin = getBegin(beginIndex);
       const end = getEnd(endIndex) + 1;
 
+      console.log(`idx${endIndex}`);
+      document.getElementById(`idx${endIndex}`).classList.add("playing");
+
       player.seek(begin);
 
       const len = (end - begin) * 1000;
