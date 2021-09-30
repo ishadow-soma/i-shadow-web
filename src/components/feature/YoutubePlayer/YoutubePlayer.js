@@ -1,20 +1,21 @@
-import "./YoutubePlayer.css";
-import React, { useEffect, useState } from "react";
-import Footer from "components/common/Footer/Footer";
-import Header from "components/common/Header/Header";
 import axios from "axios";
-import network from "global/store/store";
-import { getCookie } from "global/store/cookie";
-import { Scrollbar } from "react-scrollbars-custom";
-import EvaluationModal from "./EvaluationModal";
+import "./YoutubePlayer.css";
 import Modal from "react-modal";
-import Recorder from "global/record/Recorder";
+import setScript from "./setScript";
 import Dropdown from "react-dropdown";
 import { FaStop } from "react-icons/fa";
-import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
-import Script from "../../common/Completion/Script";
-import setScript from "./setScript";
+import network from "global/store/store";
+import RecordedList from "./RecordedList";
 import setDragSelect from "./setDragSelect";
+import Recorder from "global/record/Recorder";
+import EvaluationModal from "./EvaluationModal";
+import { getCookie } from "global/store/cookie";
+import React, { useEffect, useState } from "react";
+import { Scrollbar } from "react-scrollbars-custom";
+import Footer from "components/common/Footer/Footer";
+import Header from "components/common/Header/Header";
+import Script from "components/feature/YoutubePlayer/Script";
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 
 const YTPlayer = require("yt-player");
 const customStyles = {
@@ -244,34 +245,7 @@ function YoutubePlayer() {
                     id="script"
                     style={{ display: contentType === 0 ? "block" : "none" }}
                   />
-                  <ul
-                    className="recoded-list"
-                    style={{ display: contentType === 1 ? "block" : "none" }}
-                  >
-                    <li>
-                      <input type="checkbox" id="chk-hear-mic" />
-                      에코
-                      <audio id="audio" src="#" controls="true" />
-                    </li>
-                    <li>
-                      <i className="xi-microphone icon" />
-                      <h3>녹음된 목록 3</h3>
-                      <p className="time-line">00:08 - 00:42</p>
-                      <p className="datetime">2021.07.29. 13:41</p>
-                    </li>
-                    <li>
-                      <i className="xi-microphone icon" />
-                      <h3>녹음된 목록 2</h3>
-                      <p className="time-line">00:08 - 00:42</p>
-                      <p>2021.07.28. 13:41</p>
-                    </li>
-                    <li>
-                      <i className="xi-microphone icon" />
-                      <h3>녹음된 목록 1</h3>
-                      <p className="time-line">00:08 - 00:42</p>
-                      <p>2021.07.27. 13:41</p>
-                    </li>
-                  </ul>
+                  <RecordedList contentType={contentType} />
                 </Scrollbar>
               </div>
             </div>
