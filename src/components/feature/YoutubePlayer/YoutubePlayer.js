@@ -86,11 +86,6 @@ function YoutubePlayer() {
     shouldVideoEvaluation = !data.videoEvaluation;
   };
 
-  function getTitle(title) {
-    if (title.length < 50) return title;
-    else return title.slice(0, 50) + "...";
-  }
-
   const setVideo = (data) => {
     script = getScript(data.sentences);
 
@@ -263,6 +258,11 @@ function YoutubePlayer() {
       </Modal>
     </div>
   );
+}
+
+export function getTitle(title) {
+  if (title.length < 50) return title;
+  else return title.slice(0, 50) + "...";
 }
 
 export function getSecondsFromTime(seconds) {

@@ -1,6 +1,6 @@
 import { getIndex } from "./setDragSelect";
 import { getTimeStamp } from "./setScript";
-import { getSecondsFromTime } from "./YoutubePlayer";
+import { getSecondsFromTime, getTitle } from "./YoutubePlayer";
 
 describe("YoutubePlayer", () => {
   it("getSecondsFromTime", () => {
@@ -18,6 +18,30 @@ describe("YoutubePlayer", () => {
     expect(result1).toBe(5025.56);
     expect(result2).toBe(1425.56);
     expect(result3).toBe(225.56);
+  });
+
+  it("getTitle skip", () => {
+    // given
+    const title = "12345678901234567890123456789012345678901234567890123";
+
+    // when
+    const result = getTitle(title);
+
+    // then
+    expect(result).toBe(
+      "12345678901234567890123456789012345678901234567890..."
+    );
+  });
+
+  it("getTitle no skip", () => {
+    // given
+    const title = "1234567890";
+
+    // when
+    const result = getTitle(title);
+
+    // then
+    expect(result).toBe("1234567890");
   });
 });
 
