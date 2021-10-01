@@ -1,5 +1,5 @@
-import React from "react";
-import "./FileUpload.css";
+import React, { useState } from "react";
+//import "./FileUpload.css";
 import axios from "axios";
 import network from "global/store/store";
 import { getCookie } from "global/store/cookie";
@@ -7,9 +7,12 @@ import { getCookie } from "global/store/cookie";
 function FileUpload(props) {
   const onOk = () => {
     const formBody = new FormData();
-    const file = document.querySelector("#file");
+    const file = document.querySelector("#file").files[0];
+
+    console.log("file", file);
+
     formBody.append("type", "UPLOAD");
-    formBody.append("file", file[0]);
+    formBody.append("file", file);
     formBody.append("categoryId", [20]);
     //props.setMode(props.type.LOADING);
 
