@@ -6,28 +6,29 @@ export default function YoutubeContents(props) {
   let renderedItemCount = 0;
 
   return (
-    <ul id="converted-youtube">
-      <li>
-        <div
-          className="add-content"
-          id="add-youtube-content"
-          onClick={() => {
-            props.openModal(0);
-          }}
-        >
-          <i className="xi-plus-circle xi-3x" />
-          <p>유튜브 콘텐츠 추가하기</p>
-        </div>
-      </li>
-      {props.videos
-        .filter((it, index) => index < 8)
-        .map((it) => createListItem(it))}
-    </ul>
+    <>
+      <ul id="converted-youtube">
+        <li>
+          <div
+            className="add-content"
+            id="add-youtube-content"
+            onClick={() => {
+              props.openModal(0);
+            }}
+          >
+            <i className="xi-plus-circle xi-3x" />
+            <p>유튜브 콘텐츠 추가하기</p>
+          </div>
+        </li>
+        {props.videos
+          .filter((it, index) => index < 8)
+          .map((it) => createListItem(it))}
+      </ul>
+      <div>
+        <i className="xi-angle-down show-more" />
+      </div>
+    </>
   );
-
-  function addSixVideo() {
-    //props.videos.filter()
-  }
 
   function createListItem(video) {
     return (
