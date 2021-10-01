@@ -34,16 +34,18 @@ export default function setGoogleLogin(props) {
           if (res.data.success) {
             setCookieDefaultOption("jwt", res.data.data.jwt);
             console.log("구글로 로그인 회원가입 및 로그인 성공", res);
-          } else loginWithGoogle(googleUser);
-          props.history.push("/");
+            props.history.push("/");
+          } else {
+            loginWithGoogle(googleUser).then((res) => props.history.push("/"));
+          }
         });
       },
       (err) => alert(JSON.stringify(err, undefined, 2))
     );
   }
 
-  function loginWithGoogle(googleUser) {
-    axios
+  async function loginWithGoogle(googleUser) {
+    await axios
       .post(network.baseURL + "login", {
         sns: "GOOGLE",
         userToken: googleUser.getAuthResponse().access_token,

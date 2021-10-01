@@ -28,7 +28,7 @@ function EditProfile(props) {
       method: "patch",
       url: `${network.baseURL}users`,
       headers: { "ACCESS-TOKEN": getCookie("jwt") },
-      body: {
+      data: {
         name: name,
         age: age,
         gender: "남성",
