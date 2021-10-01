@@ -2,11 +2,16 @@ import DragSelect from "dragselect";
 
 export default function setDragSelect(player, script) {
   let preIcon = null;
+  let dsSelected = null;
   let ds = new DragSelect({
     selectables: document.querySelectorAll(".item"),
     area: document.getElementsByClassName("content")[0],
     draggability: false,
     callback: (e) => {
+      console.log("callback!");
+
+      if (repetition) ds.setSelection(dsSelected);
+
       // 새 버튼 생성
       const selectedElements = document.getElementsByClassName("ds-selected");
       if (selectedElements.length > 0) {
@@ -56,6 +61,7 @@ export default function setDragSelect(player, script) {
   };
 
   const repeat = () => {
+    console.log("repeat!");
     setTimeout(() => {
       const selectedElements = document.getElementsByClassName("ds-selected");
       const [beginIndex, endIndex] = getIndex(selectedElements);
@@ -66,12 +72,14 @@ export default function setDragSelect(player, script) {
       if (document.getElementsByClassName("playing").length > 0) {
         lastElement.classList.remove("playing");
         clearInterval(repetition);
+        repetition = null;
         return;
       }
       lastElement.classList.add("playing");
 
       player.seek(begin);
 
+      dsSelected = ds.getSelection();
       const len = (end - begin) * 1000;
       repetition = setInterval(() => {
         player.seek(begin);
