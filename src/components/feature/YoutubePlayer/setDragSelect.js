@@ -25,7 +25,7 @@ export default function setDragSelect(player, script) {
         setTimeout(() => {
           preIcon.remove();
           preIcon = repetitionIcons[0];
-        }, 100);
+        }, 40);
       } else preIcon = repetitionIcons[0];
     },
   });
@@ -46,7 +46,7 @@ export default function setDragSelect(player, script) {
     setTime = setTimeout(() => {
       originBegin = beginIndex;
       originEnd = endIndex;
-    }, 100);
+    }, 40);
 
     return result;
   };

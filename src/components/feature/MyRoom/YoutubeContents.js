@@ -3,7 +3,6 @@ import { setCookie } from "global/store/cookie";
 import { FaPlay } from "react-icons/fa";
 
 export default function YoutubeContents(props) {
-  const [isMore, setIsMore] = useState(false);
   let [childrenCount, setChildrenCount] = useState(8);
 
   return (
