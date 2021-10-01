@@ -46,7 +46,9 @@ function FileUpload(props) {
           <h2>음성파일 선택</h2>
           <div className="filebox">
             <label htmlFor="ex_file">파일선택</label>
-            <input type="file" id="ex_file" />
+            <div className="file-container">
+              <input type="file" id="ex_file" />
+            </div>
           </div>
         </div>
         <div className="btn-upload">
@@ -54,7 +56,9 @@ function FileUpload(props) {
           <h2>영상파일 선택</h2>
           <div className="filebox">
             <label htmlFor="video-file">파일선택</label>
-            <input type="file" id="video-file" name="video-file" />
+            <div className="file-container">
+              <input type="file" id="video-file" name="video-file" />
+            </div>
           </div>
         </div>
       </div>
