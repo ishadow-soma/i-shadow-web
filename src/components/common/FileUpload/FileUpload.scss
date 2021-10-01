@@ -1,3 +1,6 @@
+@import "../../../global/styles/text-size";
+@import "../../../global/styles/mixin";
+
 .file-upload {
   display: flex;
   justify-content: space-around;
@@ -48,7 +51,7 @@
   align-items: center;
 }
 
-.file-upload .filebox input[type=file] {
+.file-upload .filebox input[type="file"] {
   width: 1px;
   height: 1px;
   margin: -1px;
@@ -62,28 +65,29 @@
   padding: 28px 0;
   text-align: center;
   border-radius: 10px;
-}
-.selected-file-modal .xi-videocam {
-  font-size: 70px;
-  display: block;
-  color: #2f7af9;
-}
-.selected-file-modal span {
-  display: block;
-  color: #2F3F65;
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-.selected-file-modal p {
-  color: #2f7af9;
-  font-size: 16px;
-  background-color: white;
-  border-radius: 5px;
-  border: #2F7AF9 1px dashed;
-  padding: 8px 16px;
-  margin: 0 28px;
-  text-align: left;
-}
 
-/*# sourceMappingURL=FileUpload.css.map */
+  .xi-videocam {
+    font-size: 70px;
+    display: block;
+    color: #2f7af9;
+  }
+
+  span {
+    display: block;
+    color: #2F3F65;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: #2f7af9;
+    font-size: 16px;
+    background-color: white;
+    border-radius: 5px;
+    border: #2F7AF9 1px dashed;
+    padding: 8px 16px;
+    margin: 0 28px;
+    text-align: left;
+  }
+}

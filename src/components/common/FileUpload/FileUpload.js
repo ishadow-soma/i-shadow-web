@@ -5,11 +5,11 @@ import network from "global/store/store";
 import { getCookie } from "global/store/cookie";
 
 function FileUpload(props) {
+  const [file, setFile] = useState(null);
+
   const onOk = () => {
     const formBody = new FormData();
     const file = document.querySelector("#video-file").files[0];
-
-    console.log("file", file);
 
     formBody.append("type", "UPLOAD");
     formBody.append("file", file);
@@ -39,29 +39,38 @@ function FileUpload(props) {
   };
 
   return (
-    <div>
-      <div className="file-upload">
-        <div className="btn-upload">
-          <i className="xi-headset large-icon" />
-          <h2>음성파일 선택</h2>
-          <div className="filebox">
-            <label htmlFor="ex_file">파일선택</label>
-            <div className="file-container">
+    <>
+      {file ? (
+        <div className="selected-file-modal">
+          <i className="xi-videocam large-icon" />
+          <span>음성파일 선택</span>
+          <p>{file.name}</p>
+        </div>
+      ) : (
+        <div className="file-upload">
+          <div className="btn-upload">
+            <i className="xi-headset large-icon" />
+            <h2>음성파일 선택</h2>
+            <div className="filebox">
+              <label htmlFor="ex_file">파일선택</label>
               <input type="file" id="ex_file" />
             </div>
           </div>
-        </div>
-        <div className="btn-upload">
-          <i className="xi-videocam large-icon" />
-          <h2>영상파일 선택</h2>
-          <div className="filebox">
-            <label htmlFor="video-file">파일선택</label>
-            <div className="file-container">
-              <input type="file" id="video-file" name="video-file" />
+          <div className="btn-upload">
+            <i className="xi-videocam large-icon" />
+            <h2>영상파일 선택</h2>
+            <div className="filebox">
+              <label htmlFor="video-file">파일선택</label>
+              <input
+                type="file"
+                id="video-file"
+                name="video-file"
+                onChange={onSelect}
+              />
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       <div className="btn-container">
         <button type="submit" value="ok" className="button-ok" onClick={onOk}>
@@ -76,8 +85,12 @@ function FileUpload(props) {
           취소
         </button>
       </div>
-    </div>
+    </>
   );
+
+  function onSelect(e) {
+    setFile(e.target.files[0]);
+  }
 }
 
 export default FileUpload;
