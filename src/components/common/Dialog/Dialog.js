@@ -68,7 +68,11 @@ function Dialog(props) {
       case type.UPLOAD:
         return (
           <div id="file-upload">
-            <FileUpload cancelAction={props.cancelAction} />
+            <FileUpload
+              cancelAction={props.cancelAction}
+              setMode={setMode}
+              type={type}
+            />
           </div>
         );
       case type.LOADING:

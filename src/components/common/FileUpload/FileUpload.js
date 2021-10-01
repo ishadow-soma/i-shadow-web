@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import "./FileUpload.css";
+import "./FileUpload.css";
 import axios from "axios";
 import network from "global/store/store";
 import { getCookie } from "global/store/cookie";
@@ -7,14 +7,14 @@ import { getCookie } from "global/store/cookie";
 function FileUpload(props) {
   const onOk = () => {
     const formBody = new FormData();
-    const file = document.querySelector("#file").files[0];
+    const file = document.querySelector("#video-file").files[0];
 
     console.log("file", file);
 
     formBody.append("type", "UPLOAD");
     formBody.append("file", file);
     formBody.append("categoryId", [20]);
-    //props.setMode(props.type.LOADING);
+    props.setMode(props.type.LOADING);
 
     axios({
       method: "post",
@@ -53,8 +53,8 @@ function FileUpload(props) {
           <i className="xi-videocam large-icon" />
           <h2>영상파일 선택</h2>
           <div className="filebox">
-            <label htmlFor="ex_file">파일선택</label>
-            <input type="file" id="file" />
+            <label htmlFor="video-file">파일선택</label>
+            <input type="file" id="video-file" name="video-file" />
           </div>
         </div>
       </div>
