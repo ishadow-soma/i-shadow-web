@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { setCookie } from "global/store/cookie";
 import { FaPlay } from "react-icons/fa";
 
 export default function YoutubeContents(props) {
-  let renderedItemCount = 0;
+  const [isMore, setIsMore] = useState(false);
+  let [childrenCount, setChildrenCount] = useState(8);
 
   return (
     <>
@@ -21,14 +22,18 @@ export default function YoutubeContents(props) {
           </div>
         </li>
         {props.videos
-          .filter((it, index) => index < 8)
+          .filter((it, index) => index < childrenCount)
           .map((it) => createListItem(it))}
       </ul>
-      <div>
+      <div onClick={showMore}>
         <i className="xi-angle-down show-more" />
       </div>
     </>
   );
+
+  function showMore() {
+    setChildrenCount(childrenCount + 6);
+  }
 
   function createListItem(video) {
     return (
