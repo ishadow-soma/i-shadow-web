@@ -8,6 +8,11 @@ import setDragSelect from "../YoutubePlayer/setDragSelect";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import Dropdown from "react-dropdown";
 import Recorder from "../../../global/record/Recorder";
+import { getCookie } from "../../../global/store/cookie";
+import axios from "axios";
+import network from "../../../global/store/store";
+import setScript from "../YoutubePlayer/setScript";
+import { getSecondsFromTime, getTitle } from "../YoutubePlayer/YoutubePlayer";
 
 function VideoPlayer() {
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
@@ -17,11 +22,77 @@ function VideoPlayer() {
   const [defaultOption, setDefaultOption] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
   const recorder = new Recorder(setIsRecording);
+  let script;
 
   useEffect(() => {
-    setDragSelect();
+    requestVideo();
     setRecorder();
   }, []);
+
+  // 영상 불러오기
+  const requestVideo = async () => {
+    console.log("request video : ", getCookie("videoId"));
+    const res = await axios({
+      method: "get",
+      url: network.baseURL + "shadowing-player",
+      params: { videoId: getCookie("videoId") },
+      headers: { "ACCESS-TOKEN": getCookie("jwt") },
+    });
+    setVideoInfo(res.data.data);
+    setVideo(res.data.data);
+    setScript(player, script);
+    setDragSelect(player, script);
+  };
+
+  const setVideoInfo = (data) => {
+    console.log(data);
+    setTitle(getTitle(data.videoName));
+    //shouldVideoEvaluation = !data.videoEvaluation;
+  };
+
+  const setVideo = (data) => {
+    script = getScript(data.sentences);
+    console.log("setScript");
+
+    //player = new YTPlayer("#player", { width: 800, height: 456 });
+    console.log("player");
+
+    // player.on("timeupdate", (seconds) => {
+    //   setCurrentSentence();
+    //   // if (shouldVideoEvaluation && seconds / player.getDuration() > 0.9)
+    //   //   requestVideoEvaluation();
+    // });
+  };
+
+  const getScript = (sentences) => {
+    return sentences.map((sentence) => {
+      return {
+        sentence: sentence.content,
+        begin: getSecondsFromTime(sentence.startTime),
+        end: getSecondsFromTime(sentence.endTime),
+      };
+    });
+  };
+
+  // 현재 스크립트 -> 자막
+  let preSentence = null;
+  const setCurrentSentence = () => {
+    let curSecond = player.getCurrentTime();
+    for (let i = 0; i < script.length; ++i) {
+      if (
+        script[`${i}`].begin <= curSecond &&
+        curSecond <= script[`${i}`].end
+      ) {
+        const targetTag = document.getElementById("caption");
+        if (targetTag != null) targetTag.innerText = script[`${i}`].sentence;
+        if (preSentence !== null)
+          preSentence.classList.remove("current-sentence");
+        preSentence = document.getElementById(`idx${i}`);
+        preSentence.classList.add("current-sentence");
+        break;
+      }
+    }
+  };
 
   // 녹음 세팅
   const setRecorder = () => {

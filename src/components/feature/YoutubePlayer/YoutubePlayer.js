@@ -96,10 +96,6 @@ function YoutubePlayer() {
 
     player.load(videoCode);
 
-    player.on("playing", () => {
-      console.log(player.getDuration());
-    });
-
     player.on("timeupdate", (seconds) => {
       setCurrentSentence();
       if (shouldVideoEvaluation && seconds / player.getDuration() > 0.9)
