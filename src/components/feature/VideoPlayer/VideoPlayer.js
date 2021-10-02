@@ -5,15 +5,35 @@ import ReactPlayer from "react-player";
 import "components/feature/CustomPlayer.css";
 import { Scrollbar } from "react-scrollbars-custom";
 import setDragSelect from "../YoutubePlayer/setDragSelect";
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
+import Dropdown from "react-dropdown";
+import Recorder from "../../../global/record/Recorder";
 
 function VideoPlayer() {
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
   const player = useRef(null);
   const [title, setTitle] = useState("제목");
+  const [options, setOptions] = useState([]);
+  const [defaultOption, setDefaultOption] = useState(null);
+  const [isRecording, setIsRecording] = useState(false);
+  const recorder = new Recorder(setIsRecording);
 
   useEffect(() => {
     setDragSelect();
-  });
+    setRecorder();
+  }, []);
+
+  // 녹음 세팅
+  const setRecorder = () => {
+    recorder.setAudioEnvironment(null);
+    recorder.getConnectedAudioDevices().then((devices) => {
+      for (let i = 0; i < devices.length; ++i) {
+        options.push(devices[i]);
+      }
+      setOptions(options);
+      setDefaultOption(options[0]);
+    });
+  };
 
   const selectTab = (type) => {
     setContentType(type);
@@ -26,6 +46,11 @@ function VideoPlayer() {
   const onSeek = (seconds) => {
     player.current.seekTo(seconds, "seconds");
   };
+
+  function onSelect(item) {
+    console.log("onselect", item);
+    recorder.setAudioEnvironment(item.value);
+  }
 
   return (
     <div className="wrap">
@@ -48,6 +73,16 @@ function VideoPlayer() {
               />
             </span>
             <div className="caption">Our hearts were never broken</div>
+            <Dropdown
+              options={options}
+              value={defaultOption}
+              onChange={onSelect}
+              placeholder="Select an option"
+              className="dropdown"
+              placeholderClassName="test1"
+              arrowClosed={<AiOutlineArrowDown className="arrow-closed" />}
+              arrowOpen={<AiOutlineArrowUp className="arrow-open" />}
+            />
             <Footer />
           </div>
 
