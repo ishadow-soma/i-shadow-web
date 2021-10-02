@@ -7,12 +7,28 @@ import { Scrollbar } from "react-scrollbars-custom";
 import setDragSelect from "../YoutubePlayer/setDragSelect";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import Dropdown from "react-dropdown";
-import Recorder from "../../../global/record/Recorder";
-import { getCookie } from "../../../global/store/cookie";
+import Recorder from "global/record/Recorder";
+import { getCookie } from "global/store/cookie";
 import axios from "axios";
-import network from "../../../global/store/store";
+import network from "global/store/store";
 import setScript from "../YoutubePlayer/setScript";
 import { getSecondsFromTime, getTitle } from "../YoutubePlayer/YoutubePlayer";
+import Modal from "react-modal";
+import EvaluationModal from "../YoutubePlayer/EvaluationModal";
+import { FaStop } from "react-icons/fa";
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    border: "none",
+    borderRadius: "15px",
+  },
+};
 
 function VideoPlayer() {
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
@@ -21,7 +37,9 @@ function VideoPlayer() {
   const [options, setOptions] = useState([]);
   const [defaultOption, setDefaultOption] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
+  const [modalIsOpen, setIsOpen] = useState(false);
   const recorder = new Recorder(setIsRecording);
+  let shouldVideoEvaluation;
   let script;
 
   useEffect(() => {
@@ -47,21 +65,14 @@ function VideoPlayer() {
   const setVideoInfo = (data) => {
     console.log(data);
     setTitle(getTitle(data.videoName));
-    //shouldVideoEvaluation = !data.videoEvaluation;
+    shouldVideoEvaluation = !data.videoEvaluation;
   };
 
   const setVideo = (data) => {
     script = getScript(data.sentences);
     console.log("setScript");
 
-    //player = new YTPlayer("#player", { width: 800, height: 456 });
     console.log("player");
-
-    // player.on("timeupdate", (seconds) => {
-    //   setCurrentSentence();
-    //   // if (shouldVideoEvaluation && seconds / player.getDuration() > 0.9)
-    //   //   requestVideoEvaluation();
-    // });
   };
 
   const getScript = (sentences) => {
@@ -123,6 +134,20 @@ function VideoPlayer() {
     recorder.setAudioEnvironment(item.value);
   }
 
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  const requestVideoEvaluation = () => {
+    openModal();
+    // 일단 두 번은 안 물어보도록
+    shouldVideoEvaluation = false;
+  };
+
   return (
     <div className="wrap">
       <Header />
@@ -135,6 +160,14 @@ function VideoPlayer() {
             <h1>{title}</h1>
             <span className="audio-background">
               <ReactPlayer
+                onProgress={(time) => {
+                  //setCurrentSentence();
+                  if (
+                    shouldVideoEvaluation &&
+                    time.playedSeconds / player.current.getDuration() > 0.9
+                  )
+                    requestVideoEvaluation();
+                }}
                 ref={player}
                 controls={true}
                 playing={true}
@@ -143,7 +176,20 @@ function VideoPlayer() {
                 url="http://ec2-3-34-122-103.ap-northeast-2.compute.amazonaws.com/video/2021-10-01/2021-10-01-4-test2.mp4"
               />
             </span>
-            <div className="caption">Our hearts were never broken</div>
+            <div className="caption">
+              <p id="caption">Our hearts were never broken</p>
+              <div
+                className="record-icon"
+                style={{ visibility: isRecording ? "visible" : "hidden" }}
+              >
+                <FaStop id="stop" />
+              </div>
+              <i
+                className="xi-microphone record-icon"
+                id="record"
+                style={{ visibility: isRecording ? "hidden" : "visible" }}
+              />
+            </div>
             <Dropdown
               options={options}
               value={defaultOption}
@@ -199,8 +245,6 @@ function VideoPlayer() {
                 >
                   <li>
                     <input type="checkbox" id="chk-hear-mic" />
-                    <button id="record">녹음</button>
-                    <button id="stop">중지</button>
                     <audio id="audio" src="#" controls="true" />
                   </li>
                   <li>
@@ -227,6 +271,15 @@ function VideoPlayer() {
           </div>
         </div>
       </div>
+
+      <Modal
+        ariaHideApp={false}
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+      >
+        <EvaluationModal closeModal={closeModal} />
+      </Modal>
     </div>
   );
 }
