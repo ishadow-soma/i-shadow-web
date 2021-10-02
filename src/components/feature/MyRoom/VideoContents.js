@@ -40,7 +40,10 @@ export default function VideoContents(props) {
         <div
           className="youtube-content"
           style={{ backgroundImage: `url('${video.thumbNailURL}')` }}
-          onClick={() => redirectYoutube(video.videoId)}
+          onClick={() => {
+            if (props.videoType === 0) redirectYoutube(video.videoId);
+            else redirectVideo(video.videoId);
+          }}
         >
           <p>{video.title}</p>
           <div className="icon-wrap">
@@ -60,5 +63,16 @@ export default function VideoContents(props) {
     });
 
     window.location.href = "/youtube";
+  }
+
+  function redirectVideo(videoId) {
+    console.log("비디오 아이디", videoId);
+    setCookie("videoId", videoId, {
+      path: "/",
+      secure: true,
+      sameSite: "none",
+    });
+
+    window.location.href = "/video";
   }
 }

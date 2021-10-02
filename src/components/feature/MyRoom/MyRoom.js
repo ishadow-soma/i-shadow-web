@@ -93,7 +93,11 @@ function MyRoom(props) {
                   <i className="xi-youtube-play xi-x" />
                 </div>
                 <h2>내가 변환한 유튜브 콘텐츠</h2>
-                <VideoContents videos={youtubeContents} openModal={openModal} />
+                <VideoContents
+                  videos={youtubeContents}
+                  openModal={openModal}
+                  videoType={0}
+                />
               </div>
 
               <div className="converted-content video-content">
@@ -101,7 +105,11 @@ function MyRoom(props) {
                   <i className="xi-videocam xi-x" />
                 </div>
                 <h2>내가 변환한 영상 콘텐츠</h2>
-                <VideoContents videos={videoContents} openModal={openModal} />
+                <VideoContents
+                  videos={videoContents}
+                  openModal={openModal}
+                  videoType={1}
+                />
               </div>
               <Footer />
             </div>

@@ -44,10 +44,10 @@ function VideoPlayer() {
                 playing={true}
                 width="800px"
                 height="456px"
-                url="https://www.youtube.com/watch?v=DToWYMc2Y-I"
+                url="http://ec2-3-34-122-103.ap-northeast-2.compute.amazonaws.com/video/2021-10-01/2021-10-01-4-test2.mp4"
               />
             </span>
-            <div className="caption">Our hearts wore never broken</div>
+            <div className="caption">Our hearts were never broken</div>
             <Footer />
           </div>
 
