@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { setCookie } from "global/store/cookie";
 import { FaPlay } from "react-icons/fa";
 
-export default function YoutubeContents(props) {
+export default function VideoContents(props) {
   let [childrenCount, setChildrenCount] = useState(8);
 
   return (

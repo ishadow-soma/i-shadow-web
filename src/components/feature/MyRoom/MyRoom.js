@@ -8,7 +8,7 @@ import Modal from "react-modal";
 import network, { user } from "global/store/store";
 import axios from "axios";
 import { getCookie, setCookie } from "global/store/cookie";
-import YoutubeContents from "./YoutubeContents";
+import VideoContents from "./VideoContents";
 
 const customStyles = {
   content: {
@@ -27,7 +27,7 @@ function MyRoom(props) {
   const [point, setPoint] = useState(111);
   const [nickname, setNickname] = useState("null");
   const [modal, setModal] = useState(1);
-  let [videos, setVideos] = useState([]);
+  const [youtubeContents, setYoutubeContents] = useState([]);
   const [videoContents, setVideoContents] = useState([]);
 
   useEffect(() => {
@@ -63,7 +63,7 @@ function MyRoom(props) {
     });
     if (process.env.NODE_ENV === "development")
       console.log("변환된 콘텐츠", res);
-    setVideos(res.data.data.youtubeVideos);
+    setYoutubeContents(res.data.data.youtubeVideos);
     setVideoContents(res.data.data.uploadVideos);
   }
 
@@ -93,7 +93,7 @@ function MyRoom(props) {
                   <i className="xi-youtube-play xi-x" />
                 </div>
                 <h2>내가 변환한 유튜브 콘텐츠</h2>
-                <YoutubeContents videos={videos} openModal={openModal} />
+                <VideoContents videos={youtubeContents} openModal={openModal} />
               </div>
 
               <div className="converted-content video-content">
@@ -101,23 +101,7 @@ function MyRoom(props) {
                   <i className="xi-videocam xi-x" />
                 </div>
                 <h2>내가 변환한 영상 콘텐츠</h2>
-                <ul>
-                  <li>
-                    <div
-                      className="add-content"
-                      onClick={() => {
-                        openModal(1);
-                      }}
-                    >
-                      <i className="xi-plus-circle xi-3x" />
-                      <p>영상 콘텐츠 추가하기</p>
-                      <YoutubeContents
-                        videos={videoContents}
-                        openModal={openModal}
-                      />
-                    </div>
-                  </li>
-                </ul>
+                <VideoContents videos={videoContents} openModal={openModal} />
               </div>
               <Footer />
             </div>
