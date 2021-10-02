@@ -128,7 +128,7 @@ function VideoPlayer() {
       <Header />
       <div className="container">
         <div className="audio-player custom-player">
-          <div className="audio-frame">
+          <div className="video-frame">
             <h2>
               <i className="xi-videocam" /> 내가 변환한 영상 콘텐츠
             </h2>
@@ -158,23 +158,25 @@ function VideoPlayer() {
           </div>
 
           <div className="script">
-            <button
-              className="tab selected"
-              onClick={() => {
-                selectTab(0);
-              }}
-            >
-              <i className="xi-file-text-o tab-icon" />
-              Script
-            </button>
-            <button
-              className="tab"
-              onClick={() => {
-                selectTab(1);
-              }}
-            >
-              <i className="xi-microphone tab-icon" /> Rec.
-            </button>
+            <div className="tabs">
+              <button
+                className="tab selected"
+                onClick={() => {
+                  selectTab(0);
+                }}
+              >
+                <i className="xi-file-text-o" />
+                Script
+              </button>
+              <button
+                className="tab"
+                onClick={() => {
+                  selectTab(1);
+                }}
+              >
+                <i className="xi-microphone xi-x" /> Rec.
+              </button>
+            </div>
 
             <div className="content">
               <Scrollbar style={{ width: 400, height: 640 }}>
