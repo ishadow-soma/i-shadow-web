@@ -28,13 +28,14 @@ function MyRoom(props) {
   const [nickname, setNickname] = useState("null");
   const [modal, setModal] = useState(1);
   let [videos, setVideos] = useState([]);
+  const [videoContents, setVideoContents] = useState([]);
 
   useEffect(() => {
     if (!user.isLogin) {
       alert("로그인이 필요합니다.");
       props.history.push("/login");
     }
-    requestYoutubeContent();
+    requestContents();
     setMyRoom();
   }, []);
 
@@ -54,14 +55,16 @@ function MyRoom(props) {
     setIsOpen(false);
   }
 
-  async function requestYoutubeContent() {
+  async function requestContents() {
     const res = await axios({
       method: "get",
       url: network.baseURL + "users/my-room",
       headers: { "ACCESS-TOKEN": getCookie("jwt") },
     });
+    if (process.env.NODE_ENV === "development")
+      console.log("변환된 콘텐츠", res);
     setVideos(res.data.data.youtubeVideos);
-    console.log(videos);
+    setVideoContents(res.data.data.uploadVideos);
   }
 
   return (
@@ -108,6 +111,10 @@ function MyRoom(props) {
                     >
                       <i className="xi-plus-circle xi-3x" />
                       <p>영상 콘텐츠 추가하기</p>
+                      <YoutubeContents
+                        videos={videoContents}
+                        openModal={openModal}
+                      />
                     </div>
                   </li>
                 </ul>
