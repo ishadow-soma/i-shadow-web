@@ -88,7 +88,9 @@ function VideoPlayer() {
   // 현재 스크립트 -> 자막
   let preSentence = null;
   const setCurrentSentence = () => {
-    let curSecond = player.getCurrentTime();
+    let curSecond = player.current.getCurrentTime();
+    console.log(script);
+    return;
     for (let i = 0; i < script.length; ++i) {
       if (
         script[`${i}`].begin <= curSecond &&
@@ -161,7 +163,8 @@ function VideoPlayer() {
             <span className="audio-background">
               <ReactPlayer
                 onProgress={(time) => {
-                  //setCurrentSentence();
+                  const callback = () => setCurrentSentence();
+                  callback();
                   if (
                     shouldVideoEvaluation &&
                     time.playedSeconds / player.current.getDuration() > 0.9

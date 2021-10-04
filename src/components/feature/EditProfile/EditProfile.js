@@ -31,7 +31,7 @@ function EditProfile(props) {
       data: {
         name: name,
         age: age,
-        gender: "남성",
+        gender: "M",
         purposeOfUse: "???",
       },
     })

@@ -17,6 +17,7 @@ unit-test-job:
   stage: test    
   script:
     - echo "Compling the test..."
+    - cd /home/ubuntu/ishadow-react
     - npm install
     - npm run test
     - echo "Test complete"
@@ -27,6 +28,8 @@ deploy-job:
   stage: deploy  
   script:
     - echo "Deploying application..."
+    - cd /home/ubuntu/ishadow-react
+    - cp -r ./build ./deploy
     - echo "Application successfully deployed."
   tags:
     - react
