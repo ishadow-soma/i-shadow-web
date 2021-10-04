@@ -1,35 +1,34 @@
-stages:          
+stages:
   - build
   - test
   - deploy
 
-build-job:     
+build-job:
   stage: build
   script:
     - echo "Compiling the code..."
     - cd /home/ubuntu/ishadow-react
-    - ./deploy.sh
+    - ./build.sh
     - echo "Compile complete."
   tags:
     - react
 
-unit-test-job:   
-  stage: test    
+unit-test-job:
+  stage: test
   script:
     - echo "Compling the test..."
     - cd /home/ubuntu/ishadow-react
-    - npm install
-    - npm run test
+    - ./test.sh
     - echo "Test complete"
   tags:
     - react
 
-deploy-job:      
-  stage: deploy  
+deploy-job:
+  stage: deploy
   script:
     - echo "Deploying application..."
     - cd /home/ubuntu/ishadow-react
-    - cp -r ./build ./deploy
+    - ./deploy.sh
     - echo "Application successfully deployed."
   tags:
     - react
