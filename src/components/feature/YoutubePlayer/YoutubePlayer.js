@@ -16,20 +16,9 @@ import Footer from "components/common/Footer/Footer";
 import Header from "components/common/Header/Header";
 import Script from "components/feature/YoutubePlayer/Script";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
+import { modalStyles } from "global/styles/customStyles";
 
 const YTPlayer = require("yt-player");
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    border: "none",
-    borderRadius: "15px",
-  },
-};
 
 function YoutubePlayer() {
   const [title, setTitle] = useState("제목");
@@ -229,7 +218,7 @@ function YoutubePlayer() {
         ariaHideApp={false}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        style={modalStyles}
       >
         <EvaluationModal closeModal={closeModal} />
       </Modal>

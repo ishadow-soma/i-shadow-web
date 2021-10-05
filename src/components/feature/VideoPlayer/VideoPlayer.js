@@ -17,19 +17,7 @@ import Modal from "react-modal";
 import EvaluationModal from "../YoutubePlayer/EvaluationModal";
 import { FaStop } from "react-icons/fa";
 import RecordedList from "../YoutubePlayer/RecordedList";
-
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    border: "none",
-    borderRadius: "15px",
-  },
-};
+import { modalStyles } from "global/styles/customStyles";
 
 function VideoPlayer() {
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
@@ -241,7 +229,7 @@ function VideoPlayer() {
         ariaHideApp={false}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        style={modalStyles}
       >
         <EvaluationModal closeModal={closeModal} />
       </Modal>

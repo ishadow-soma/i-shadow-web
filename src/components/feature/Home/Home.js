@@ -9,19 +9,7 @@ import Modal from "react-modal";
 import axios from "axios";
 import { setCookieDefaultOption } from "global/store/cookie";
 import Dictionary from "../../../global/Dictionary/Dictionary";
-
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    border: "none",
-    borderRadius: "15px",
-  },
-};
+import { modalStyles } from "global/styles/customStyles";
 
 function Home(props) {
   const [modal, setModal] = useState(1);
@@ -124,7 +112,7 @@ function Home(props) {
             ariaHideApp={false}
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
-            style={customStyles}
+            style={modalStyles}
           >
             <Dialog type={modal} cancelAction={closeModal} />
           </Modal>
