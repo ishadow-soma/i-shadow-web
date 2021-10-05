@@ -28,11 +28,6 @@ function Home(props) {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    console.log("번역전");
-    new Dictionary()
-      .englishToKorean("apple")
-      .then((res) => console.log("번역 결과", res));
-
     const location = props.location;
     // 네이버 로그인
     if (location.hash) {
