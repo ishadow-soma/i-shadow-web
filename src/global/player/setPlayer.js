@@ -15,3 +15,8 @@ export function getSecondsFromTime(seconds) {
     parseFloat(seconds.split(":")[2])
   );
 }
+
+export function getTitle(title) {
+  if (title.length < 50) return title;
+  else return title.slice(0, 50) + "...";
+}

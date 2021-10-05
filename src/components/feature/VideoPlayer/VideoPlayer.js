@@ -12,7 +12,7 @@ import { getCookie } from "global/store/cookie";
 import axios from "axios";
 import network from "global/store/store";
 import setScript from "../YoutubePlayer/setScript";
-import { getTitle } from "../YoutubePlayer/YoutubePlayer";
+import { getTitle } from "global/player/setPlayer";
 import Modal from "react-modal";
 import EvaluationModal from "../YoutubePlayer/EvaluationModal";
 import { FaStop } from "react-icons/fa";
