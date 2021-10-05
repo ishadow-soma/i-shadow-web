@@ -17,7 +17,7 @@ import Header from "components/common/Header/Header";
 import Script from "components/feature/YoutubePlayer/Script";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { modalStyle } from "global/styles/customStyles";
-import { getScript, getTitle } from "global/player/setPlayer";
+import { getScript, getTitle, requestScript } from "global/player/setPlayer";
 
 const YTPlayer = require("yt-player");
 
@@ -42,15 +42,9 @@ function YoutubePlayer() {
   }, []);
   // 영상 불러오기
   const requestVideo = async () => {
-    console.log("request video : ", getCookie("videoId"));
-    const res = await axios({
-      method: "get",
-      url: network.baseURL + "shadowing-player",
-      params: { videoId: getCookie("videoId") },
-      headers: { "ACCESS-TOKEN": getCookie("jwt") },
-    });
-    setVideoInfo(res.data.data);
-    setVideo(res.data.data);
+    const res = await requestScript();
+    setVideoInfo(res.data);
+    setVideo(res.data);
     setScript(player, script);
     setDragSelect(player, script);
   };

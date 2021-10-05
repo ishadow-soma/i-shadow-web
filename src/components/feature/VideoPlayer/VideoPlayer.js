@@ -18,7 +18,7 @@ import EvaluationModal from "../YoutubePlayer/EvaluationModal";
 import { FaStop } from "react-icons/fa";
 import RecordedList from "../YoutubePlayer/RecordedList";
 import { modalStyle } from "global/styles/customStyles";
-import { getScript } from "global/player/setPlayer";
+import { getScript, requestScript } from "global/player/setPlayer";
 
 function VideoPlayer() {
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
@@ -40,14 +40,9 @@ function VideoPlayer() {
   // 영상 불러오기
   const requestVideo = async () => {
     console.log("request video : ", getCookie("videoId"));
-    const res = await axios({
-      method: "get",
-      url: network.baseURL + "shadowing-player",
-      params: { videoId: getCookie("videoId") },
-      headers: { "ACCESS-TOKEN": getCookie("jwt") },
-    });
-    setVideoInfo(res.data.data);
-    setVideo(res.data.data);
+    const res = await requestScript();
+    setVideoInfo(res.data);
+    script = getScript(res.data.sentences);
     setScript(player, script);
     setDragSelect(player, script);
   };
@@ -56,13 +51,6 @@ function VideoPlayer() {
     console.log(data);
     setTitle(getTitle(data.videoName));
     shouldVideoEvaluation = !data.videoEvaluation;
-  };
-
-  const setVideo = (data) => {
-    script = getScript(data.sentences);
-    console.log("setScript");
-
-    console.log("player");
   };
 
   // 현재 스크립트 -> 자막

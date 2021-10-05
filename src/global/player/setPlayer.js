@@ -1,14 +1,18 @@
+import axios from "axios";
+import network from "../store/store";
+import { getCookie } from "../store/cookie";
+
 export function getScript(sentences) {
   return sentences.map((sentence) => {
     return {
       sentence: sentence.content,
-      begin: getSecondsFromTime(sentence.startTime),
-      end: getSecondsFromTime(sentence.endTime),
+      begin: _getSecondsFromTime(sentence.startTime),
+      end: _getSecondsFromTime(sentence.endTime),
     };
   });
 }
 
-export function getSecondsFromTime(seconds) {
+export function _getSecondsFromTime(seconds) {
   return (
     parseInt(seconds.split(":")[0]) * 3600 +
     parseInt(seconds.split(":")[1]) * 60 +
@@ -19,4 +23,15 @@ export function getSecondsFromTime(seconds) {
 export function getTitle(title) {
   if (title.length < 50) return title;
   else return title.slice(0, 50) + "...";
+}
+
+export async function requestScript() {
+  console.log("request video : ", getCookie("videoId"));
+  const res = await axios({
+    method: "get",
+    url: network.baseURL + "shadowing-player",
+    params: { videoId: getCookie("videoId") },
+    headers: { "ACCESS-TOKEN": getCookie("jwt") },
+  });
+  return res.data;
 }

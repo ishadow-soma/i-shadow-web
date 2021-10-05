@@ -1,7 +1,7 @@
 import { getIndex } from "./setDragSelect";
 import { getTimeStamp } from "./setScript";
 import { getTitle } from "global/player/setPlayer";
-import { getSecondsFromTime } from "global/player/setPlayer";
+import { _getSecondsFromTime } from "global/player/setPlayer";
 
 describe("YoutubePlayer", () => {
   it("getSecondsFromTime", () => {
@@ -11,9 +11,9 @@ describe("YoutubePlayer", () => {
     const time3 = "0:03:45.56";
 
     // when
-    const result1 = getSecondsFromTime(time1);
-    const result2 = getSecondsFromTime(time2);
-    const result3 = getSecondsFromTime(time3);
+    const result1 = _getSecondsFromTime(time1);
+    const result2 = _getSecondsFromTime(time2);
+    const result3 = _getSecondsFromTime(time3);
 
     // then
     expect(result1).toBe(5025.56);
