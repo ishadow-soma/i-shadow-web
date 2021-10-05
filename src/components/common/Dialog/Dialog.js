@@ -63,6 +63,7 @@ function Dialog(props) {
             cancelAction={props.cancelAction}
             setMode={setMode}
             type={type}
+            onFail={onFail}
           />
         );
       case type.UPLOAD:
@@ -72,6 +73,7 @@ function Dialog(props) {
               cancelAction={props.cancelAction}
               setMode={setMode}
               type={type}
+              onFail={onFail}
             />
           </div>
         );

@@ -27,13 +27,11 @@ function FileUpload(props) {
     })
       .then((res) => {
         console.log(res);
-        if (res.data.success) {
-        } else {
-          alert(res.data.message);
-        }
+        if (res.data.success) props.history.push("/video");
+        else props.onFail();
       })
       .catch((err) => {
-        alert("콘텐츠 생성에 실패했습니다. (catch)");
+        props.onFail();
         console.log(err);
       });
   };
