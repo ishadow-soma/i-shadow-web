@@ -45,20 +45,8 @@ function VideoPlayer() {
 
   useEffect(() => {
     requestVideo();
-    setRecorder();
+    recorder.setRecorder(setOptions, setDefaultOption);
   }, []);
-
-  // 녹음 세팅
-  const setRecorder = () => {
-    recorder.setAudioEnvironment(null);
-    recorder.getConnectedAudioDevices().then((devices) => {
-      for (let i = 0; i < devices.length; ++i) {
-        options.push(devices[i]);
-      }
-      setOptions(options);
-      setDefaultOption(options[0]);
-    });
-  };
 
   // 영상 불러오기
   const requestVideo = async () => {

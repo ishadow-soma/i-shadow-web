@@ -5,20 +5,18 @@ export default class Recorder {
     this.doAfterOnRecording = doAfterOnStart;
   }
 
-  async setRecorder() {
+  setRecorder(setOptions, setDefaultOption) {
     this.setAudioEnvironment(null);
 
-    const res = await this.getConnectedAudioDevices().then((devices) => {
+    this.getConnectedAudioDevices().then((devices) => {
       const options = [];
       for (let i = 0; i < devices.length; ++i) {
         options.push(devices[i]);
         console.log("푸시");
       }
-      return options;
+      setOptions(options);
+      setDefaultOption(options[0]);
     });
-
-    console.log("res", res);
-    return res;
   }
 
   async getConnectedAudioDevices() {

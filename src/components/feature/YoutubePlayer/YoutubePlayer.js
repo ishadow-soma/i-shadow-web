@@ -48,16 +48,8 @@ function YoutubePlayer() {
 
   useEffect(() => {
     requestVideo();
-    initRecorder();
+    recorder.setRecorder(setOptions, setDefaultOption);
   }, []);
-
-  async function initRecorder() {
-    const temp = await recorder.setRecorder();
-    setOptions(temp);
-    setDefaultOption(options[0]);
-    console.log("녹음", temp);
-  }
-
   // 영상 불러오기
   const requestVideo = async () => {
     console.log("request video : ", getCookie("videoId"));
