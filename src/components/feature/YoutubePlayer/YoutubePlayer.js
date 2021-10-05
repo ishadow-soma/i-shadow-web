@@ -131,11 +131,6 @@ function YoutubePlayer() {
     setIsOpen(false);
   }
 
-  function onSelect(item) {
-    console.log("onselect", item);
-    recorder.setAudioEnvironment(item.value);
-  }
-
   return (
     <div className="wrap">
       <Header />
@@ -169,7 +164,7 @@ function YoutubePlayer() {
               <Dropdown
                 options={options}
                 value={defaultOption}
-                onChange={onSelect}
+                onChange={(item) => recorder.setAudioEnvironment(item.value)}
                 placeholder="Select an option"
                 className="dropdown"
                 placeholderClassName="test1"

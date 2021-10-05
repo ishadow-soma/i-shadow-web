@@ -108,11 +108,6 @@ function VideoPlayer() {
     player.current.seekTo(seconds, "seconds");
   };
 
-  function onSelect(item) {
-    console.log("onselect", item);
-    recorder.setAudioEnvironment(item.value);
-  }
-
   function openModal() {
     setIsOpen(true);
   }
@@ -173,7 +168,7 @@ function VideoPlayer() {
             <Dropdown
               options={options}
               value={defaultOption}
-              onChange={onSelect}
+              onChange={(item) => recorder.setAudioEnvironment(item.value)}
               placeholder="Select an option"
               className="dropdown"
               placeholderClassName="test1"
