@@ -5,6 +5,22 @@ export default class Recorder {
     this.doAfterOnRecording = doAfterOnStart;
   }
 
+  async setRecorder() {
+    this.setAudioEnvironment(null);
+
+    const res = await this.getConnectedAudioDevices().then((devices) => {
+      const options = [];
+      for (let i = 0; i < devices.length; ++i) {
+        options.push(devices[i]);
+        console.log("푸시");
+      }
+      return options;
+    });
+
+    console.log("res", res);
+    return res;
+  }
+
   async getConnectedAudioDevices() {
     const devices = await navigator.mediaDevices.enumerateDevices();
     return devices
