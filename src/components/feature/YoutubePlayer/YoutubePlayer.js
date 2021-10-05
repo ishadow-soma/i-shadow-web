@@ -17,6 +17,7 @@ import Header from "components/common/Header/Header";
 import Script from "components/feature/YoutubePlayer/Script";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { modalStyles } from "global/styles/customStyles";
+import { getScript } from "global/player/setPlayer";
 
 const YTPlayer = require("yt-player");
 
@@ -76,16 +77,6 @@ function YoutubePlayer() {
       setCurrentSentence();
       if (shouldVideoEvaluation && seconds / player.getDuration() > 0.9)
         requestVideoEvaluation();
-    });
-  };
-
-  const getScript = (sentences) => {
-    return sentences.map((sentence) => {
-      return {
-        sentence: sentence.content,
-        begin: getSecondsFromTime(sentence.startTime),
-        end: getSecondsFromTime(sentence.endTime),
-      };
     });
   };
 
@@ -224,14 +215,6 @@ function YoutubePlayer() {
 export function getTitle(title) {
   if (title.length < 50) return title;
   else return title.slice(0, 50) + "...";
-}
-
-export function getSecondsFromTime(seconds) {
-  return (
-    parseInt(seconds.split(":")[0]) * 3600 +
-    parseInt(seconds.split(":")[1]) * 60 +
-    parseFloat(seconds.split(":")[2])
-  );
 }
 
 export default YoutubePlayer;

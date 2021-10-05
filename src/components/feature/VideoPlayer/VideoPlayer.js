@@ -12,12 +12,13 @@ import { getCookie } from "global/store/cookie";
 import axios from "axios";
 import network from "global/store/store";
 import setScript from "../YoutubePlayer/setScript";
-import { getSecondsFromTime, getTitle } from "../YoutubePlayer/YoutubePlayer";
+import { getTitle } from "../YoutubePlayer/YoutubePlayer";
 import Modal from "react-modal";
 import EvaluationModal from "../YoutubePlayer/EvaluationModal";
 import { FaStop } from "react-icons/fa";
 import RecordedList from "../YoutubePlayer/RecordedList";
 import { modalStyles } from "global/styles/customStyles";
+import { getScript } from "global/player/setPlayer";
 
 function VideoPlayer() {
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
@@ -62,16 +63,6 @@ function VideoPlayer() {
     console.log("setScript");
 
     console.log("player");
-  };
-
-  const getScript = (sentences) => {
-    return sentences.map((sentence) => {
-      return {
-        sentence: sentence.content,
-        begin: getSecondsFromTime(sentence.startTime),
-        end: getSecondsFromTime(sentence.endTime),
-      };
-    });
   };
 
   // 현재 스크립트 -> 자막

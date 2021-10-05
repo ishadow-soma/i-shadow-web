@@ -1,6 +1,7 @@
 import { getIndex } from "./setDragSelect";
 import { getTimeStamp } from "./setScript";
-import { getSecondsFromTime, getTitle } from "./YoutubePlayer";
+import { getTitle } from "./YoutubePlayer";
+import { getSecondsFromTime } from "global/player/setPlayer";
 
 describe("YoutubePlayer", () => {
   it("getSecondsFromTime", () => {
