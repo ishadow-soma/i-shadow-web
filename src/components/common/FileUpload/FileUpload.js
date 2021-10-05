@@ -43,7 +43,7 @@ function FileUpload(props) {
       {file ? (
         <div className="selected-file-modal">
           <i className="xi-videocam large-icon" />
-          <span>음성파일 선택</span>
+          <span>파일선택 완료</span>
           <p>{file.name}</p>
         </div>
       ) : (

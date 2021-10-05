@@ -16,7 +16,7 @@ import Footer from "components/common/Footer/Footer";
 import Header from "components/common/Header/Header";
 import Script from "components/feature/YoutubePlayer/Script";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
-import { modalStyles } from "global/styles/customStyles";
+import { modalStyle } from "global/styles/customStyles";
 import { getScript } from "global/player/setPlayer";
 
 const YTPlayer = require("yt-player");
@@ -204,7 +204,7 @@ function YoutubePlayer() {
         ariaHideApp={false}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={modalStyles}
+        style={modalStyle}
       >
         <EvaluationModal closeModal={closeModal} />
       </Modal>

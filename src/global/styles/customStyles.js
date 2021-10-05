@@ -1,4 +1,4 @@
-export const modalStyles = {
+export const modalStyle = {
   content: {
     top: "50%",
     left: "50%",

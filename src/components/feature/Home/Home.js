@@ -9,7 +9,7 @@ import Modal from "react-modal";
 import axios from "axios";
 import { setCookieDefaultOption } from "global/store/cookie";
 import Dictionary from "../../../global/Dictionary/Dictionary";
-import { modalStyles } from "global/styles/customStyles";
+import { modalStyle } from "global/styles/customStyles";
 
 function Home(props) {
   const [modal, setModal] = useState(1);
@@ -112,7 +112,7 @@ function Home(props) {
             ariaHideApp={false}
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
-            style={modalStyles}
+            style={modalStyle}
           >
             <Dialog type={modal} cancelAction={closeModal} />
           </Modal>

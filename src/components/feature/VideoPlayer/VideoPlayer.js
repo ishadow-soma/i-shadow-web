@@ -17,7 +17,7 @@ import Modal from "react-modal";
 import EvaluationModal from "../YoutubePlayer/EvaluationModal";
 import { FaStop } from "react-icons/fa";
 import RecordedList from "../YoutubePlayer/RecordedList";
-import { modalStyles } from "global/styles/customStyles";
+import { modalStyle } from "global/styles/customStyles";
 import { getScript } from "global/player/setPlayer";
 
 function VideoPlayer() {
@@ -215,7 +215,7 @@ function VideoPlayer() {
         ariaHideApp={false}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={modalStyles}
+        style={modalStyle}
       >
         <EvaluationModal closeModal={closeModal} />
       </Modal>

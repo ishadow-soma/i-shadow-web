@@ -9,19 +9,7 @@ import network, { user } from "global/store/store";
 import axios from "axios";
 import { getCookie, setCookie } from "global/store/cookie";
 import VideoContents from "./VideoContents";
-
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    border: "none",
-    borderRadius: "15px",
-  },
-};
+import { modalStyle } from "global/styles/customStyles";
 
 function MyRoom(props) {
   const [point, setPoint] = useState(111);
@@ -140,7 +128,7 @@ function MyRoom(props) {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        style={modalStyle}
       >
         <Dialog type={modal} cancelAction={closeModal} />
       </Modal>
