@@ -31,6 +31,7 @@ function VideoPlayer() {
   let shouldVideoEvaluation;
   let script;
   let [url, setUrl] = useState("");
+  const [s, setS] = useState(false);
 
   useEffect(() => {
     requestVideo();
@@ -47,6 +48,7 @@ function VideoPlayer() {
     setScript(player, script);
     setDragSelect(player, script);
     updatePlayer(true);
+    setS(script);
   };
 
   const setVideoInfo = (data) => {
@@ -57,10 +59,8 @@ function VideoPlayer() {
 
   // 현재 스크립트 -> 자막
   let preSentence = null;
-  const setCurrentSentence = () => {
+  const setCurrentSentence = (script) => {
     let curSecond = player.current.getCurrentTime();
-    console.log(script);
-    return;
     for (let i = 0; i < script.length; ++i) {
       if (
         script[`${i}`].begin <= curSecond &&
@@ -116,7 +116,7 @@ function VideoPlayer() {
             {p ? (
               <ReactPlayer
                 onProgress={(time) => {
-                  setCurrentSentence();
+                  setCurrentSentence(s);
                   if (
                     shouldVideoEvaluation &&
                     time.playedSeconds / player.current.getDuration() > 0.9
