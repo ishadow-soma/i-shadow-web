@@ -26,9 +26,11 @@ function VideoPlayer() {
   const [defaultOption, setDefaultOption] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [p, updatePlayer] = useState(false);
   const recorder = new Recorder(setIsRecording);
   let shouldVideoEvaluation;
   let script;
+  let [url, setUrl] = useState("");
 
   useEffect(() => {
     requestVideo();
@@ -39,10 +41,12 @@ function VideoPlayer() {
   const requestVideo = async () => {
     console.log("request video : ", getCookie("videoId"));
     const res = await requestVideoInfo();
+    setUrl(res.data.videoURL);
     setVideoInfo(res.data);
     script = getScript(res.data.sentences);
     setScript(player, script);
     setDragSelect(player, script);
+    updatePlayer(true);
   };
 
   const setVideoInfo = (data) => {
@@ -109,7 +113,7 @@ function VideoPlayer() {
               <i className="xi-videocam" /> 내가 변환한 영상 콘텐츠
             </h2>
             <h1>{title}</h1>
-            <span className="audio-background">
+            {p ? (
               <ReactPlayer
                 onProgress={(time) => {
                   setCurrentSentence();
@@ -124,9 +128,12 @@ function VideoPlayer() {
                 playing={true}
                 width="800px"
                 height="456px"
-                url="http://ec2-3-34-122-103.ap-northeast-2.compute.amazonaws.com/video/2021-10-01/2021-10-01-4-test2.mp4"
+                url={url}
               />
-            </span>
+            ) : (
+              <></>
+            )}
+
             <div className="caption">
               <p id="caption">Our hearts were never broken</p>
               <div
