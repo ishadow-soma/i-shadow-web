@@ -32,8 +32,9 @@ export default function setScript(player, script) {
     return result;
   };
 
-  const onSeek = (seconds = 40) => {
-    player.seek(seconds);
+  const onSeek = (seconds = 0) => {
+    if (player.current) player.current.seekTo(seconds, "seconds");
+    else player.seek(seconds);
     const selectedItem = document.getElementsByClassName("ds-selected")[0];
     selectedItem.classList.remove("ds-selected");
   };

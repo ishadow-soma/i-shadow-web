@@ -77,12 +77,14 @@ export default function setDragSelect(player, script) {
       }
       lastElement.classList.add("playing");
 
-      player.seek(begin);
+      if (player.current) player.current.seekTo(begin, "seconds");
+      else player.seek(begin);
 
       dsSelected = ds.getSelection();
       const len = (end - begin) * 1000;
       repetition = setInterval(() => {
-        player.seek(begin);
+        if (player.current) player.current.seekTo(begin, "seconds");
+        else player.seek(begin);
       }, len);
     }, 100);
 
