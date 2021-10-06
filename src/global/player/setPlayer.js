@@ -25,7 +25,7 @@ export function getTitle(title) {
   else return title.slice(0, 50) + "...";
 }
 
-export async function requestScript() {
+export async function requestVideoInfo() {
   console.log("request video : ", getCookie("videoId"));
   const res = await axios({
     method: "get",

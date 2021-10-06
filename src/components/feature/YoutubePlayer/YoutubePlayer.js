@@ -17,7 +17,7 @@ import Header from "components/common/Header/Header";
 import Script from "components/feature/YoutubePlayer/Script";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { modalStyle } from "global/styles/customStyles";
-import { getScript, getTitle, requestScript } from "global/player/setPlayer";
+import { getScript, getTitle, requestVideoInfo } from "global/player/setPlayer";
 
 const YTPlayer = require("yt-player");
 
@@ -42,7 +42,7 @@ function YoutubePlayer() {
   }, []);
   // 영상 불러오기
   const requestVideo = async () => {
-    const res = await requestScript();
+    const res = await requestVideoInfo();
     setVideoInfo(res.data);
     setVideo(res.data);
     setScript(player, script);

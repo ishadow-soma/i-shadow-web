@@ -9,8 +9,6 @@ import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import Dropdown from "react-dropdown";
 import Recorder from "global/record/Recorder";
 import { getCookie } from "global/store/cookie";
-import axios from "axios";
-import network from "global/store/store";
 import setScript from "../YoutubePlayer/setScript";
 import { getTitle } from "global/player/setPlayer";
 import Modal from "react-modal";
@@ -18,7 +16,7 @@ import EvaluationModal from "../YoutubePlayer/EvaluationModal";
 import { FaStop } from "react-icons/fa";
 import RecordedList from "../YoutubePlayer/RecordedList";
 import { modalStyle } from "global/styles/customStyles";
-import { getScript, requestScript } from "global/player/setPlayer";
+import { getScript, requestVideoInfo } from "global/player/setPlayer";
 
 function VideoPlayer() {
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
@@ -40,7 +38,7 @@ function VideoPlayer() {
   // 영상 불러오기
   const requestVideo = async () => {
     console.log("request video : ", getCookie("videoId"));
-    const res = await requestScript();
+    const res = await requestVideoInfo();
     setVideoInfo(res.data);
     script = getScript(res.data.sentences);
     setScript(player, script);
@@ -114,8 +112,7 @@ function VideoPlayer() {
             <span className="audio-background">
               <ReactPlayer
                 onProgress={(time) => {
-                  const callback = () => setCurrentSentence();
-                  callback();
+                  setCurrentSentence();
                   if (
                     shouldVideoEvaluation &&
                     time.playedSeconds / player.current.getDuration() > 0.9
