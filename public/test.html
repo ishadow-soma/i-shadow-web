@@ -60,22 +60,22 @@
 
         record.onclick = () => {
           mediaRecorder.start()
-          console.log(mediaRecorder.state)
-          console.log("recorder started")
+          logOnlyDevelopment(mediaRecorder.state)
+          logOnlyDevelopment("recorder started")
           record.style.background = "red"
           record.style.color = "black"
         }
 
         stop.onclick = () => {
           mediaRecorder.stop()
-          console.log(mediaRecorder.state)
-          console.log("recorder stopped")
+          logOnlyDevelopment(mediaRecorder.state)
+          logOnlyDevelopment("recorder stopped")
           record.style.background = ""
           record.style.color = ""
         }
 
         mediaRecorder.onstop = e => {
-          console.log("data available after MediaRecorder.stop() called.")
+          logOnlyDevelopment("data available after MediaRecorder.stop() called.")
 
           const clipName = prompt("오디오 파일 제목을 입력하세요.", new Date())
 
@@ -101,7 +101,7 @@
           chunks = []
           const audioURL = URL.createObjectURL(blob)
           audio.src = audioURL
-          console.log("recorder stopped")
+          logOnlyDevelopment("recorder stopped")
 
           deleteButton.onclick = e => {
             evtTgt = e.target
@@ -114,7 +114,7 @@
         }
       })
       .catch(err => {
-        console.log('The following error occurred: ' + err)
+        logOnlyDevelopment('The following error occurred: ' + err)
       })
   }
 </script>

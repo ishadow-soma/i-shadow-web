@@ -1,4 +1,5 @@
 import React from "react";
+import logOnlyDevelopment from "../log/log";
 
 export default class Recorder {
   constructor(doAfterOnStart) {
@@ -12,7 +13,7 @@ export default class Recorder {
       const options = [];
       for (let i = 0; i < devices.length; ++i) {
         options.push(devices[i]);
-        console.log("푸시");
+        logOnlyDevelopment("푸시");
       }
       setOptions(options);
       setDefaultOption(options[0]);
@@ -46,7 +47,7 @@ export default class Recorder {
     }
 
     if (navigator.mediaDevices) {
-      console.log("getUserMedia supported.");
+      logOnlyDevelopment("getUserMedia supported.");
 
       const constraint = {
         audio: { deviceId: deviceId ? { exact: deviceId } : undefined },
@@ -59,7 +60,7 @@ export default class Recorder {
           const mediaRecorder = new MediaRecorder(stream);
 
           chkHearMic.onchange = (e) => {
-            console.log("되나?");
+            logOnlyDevelopment("되나?");
             if (e.target.checked) {
               audioCtx.resume();
               makeSound(stream);
@@ -70,34 +71,36 @@ export default class Recorder {
 
           record.onclick = () => {
             mediaRecorder.start();
-            console.log(mediaRecorder.state);
-            console.log("recorder started");
+            logOnlyDevelopment(mediaRecorder.state);
+            logOnlyDevelopment("recorder started");
             this.doAfterOnRecording(true);
           };
 
           stop.onclick = () => {
             mediaRecorder.stop();
-            console.log(mediaRecorder.state);
-            console.log("recorder stopped");
+            logOnlyDevelopment(mediaRecorder.state);
+            logOnlyDevelopment("recorder stopped");
             this.doAfterOnRecording(false);
           };
 
           mediaRecorder.onstop = (e) => {
-            console.log("data available after MediaRecorder.stop() called.");
+            logOnlyDevelopment(
+              "data available after MediaRecorder.stop() called."
+            );
 
             const blob = new Blob(chunks, {
               type: "audio/ogg codecs=opus",
             });
             chunks = [];
             audio.src = URL.createObjectURL(blob);
-            console.log("recorder stopped");
+            logOnlyDevelopment("recorder stopped");
           };
 
           mediaRecorder.ondataavailable = (e) => {
             chunks.push(e.data);
           };
         })
-        .catch((err) => console.log(err));
+        .catch((err) => logOnlyDevelopment(err));
     }
   }
 }

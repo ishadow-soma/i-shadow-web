@@ -3,6 +3,7 @@ import "./EditProfile.css";
 import network, { user } from "global/store/store";
 import { getCookie } from "global/store/cookie";
 import axios from "axios";
+import logOnlyDevelopment from "../../../global/log/log";
 
 function EditProfile(props) {
   const email = user.email;
@@ -37,13 +38,13 @@ function EditProfile(props) {
     })
       .then((res) => {
         if (res.data.success) {
-          console.log("user update success");
+          logOnlyDevelopment("user update success");
           props.history.push("/");
-        } else console.log("user update fail");
+        } else logOnlyDevelopment("user update fail");
       })
       .catch((err) => {
-        console.log("user update fail");
-        console.log(err);
+        logOnlyDevelopment("user update fail");
+        logOnlyDevelopment(err);
       });
   };
 

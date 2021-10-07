@@ -1,4 +1,5 @@
 import axios from "axios";
+import logOnlyDevelopment from "../log/log";
 
 export default class Dictionary {
   async englishToKorean(word) {
@@ -6,7 +7,7 @@ export default class Dictionary {
     formBody.append("source", "en");
     formBody.append("target", "ko");
     formBody.append("text", word);
-    console.log(process.env.REACT_APP_PAPAGE_SECRET);
+    logOnlyDevelopment(process.env.REACT_APP_PAPAGE_SECRET);
     return axios({
       method: "post",
       url: "https://openapi.naver.com/v1/papago/n2mt",

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import setDragSelect from "components/feature/YoutubePlayer/setDragSelect";
+import logOnlyDevelopment from "../../../global/log/log";
 
 export default function Script(props) {
   useEffect(() => {
@@ -7,7 +8,7 @@ export default function Script(props) {
   });
 
   const onSeek = (seconds = 40) => {
-    console.log("player", props.player);
+    logOnlyDevelopment("player", props.player);
     props.player.seek(seconds);
     const selectedItem = document.getElementsByClassName("ds-selected")[0];
     selectedItem.classList.remove("ds-selected");

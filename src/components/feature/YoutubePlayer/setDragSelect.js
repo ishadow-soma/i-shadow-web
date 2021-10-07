@@ -1,4 +1,5 @@
 import DragSelect from "dragselect";
+import logOnlyDevelopment from "../../../global/log/log";
 
 export default function setDragSelect(player, script) {
   let preIcon = null;
@@ -8,7 +9,7 @@ export default function setDragSelect(player, script) {
     area: document.getElementsByClassName("content")[0],
     draggability: false,
     callback: (e) => {
-      console.log("callback!");
+      logOnlyDevelopment("callback!");
 
       if (repetition) ds.setSelection(dsSelected);
 
@@ -52,7 +53,7 @@ export default function setDragSelect(player, script) {
   };
 
   const getBegin = (idx) => {
-    console.log("idx", idx);
+    logOnlyDevelopment("idx", idx);
     return script[idx].begin;
   };
 
@@ -61,7 +62,7 @@ export default function setDragSelect(player, script) {
   };
 
   const repeat = () => {
-    console.log("repeat!");
+    logOnlyDevelopment("repeat!");
     setTimeout(() => {
       const selectedElements = document.getElementsByClassName("ds-selected");
       const [beginIndex, endIndex] = getIndex(selectedElements);

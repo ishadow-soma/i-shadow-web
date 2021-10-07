@@ -3,6 +3,7 @@ import "./FileUpload.css";
 import axios from "axios";
 import network from "global/store/store";
 import { getCookie } from "global/store/cookie";
+import logOnlyDevelopment from "../../../global/log/log";
 
 function FileUpload(props) {
   const [file, setFile] = useState(null);
@@ -26,13 +27,13 @@ function FileUpload(props) {
       },
     })
       .then((res) => {
-        console.log(res);
+        logOnlyDevelopment(res);
         if (res.data.success) props.history.push("/video");
         else props.onFail();
       })
       .catch((err) => {
         props.onFail();
-        console.log(err);
+        logOnlyDevelopment(err);
       });
   };
 

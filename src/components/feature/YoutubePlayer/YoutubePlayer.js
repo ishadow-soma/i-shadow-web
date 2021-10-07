@@ -18,6 +18,7 @@ import Script from "components/feature/YoutubePlayer/Script";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { modalStyle } from "global/styles/customStyles";
 import { getScript, getTitle, requestVideoInfo } from "global/player/setPlayer";
+import logOnlyDevelopment from "../../../global/log/log";
 
 const YTPlayer = require("yt-player");
 
@@ -50,7 +51,7 @@ function YoutubePlayer() {
   };
 
   const setVideoInfo = (data) => {
-    console.log(data);
+    logOnlyDevelopment(data);
     videoCode = data.videoURL.split("=")[1];
     setTitle(getTitle(data.videoName));
     setUrl(`https://youtu.be/${videoCode}`);
@@ -60,10 +61,10 @@ function YoutubePlayer() {
   const setVideo = (data) => {
     script = getScript(data.sentences);
 
-    console.log("setScript");
+    logOnlyDevelopment("setScript");
 
     player = new YTPlayer("#player", { width: 800, height: 456 });
-    console.log("player");
+    logOnlyDevelopment("player");
 
     player.load(videoCode);
 

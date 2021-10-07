@@ -4,6 +4,7 @@ import network from "global/store/store";
 import { getCookie } from "global/store/cookie";
 import ReactStars from "react-rating-stars-component";
 import "./EvaluationModal.css";
+import logOnlyDevelopment from "../../../global/log/log";
 
 export default function EvaluationModal(props) {
   let rating = 2.5;
@@ -19,9 +20,9 @@ export default function EvaluationModal(props) {
       },
     })
       .then((res) => {
-        console.log("평가", res);
+        logOnlyDevelopment("평가", res);
       })
-      .catch((err) => console.log("실패", err));
+      .catch((err) => logOnlyDevelopment("실패", err));
 
     props.closeModal();
   };

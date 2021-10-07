@@ -10,6 +10,7 @@ import axios from "axios";
 import { setCookieDefaultOption } from "global/store/cookie";
 import Dictionary from "../../../global/Dictionary/Dictionary";
 import { modalStyle } from "global/styles/customStyles";
+import logOnlyDevelopment from "../../../global/log/log";
 
 function Home(props) {
   const [modal, setModal] = useState(1);
@@ -21,7 +22,7 @@ function Home(props) {
     if (location.hash) {
       // URI 에서 토큰 가져오기
       const token = props.location.hash.split("=")[1].split("&")[0];
-      console.log(token);
+      logOnlyDevelopment(token);
       axios
         .post(network.baseURL + "users", {
           sns: "NAVER",
@@ -35,12 +36,12 @@ function Home(props) {
           props.history.push("/");
           setTimeout(() => window.location.reload(), 200);
         })
-        .catch((err) => console.log("실패", err));
+        .catch((err) => logOnlyDevelopment("실패", err));
     }
   });
 
   const loginWithNaver = async (token) => {
-    console.log("네이버 로그인 로그인 시도");
+    logOnlyDevelopment("네이버 로그인 로그인 시도");
     await axios
       .post(network.baseURL + "login", {
         sns: "NAVER",
@@ -48,9 +49,9 @@ function Home(props) {
       })
       .then((res) => {
         if (res.data.success) setCookieDefaultOption("jwt", res.data.data.jwt);
-        else console.log("네이버 로그인 실패!");
+        else logOnlyDevelopment("네이버 로그인 실패!");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => logOnlyDevelopment(err));
   };
 
   function openModal(type) {

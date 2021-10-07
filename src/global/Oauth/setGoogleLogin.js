@@ -1,6 +1,7 @@
 import axios from "axios";
 import network from "global/store/store";
 import { setCookieDefaultOption } from "global/store/cookie";
+import logOnlyDevelopment from "../log/log";
 let { auth2, gapi } = window;
 
 export default function setGoogleLogin(props) {
@@ -33,7 +34,7 @@ export default function setGoogleLogin(props) {
           // 신규 회원
           if (res.data.success) {
             setCookieDefaultOption("jwt", res.data.data.jwt);
-            console.log("구글로 로그인 회원가입 및 로그인 성공", res);
+            logOnlyDevelopment("구글로 로그인 회원가입 및 로그인 성공", res);
             props.history.push("/");
           } else {
             loginWithGoogle(googleUser).then((res) => props.history.push("/"));
@@ -53,10 +54,10 @@ export default function setGoogleLogin(props) {
       .then((res) => {
         if (res.data.success) {
           setCookieDefaultOption("jwt", res.data.data.jwt);
-          console.log("구글로 로그인 성공", res);
-        } else console.log("구글로 로그인 실패");
+          logOnlyDevelopment("구글로 로그인 성공", res);
+        } else logOnlyDevelopment("구글로 로그인 실패");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => logOnlyDevelopment(err));
   }
 
   startApp();

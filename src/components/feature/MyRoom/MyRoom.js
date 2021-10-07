@@ -10,6 +10,7 @@ import axios from "axios";
 import { getCookie, setCookie } from "global/store/cookie";
 import VideoContents from "./VideoContents";
 import { modalStyle } from "global/styles/customStyles";
+import logOnlyDevelopment from "../../../global/log/log";
 
 function MyRoom(props) {
   const [point, setPoint] = useState(111);
@@ -50,7 +51,7 @@ function MyRoom(props) {
       headers: { "ACCESS-TOKEN": getCookie("jwt") },
     });
     if (process.env.NODE_ENV === "development")
-      console.log("변환된 콘텐츠", res);
+      logOnlyDevelopment("변환된 콘텐츠", res);
     setYoutubeContents(res.data.data.youtubeVideos);
     setVideoContents(res.data.data.uploadVideos);
   }

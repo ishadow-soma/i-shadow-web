@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Loading.css";
+import logOnlyDevelopment from "../../../global/log/log";
 
 function Loading(props) {
   const [progress, setProgress] = useState(0);
@@ -11,7 +12,7 @@ function Loading(props) {
   const updateProgress = () => {
     setInterval(() => {
       setProgress((progress) => (progress + 10) % 100);
-      console.log(progress);
+      logOnlyDevelopment(progress);
     }, 1000);
   };
 

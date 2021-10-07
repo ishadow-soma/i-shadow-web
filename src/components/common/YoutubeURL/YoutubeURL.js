@@ -3,11 +3,12 @@ import "./YoutubeURL.css";
 import axios from "axios";
 import network from "global/store/store";
 import { getCookie, setCookie } from "global/store/cookie";
+import logOnlyDevelopment from "../../../global/log/log";
 
 function YoutubeURL(props) {
   const onClickOk = () => {
     const inputUrl = document.getElementById("youtube-url").value;
-    console.log("input url : " + inputUrl);
+    logOnlyDevelopment("input url : " + inputUrl);
     const formBody = new FormData();
     formBody.append("type", "YOUTUBE");
     formBody.append("youtubeURL", inputUrl);
@@ -24,7 +25,7 @@ function YoutubeURL(props) {
       },
     })
       .then((res) => {
-        console.log(res);
+        logOnlyDevelopment(res);
         if (res.data.success) {
           setCookie("videoId", res.data.data.videoId, {
             path: "/",
@@ -33,14 +34,14 @@ function YoutubeURL(props) {
           });
           window.location.href = "/youtube";
         } else {
-          console.log("서버로 요청하는 과정에서 변환에 실패했습니다!");
+          logOnlyDevelopment("서버로 요청하는 과정에서 변환에 실패했습니다!");
           props.onFail();
         }
       })
       .catch((err) => {
         // TODO : 잘못된 input 값 front 에서 판별하기
         // TODO : 만약 서버에서 공유 URL 처리가 안 되어 있다면 프론트에서 파싱해서 주기.
-        console.log("변환 실패!", err);
+        logOnlyDevelopment("변환 실패!", err);
         props.onFail();
       });
   };

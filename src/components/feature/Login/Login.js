@@ -5,6 +5,7 @@ import axios from "axios";
 import network from "global/store/store";
 import { setCookieDefaultOption } from "global/store/cookie";
 import setGoogleLogin from "global/Oauth/setGoogleLogin";
+import logOnlyDevelopment from "../../../global/log/log";
 const { naver } = window;
 require("dotenv").config();
 
@@ -28,14 +29,14 @@ function Login(props) {
       .then((res) => {
         if (res.data.success) {
           setCookieDefaultOption("jwt", res.data.data.jwt);
-          console.log("일반 로그인 성공", res);
+          logOnlyDevelopment("일반 로그인 성공", res);
           props.history.push("/");
         } else {
-          console.log("일반 로그인 실패", res);
+          logOnlyDevelopment("일반 로그인 실패", res);
           alert("로그인 실패");
         }
       })
-      .catch((err) => console.log("일반 로그인 실패", err));
+      .catch((err) => logOnlyDevelopment("일반 로그인 실패", err));
     setTimeout(() => window.location.reload(), 100);
   };
 

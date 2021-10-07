@@ -1,6 +1,7 @@
 import axios from "axios";
 import network from "../store/store";
 import { getCookie } from "../store/cookie";
+import logOnlyDevelopment from "../log/log";
 
 export function getScript(sentences) {
   return sentences.map((sentence) => {
@@ -26,7 +27,7 @@ export function getTitle(title) {
 }
 
 export async function requestVideoInfo() {
-  console.log("request video : ", getCookie("videoId"));
+  logOnlyDevelopment("request video : ", getCookie("videoId"));
   const res = await axios({
     method: "get",
     url: network.baseURL + "shadowing-player",

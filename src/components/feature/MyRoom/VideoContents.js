@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { setCookie } from "global/store/cookie";
 import { FaPlay } from "react-icons/fa";
+import logOnlyDevelopment from "../../../global/log/log";
 
 export default function VideoContents(props) {
   let [childrenCount, setChildrenCount] = useState(8);
@@ -55,7 +56,7 @@ export default function VideoContents(props) {
   }
 
   function redirectYoutube(videoId) {
-    console.log("비디오 아이디", videoId);
+    logOnlyDevelopment("비디오 아이디", videoId);
     setCookie("videoId", videoId, {
       path: "/",
       secure: true,
@@ -66,7 +67,7 @@ export default function VideoContents(props) {
   }
 
   function redirectVideo(videoId) {
-    console.log("비디오 아이디", videoId);
+    logOnlyDevelopment("비디오 아이디", videoId);
     setCookie("videoId", videoId, {
       path: "/",
       secure: true,
