@@ -59,69 +59,53 @@ function Login(props) {
   // 렌더링
   return (
     <div className="login">
-      <div className="flex-left">
-        <h1>log in</h1>
-        <div className="input">
-          <span>
-            <i className="xi-at" />
-          </span>
-          <input id="email" type="text" placeholder="Email" />
-        </div>
-
-        <br />
-        <div className="input">
-          <span>
-            <i className="xi-lock-o" />
-          </span>
-          <input
-            id="password"
-            type="password"
-            placeholder="Password"
-            onKeyPress={onKeyPress}
-          />
-        </div>
-        <br />
-        <button className="btn-submit" onClick={normalLogin}>
-          log in
-        </button>
-
-        <Link to="/findpassword" className="find-password">
-          Forgot password?
-        </Link>
-        <p className="or">or</p>
-        {/* sns 로그인 */}
-        <div className="sns-login">
-          <div id="naverIdLogin">
-            <p id="naverIdLogin_loginButton">
-              <i className="xi-naver" />
-              Log in with naver
-            </p>
-          </div>
-          <div id="gSignInWrapper">
-            <div id="customBtn" className="customGPlusSignIn">
-              <span className="google-icon" />
-              <span className="buttonText">Log in with google</span>
-            </div>
-          </div>
-        </div>
-        <p>
-          Don't have and accound? <Link to="/signup">sign up</Link>
-        </p>
+      <h1>log in</h1>
+      <div className="input">
+        <span>
+          <i className="xi-at" />
+        </span>
+        <input id="email" type="text" placeholder="Email" />
       </div>
 
-      <div className="flex-right">
-        <span className="member" />
-        <div>
-          <h2>
-            Welcome back to <br />
-            i-Shadow.
-          </h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores
-            eligendi ex magnam minima perferendis quisquam ratione, sunt totam?
+      <br />
+      <div className="input">
+        <span>
+          <i className="xi-lock-o" />
+        </span>
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          onKeyPress={onKeyPress}
+        />
+      </div>
+      <br />
+      <button className="btn-submit" onClick={normalLogin}>
+        log in
+      </button>
+
+      <Link to="/findpassword" className="find-password">
+        Forgot password?
+      </Link>
+      <p className="or">or</p>
+      {/* sns 로그인 */}
+      <div className="sns-login">
+        <div id="naverIdLogin">
+          <p id="naverIdLogin_loginButton">
+            <i className="xi-naver" />
+            Log in with naver
           </p>
         </div>
+        <div id="gSignInWrapper">
+          <div id="customBtn" className="customGPlusSignIn">
+            <span className="google-icon" />
+            <span className="buttonText">Log in with google</span>
+          </div>
+        </div>
       </div>
+      <p>
+        Don't have and accound? <Link to="/signup">sign up</Link>
+      </p>
     </div>
   );
 }
