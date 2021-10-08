@@ -67,19 +67,20 @@ function VideoPlayer() {
         script[`${i}`].begin <= curSecond &&
         curSecond <= script[`${i}`].end
       ) {
-        const targetTag = document.getElementById("caption");
-        if (targetTag != null) targetTag.innerText = script[`${i}`].sentence;
+        setCaption(i);
         resetPreviousSentence();
         setCurrentSentenceColor(i);
         break;
       }
     }
   };
-
+  const setCaption = (idx) => {
+    const targetTag = document.getElementById("caption");
+    if (targetTag != null) targetTag.innerText = script[`${idx}`].sentence;
+  };
   const resetPreviousSentence = () => {
     if (preSentence !== null) preSentence.classList.remove("current-sentence");
   };
-
   const setCurrentSentenceColor = (idx) => {
     preSentence = document.getElementById(`idx${idx}`);
     preSentence.classList.add("current-sentence");
