@@ -106,20 +106,6 @@ function EditProfile(props) {
         <p className="or">or</p>
         <button id="resign">탈퇴하기</button>
       </div>
-
-      <div className="flex-right">
-        <span className="member" />
-        <div>
-          <h2>
-            Welcome back to <br />
-            i-Shadow.
-          </h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores
-            eligendi ex magnam minima perferendis quisquam ratione, sunt totam?
-          </p>
-        </div>
-      </div>
     </div>
   );
 }
