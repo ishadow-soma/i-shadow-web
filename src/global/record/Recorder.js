@@ -93,7 +93,7 @@ export default class Recorder {
             });
             chunks = [];
             audio.src = URL.createObjectURL(blob);
-            logOnlyDevelopment("recorder stopped");
+            logOnlyDevelopment("recorder stopped", audio.src);
           };
 
           mediaRecorder.ondataavailable = (e) => {

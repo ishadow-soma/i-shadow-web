@@ -86,13 +86,15 @@ function YoutubePlayer() {
       ) {
         const targetTag = document.getElementById("caption");
         if (targetTag != null) targetTag.innerText = script[`${i}`].sentence;
-        if (preSentence !== null)
-          preSentence.classList.remove("current-sentence");
+        resetPreviousSentence();
         preSentence = document.getElementById(`idx${i}`);
         preSentence.classList.add("current-sentence");
         break;
       }
     }
+  };
+  const resetPreviousSentence = () => {
+    if (preSentence !== null) preSentence.classList.remove("current-sentence");
   };
 
   const requestVideoEvaluation = () => {
