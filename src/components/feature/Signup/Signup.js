@@ -102,89 +102,71 @@ function Signup(props) {
 
   return (
     <div className="sign-up-page">
-      <div className="flex-left">
-        <h1>sign up</h1>
-        <div className="signup-form">
-          <div className="email">
-            <div className="input">
-              <span>
-                <i className="xi-at" />
-              </span>
-              {isAuthentication ? (
-                <input id="email" type="text" value={email} />
-              ) : (
-                <input id="email" type="text" placeholder="Email" />
-              )}
-            </div>
-            <button onClick={requestAuthorizationCode}>인증번호 발송</button>
-          </div>
-          <div className="authorization">
-            <div className="input">
-              <span>
-                <i className="xi-shield-checked-o" />
-              </span>
-              <input
-                type="text"
-                placeholder="인증번호"
-                id="authorizationCode"
-              />
-            </div>
+      <h1>sign up</h1>
+      <div className="signup-form">
+        <div className="email">
+          <div className="input">
+            <span>
+              <i className="xi-at" />
+            </span>
             {isAuthentication ? (
-              <p style={{ color: "#1A59FA" }}>인증되었습니다.</p>
+              <input id="email" type="text" value={email} />
             ) : (
-              <p style={{ color: "#FF1100" }}>인증이 필요합니다.</p>
+              <input id="email" type="text" placeholder="Email" />
             )}
-            <button onClick={requestAuthorization}>인증하기</button>
           </div>
-          <div className="password">
-            <div className="input">
-              <span>
-                <i className="xi-lock-o" />
-              </span>
-              <input id="password" type="password" placeholder="Password" />
-            </div>
-            <div className="input">
-              <span>
-                <i className="xi-lock" />
-              </span>
-              <input
-                id="confirm-password"
-                type="password"
-                placeholder="Confirm Password"
-              />
-            </div>
+          <button onClick={requestAuthorizationCode}>인증번호 발송</button>
+        </div>
+        <div className="authorization">
+          <div className="input">
+            <span>
+              <i className="xi-shield-checked-o" />
+            </span>
+            <input type="text" placeholder="인증번호" id="authorizationCode" />
           </div>
-          <button className="btn-submit" onClick={requestSignUp}>
-            Sign up
-          </button>
-          <p className="or">or</p>
-          <div className="sns-login">
-            <div id="naverIdLogin">
-              <p id="naverIdLogin_loginButton">
-                <i className="xi-naver" />
-                Log in with naver
-              </p>
-            </div>
-            <div id="gSignInWrapper">
-              <div id="customBtn" className="customGPlusSignIn">
-                <span className="google-icon" />
-                <span className="buttonText">Log in with google</span>
-              </div>
+          {isAuthentication ? (
+            <p style={{ color: "#1A59FA" }}>인증되었습니다.</p>
+          ) : (
+            <p style={{ color: "#FF1100" }}>인증이 필요합니다.</p>
+          )}
+          <button onClick={requestAuthorization}>인증하기</button>
+        </div>
+        <div className="password">
+          <div className="input">
+            <span>
+              <i className="xi-lock-o" />
+            </span>
+            <input id="password" type="password" placeholder="Password" />
+          </div>
+          <div className="input">
+            <span>
+              <i className="xi-lock" />
+            </span>
+            <input
+              id="confirm-password"
+              type="password"
+              placeholder="Confirm Password"
+            />
+          </div>
+        </div>
+        <button className="btn-submit" onClick={requestSignUp}>
+          Sign up
+        </button>
+        <p className="or">or</p>
+        <div className="sns-login">
+          <div id="naverIdLogin">
+            <p id="naverIdLogin_loginButton">
+              <i className="xi-naver" />
+              Log in with naver
+            </p>
+          </div>
+          <div id="gSignInWrapper">
+            <div id="customBtn" className="customGPlusSignIn">
+              <span className="google-icon" />
+              <span className="buttonText">Log in with google</span>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="flex-right">
-        <span className="signup-background" />
-        <h2>
-          Welcome back to <br />
-          i-Shadow.
-        </h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores
-          eligendi ex magnam minima perferendis quisquam ratione, sunt totam?
-        </p>
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @media screen and (min-width: 1025px) {
   .sign-up-page {
     margin: 0 auto;
@@ -19,7 +18,7 @@
   }
 
   .sign-up-page .authorization,
-.sign-up-page .email {
+  .sign-up-page .email {
     margin-bottom: 30px;
   }
 
@@ -113,12 +112,14 @@
   }
 
   /* sns login */
+
   .sns-login {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .sign-up-page {
     margin: 0 auto;
@@ -166,8 +167,8 @@
   }
 
   .sign-up-page .authorization,
-.sign-up-page .email,
-.sign-up-page .password .input {
+  .sign-up-page .email,
+  .sign-up-page .password .input {
     margin-bottom: 24px;
   }
 
@@ -224,6 +225,7 @@
   }
 
   /* 네이버 로그인 */
+
   #naverIdLogin {
     margin-bottom: 30px;
     width: 100%;
@@ -252,6 +254,7 @@
   }
 
   /* 구글 로그인 */
+
   #customBtn {
     display: flex;
     justify-content: center;
@@ -286,5 +289,3 @@
     font-weight: 600;
   }
 }
-
-/*# sourceMappingURL=Signup.css.map */
