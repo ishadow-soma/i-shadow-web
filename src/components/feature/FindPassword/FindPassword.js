@@ -61,72 +61,58 @@ function FindPassword() {
 
   return (
     <div className="find-password-page">
-      <div className="flex-left">
-        <h1>비밀번호 찾기</h1>
-        <div className="">
-          <form action="" method="POST">
-            <div className="email">
-              <div className="input">
-                <span>
-                  <i className="xi-at" />
-                </span>
-                <input id="email" type="text" placeholder="Email" />
-              </div>
-              <button onClick={requestAuthorizationCode}>인증번호 발송</button>
+      <h1>비밀번호 찾기</h1>
+      <div className="">
+        <form action="" method="POST">
+          <div className="email">
+            <div className="input">
+              <span>
+                <i className="xi-at" />
+              </span>
+              <input id="email" type="text" placeholder="Email" />
             </div>
-            <div className="authorization">
-              <div className="input">
-                <span>
-                  <i className="xi-shield-checked-o" />
-                </span>
-                <input
-                  id="authorizationCode"
-                  type="text"
-                  placeholder="인증번호"
-                />
-              </div>
-              {isAuthentication ? (
-                <p style={{ color: "#1A59FA" }}>인증되었습니다.</p>
-              ) : (
-                <p style={{ color: "#FF1100" }}>인증이 필요합니다.</p>
-              )}
-              <button onClick={requestAuthorization}>인증하기</button>
+            <button onClick={requestAuthorizationCode}>인증번호 발송</button>
+          </div>
+          <div className="authorization">
+            <div className="input">
+              <span>
+                <i className="xi-shield-checked-o" />
+              </span>
+              <input
+                id="authorizationCode"
+                type="text"
+                placeholder="인증번호"
+              />
             </div>
-            <div className="password">
-              <div className="input">
-                <span>
-                  <i className="xi-lock-o" />
-                </span>
-                <input id="password" type="password" placeholder="Password" />
-              </div>
-              <div className="input">
-                <span>
-                  <i className="xi-lock" />
-                </span>
-                <input
-                  id="confirm-password"
-                  type="password"
-                  placeholder="Confirm Password"
-                />
-              </div>
+            {isAuthentication ? (
+              <p style={{ color: "#1A59FA" }}>인증되었습니다.</p>
+            ) : (
+              <p style={{ color: "#FF1100" }}>인증이 필요합니다.</p>
+            )}
+            <button onClick={requestAuthorization}>인증하기</button>
+          </div>
+          <div className="password">
+            <div className="input">
+              <span>
+                <i className="xi-lock-o" />
+              </span>
+              <input id="password" type="password" placeholder="Password" />
             </div>
-            <button className="btn-submit" onClick={requestNewPassword}>
-              비밀번호 변경
-            </button>
-          </form>
-        </div>
-      </div>
-
-      <div className="flex-right">
-        <span className="find-password-background" />
-        <h2>
-          Welcome back to <br />
-          i-Shadow.
-        </h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores
-          eligendi ex magnam minima perferendis quisquam ratione, sunt totam?
-        </p>
+            <div className="input">
+              <span>
+                <i className="xi-lock" />
+              </span>
+              <input
+                id="confirm-password"
+                type="password"
+                placeholder="Confirm Password"
+              />
+            </div>
+          </div>
+          <button className="btn-submit" onClick={requestNewPassword}>
+            비밀번호 변경
+          </button>
+        </form>
       </div>
     </div>
   );
