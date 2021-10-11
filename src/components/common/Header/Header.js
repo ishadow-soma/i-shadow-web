@@ -24,9 +24,15 @@ function Header(props) {
     <header>
       <div className="container">
         <div className="logo">
-          <h1>i-Shadow</h1>
-          <Link to="/">home</Link>
-          <Link to="/MyRoom">my room</Link>
+          <Link to="/">
+            <h1>i-Shadow</h1>
+          </Link>
+          <Link to="/" className="nav">
+            home
+          </Link>
+          <Link to="/MyRoom" className="nav">
+            my room
+          </Link>
         </div>
 
         <div className="profile">

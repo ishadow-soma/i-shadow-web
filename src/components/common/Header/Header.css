@@ -21,6 +21,7 @@ header .logo h1 {
   display: none;
   font-family: Lobster, serif;
   font-weight: 400;
+  text-transform: none;
 }
 header .profile a {
   color: #2f7af9;
