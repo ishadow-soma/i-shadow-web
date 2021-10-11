@@ -81,7 +81,11 @@ function VideoPlayer() {
   };
   const setCaption = (idx) => {
     const targetTag = document.getElementById("caption");
-    if (targetTag != null) targetTag.innerText = script[`${idx}`].sentence;
+    console.log("로그로그");
+    console.log(script);
+    targetTag.innerText = document.getElementById(
+      `idx${idx}`
+    ).children[1].innerText;
   };
   const resetPreviousSentence = () => {
     if (preSentence !== null) preSentence.classList.remove("current-sentence");
