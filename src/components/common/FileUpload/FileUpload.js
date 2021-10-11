@@ -29,10 +29,10 @@ function FileUpload(props) {
       .then((res) => {
         logOnlyDevelopment(res);
         if (res.data.success) props.history.push("/video");
-        else props.onFail();
+        else props.onFail(res.data.message);
       })
       .catch((err) => {
-        props.onFail();
+        props.onFail("서버로 요청하는 과정에서 변환에 실패했습니다! (catch)");
         logOnlyDevelopment(err);
       });
   };

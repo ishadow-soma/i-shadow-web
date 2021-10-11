@@ -14,15 +14,12 @@ const type = {
   FAIL: 4,
 };
 
-const style = {
-  display: "none",
-};
-
 function Dialog(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [mode, setMode] = useState(props.type);
   const [, setOnlyCancel] = useState(false);
+  const [reason, setReason] = useState(null);
 
   useEffect(() => {
     setDescription(props.description);
@@ -49,9 +46,11 @@ function Dialog(props) {
     setMode(3);
   };
 
-  const onFail = () => {
+  const onFail = (_reason) => {
     setDescription("콘텐츠 제작에 실패했습니다.");
     setOnlyCancel(true);
+    console.log("이유", _reason);
+    setReason(_reason);
     setMode(4);
   };
 
@@ -83,7 +82,7 @@ function Dialog(props) {
         return <Completion />;
       case type.FAIL:
       default:
-        return <Fail show={mode === type.FAIL} />;
+        return <Fail reason={reason} />;
     }
   };
 

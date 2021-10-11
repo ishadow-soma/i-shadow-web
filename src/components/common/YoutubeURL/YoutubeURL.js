@@ -34,15 +34,18 @@ function YoutubeURL(props) {
           });
           window.location.href = "/youtube";
         } else {
-          logOnlyDevelopment("서버로 요청하는 과정에서 변환에 실패했습니다!");
-          props.onFail();
+          logOnlyDevelopment(
+            "서버로 요청하는 과정에서 변환에 실패했습니다!",
+            res.data.message
+          );
+          props.onFail(res.data.message);
         }
       })
       .catch((err) => {
         // TODO : 잘못된 input 값 front 에서 판별하기
         // TODO : 만약 서버에서 공유 URL 처리가 안 되어 있다면 프론트에서 파싱해서 주기.
         logOnlyDevelopment("변환 실패!", err);
-        props.onFail();
+        props.onFail("서버로 요청하는 과정에서 변환에 실패했습니다! (catch)");
       });
   };
 

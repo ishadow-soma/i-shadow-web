@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Fail.css";
 
-function Fail() {
-  const [reason] = useState("알 수 없는 오류");
+function Fail(props) {
+  const [reason] = useState(props.reason ? props.reason : "알 수 없는 오류");
 
   return (
     <div className="fail">
