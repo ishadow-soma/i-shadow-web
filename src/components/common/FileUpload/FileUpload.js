@@ -10,8 +10,8 @@ function FileUpload(props) {
 
   const onOk = () => {
     const formBody = new FormData();
-    const file = document.querySelector("#video-file").files[0];
 
+    logOnlyDevelopment("input file", file);
     formBody.append("type", "UPLOAD");
     formBody.append("file", file);
     formBody.append("categoryId", [20]);
