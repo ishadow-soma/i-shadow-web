@@ -8,6 +8,13 @@ import logOnlyDevelopment from "../../../global/log/log";
 function YoutubeURL(props) {
   const onClickOk = () => {
     const inputUrl = document.getElementById("youtube-url").value;
+
+    // url 유효성 검사
+    if (!validateURL(inputUrl)) {
+      alert("잘못된 URL 입니다.");
+      return;
+    }
+
     logOnlyDevelopment("input url : " + inputUrl);
     const formBody = new FormData();
     formBody.append("type", "YOUTUBE");
@@ -42,11 +49,13 @@ function YoutubeURL(props) {
         }
       })
       .catch((err) => {
-        // TODO : 잘못된 input 값 front 에서 판별하기
-        // TODO : 만약 서버에서 공유 URL 처리가 안 되어 있다면 프론트에서 파싱해서 주기.
         logOnlyDevelopment("변환 실패!", err);
         props.onFail("서버로 요청하는 과정에서 변환에 실패했습니다! (catch)");
       });
+  };
+
+  const validateURL = (url) => {
+    return url.length > 10;
   };
 
   return (
