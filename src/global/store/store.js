@@ -87,4 +87,15 @@ function testUser(state = false, action) {
 
 export let userInfo = createStore(testUser);
 
+function globalRepeat(state = null, action) {
+  switch (action.type) {
+    case "PUSH":
+      return action.id;
+    default:
+      return null;
+  }
+}
+
+export let repeatStore = createStore(globalRepeat);
+
 export default network;

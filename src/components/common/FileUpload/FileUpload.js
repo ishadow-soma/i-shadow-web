@@ -3,7 +3,7 @@ import "./FileUpload.css";
 import axios from "axios";
 import network from "global/store/store";
 import { getCookie } from "global/store/cookie";
-import logOnlyDevelopment from "../../../global/log/log";
+import logOnlyDevelopment from "global/log/log";
 
 function FileUpload(props) {
   const [file, setFile] = useState(null);

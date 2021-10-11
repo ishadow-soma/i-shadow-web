@@ -4,7 +4,7 @@ import Modal from "react-modal";
 import setScript from "./setScript";
 import Dropdown from "react-dropdown";
 import { FaStop } from "react-icons/fa";
-import network from "global/store/store";
+import network, { repeatStore } from "global/store/store";
 import RecordedList from "./RecordedList";
 import setDragSelect from "./setDragSelect";
 import Recorder from "global/record/Recorder";
@@ -40,7 +40,13 @@ function YoutubePlayer() {
   useEffect(() => {
     requestVideo();
     recorder.setRecorder(setOptions, setDefaultOption);
+
+    return () => {
+      console.log("청소해야할 것", repeatStore.getState());
+      if (repeatStore.getState()) clearInterval(repeatStore.getState());
+    };
   }, []);
+
   // 영상 불러오기
   const requestVideo = async () => {
     const res = await requestVideoInfo();

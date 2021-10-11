@@ -4,13 +4,18 @@ import logOnlyDevelopment from "../../../global/log/log";
 
 function Loading(props) {
   const [progress, setProgress] = useState(0);
+  let interval;
 
   useEffect(() => {
     updateProgress();
   }, []);
 
+  useEffect(() => {
+    clearInterval(interval);
+  });
+
   const updateProgress = () => {
-    setInterval(() => {
+    interval = setInterval(() => {
       setProgress((progress) => (progress + 10) % 100);
       logOnlyDevelopment(progress);
     }, 1000);

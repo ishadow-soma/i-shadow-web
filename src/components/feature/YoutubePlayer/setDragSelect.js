@@ -1,5 +1,6 @@
 import DragSelect from "dragselect";
-import logOnlyDevelopment from "../../../global/log/log";
+import logOnlyDevelopment from "global/log/log";
+import { repeatStore } from "global/store/store";
 
 export default function setDragSelect(player, script) {
   let preIcon = null;
@@ -84,9 +85,15 @@ export default function setDragSelect(player, script) {
       dsSelected = ds.getSelection();
       const len = (end - begin) * 1000;
       repetition = setInterval(() => {
+        logOnlyDevelopment("interval start", repeatStore.getState());
         if (player.current) player.current.seekTo(begin, "seconds");
         else player.seek(begin);
       }, len);
+      console.log("반복시작", repetition);
+      repeatStore.dispatch({
+        type: "PUSH",
+        id: repetition,
+      });
     }, 100);
 
     clearTimeout(setTime);
