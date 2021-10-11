@@ -18,6 +18,7 @@ import RecordedList from "../YoutubePlayer/RecordedList";
 import { modalStyle } from "global/styles/customStyles";
 import { getScript, requestVideoInfo } from "global/player/setPlayer";
 import logOnlyDevelopment from "../../../global/log/log";
+import { repeatStore } from "../../../global/store/store";
 
 function VideoPlayer() {
   const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
@@ -37,6 +38,10 @@ function VideoPlayer() {
   useEffect(() => {
     requestVideo();
     recorder.setRecorder(setOptions, setDefaultOption);
+
+    return () => {
+      if (repeatStore.getState()) clearInterval(repeatStore.getState());
+    };
   }, []);
 
   // 영상 불러오기

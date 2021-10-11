@@ -42,7 +42,7 @@ function YoutubePlayer() {
     recorder.setRecorder(setOptions, setDefaultOption);
 
     return () => {
-      console.log("청소해야할 것", repeatStore.getState());
+      player.destroy();
       if (repeatStore.getState()) clearInterval(repeatStore.getState());
     };
   }, []);
@@ -106,7 +106,7 @@ function YoutubePlayer() {
   };
   const setCurrentSentenceColor = (idx) => {
     preSentence = document.getElementById(`idx${idx}`);
-    preSentence.classList.add("current-sentence");
+    if (preSentence.classList) preSentence.classList.add("current-sentence");
   };
 
   const requestVideoEvaluation = () => {
