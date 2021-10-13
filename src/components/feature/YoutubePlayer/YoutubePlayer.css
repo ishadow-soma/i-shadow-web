@@ -82,8 +82,7 @@
   align-items: center;
   padding-right: 8px;
 }
-.youtube-player .script .tabs .xi-file-text-o,
-.youtube-player .script .tabs .xi-microphone {
+.youtube-player .script .tabs i {
   font-size: 24px;
   margin-right: 6px;
 }

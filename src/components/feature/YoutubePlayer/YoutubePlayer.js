@@ -9,7 +9,6 @@ import RecordedList from "./RecordedList";
 import setDragSelect from "./setDragSelect";
 import Recorder from "global/record/Recorder";
 import EvaluationModal from "./EvaluationModal";
-import { getCookie } from "global/store/cookie";
 import React, { useEffect, useState } from "react";
 import { Scrollbar } from "react-scrollbars-custom";
 import Footer from "components/common/Footer/Footer";
@@ -18,7 +17,7 @@ import Script from "components/feature/YoutubePlayer/Script";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { modalStyle } from "global/styles/customStyles";
 import { getScript, getTitle, requestVideoInfo } from "global/player/setPlayer";
-import logOnlyDevelopment from "../../../global/log/log";
+import logOnlyDevelopment from "global/log/log";
 
 const YTPlayer = require("yt-player");
 
@@ -192,6 +191,14 @@ function YoutubePlayer() {
                   }}
                 >
                   <i className="xi-microphone xi-x" /> Rec.
+                </button>
+                <button
+                  className="tab"
+                  onClick={() => {
+                    selectTab(2);
+                  }}
+                >
+                  <i className="xi-bookmark-o" /> Bookmark
                 </button>
               </div>
 
