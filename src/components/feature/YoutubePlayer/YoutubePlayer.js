@@ -18,6 +18,7 @@ import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import { modalStyle } from "global/styles/customStyles";
 import { getScript, getTitle, requestVideoInfo } from "global/player/setPlayer";
 import logOnlyDevelopment from "global/log/log";
+import Bookmark from "./Bookmark";
 
 const YTPlayer = require("yt-player");
 
@@ -116,10 +117,13 @@ function YoutubePlayer() {
 
   const selectTab = (type) => {
     setContentType(type);
+
+    const tabs = document.getElementsByClassName("tab");
+    for (let i = 0; i < tabs.length; ++i) {
+      tabs[i].classList.remove("selected");
+    }
+
     document.getElementsByClassName("tab")[type].classList.add("selected");
-    document
-      .getElementsByClassName("tab")
-      [(type + 1) % 2].classList.remove("selected");
   };
 
   function openModal() {
@@ -209,6 +213,7 @@ function YoutubePlayer() {
                     style={{ display: contentType === 0 ? "block" : "none" }}
                   />
                   <RecordedList contentType={contentType} />
+                  <Bookmark contentType={contentType} />
                 </Scrollbar>
               </div>
             </div>
