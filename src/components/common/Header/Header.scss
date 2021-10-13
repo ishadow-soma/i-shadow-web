@@ -93,7 +93,7 @@ header::after {
 
     .logo {
       width: 720px;
-      height: 100px;
+      height: 84px;
       color: white;
       background-color: #2f7af9;
       border-radius: 0 0 200px 0;
@@ -108,8 +108,9 @@ header::after {
       }
 
       a {
+        margin-left: 0;
         margin-right: 30px;
-        font-size: 22px;
+        font-size: 20px;
         color: white;
       }
     }
@@ -169,7 +170,7 @@ header::after {
     top: 0;
     left: 0;
     width: 30%;
-    height: 100px;
+    height: 84px;
     background-color: #2f7af9;
   }
 }
