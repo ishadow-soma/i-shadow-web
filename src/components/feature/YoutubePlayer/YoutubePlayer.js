@@ -41,9 +41,6 @@ function YoutubePlayer() {
     defaultOption: null,
     isRecording: false,
   });
-  const [options, setOptions] = useState([]);
-  const [defaultOption, setDefaultOption] = useState(null);
-  const [isRecording, setIsRecording] = useState(false);
   const recorder = new Recorder((flag) => {
     setRecordingState({
       options: recordingState.options,
@@ -54,7 +51,7 @@ function YoutubePlayer() {
 
   useEffect(() => {
     requestVideo();
-    recorder.setRecorder(setOptions, setDefaultOption, setRecordingState);
+    recorder.setRecorder(setRecordingState);
 
     return () => {
       player.destroy();
