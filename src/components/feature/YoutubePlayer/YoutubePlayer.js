@@ -23,15 +23,24 @@ import Bookmark from "./Bookmark";
 const YTPlayer = require("yt-player");
 
 function YoutubePlayer() {
+  // 페이지 정보
   const [title, setTitle] = useState("제목");
   const [url, setUrl] = useState("null");
-  const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음
+  const [contentType, setContentType] = useState(0); // 0 : 플레이어, 1 : 녹음, 2 : 즐겨찾기
+
+  // 비디오 및 플레이어 정보
   let player;
   let script;
   let videoCode;
   let shouldVideoEvaluation;
   const [modalIsOpen, setIsOpen] = useState(false);
 
+  // 녹음
+  const [recordingState, setRecordingState] = useState({
+    options: [],
+    defaultOption: [],
+    isRecording: false,
+  });
   const [options, setOptions] = useState([]);
   const [defaultOption, setDefaultOption] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
