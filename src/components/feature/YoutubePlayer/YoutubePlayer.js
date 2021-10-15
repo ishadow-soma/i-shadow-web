@@ -38,17 +38,23 @@ function YoutubePlayer() {
   // 녹음
   const [recordingState, setRecordingState] = useState({
     options: [],
-    defaultOption: [],
+    defaultOption: null,
     isRecording: false,
   });
   const [options, setOptions] = useState([]);
   const [defaultOption, setDefaultOption] = useState(null);
   const [isRecording, setIsRecording] = useState(false);
-  const recorder = new Recorder(setIsRecording);
+  const recorder = new Recorder((flag) => {
+    setRecordingState({
+      options: recordingState.options,
+      defaultOption: recordingState.defaultOption,
+      isRecording: flag,
+    });
+  });
 
   useEffect(() => {
     requestVideo();
-    recorder.setRecorder(setOptions, setDefaultOption);
+    recorder.setRecorder(setOptions, setDefaultOption, setRecordingState);
 
     return () => {
       player.destroy();
@@ -160,22 +166,30 @@ function YoutubePlayer() {
                 <p id="caption">Our hearts were never broken</p>
                 <div
                   className="record-icon"
-                  style={{ visibility: isRecording ? "visible" : "hidden" }}
+                  style={{
+                    visibility: recordingState.isRecording
+                      ? "visible"
+                      : "hidden",
+                  }}
                 >
                   <FaStop id="stop" />
                 </div>
                 <i
                   className="xi-microphone record-icon"
                   id="record"
-                  style={{ visibility: isRecording ? "hidden" : "visible" }}
+                  style={{
+                    visibility: recordingState.isRecording
+                      ? "hidden"
+                      : "visible",
+                  }}
                 />
               </div>
               <a href={url}>
                 <i className="xi-link" /> {url}
               </a>
               <Dropdown
-                options={options}
-                value={defaultOption}
+                options={recordingState.options}
+                value={recordingState.defaultOption}
                 onChange={(item) => recorder.setAudioEnvironment(item.value)}
                 placeholder="Select an option"
                 className="dropdown"

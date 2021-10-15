@@ -6,7 +6,7 @@ export default class Recorder {
     this.doAfterOnRecording = doAfterOnStart;
   }
 
-  setRecorder(setOptions, setDefaultOption) {
+  setRecorder(setOptions, setDefaultOption, setRecordingState) {
     this.setAudioEnvironment(null);
 
     this.getConnectedAudioDevices().then((devices) => {
@@ -17,6 +17,11 @@ export default class Recorder {
       }
       setOptions(options);
       setDefaultOption(options[0]);
+      setRecordingState({
+        options: options,
+        defaultOption: options[0],
+        isRecording: false,
+      });
     });
   }
 
