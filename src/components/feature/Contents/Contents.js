@@ -1,3 +1,9 @@
+import Header from "components/common/Header/Header";
+
 export default function Contents() {
-  return <></>;
+  return (
+    <div className="contents">
+      <Header />
+    </div>
+  );
 }
