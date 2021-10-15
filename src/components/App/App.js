@@ -12,6 +12,8 @@ import PaymentMethod from "components/feature/PaymentMethod/PaymentMethod";
 import FindPassword from "components/feature/FindPassword/FindPassword";
 import EditProfile from "components/feature/EditProfile/EditProfile";
 import NotFound from "components/feature/NotFound/NotFound";
+import ChatBot from "components/feature/ChatBot/ChatBot";
+import Contents from "components/feature/Contents/Contents";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/audio" component={AudioPlayer} />
         <Route path="/youtube" component={YoutubePlayer} />
         <Route path="/editprofile" component={EditProfile} />
+        <Route path="/chatbot" component={ChatBot} />
+        <Route path="/contents" component={Contents} />
 
         <Route component={NotFound} />
       </Switch>
