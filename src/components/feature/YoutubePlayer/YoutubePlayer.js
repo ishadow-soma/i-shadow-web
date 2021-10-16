@@ -32,6 +32,8 @@ function YoutubePlayer() {
   let player;
   let script;
   let videoCode;
+
+  // 평가 모달
   let shouldVideoEvaluation;
   const [modalIsOpen, setIsOpen] = useState(false);
 

@@ -18,7 +18,10 @@ export default function setDragSelect(player, script) {
       const selectedElements = document.getElementsByClassName("ds-selected");
       if (selectedElements.length > 0) {
         const repetitionIcon = createRepetitionIcon();
-        selectedElements[selectedElements.length - 1].append(repetitionIcon);
+        //const bookmarkIcon = createBookmarkIcon();
+        const lastElement = selectedElements[selectedElements.length - 1];
+        lastElement.append(repetitionIcon);
+        //lastElement.append(bookmarkIcon);
       }
 
       // 이전 버튼 삭제, 버튼 클릭시 드래그 셀렉트도 발생하므로 딜레이 주고 삭제
@@ -49,6 +52,16 @@ export default function setDragSelect(player, script) {
       originBegin = beginIndex;
       originEnd = endIndex;
     }, 40);
+
+    return result;
+  };
+
+  const createBookmarkIcon = () => {
+    const result = document.createElement("i");
+    result.className = "xi-bookmark-o";
+    result.onclick = () => {
+      alert("즐겨찾기 추가");
+    };
 
     return result;
   };
