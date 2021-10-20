@@ -184,8 +184,21 @@
   color: #ffcc00;
   background-color: #2f3f65;
 }
+.youtube-player .content li .bookmark-icon,
 .youtube-player .content li .repetition {
   display: none;
+}
+.youtube-player .content li.ds-selected .bookmark-icon {
+  display: block;
+  position: absolute;
+  bottom: 8px;
+  right: 50px;
+  font-size: 24px;
+  background-color: #ffcc00;
+  color: white;
+  border-radius: 20px;
+  padding: 5px;
+  opacity: 0.85;
 }
 .youtube-player .content li.ds-selected .repetition {
   display: block;

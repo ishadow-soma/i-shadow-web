@@ -4,6 +4,7 @@ import { repeatStore } from "global/store/store";
 
 export default function setDragSelect(player, script) {
   let preIcon = null;
+  let preBookmarkIcon = null;
   let dsSelected = null;
   let ds = new DragSelect({
     selectables: document.querySelectorAll(".item"),
@@ -18,10 +19,10 @@ export default function setDragSelect(player, script) {
       const selectedElements = document.getElementsByClassName("ds-selected");
       if (selectedElements.length > 0) {
         const repetitionIcon = createRepetitionIcon();
-        //const bookmarkIcon = createBookmarkIcon();
+        const bookmarkIcon = createBookmarkIcon();
         const lastElement = selectedElements[selectedElements.length - 1];
         lastElement.append(repetitionIcon);
-        //lastElement.append(bookmarkIcon);
+        lastElement.append(bookmarkIcon);
       }
 
       // 이전 버튼 삭제, 버튼 클릭시 드래그 셀렉트도 발생하므로 딜레이 주고 삭제
@@ -32,6 +33,14 @@ export default function setDragSelect(player, script) {
           preIcon = repetitionIcons[0];
         }, 40);
       } else preIcon = repetitionIcons[0];
+
+      const bookmarkIcons = document.getElementsByClassName("bookmark-icon");
+      if (preBookmarkIcon !== null && bookmarkIcons.length > 1) {
+        setTimeout(() => {
+          preBookmarkIcon.remove();
+          preBookmarkIcon = bookmarkIcons[0];
+        }, 40);
+      } else preBookmarkIcon = bookmarkIcons[0];
     },
   });
 
@@ -58,7 +67,7 @@ export default function setDragSelect(player, script) {
 
   const createBookmarkIcon = () => {
     const result = document.createElement("i");
-    result.className = "xi-bookmark-o";
+    result.className = "xi-bookmark-o bookmark-icon";
     result.onclick = () => {
       alert("즐겨찾기 추가");
     };
@@ -102,7 +111,6 @@ export default function setDragSelect(player, script) {
         if (player.current) player.current.seekTo(begin, "seconds");
         else player.seek(begin);
       }, len);
-      console.log("반복시작", repetition);
       repeatStore.dispatch({
         type: "PUSH",
         id: repetition,
