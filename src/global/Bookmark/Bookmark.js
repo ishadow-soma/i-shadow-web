@@ -1,7 +1,7 @@
 import axios from "axios";
 import network from "global/store/store";
-import { getCookie } from "../store/cookie";
-import logOnlyDevelopment from "../log/log";
+import { getCookie } from "global/store/cookie";
+import logOnlyDevelopment from "global/log/log";
 
 export default class Bookmark {
   saveSentence(sentenceIds) {
