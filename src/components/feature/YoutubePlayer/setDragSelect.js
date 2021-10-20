@@ -27,20 +27,19 @@ export default function setDragSelect(player, script) {
 
       // 이전 버튼 삭제, 버튼 클릭시 드래그 셀렉트도 발생하므로 딜레이 주고 삭제
       const repetitionIcons = document.getElementsByClassName("repetition");
+      const bookmarkIcons = document.getElementsByClassName("bookmark-icon");
+
       if (preIcon !== null && repetitionIcons.length > 1) {
         setTimeout(() => {
           preIcon.remove();
-          preIcon = repetitionIcons[0];
-        }, 40);
-      } else preIcon = repetitionIcons[0];
-
-      const bookmarkIcons = document.getElementsByClassName("bookmark-icon");
-      if (preBookmarkIcon !== null && bookmarkIcons.length > 1) {
-        setTimeout(() => {
           preBookmarkIcon.remove();
+          preIcon = repetitionIcons[0];
           preBookmarkIcon = bookmarkIcons[0];
         }, 40);
-      } else preBookmarkIcon = bookmarkIcons[0];
+      } else {
+        preIcon = repetitionIcons[0];
+        preBookmarkIcon = bookmarkIcons[0];
+      }
     },
   });
 
