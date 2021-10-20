@@ -23,9 +23,10 @@ function MyRoom(props) {
     if (!user.isLogin) {
       alert("로그인이 필요합니다.");
       props.history.push("/login");
+    } else {
+      requestContents();
+      setMyRoom();
     }
-    requestContents();
-    setMyRoom();
   }, []);
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
