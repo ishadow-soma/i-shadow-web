@@ -4,21 +4,21 @@ import { getCookie } from "../store/cookie";
 import logOnlyDevelopment from "../log/log";
 
 export default class Bookmark {
-  saveSentence(sentences) {
+  saveSentence(sentenceIds) {
     axios({
       method: "post",
-      url: network + "sentence",
+      url: network.baseURL + "shadowing-player/sentence",
       headers: getCookie("jwt"),
       data: {
         sentenceSaveType: "FAVORITE",
-        sentences: sentences,
+        sentences: sentenceIds,
       },
-      videoId: 0,
+      videoId: getCookie("videoId"),
     })
       .then((res) => {
         logOnlyDevelopment(res);
         if (res.data.success)
-          logOnlyDevelopment("즐겨찾기 목록에 저장되었습니다.");
+          logOnlyDevelopment("즐겨찾기 목록에 저장되었습니다.", res);
         else alert("알 수 없는 이유로 저장에 실패했습니다.");
       })
       .catch((err) => logOnlyDevelopment(err));
@@ -27,7 +27,7 @@ export default class Bookmark {
   getSentence(videoId) {
     axios({
       method: "get",
-      url: network + "bookmark",
+      url: network + "shadowing-player/bookmark",
       headers: getCookie("jwt"),
       params: {
         videoId: videoId,
