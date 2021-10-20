@@ -227,13 +227,14 @@
   .content li.ds-selected .repetition {
     display: block;
     position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 30px;
+    bottom: 8px;
+    right: 8px;
+    font-size: 24px;
     background-color: #ffcc00;
     color: #8898bf;
     border-radius: 20px;
     padding: 5px;
+    opacity: 0.85;
   }
 
   .content li.ds-selected.playing .repetition {
