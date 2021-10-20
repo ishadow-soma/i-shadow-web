@@ -17,7 +17,7 @@ export default function setDragSelect(player, script) {
 
       if (repetition) ds.setSelection(dsSelected);
 
-      // 새 버튼 생성
+      //removeButtons();
       createNewButtons();
 
       // 이전 버튼 삭제, 버튼 클릭시 드래그 셀렉트도 발생하므로 딜레이 주고 삭제
@@ -51,6 +51,15 @@ export default function setDragSelect(player, script) {
 
   function validateElements(selectedElements) {
     return selectedElements.length > 0;
+  }
+
+  function removeButtons() {
+    const repetitionIcons = document.getElementsByClassName("repetition");
+    const bookmarkIcons = document.getElementsByClassName("bookmark-icon");
+    if (repetitionIcons.length > 0) {
+      repetitionIcons[0].remove();
+      bookmarkIcons[0].remove();
+    }
   }
 
   let repetition = null;
