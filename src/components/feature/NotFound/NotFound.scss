@@ -1,11 +1,13 @@
 @import "../../../global/styles/text-size";
 
 .not-found {
+  height: 100vh;
   text-align: center;
+  background-color: #f2f6fe;
+  padding-top: 30vh;
 
   h1 {
-    font-size: $title-size;
-    margin-top: 40px;
+    font-size: 80px;
     margin-bottom: 12px;
     font-family: Roboto sans-serif;
     color: #2f7af9;

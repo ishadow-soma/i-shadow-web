@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["NotFound.scss","../../../global/styles/_text-size.scss"],"names":[],"mappings":"AAEA;EACE;;AAEA;EACE,WCNS;EDOT;EACA;EACA;EACA;;AAGF;EACE,WCba;;ADgBf;EACE","file":"NotFound.css"}
+{"version":3,"sourceRoot":"","sources":["NotFound.scss","../../../global/styles/_text-size.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;;AAGF;EACE,WCfa;;ADkBf;EACE","file":"NotFound.css"}
