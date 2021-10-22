@@ -88,6 +88,13 @@ export default function setDragSelect(player, script) {
     }
   }
 
+  function getBeginEnd(selectedElements) {
+    const [beginIndex, endIndex] = getIndex(selectedElements);
+    const begin = getBegin(beginIndex);
+    const end = getEnd(endIndex) + 1;
+    return [begin, end];
+  }
+
   const getBegin = (idx) => {
     logOnlyDevelopment("idx", idx);
     return script[idx].begin;
@@ -97,21 +104,13 @@ export default function setDragSelect(player, script) {
     return script[idx].end;
   };
 
-  function repeat2() {
-    const selectedElements = document.getElementsByClassName("ds-selected");
-    const [beginIndex, endIndex] = getIndex(selectedElements);
-    const begin = getBegin(beginIndex);
-    const end = getEnd(endIndex) + 1;
-  }
-
   const repeat = () => {
     logOnlyDevelopment("repeat!");
     setTimeout(() => {
       const selectedElements = document.getElementsByClassName("ds-selected");
-      const [beginIndex, endIndex] = getIndex(selectedElements);
-      const begin = getBegin(beginIndex);
-      const end = getEnd(endIndex) + 1;
+      const [begin, end] = getBeginEnd(selectedElements);
 
+      const endIndex = getIndex(selectedElements)[1];
       const lastElement = document.getElementById(`idx${endIndex}`);
       if (document.getElementsByClassName("playing").length > 0) {
         lastElement.classList.remove("playing");
