@@ -14,9 +14,10 @@ export default function setDragSelect(player, script) {
     callback: (e) => {
       logOnlyDevelopment("callback!");
 
+      const selectedElements = document.getElementsByClassName("ds-selected");
       sections.push({
-        begin: getIndex(document.getElementsByClassName("ds-selected"))[0],
-        end: getIndex(document.getElementsByClassName("ds-selected"))[1],
+        begin: getIndex(selectedElements),
+        end: getIndex(selectedElements),
       });
 
       createNewButtons();
@@ -130,6 +131,7 @@ export default function setDragSelect(player, script) {
 }
 
 export function getIndex(selectedElements) {
+  if (selectedElements.length === 0) return [0, 0];
   const beginIndex = parseInt(selectedElements[0].id.slice(3));
   const endIndex = parseInt(
     selectedElements[selectedElements.length - 1].id.slice(3)
