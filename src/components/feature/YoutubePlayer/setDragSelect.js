@@ -4,10 +4,9 @@ import { repeatStore } from "global/store/store";
 import Bookmark from "global/Bookmark/Bookmark";
 
 export default function setDragSelect(player, script) {
-  let preIcon = null;
-  let preBookmarkIcon = null;
   let dsSelected = null;
   const bookmarkApi = new Bookmark();
+  const sections = [];
   let ds = new DragSelect({
     selectables: document.querySelectorAll(".item"),
     area: document.getElementsByClassName("content")[0],
@@ -15,26 +14,12 @@ export default function setDragSelect(player, script) {
     callback: (e) => {
       logOnlyDevelopment("callback!");
 
-      if (repetition) ds.setSelection(dsSelected);
+      sections.push({
+        begin: getIndex(document.getElementsByClassName("ds-selected"))[0],
+        end: getIndex(document.getElementsByClassName("ds-selected"))[1],
+      });
 
-      //removeButtons();
       createNewButtons();
-
-      // 이전 버튼 삭제, 버튼 클릭시 드래그 셀렉트도 발생하므로 딜레이 주고 삭제
-      const repetitionIcons = document.getElementsByClassName("repetition");
-      const bookmarkIcons = document.getElementsByClassName("bookmark-icon");
-
-      if (preIcon !== null && repetitionIcons.length > 1) {
-        setTimeout(() => {
-          preIcon.remove();
-          preBookmarkIcon.remove();
-          preIcon = repetitionIcons[0];
-          preBookmarkIcon = bookmarkIcons[0];
-        }, 40);
-      } else {
-        preIcon = repetitionIcons[0];
-        preBookmarkIcon = bookmarkIcons[0];
-      }
     },
   });
 
@@ -42,10 +27,8 @@ export default function setDragSelect(player, script) {
     const selectedElements = document.getElementsByClassName("ds-selected");
     if (validateElements(selectedElements)) {
       const repetitionIcon = createRepetitionIcon();
-      const bookmarkIcon = createBookmarkIcon();
       const lastElement = selectedElements[selectedElements.length - 1];
       lastElement.append(repetitionIcon);
-      lastElement.append(bookmarkIcon);
     }
   }
 
@@ -70,6 +53,7 @@ export default function setDragSelect(player, script) {
     const result = document.createElement("i");
     result.className = "repetition xi-repeat";
     result.onclick = () => {
+      restore();
       repeat();
     };
 
@@ -83,18 +67,16 @@ export default function setDragSelect(player, script) {
     return result;
   };
 
-  const createBookmarkIcon = () => {
-    const result = document.createElement("i");
-    result.className = "xi-bookmark-o bookmark-icon";
-
-    const sentencesId = document.getElementsByClassName("ds-selected");
-    result.onclick = () => {
-      console.log(sentencesId);
-      //bookmarkApi.saveSentence(sentencesId);
-    };
-
-    return result;
-  };
+  function restore() {
+    ds.clearSelection();
+    for (
+      let i = sections[sections.length - 2][0];
+      i < sections[sections.length - 2][1];
+      ++i
+    ) {
+      ds.addSelection(document.getElementsByClassName("item")[i]);
+    }
+  }
 
   const getBegin = (idx) => {
     logOnlyDevelopment("idx", idx);
