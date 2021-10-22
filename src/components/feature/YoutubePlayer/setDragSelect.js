@@ -14,6 +14,7 @@ export default function setDragSelect(player, script) {
     callback: (e) => {
       logOnlyDevelopment("callback!");
 
+      removeButtons();
       const selectedElements = document.getElementsByClassName("ds-selected");
       sections.push({
         begin: getIndex(selectedElements),
@@ -39,10 +40,18 @@ export default function setDragSelect(player, script) {
 
   function removeButtons() {
     const repetitionIcons = document.getElementsByClassName("repetition");
-    const bookmarkIcons = document.getElementsByClassName("bookmark-icon");
-    if (repetitionIcons.length > 0) {
+    const selectedElements = document.getElementsByClassName("ds-selected");
+
+    if (validate()) {
       repetitionIcons[0].remove();
-      bookmarkIcons[0].remove();
+    }
+
+    function validate() {
+      return (
+        repetitionIcons.length > 0 &&
+        repetitionIcons[0].parentElement !==
+          selectedElements[selectedElements.length - 1]
+      );
     }
   }
 
@@ -87,6 +96,13 @@ export default function setDragSelect(player, script) {
   const getEnd = (idx) => {
     return script[idx].end;
   };
+
+  function repeat2() {
+    const selectedElements = document.getElementsByClassName("ds-selected");
+    const [beginIndex, endIndex] = getIndex(selectedElements);
+    const begin = getBegin(beginIndex);
+    const end = getEnd(endIndex) + 1;
+  }
 
   const repeat = () => {
     logOnlyDevelopment("repeat!");
