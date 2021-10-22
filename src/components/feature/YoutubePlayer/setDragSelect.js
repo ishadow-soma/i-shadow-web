@@ -42,15 +42,15 @@ export default function setDragSelect(player, script) {
     const repetitionIcons = document.getElementsByClassName("repetition");
     const selectedElements = document.getElementsByClassName("ds-selected");
 
-    if (validate()) {
-      repetitionIcons[0].remove();
+    if (repetitionIcons.length > 0) {
+      for (let i = 0; i < repetitionIcons.length; ++i) {
+        if (validate(repetitionIcons[i])) repetitionIcons[i].remove();
+      }
     }
 
-    function validate() {
+    function validate(icon) {
       return (
-        repetitionIcons.length > 0 &&
-        repetitionIcons[0].parentElement !==
-          selectedElements[selectedElements.length - 1]
+        icon.parentElement !== selectedElements[selectedElements.length - 1]
       );
     }
   }
