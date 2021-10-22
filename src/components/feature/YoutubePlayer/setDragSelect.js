@@ -38,19 +38,20 @@ export default function setDragSelect(player, script) {
     return selectedElements.length > 0;
   }
 
-  function removeButtons() {
+  function removeButtons(target = null) {
     const repetitionIcons = document.getElementsByClassName("repetition");
     const selectedElements = document.getElementsByClassName("ds-selected");
 
     if (repetitionIcons.length > 0) {
       for (let i = 0; i < repetitionIcons.length; ++i) {
-        if (validate(repetitionIcons[i])) repetitionIcons[i].remove();
+        if (validate(repetitionIcons[i], target)) repetitionIcons[i].remove();
       }
     }
 
-    function validate(icon) {
+    function validate(icon, target) {
       return (
-        icon.parentElement !== selectedElements[selectedElements.length - 1]
+        icon.parentElement !== selectedElements[selectedElements.length - 1] ||
+        (target !== null && target.parentElement !== icon)
       );
     }
   }
@@ -62,7 +63,8 @@ export default function setDragSelect(player, script) {
   const createRepetitionIcon = () => {
     const result = document.createElement("i");
     result.className = "repetition xi-repeat";
-    result.onclick = () => {
+    result.onclick = (e) => {
+      removeButtons(e.target);
       restore();
       repeat();
     };
