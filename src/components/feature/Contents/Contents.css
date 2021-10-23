@@ -38,6 +38,7 @@
 .contents .box .category-filter .categories .item {
   display: block;
   width: 20%;
+  cursor: pointer;
 }
 .contents .box .category-filter .categories .item.selected {
   color: #1a59fa;

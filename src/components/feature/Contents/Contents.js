@@ -15,8 +15,8 @@ export default function Contents() {
             <div className="level-filter">
               <div className="filter">
                 <p>난이도 필터링</p>
+                <Range min={0} max={80} defaultValue={[0, 80]} />
               </div>
-              <Range count={5} />
             </div>
             <div className="category-filter">
               <div className="filter">
