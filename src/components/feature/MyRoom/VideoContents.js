@@ -40,9 +40,7 @@ export default function VideoContents(props) {
       <li>
         <div
           className="youtube-content"
-          style={{
-            backgroundImage: `url('http://ec2-3-34-122-103.ap-northeast-2.compute.amazonaws.com:80/image/2021-10-11/2021-10-11-4-test.png')`,
-          }}
+          style={{ backgroundImage: `url('${video.thumbNailURL}')` }}
           onClick={() => {
             if (props.videoType === 0) redirectYoutube(video.videoId);
             else redirectVideo(video.videoId);
