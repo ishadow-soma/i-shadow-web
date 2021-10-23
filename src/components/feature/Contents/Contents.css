@@ -1,3 +1,43 @@
-
+.contents {
+  color: #001833;
+}
+.contents h1 {
+  color: #2f3f65;
+  font-size: 40px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+.contents .box {
+  background-color: white;
+  border-radius: 30px;
+  padding: 32px;
+}
+.contents .box .level-filter,
+.contents .box .category-filter {
+  border: #F2F6FE 1px solid;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+.contents .box .filter p {
+  font-weight: bold;
+}
+.contents .box .category-filter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.contents .box .category-filter .filter {
+  width: 300px;
+}
+.contents .box .category-filter .categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.contents .box .category-filter .categories .item {
+  display: block;
+  width: 20%;
+}
 
 /*# sourceMappingURL=Contents.css.map */

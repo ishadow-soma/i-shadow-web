@@ -2,21 +2,26 @@ import Header from "components/common/Header/Header";
 import React from "react";
 import "rc-slider";
 import { Range } from "rc-slider";
+import "./Contents.css";
 
 export default function Contents() {
   return (
-    <div className="contents">
+    <div className="wrap">
       <Header />
       <div className="contents">
         <div className="container">
           <h1>CONTENTS</h1>
-          <div>
+          <div className="box">
             <div className="level-filter">
-              <p>난이도 필터링</p>
+              <div className="filter">
+                <p>난이도 필터링</p>
+              </div>
               <Range count={5} />
             </div>
             <div className="category-filter">
-              <p>카테고리 필터링</p>
+              <div className="filter">
+                <p>카테고리 필터링</p>
+              </div>
               <div className="categories">
                 <span className="item">라이프 스타일</span>
                 <span className="item">게임</span>
