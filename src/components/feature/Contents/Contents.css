@@ -39,5 +39,9 @@
   display: block;
   width: 20%;
 }
+.contents .box .category-filter .categories .item.selected {
+  color: #1a59fa;
+  font-weight: bold;
+}
 
 /*# sourceMappingURL=Contents.css.map */

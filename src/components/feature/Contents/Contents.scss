@@ -45,6 +45,11 @@
           display: block;
           width: 20%;
         }
+
+        .item.selected {
+          color: #1a59fa;
+          font-weight: bold;
+        }
       }
     }
   }
