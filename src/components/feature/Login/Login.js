@@ -6,6 +6,7 @@ import network from "global/store/store";
 import { setCookieDefaultOption } from "global/store/cookie";
 import setGoogleLogin from "global/Oauth/setGoogleLogin";
 import logOnlyDevelopment from "../../../global/log/log";
+import logo from "assets/logo.svg";
 const { naver } = window;
 require("dotenv").config();
 
@@ -59,6 +60,9 @@ function Login(props) {
   // 렌더링
   return (
     <div className="login">
+      <Link to="/">
+        <img src={logo} alt="logo" className="logo" />
+      </Link>
       <h1>log in</h1>
       <div className="input">
         <span>

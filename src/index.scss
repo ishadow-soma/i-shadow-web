@@ -2,3 +2,11 @@
 @import "global/styles/grids";
 @import "global/styles/reset";
 @import "global/styles/modules";
+
+.edit-profile .logo,
+.login .logo,
+.sign-up-page .logo {
+  width: 16px;
+  display: block;
+  margin: 132px auto 0;
+}

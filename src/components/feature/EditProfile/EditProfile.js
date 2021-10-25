@@ -4,6 +4,8 @@ import network, { user } from "global/store/store";
 import { getCookie } from "global/store/cookie";
 import axios from "axios";
 import logOnlyDevelopment from "../../../global/log/log";
+import logo from "assets/logo.png";
+import { Link } from "react-router-dom";
 
 function EditProfile(props) {
   const email = user.email;
@@ -50,62 +52,58 @@ function EditProfile(props) {
 
   return (
     <div className="edit-profile">
-      <div className="flex-left">
-        <h1>My Profile</h1>
-        <div className="my-email">
-          <span>
-            <i className="xi-at" />
-          </span>
-          <p>{email}</p>
-        </div>
-        <div className="input">
-          <span>
-            <i className="xi-user-o" />
-          </span>
-          <input
-            type="text"
-            value={name}
-            placeholder="닉네임"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="input">
-          <span>
-            <i className="xi-user" />
-          </span>
-          <input
-            type="text"
-            placeholder="Age"
-            value={age}
-            onChange={ageChange}
-          />
-        </div>
-        <div className="sex-container">
-          <div className="sex-component">
-            <input
-              type="radio"
-              value="male"
-              name="sex"
-              className="sex-component"
-            />
-            <label htmlFor="">Male</label>
-          </div>
-          <div className="sex-component">
-            <input
-              type="radio"
-              value="female"
-              name="sex"
-              className="sex-component"
-            />
-            <label htmlFor="">Female</label>
-          </div>
-        </div>
-        <button type="submit" className="btn-submit" onClick={updateUser}>
-          Submit
-        </button>
-        <p className="or">or</p>
-        <button id="resign">탈퇴하기</button>
+      <Link to="/">
+        <img src={logo} alt="logo" className="logo" />
+      </Link>
+      <h1>My Profile</h1>
+      <div className="my-email">
+        <span>
+          <i className="xi-at" />
+        </span>
+        <p>{email}</p>
       </div>
+      <div className="input">
+        <span>
+          <i className="xi-user-o" />
+        </span>
+        <input
+          type="text"
+          value={name}
+          placeholder="닉네임"
+          onChange={handleChange}
+        />
+      </div>
+      <div className="input">
+        <span>
+          <i className="xi-user" />
+        </span>
+        <input type="text" placeholder="Age" value={age} onChange={ageChange} />
+      </div>
+      <div className="sex-container">
+        <div className="sex-component">
+          <input
+            type="radio"
+            value="male"
+            name="sex"
+            className="sex-component"
+          />
+          <label htmlFor="">Male</label>
+        </div>
+        <div className="sex-component">
+          <input
+            type="radio"
+            value="female"
+            name="sex"
+            className="sex-component"
+          />
+          <label htmlFor="">Female</label>
+        </div>
+      </div>
+      <button type="submit" className="btn-submit" onClick={updateUser}>
+        Submit
+      </button>
+      <p className="or">or</p>
+      <button id="resign">탈퇴하기</button>
     </div>
   );
 }

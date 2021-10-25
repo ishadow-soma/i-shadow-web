@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import network from "global/store/store";
 import setGoogleLogin from "global/Oauth/setGoogleLogin";
+import logo from "../../../assets/logo.png";
+import { Link } from "react-router-dom";
 const { naver } = window;
 
 function Signup(props) {
@@ -102,6 +104,9 @@ function Signup(props) {
 
   return (
     <div className="sign-up-page">
+      <Link to="/">
+        <img src={logo} alt="logo" className="logo" />
+      </Link>
       <h1>sign up</h1>
       <div className="signup-form">
         <div className="email">
