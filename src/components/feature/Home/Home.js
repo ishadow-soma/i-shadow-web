@@ -8,7 +8,6 @@ import { user } from "global/store/store";
 import Modal from "react-modal";
 import axios from "axios";
 import { setCookieDefaultOption } from "global/store/cookie";
-import Dictionary from "../../../global/Dictionary/Dictionary";
 import { modalStyle } from "global/styles/customStyles";
 import logOnlyDevelopment from "../../../global/log/log";
 
