@@ -8,6 +8,8 @@ export default function ChatBot() {
       <div className="chat-bot">
         <div className="container">
           <h1>Chat Bot</h1>
+          <div className="flex-left"></div>
+          <div className="flex-right"></div>
         </div>
       </div>
     </div>

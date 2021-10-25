@@ -31,7 +31,6 @@ function YoutubePlayer() {
   // 비디오 및 플레이어 정보
   let player;
   let script;
-  let videoCode;
 
   // 평가 모달
   let shouldVideoEvaluation;
@@ -72,7 +71,7 @@ function YoutubePlayer() {
 
   const setVideoInfo = (data) => {
     logOnlyDevelopment(data);
-    videoCode = data.videoURL.split("=")[1];
+    const videoCode = data.videoURL.split("=")[1];
     setTitle(getTitle(data.videoName));
     setUrl(`https://youtu.be/${videoCode}`);
     shouldVideoEvaluation = !data.videoEvaluation;
@@ -86,6 +85,7 @@ function YoutubePlayer() {
     player = new YTPlayer("#player", { width: 800, height: 456 });
     logOnlyDevelopment("player");
 
+    const videoCode = data.videoURL.split("=")[1];
     player.load(videoCode);
 
     player.on("timeupdate", (seconds) => {
