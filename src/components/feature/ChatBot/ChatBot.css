@@ -6,7 +6,10 @@
 }
 .chat-bot .flex-left {
   width: 800px;
-  background-color: #00FFD3;
+}
+.chat-bot .flex-left .title {
+  color: #2f3f65;
+  margin-bottom: 16px;
 }
 .chat-bot .flex-left .temp {
   height: 500px;
@@ -65,6 +68,32 @@
   padding: 24px;
   font-size: 16px;
   line-height: 24px;
+}
+
+/* dropdown */
+.dropdown {
+  margin-top: 24px;
+  max-width: 400px;
+  color: #2f3f65;
+  background-color: white;
+  border-radius: 4px;
+  border: #8898bf 1px solid;
+  margin-bottom: 64px;
+}
+.dropdown .Dropdown-option {
+  padding: 8px;
+  border-top: #8898bf 1px solid;
+}
+.dropdown .Dropdown-placeholder {
+  display: inline-block;
+  padding: 8px;
+}
+.dropdown .Dropdown-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 8px;
+  color: #001833;
 }
 
 /*# sourceMappingURL=ChatBot.css.map */

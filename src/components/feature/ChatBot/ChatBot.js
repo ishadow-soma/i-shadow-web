@@ -3,6 +3,9 @@ import "./ChatBot.css";
 import { Scrollbar } from "react-scrollbars-custom";
 import RecordedList from "../YoutubePlayer/RecordedList";
 import React from "react";
+import Dropdown from "react-dropdown";
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
+import Footer from "../../common/Footer/Footer";
 
 export default function ChatBot() {
   return (
@@ -18,6 +21,14 @@ export default function ChatBot() {
             <div className="caption">
               <p id="caption">자막자막자막</p>
             </div>
+            <Dropdown
+              placeholder="Select an option"
+              className="dropdown"
+              placeholderClassName="test1"
+              arrowClosed={<AiOutlineArrowDown className="arrow-closed" />}
+              arrowOpen={<AiOutlineArrowUp className="arrow-open" />}
+            />
+            <Footer />
           </div>
           <div className="flex-right">
             <div className="tabs">
