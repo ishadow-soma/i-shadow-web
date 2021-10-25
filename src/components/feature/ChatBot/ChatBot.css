@@ -70,25 +70,48 @@
   line-height: 24px;
 }
 
-/* dropdown */
-.dropdown {
+.record-container {
   margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 64px;
+}
+.record-container .mic {
+  display: flex;
+}
+.record-container .mic .record-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  font-size: 30px;
+  background-color: #ff0077;
+  border-radius: 24px;
+  cursor: pointer;
+}
+.record-container .mic .record-icon #stop {
+  width: 20px;
+  height: 20px;
+}
+.record-container .dropdown {
   max-width: 400px;
   color: #2f3f65;
   background-color: white;
   border-radius: 4px;
   border: #8898bf 1px solid;
-  margin-bottom: 64px;
 }
-.dropdown .Dropdown-option {
+.record-container .dropdown .Dropdown-option {
   padding: 8px;
   border-top: #8898bf 1px solid;
 }
-.dropdown .Dropdown-placeholder {
+.record-container .dropdown .Dropdown-placeholder {
   display: inline-block;
   padding: 8px;
 }
-.dropdown .Dropdown-control {
+.record-container .dropdown .Dropdown-control {
   display: flex;
   align-items: center;
   justify-content: space-between;
