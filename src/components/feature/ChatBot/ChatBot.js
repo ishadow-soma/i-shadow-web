@@ -54,13 +54,28 @@ export default function ChatBot() {
                 arrowOpen={<AiOutlineArrowUp className="arrow-open" />}
               />
               <div className="mic">
-                <i className="xi-microphone record-icon" id="record" />
-                <div className="record-icon">
+                <i
+                  className="xi-microphone record-icon"
+                  id="record"
+                  style={{
+                    visibility: recordingState.isRecording
+                      ? "hidden"
+                      : "visible",
+                  }}
+                />
+                <div
+                  className="record-icon"
+                  style={{
+                    visibility: recordingState.isRecording
+                      ? "visible"
+                      : "hidden",
+                  }}
+                >
                   <FaStop id="stop" />
                 </div>
                 <div className="echo">
                   <input type="checkbox" />
-                  <span>Echo</span>
+                  <span> Echo</span>
                 </div>
               </div>
             </div>
