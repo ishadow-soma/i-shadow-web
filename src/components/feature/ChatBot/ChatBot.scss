@@ -1,10 +1,85 @@
-.chat-bot {
-  color: #001833;;
+@import "../../../global/styles/text-size";
+@import "../../../global/styles/mixin";
 
-  h1 {
-    color: #2f3f65;
-    font-size: 40px;
-    margin-top: 60px;
-    margin-bottom: 30px;
+.chat-bot {
+  display: flex;
+  justify-content: space-between;
+  color: #001833;
+  padding-top: 48px;
+
+  .flex-left {
+    width: 800px;
+    background-color: #00FFD3;
+
+    .title {
+
+    }
+
+    .temp {
+      height: 500px;
+      background-color: #1a59fa;
+    }
+
+    .caption {
+      width: 800px;
+      border-top: rgba(255, 255, 255, 0.12) solid 1px;
+      position: relative;
+      top: -4px;
+      height: 108px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      background-color: #2f3f65;
+      font-size: $large-font-size;
+      margin-bottom: 20px;
+      padding: 0 48px;
+      overflow: hidden;
+    }
+  }
+
+  .flex-right {
+    .tabs {
+      display: flex;
+
+      .tab {
+        cursor: pointer;
+        margin-left: 20px;
+        color: white;
+        background-color: #8898bf;
+        width: 110px;
+        height: 38px;
+        border-radius: 5px 20px 0 0;
+        border: none;
+        border-bottom: rgba(255, 255, 255, 0.12) solid 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 8px;
+      }
+
+      .tab.selected {
+        background-color: #001833;
+      }
+
+      i {
+        font-size: 24px;
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .script {
+    min-width: 360px;
+    width: 448px;
+    height: 700px;
+    color: white;
+    background-color: #001833;
+    border: none;
+    border-radius: 20px;
+    padding: 24px;
+    font-size: $normal-font-size;
+    line-height: 24px;
   }
 }

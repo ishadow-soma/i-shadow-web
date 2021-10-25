@@ -2,7 +2,7 @@
 @import "../../../global/styles/mixin";
 
 .youtube-player {
-  padding-top: 70px;
+  padding-top: 48px;
   display: flex;
   justify-content: space-between;
 
@@ -96,12 +96,11 @@
         margin-right: 6px;
       }
     }
-  }
 
-  .script .tab.selected {
-    background-color: #001833;
+    .tab.selected {
+      background-color: #001833;
+    }
   }
-
 
   /* content */
 

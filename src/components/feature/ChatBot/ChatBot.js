@@ -2,19 +2,18 @@ import Header from "components/common/Header/Header";
 import "./ChatBot.css";
 import { Scrollbar } from "react-scrollbars-custom";
 import RecordedList from "../YoutubePlayer/RecordedList";
-import Bookmark from "../YoutubePlayer/Bookmark";
 import React from "react";
 
 export default function ChatBot() {
   return (
     <div className="wrap">
       <Header />
-      <div className="chat-bot">
-        <div className="container">
-          <div className="title">
-            <h1>Chat Bot</h1>
-          </div>
+      <div className="container">
+        <div className="chat-bot">
           <div className="flex-left">
+            <div className="title">
+              <h1>Chat Bot</h1>
+            </div>
             <div className="temp">임시로 만든 박스</div>
             <div className="caption">
               <p id="caption">자막자막자막</p>
