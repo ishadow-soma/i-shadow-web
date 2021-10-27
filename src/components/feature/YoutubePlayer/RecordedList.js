@@ -7,8 +7,6 @@ export default function RecordedList(props) {
       style={{ display: props.contentType === 1 ? "block" : "none" }}
     >
       <li>
-        <input type="checkbox" id="chk-hear-mic" />
-        에코
         <audio id="audio" src="#" controls="true" />
       </li>
       <li>

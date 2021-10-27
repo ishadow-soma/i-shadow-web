@@ -1,26 +1,18 @@
 .loading {
   background-color: #f2f6fe;
   padding: 12px 36px 15px;
-  margin: 0 40px 34px;
+  margin: 0 400px 34px;
   border-radius: 10px;
 }
-
 .loading p {
   color: #8898bf;
   font-size: 16px;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
+}
+.loading .loading-icon {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 24px;
 }
 
-.loading .progress-bar {
-  border: #a6c4fb solid 1px;
-  border-radius: 10px;
-  height: 15px;
-  background-color: white;
-}
-
-.loading .progress-bar .progress {
-  width: 70%;
-  height: 15px;
-  border-radius: 10px;
-  background-color: #1a59fa;
-}
+/*# sourceMappingURL=Loading.css.map */
