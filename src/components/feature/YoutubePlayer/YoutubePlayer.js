@@ -163,39 +163,47 @@ function YoutubePlayer() {
               <div id="player" />
               <div className="caption">
                 <p id="caption">Our hearts were never broken</p>
-                <div
-                  className="record-icon"
-                  style={{
-                    visibility: recordingState.isRecording
-                      ? "visible"
-                      : "hidden",
-                  }}
-                >
-                  <FaStop id="stop" />
-                </div>
-                <i
-                  className="xi-microphone record-icon"
-                  id="record"
-                  style={{
-                    visibility: recordingState.isRecording
-                      ? "hidden"
-                      : "visible",
-                  }}
+              </div>
+              <div className="record-container">
+                <Dropdown
+                  options={recordingState.options}
+                  value={recordingState.defaultOption}
+                  onChange={(item) => recorder.setAudioEnvironment(item.value)}
+                  placeholder="Select an option"
+                  className="dropdown"
+                  placeholderClassName="test1"
+                  arrowClosed={<AiOutlineArrowDown className="arrow-closed" />}
+                  arrowOpen={<AiOutlineArrowUp className="arrow-open" />}
                 />
+                <div className="mic">
+                  <i
+                    className="xi-microphone record-icon"
+                    id="record"
+                    style={{
+                      visibility: recordingState.isRecording
+                        ? "hidden"
+                        : "visible",
+                    }}
+                  />
+                  <div
+                    className="record-icon"
+                    style={{
+                      visibility: recordingState.isRecording
+                        ? "visible"
+                        : "hidden",
+                    }}
+                  >
+                    <FaStop id="stop" />
+                  </div>
+                  <div className="echo">
+                    <input type="checkbox" id="chk-hear-mic" />
+                    <span> Echo</span>
+                  </div>
+                </div>
               </div>
               <a href={url}>
                 <i className="xi-link" /> {url}
               </a>
-              <Dropdown
-                options={recordingState.options}
-                value={recordingState.defaultOption}
-                onChange={(item) => recorder.setAudioEnvironment(item.value)}
-                placeholder="Select an option"
-                className="dropdown"
-                placeholderClassName="test1"
-                arrowClosed={<AiOutlineArrowDown className="arrow-closed" />}
-                arrowOpen={<AiOutlineArrowUp className="arrow-open" />}
-              />
               <Footer />
             </div>
 
