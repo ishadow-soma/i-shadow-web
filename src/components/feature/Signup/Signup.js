@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import network from "global/store/store";
 import setGoogleLogin from "global/Oauth/setGoogleLogin";
-import logo from "../../../assets/logo.png";
+import logo from "assets/logo.svg";
 import { Link } from "react-router-dom";
 const { naver } = window;
 

@@ -4,7 +4,7 @@ import network, { user } from "global/store/store";
 import { getCookie } from "global/store/cookie";
 import axios from "axios";
 import logOnlyDevelopment from "../../../global/log/log";
-import logo from "assets/logo.png";
+import logo from "assets/logo.svg";
 import { Link } from "react-router-dom";
 
 function EditProfile(props) {

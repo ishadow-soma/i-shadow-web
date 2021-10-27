@@ -5,7 +5,7 @@ import axios from "axios";
 import network from "global/store/store";
 import { setCookieDefaultOption } from "global/store/cookie";
 import setGoogleLogin from "global/Oauth/setGoogleLogin";
-import logOnlyDevelopment from "../../../global/log/log";
+import logOnlyDevelopment from "global/log/log";
 import logo from "assets/logo.svg";
 const { naver } = window;
 require("dotenv").config();
