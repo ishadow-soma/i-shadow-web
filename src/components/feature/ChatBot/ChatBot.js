@@ -8,7 +8,6 @@ import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 import Footer from "../../common/Footer/Footer";
 import { FaStop } from "react-icons/fa";
 import Recorder from "../../../global/record/Recorder";
-import { repeatStore } from "../../../global/store/store";
 
 export default function ChatBot() {
   // 녹음
@@ -74,7 +73,7 @@ export default function ChatBot() {
                   <FaStop id="stop" />
                 </div>
                 <div className="echo">
-                  <input type="checkbox" />
+                  <input type="checkbox" id="chk-hear-mic" />
                   <span> Echo</span>
                 </div>
               </div>
@@ -87,15 +86,11 @@ export default function ChatBot() {
                 <i className="xi-file-text-o" />
                 Script
               </button>
-              <button className="tab">
-                <i className="xi-microphone xi-x" /> Rec.
-              </button>
             </div>
 
             <div className="script">
               <Scrollbar style={{ width: 400, height: 640 }}>
                 <ul id="script" />
-                <RecordedList />
               </Scrollbar>
             </div>
           </div>

@@ -33,6 +33,8 @@ export default class Recorder {
   }
 
   setAudioEnvironment(deviceId) {
+    console.log("sdf");
+
     const record = document.getElementById("record");
     const stop = document.getElementById("stop");
     const audio = document.getElementById("audio");
