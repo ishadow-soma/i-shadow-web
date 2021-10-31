@@ -37,10 +37,6 @@ function FileUpload(props) {
       });
   };
 
-  function unimplemented() {
-    alert("음성파일 업로드는 아직 지원하지 않는 기능입니다.");
-  }
-
   return (
     <>
       {file ? (
@@ -51,12 +47,17 @@ function FileUpload(props) {
         </div>
       ) : (
         <div className="file-upload">
-          <div className="btn-upload" onClick={unimplemented}>
+          <div className="btn-upload">
             <i className="xi-headset large-icon" />
             <h2>음성파일 선택</h2>
             <div className="filebox">
-              <label htmlFor="ex_file">파일선택</label>
-              <input type="file" id="ex_file" />
+              <label htmlFor="audio-file">파일선택</label>
+              <input
+                type="file"
+                id="audio-file"
+                name="audio-file"
+                onChange={onSelect}
+              />
             </div>
           </div>
           <div className="btn-upload">
