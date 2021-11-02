@@ -1,7 +1,6 @@
 import Header from "components/common/Header/Header";
 import React, { useEffect, useState } from "react";
-import "rc-slider";
-import { Range } from "rc-slider";
+import { Range } from "react-range";
 import "./Contents.css";
 import VideoContents from "../MyRoom/VideoContents";
 import axios from "axios";
@@ -43,6 +42,8 @@ export default function Contents() {
     );
   }
 
+  const [values, setValues] = useState([0.5, 5]);
+
   return (
     <div className="wrap">
       <Header />
@@ -53,7 +54,38 @@ export default function Contents() {
             <div className="level-filter">
               <div className="filter">
                 <p>난이도 필터링</p>
-                <Range min={0} max={80} defaultValue={[0, 80]} />
+                <Range
+                  step={0.5}
+                  min={0.5}
+                  max={5}
+                  values={values}
+                  onChange={(values) => setValues(values)}
+                  renderTrack={({ props, children }) => (
+                    <div
+                      {...props}
+                      style={{
+                        height: "6px",
+                        width: "100%",
+                        backgroundColor: "#ccc",
+                      }}
+                    >
+                      {children}
+                    </div>
+                  )}
+                  renderThumb={({ props }) => (
+                    <div
+                      {...props}
+                      style={{
+                        ...props.style,
+                        height: "24px",
+                        width: "24px",
+                        backgroundColor: "#FFF",
+                        border: "#2F7AF9 solid 3px",
+                        borderRadius: "12px",
+                      }}
+                    />
+                  )}
+                />
               </div>
             </div>
             <div className="category-filter">
