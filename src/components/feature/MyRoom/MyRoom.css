@@ -1,25 +1,21 @@
 .my-room {
   margin: 0 auto;
+  /* header */
 }
-
-/* header */
 .my-room h1 {
   color: #2f3f65;
   font-size: 40px;
 }
-
 .my-room .nickname {
   color: #2f7af9;
 }
-
-.my-room-header {
+.my-room .my-room-header {
   margin-top: 60px;
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
 }
-
-.my-room-header .my-point {
+.my-room .my-room-header .my-point {
   font-size: 20px;
   display: flex;
   justify-content: space-between;
@@ -31,13 +27,11 @@
   padding-left: 32px;
   overflow: hidden;
 }
-
-.my-room-header .my-point span {
+.my-room .my-room-header .my-point span {
   color: #2f7af9;
   font-weight: 600;
 }
-
-.my-room-header .my-point a {
+.my-room .my-room-header .my-point a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,7 +147,6 @@
 .my-room .content .add-content {
   cursor: pointer;
 }
-
 .my-room .content .video-content .add-content {
   display: flex;
   flex-direction: column;
@@ -166,11 +159,9 @@
   border-radius: 10px;
   border: 1px dashed #8898bf;
 }
-
 .my-room .content .video-content .add-content .xi-plus-circle {
   margin-bottom: 8px;
 }
-
 .my-room .content .audio-content .add-content {
   display: flex;
   align-items: center;
@@ -182,7 +173,6 @@
   border-radius: 10px;
   border: 1px dashed #8898bf;
 }
-
 .my-room .content .audio-content .add-content .xi-plus-circle {
   margin: 0 12px;
 }

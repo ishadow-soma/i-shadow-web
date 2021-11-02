@@ -30,16 +30,7 @@ export default function Contents() {
       },
     });
     if (process.env.NODE_ENV === "development")
-      logOnlyDevelopment(
-        "변환된 콘텐츠",
-        res.data.data.videoList.map((it) => {
-          return {
-            title: it.videoName,
-            thumbNailURL: it.thumbNailURL,
-            videoId: it.videoId,
-          };
-        })
-      );
+      logOnlyDevelopment("변환된 콘텐츠", res.data.data.videoList);
 
     setContents(
       res.data.data.videoList.map((it) => {
