@@ -44,5 +44,72 @@
   color: #1a59fa;
   font-weight: bold;
 }
+.contents .video-content {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+  margin-right: 24px;
+}
+.contents .audio-content {
+  min-width: 416px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.contents .content ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.contents .content li {
+  list-style: none;
+  margin-bottom: 18px;
+}
+.contents .dummy {
+  background-image: url("https://i.ytimg.com/vi/olGSAVOkkTI/mqdefault.jpg");
+}
+.contents .youtube-content {
+  cursor: pointer;
+  position: relative;
+  width: 248px;
+  height: 156px;
+  background-color: black;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+.contents .youtube-content p {
+  padding-top: 12px;
+  color: white;
+  text-align: center;
+}
+.contents .youtube-content p {
+  padding-top: 12px;
+  color: white;
+  text-align: center;
+}
+.contents .youtube-content .icon-wrap {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #2f7af9;
+  border-radius: 50%;
+}
+.contents .youtube-content .play-icon {
+  position: relative;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+.contents ul#converted-video li:first-child {
+  display: none;
+}
 
 /*# sourceMappingURL=Contents.css.map */

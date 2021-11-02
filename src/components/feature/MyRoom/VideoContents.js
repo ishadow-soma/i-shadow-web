@@ -8,7 +8,7 @@ export default function VideoContents(props) {
 
   return (
     <>
-      <ul id="converted-youtube">
+      <ul id="converted-video">
         <li>
           <div
             className="add-content"

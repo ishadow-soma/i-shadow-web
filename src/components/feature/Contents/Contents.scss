@@ -54,4 +54,82 @@
       }
     }
   }
+
+  .video-content {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    margin-right: 24px;
+  }
+
+  .audio-content {
+    min-width: 416px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .content ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .content li {
+    list-style: none;
+    margin-bottom: 18px;
+  }
+
+  .dummy {
+    background-image: url("https://i.ytimg.com/vi/olGSAVOkkTI/mqdefault.jpg");
+  }
+
+  .youtube-content {
+    cursor: pointer;
+    position: relative;
+    width: 248px;
+    height: 156px;
+    background-color: black;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+
+    p {
+      padding-top: 12px;
+      color: white;
+      text-align: center;
+    }
+
+    p {
+      padding-top: 12px;
+      color: white;
+      text-align: center;
+    }
+
+    .icon-wrap {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background-color: #2f7af9;
+      border-radius: 50%;
+    }
+
+    .play-icon {
+      position: relative;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+  }
+
+  ul#converted-video li:first-child {
+    display: none;
+  }
 }

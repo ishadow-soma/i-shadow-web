@@ -55,32 +55,32 @@
 .my-room .content {
   display: flex;
   justify-content: space-between;
-}
 
-.my-room .content .decoration {
-  width: 70px;
-  height: 60px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  background-color: #2f3f65;
-  border-bottom-left-radius: 100%;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .decoration {
+    width: 70px;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #2f3f65;
+    border-bottom-left-radius: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.my-room .content .decoration i {
-  position: relative;
-  top: -4px;
-  right: -4px;
-}
+  .decoration i {
+    position: relative;
+    top: -4px;
+    right: -4px;
+  }
 
-.my-room .content h2 {
-  color: #2f3f65;
-  font-size: 22px;
-  margin-bottom: 22px;
+  h2 {
+    color: #2f3f65;
+    font-size: 22px;
+    margin-bottom: 22px;
+  }
 }
 
 .my-room .converted-content {
@@ -91,72 +91,80 @@
 
 /* video content */
 
-.my-room .video-content {
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 30px;
-  margin-right: 24px;
-}
+.my-room {
+  .video-content {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    margin-right: 24px;
+  }
 
-.my-room .audio-content {
-  min-width: 416px;
-  margin-bottom: 30px;
-  position: relative;
-  overflow: hidden;
-}
+  .audio-content {
+    min-width: 416px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+  }
 
-.my-room .content ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
+  .content ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 
-.my-room .content li {
-  list-style: none;
-  margin-bottom: 18px;
-}
+  .content li {
+    list-style: none;
+    margin-bottom: 18px;
+  }
 
-.my-room .dummy {
-  background-image: url("https://i.ytimg.com/vi/olGSAVOkkTI/mqdefault.jpg");
-}
+  .dummy {
+    background-image: url("https://i.ytimg.com/vi/olGSAVOkkTI/mqdefault.jpg");
+  }
 
-.my-room .youtube-content {
-  cursor: pointer;
-  position: relative;
-  width: 248px;
-  height: 156px;
-  background-color: black;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 10px;
-}
+  .youtube-content {
+    cursor: pointer;
+    position: relative;
+    width: 248px;
+    height: 156px;
+    background-color: black;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
 
-.my-room .youtube-content p {
-  padding-top: 12px;
-  color: white;
-  text-align: center;
-}
+    p {
+      padding-top: 12px;
+      color: white;
+      text-align: center;
+    }
 
-.my-room .youtube-content .icon-wrap {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  background-color: #2f7af9;
-  border-radius: 50%;
-}
+    p {
+      padding-top: 12px;
+      color: white;
+      text-align: center;
+    }
 
-.my-room .youtube-content .play-icon {
-  position: relative;
-  left: 2px;
-  width: 20px;
-  height: 20px;
-  color: white;
+    .icon-wrap {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background-color: #2f7af9;
+      border-radius: 50%;
+    }
+
+    .play-icon {
+      position: relative;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      color: white;
+    }
+  }
 }
 
 .my-room .content .add-content {

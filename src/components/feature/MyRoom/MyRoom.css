@@ -54,7 +54,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 .my-room .content .decoration {
   width: 70px;
   height: 60px;
@@ -68,13 +67,11 @@
   justify-content: center;
   align-items: center;
 }
-
 .my-room .content .decoration i {
   position: relative;
   top: -4px;
   right: -4px;
 }
-
 .my-room .content h2 {
   color: #2f3f65;
   font-size: 22px;
@@ -94,29 +91,24 @@
   margin-bottom: 30px;
   margin-right: 24px;
 }
-
 .my-room .audio-content {
   min-width: 416px;
   margin-bottom: 30px;
   position: relative;
   overflow: hidden;
 }
-
 .my-room .content ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
 .my-room .content li {
   list-style: none;
   margin-bottom: 18px;
 }
-
 .my-room .dummy {
   background-image: url("https://i.ytimg.com/vi/olGSAVOkkTI/mqdefault.jpg");
 }
-
 .my-room .youtube-content {
   cursor: pointer;
   position: relative;
@@ -128,13 +120,16 @@
   background-repeat: no-repeat;
   border-radius: 10px;
 }
-
 .my-room .youtube-content p {
   padding-top: 12px;
   color: white;
   text-align: center;
 }
-
+.my-room .youtube-content p {
+  padding-top: 12px;
+  color: white;
+  text-align: center;
+}
 .my-room .youtube-content .icon-wrap {
   position: absolute;
   right: 12px;
@@ -147,7 +142,6 @@
   background-color: #2f7af9;
   border-radius: 50%;
 }
-
 .my-room .youtube-content .play-icon {
   position: relative;
   left: 2px;
