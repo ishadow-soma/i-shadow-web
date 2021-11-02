@@ -72,16 +72,12 @@
   .content ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .content li {
     list-style: none;
     margin-bottom: 18px;
-  }
-
-  .dummy {
-    background-image: url("https://i.ytimg.com/vi/olGSAVOkkTI/mqdefault.jpg");
   }
 
   .youtube-content {

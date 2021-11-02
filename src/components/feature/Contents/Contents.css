@@ -59,14 +59,11 @@
 .contents .content ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .contents .content li {
   list-style: none;
   margin-bottom: 18px;
-}
-.contents .dummy {
-  background-image: url("https://i.ytimg.com/vi/olGSAVOkkTI/mqdefault.jpg");
 }
 .contents .youtube-content {
   cursor: pointer;
