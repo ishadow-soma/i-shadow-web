@@ -10,3 +10,39 @@
   display: block;
   margin: 132px auto 0;
 }
+
+@font-face {
+  font-family: 'ishadow';
+  src:  url('fonts/ishadow.eot?f8zmo1');
+  src:  url('fonts/ishadow.eot?f8zmo1#iefix') format('embedded-opentype'),
+  url('fonts/ishadow.ttf?f8zmo1') format('truetype'),
+  url('fonts/ishadow.woff?f8zmo1') format('woff'),
+  url('fonts/ishadow.svg?f8zmo1#ishadow') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ishadow' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-repeat:before {
+  content: "\e900";
+  color: #fff;
+}
+.icon-repeat-stop:before {
+  content: "\e901";
+  color: #fff;
+}

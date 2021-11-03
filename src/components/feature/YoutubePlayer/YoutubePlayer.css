@@ -201,20 +201,19 @@
   cursor: pointer;
 }
 .youtube-player .content li.ds-selected .repetition {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
   position: absolute;
   bottom: 8px;
   right: 8px;
-  font-size: 24px;
+  font-size: 20px;
   background-color: #ffcc00;
-  color: #8898bf;
-  border-radius: 20px;
-  padding: 5px;
+  border-radius: 50px;
   opacity: 0.85;
   cursor: pointer;
-}
-.youtube-player .content li.ds-selected.playing .repetition {
-  color: white;
 }
 .youtube-player .content li.ds-selected .repetition:hover {
   box-shadow: 0 0 8px white;

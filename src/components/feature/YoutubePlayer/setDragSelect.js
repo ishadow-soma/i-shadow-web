@@ -2,6 +2,8 @@ import DragSelect from "dragselect";
 import logOnlyDevelopment from "global/log/log";
 import { repeatStore } from "global/store/store";
 import Bookmark from "global/Bookmark/Bookmark";
+import repeatIcon from "assets/repeat.svg";
+import stopRepeatIcon from "assets/repeat.svg";
 
 export default function setDragSelect(player, script) {
   let dsSelected = null;
@@ -62,7 +64,7 @@ export default function setDragSelect(player, script) {
   let setTime;
   const createRepetitionIcon = () => {
     const result = document.createElement("i");
-    result.className = "repetition xi-repeat";
+    result.className = "repetition icon-repeat";
     result.onclick = (e) => {
       removeButtons(e.target);
       restore();

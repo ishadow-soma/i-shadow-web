@@ -239,21 +239,17 @@
   }
 
   .content li.ds-selected .repetition {
-    display: block;
+    @include inline-flexbox;
+    width: 40px;
+    height: 40px;
     position: absolute;
     bottom: 8px;
     right: 8px;
-    font-size: 24px;
+    font-size: 20px;
     background-color: #ffcc00;
-    color: #8898bf;
-    border-radius: 20px;
-    padding: 5px;
+    border-radius: 50px;
     opacity: 0.85;
     cursor: pointer;
-  }
-
-  .content li.ds-selected.playing .repetition {
-    color: white;
   }
 
   .content li.ds-selected .repetition:hover {
