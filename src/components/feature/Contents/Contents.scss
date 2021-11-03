@@ -80,6 +80,10 @@
     margin-bottom: 18px;
   }
 
+  .youtube-content:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  }
+
   .youtube-content {
     cursor: pointer;
     position: relative;

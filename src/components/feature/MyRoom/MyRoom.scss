@@ -172,6 +172,10 @@
     cursor: pointer;
   }
 
+  .youtube-content:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  }
+
   .video-content .add-content {
     display: flex;
     flex-direction: column;

@@ -147,6 +147,9 @@
 .my-room .content .add-content {
   cursor: pointer;
 }
+.my-room .content .youtube-content:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
 .my-room .content .video-content .add-content {
   display: flex;
   flex-direction: column;

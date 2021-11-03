@@ -65,6 +65,9 @@
   list-style: none;
   margin-bottom: 18px;
 }
+.contents .youtube-content:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
 .contents .youtube-content {
   cursor: pointer;
   position: relative;
