@@ -66,7 +66,7 @@
   margin-bottom: 18px;
 }
 .contents .youtube-content:hover {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 .contents .youtube-content {
   cursor: pointer;
@@ -78,16 +78,14 @@
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 10px;
+  overflow: hidden;
 }
 .contents .youtube-content p {
   padding-top: 12px;
   color: white;
   text-align: center;
-}
-.contents .youtube-content p {
-  padding-top: 12px;
-  color: white;
-  text-align: center;
+  height: 90px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
 }
 .contents .youtube-content .icon-wrap {
   position: absolute;
