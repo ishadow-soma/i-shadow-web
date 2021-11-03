@@ -101,7 +101,7 @@ export default function setDragSelect(player, script) {
 
   const getBegin = (idx) => {
     logOnlyDevelopment("idx", idx);
-    return script[idx].begin;
+    return script[idx].begin - 1;
   };
 
   const getEnd = (idx) => {
