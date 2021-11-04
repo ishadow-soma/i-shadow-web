@@ -11,10 +11,20 @@ import logOnlyDevelopment from "global/log/log";
 export default function Contents() {
   const [contents, setContents] = useState([]);
 
-  useEffect(() => {
-    //requestContents(1);
-    requestContents(3);
+  useEffect(async () => {
+    const res = await requestContentsAll(3, []);
+    setContents(res);
   }, []);
+
+  async function requestContentsAll(curPage, acc) {
+    const res = await requestContents(curPage);
+
+    if (curPage === 1) {
+      return [...res, ...acc];
+    }
+
+    return requestContentsAll(curPage - 1, [...res, ...acc]);
+  }
 
   async function requestContents(page) {
     const res = await axios({
@@ -29,21 +39,17 @@ export default function Contents() {
         videoType: 1,
       },
     });
+
     if (process.env.NODE_ENV === "development")
       logOnlyDevelopment("변환된 콘텐츠", res.data.data.videoList);
 
-    setContents(
-      [
-        ...res.data.data.videoList.map((it) => {
-          return {
-            title: it.videoName,
-            thumbNailURL: it.thumbNailURL,
-            videoId: it.videoId,
-          };
-        }),
-      ],
-      ...contents
-    );
+    return res.data.data.videoList.map((it) => {
+      return {
+        title: it.videoName,
+        thumbNailURL: it.thumbNailURL,
+        videoId: it.videoId,
+      };
+    });
   }
 
   const [values, setValues] = useState([0.5, 5]);
@@ -163,7 +169,7 @@ export default function Contents() {
               </div>
             </div>
             <div className="content">
-              <VideoContents videos={contents} videoType={0} />
+              <VideoContents videos={contents} videoType={0} isContent={true} />
             </div>
           </div>
         </div>

@@ -4,7 +4,9 @@ import { FaPlay } from "react-icons/fa";
 import logOnlyDevelopment from "../../../global/log/log";
 
 export default function VideoContents(props) {
-  let [childrenCount, setChildrenCount] = useState(8);
+  let [childrenCount, setChildrenCount] = useState(
+    8 + (props.isContent ? 4 : 0)
+  );
 
   return (
     <>
@@ -32,7 +34,7 @@ export default function VideoContents(props) {
   );
 
   function showMore() {
-    setChildrenCount(childrenCount + 6);
+    setChildrenCount(childrenCount + 12);
   }
 
   function createListItem(video) {
