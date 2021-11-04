@@ -22,7 +22,7 @@ export default function setScript(player, script) {
     const result = document.createElement("button");
     result.innerText = getTimeStamp(sentence);
     result.className = "time-stamp";
-    result.onclick = () => onSeek(sentence.begin - 1);
+    result.onclick = () => onSeek(sentence.begin);
     return result;
   };
 

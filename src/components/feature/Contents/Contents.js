@@ -4,18 +4,19 @@ import { Range } from "react-range";
 import "./Contents.css";
 import VideoContents from "../MyRoom/VideoContents";
 import axios from "axios";
-import network from "../../../global/store/store";
-import { getCookie } from "../../../global/store/cookie";
-import logOnlyDevelopment from "../../../global/log/log";
+import network from "global/store/store";
+import { getCookie } from "global/store/cookie";
+import logOnlyDevelopment from "global/log/log";
 
 export default function Contents() {
   const [contents, setContents] = useState([]);
 
   useEffect(() => {
-    requestContents();
+    //requestContents(1);
+    requestContents(3);
   }, []);
 
-  async function requestContents() {
+  async function requestContents(page) {
     const res = await axios({
       method: "get",
       url: network.baseURL + "media",
@@ -24,7 +25,7 @@ export default function Contents() {
         categoryId: 20,
         levelStart: 0,
         leverEnd: 5,
-        page: 1,
+        page: page,
         videoType: 1,
       },
     });
@@ -32,13 +33,16 @@ export default function Contents() {
       logOnlyDevelopment("변환된 콘텐츠", res.data.data.videoList);
 
     setContents(
-      res.data.data.videoList.map((it) => {
-        return {
-          title: it.videoName,
-          thumbNailURL: it.thumbNailURL,
-          videoId: it.videoId,
-        };
-      })
+      [
+        ...res.data.data.videoList.map((it) => {
+          return {
+            title: it.videoName,
+            thumbNailURL: it.thumbNailURL,
+            videoId: it.videoId,
+          };
+        }),
+      ],
+      ...contents
     );
   }
 
