@@ -19,23 +19,33 @@
       border-radius: 12px;
       padding: 24px;
       margin-bottom: 24px;
+      display: flex;
+      flex-wrap: nowrap;
+
+      .filter p {
+        width: 200px;
+      }
     }
 
-    .filter {
-      p {
-        font-weight: bold;
+    .level-filter {
+      display: flex;
+      align-items: center;
+      padding-right: 100px;
+      position: relative;
+
+      .range {
+        width: 100%;
+
+        .range-info {
+          margin-top: 8px;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+        }
       }
     }
 
     .category-filter {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-
-      .filter {
-        width: 300px;
-      }
-
       .categories {
         display: flex;
         flex-wrap: wrap;
@@ -51,6 +61,12 @@
           color: #1a59fa;
           font-weight: bold;
         }
+      }
+    }
+
+    .filter {
+      p {
+        font-weight: bold;
       }
     }
   }

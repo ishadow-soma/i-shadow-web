@@ -44,7 +44,7 @@ export default function Contents() {
     });
   }
 
-  const [values, setValues] = useState([0.5, 5]);
+  const [values, setValues] = useState([1, 5]);
 
   return (
     <div className="wrap">
@@ -56,9 +56,11 @@ export default function Contents() {
             <div className="level-filter">
               <div className="filter">
                 <p>난이도 필터링</p>
+              </div>
+              <div className="range">
                 <Range
                   step={0.5}
-                  min={0.5}
+                  min={1}
                   max={5}
                   values={values}
                   onChange={(values) => setValues(values)}
@@ -88,6 +90,13 @@ export default function Contents() {
                     />
                   )}
                 />
+                <div className="range-info">
+                  <p>1</p>
+                  <p>2</p>
+                  <p>3</p>
+                  <p>4</p>
+                  <p>5</p>
+                </div>
               </div>
             </div>
             <div className="category-filter">
