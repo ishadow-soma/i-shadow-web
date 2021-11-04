@@ -10,9 +10,14 @@ import logOnlyDevelopment from "global/log/log";
 
 export default function Contents() {
   const [contents, setContents] = useState([]);
+  const [category, setCategory] = useState(20);
+  let endPage = 1;
 
   useEffect(async () => {
-    for (let i = 1; i < 4; ++i) {
+    const res = await requestContents(1);
+    setContents(res);
+
+    for (let i = 2; i < endPage + 1; ++i) {
       const res = await requestContents(i);
       setContents((prevContents) => [...prevContents, ...res]);
     }
@@ -24,13 +29,16 @@ export default function Contents() {
       url: network.baseURL + "media",
       headers: { "ACCESS-TOKEN": getCookie("jwt") },
       params: {
-        categoryId: 20,
+        categoryId: category,
         levelStart: 0,
         leverEnd: 5,
         page: page,
         videoType: 1,
       },
     });
+
+    endPage = res.data.data.pageEndNumber;
+    logOnlyDevelopment(`endPage : ${endPage}`);
 
     if (process.env.NODE_ENV === "development")
       logOnlyDevelopment("변환된 콘텐츠", res.data.data.videoList);
