@@ -70,7 +70,6 @@ function YoutubePlayer() {
   };
 
   const setVideoInfo = (data) => {
-    logOnlyDevelopment(data);
     const videoCode = data.videoURL.split("=")[1];
     setTitle(getTitle(data.videoName));
     setUrl(`https://youtu.be/${videoCode}`);
