@@ -12,19 +12,11 @@ export default function Contents() {
   const [contents, setContents] = useState([]);
 
   useEffect(async () => {
-    const res = await requestContentsAll(3, []);
-    setContents(res);
-  }, []);
-
-  async function requestContentsAll(curPage, acc) {
-    const res = await requestContents(curPage);
-
-    if (curPage === 1) {
-      return [...res, ...acc];
+    for (let i = 1; i < 4; ++i) {
+      const res = await requestContents(i);
+      setContents((prevContents) => [...prevContents, ...res]);
     }
-
-    return requestContentsAll(curPage - 1, [...res, ...acc]);
-  }
+  }, []);
 
   async function requestContents(page) {
     const res = await axios({
