@@ -1,6 +1,6 @@
 import Header from "components/common/Header/Header";
 import React, { useEffect, useState } from "react";
-import { Range } from "react-range";
+import { getTrackBackground, Range } from "react-range";
 import "./Contents.css";
 import VideoContents from "../MyRoom/VideoContents";
 import axios from "axios";
@@ -118,7 +118,12 @@ export default function Contents() {
                       style={{
                         height: "6px",
                         width: "100%",
-                        backgroundColor: "#ccc",
+                        background: getTrackBackground({
+                          values: values,
+                          colors: ["#ccc", "#2F7AF9", "#ccc"],
+                          min: 0,
+                          max: 5,
+                        }),
                       }}
                     >
                       {children}
@@ -138,6 +143,18 @@ export default function Contents() {
                     />
                   )}
                 />
+                <div className="selected-track">
+                  <div className="track-item" />
+                  <div className="track-item" />
+                  <div className="track-item" />
+                  <div className="track-item" />
+                  <div className="track-item" />
+                  <div className="track-item" />
+                  <div className="track-item" />
+                  <div className="track-item" />
+                  <div className="track-item" />
+                  <div className="track-item" />
+                </div>
                 <div className="range-info">
                   <p>0</p>
                   <p>1</p>
