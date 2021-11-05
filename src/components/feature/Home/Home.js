@@ -9,7 +9,7 @@ import Modal from "react-modal";
 import axios from "axios";
 import { setCookieDefaultOption } from "global/store/cookie";
 import { modalStyle } from "global/styles/customStyles";
-import logOnlyDevelopment from "../../../global/log/log";
+import logOnlyDevelopment from "global/log/log";
 
 function Home(props) {
   const [modal, setModal] = useState(1);
@@ -58,7 +58,6 @@ function Home(props) {
     if (user.isLogin) setIsOpen(true);
     else {
       alert("로그인이 필요합니다.");
-      props.history.push("/login");
     }
   }
 

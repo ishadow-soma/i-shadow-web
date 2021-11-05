@@ -1,15 +1,10 @@
 import React from "react";
 import "./Footer.css";
-import { SiAppstore } from "react-icons/si";
 
 function Header() {
   return (
     <footer>
-      <p>
-        문의 : algosketch@gmail.com
-        <i className="xi-google-play xi-2x" />
-        <SiAppstore className="app-store" />
-      </p>
+      <p>문의 : algosketch@gmail.com</p>
     </footer>
   );
 }

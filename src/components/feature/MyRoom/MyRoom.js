@@ -10,7 +10,7 @@ import axios from "axios";
 import { getCookie, setCookie } from "global/store/cookie";
 import VideoContents from "./VideoContents";
 import { modalStyle } from "global/styles/customStyles";
-import logOnlyDevelopment from "../../../global/log/log";
+import logOnlyDevelopment from "global/log/log";
 
 function MyRoom(props) {
   const [point, setPoint] = useState(111);
@@ -22,7 +22,7 @@ function MyRoom(props) {
   useEffect(() => {
     if (!user.isLogin) {
       alert("로그인이 필요합니다.");
-      props.history.push("/login");
+      props.history.goBack();
     } else {
       requestContents();
       setMyRoom();
