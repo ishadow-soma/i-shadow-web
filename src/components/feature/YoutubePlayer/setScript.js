@@ -36,7 +36,7 @@ export default function setScript(player, script) {
     if (player.current) player.current.seekTo(seconds, "seconds");
     else player.seek(seconds);
     const selectedItem = document.getElementsByClassName("ds-selected")[0];
-    selectedItem.classList.remove("ds-selected");
+    if (selectedItem) selectedItem.classList.remove("ds-selected");
   };
 
   setScript();
