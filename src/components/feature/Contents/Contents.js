@@ -22,7 +22,7 @@ export default function Contents() {
       const res = await requestContents(i);
       setContents((prevContents) => [...prevContents, ...res]);
     }
-  }, [category]);
+  }, [category, values]);
 
   async function requestContents(page) {
     const res = await axios({
