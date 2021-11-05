@@ -11,6 +11,7 @@ import logOnlyDevelopment from "global/log/log";
 export default function Contents() {
   const [contents, setContents] = useState([]);
   const [category, setCategory] = useState(20);
+  const [values, setValues] = useState([0, 5]);
   let endPage = 1;
 
   useEffect(async () => {
@@ -30,8 +31,8 @@ export default function Contents() {
       headers: { "ACCESS-TOKEN": getCookie("jwt") },
       params: {
         categoryId: category,
-        levelStart: 0,
-        leverEnd: 5,
+        levelStart: values[0],
+        leverEnd: values[1],
         page: page,
         videoType: 1,
       },
@@ -51,8 +52,6 @@ export default function Contents() {
       };
     });
   }
-
-  const [values, setValues] = useState([1, 5]);
 
   const onSelect = (target, categoryNumber = 20) => {
     document.getElementsByClassName("selected")[0].classList.remove("selected");
@@ -107,7 +106,7 @@ export default function Contents() {
               <div className="range">
                 <Range
                   step={0.5}
-                  min={1}
+                  min={0}
                   max={5}
                   values={values}
                   onChange={(values) => setValues(values)}
@@ -138,6 +137,7 @@ export default function Contents() {
                   )}
                 />
                 <div className="range-info">
+                  <p>0</p>
                   <p>1</p>
                   <p>2</p>
                   <p>3</p>
