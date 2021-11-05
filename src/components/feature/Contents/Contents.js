@@ -22,6 +22,8 @@ export default function Contents() {
       const res = await requestContents(i);
       setContents((prevContents) => [...prevContents, ...res]);
     }
+
+    logOnlyDevelopment(`start : ${values[0]}, end : ${values[1]}`);
   }, [category, values]);
 
   async function requestContents(page) {
@@ -32,7 +34,7 @@ export default function Contents() {
       params: {
         categoryId: category,
         levelStart: values[0],
-        leverEnd: values[1],
+        levelEnd: values[1],
         page: page,
         videoType: 1,
       },
