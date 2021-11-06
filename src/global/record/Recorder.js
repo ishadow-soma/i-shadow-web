@@ -13,7 +13,6 @@ export default class Recorder {
       const options = [];
       for (let i = 0; i < devices.length; ++i) {
         options.push(devices[i]);
-        logOnlyDevelopment("푸시");
       }
       setRecordingState({
         options: options,
@@ -33,8 +32,6 @@ export default class Recorder {
   }
 
   setAudioEnvironment(deviceId) {
-    console.log("sdf");
-
     const record = document.getElementById("record");
     const stop = document.getElementById("stop");
     const audio = document.getElementById("audio");

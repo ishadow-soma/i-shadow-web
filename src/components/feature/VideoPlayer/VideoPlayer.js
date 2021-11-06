@@ -81,8 +81,7 @@ function VideoPlayer() {
   };
   const setCaption = (idx) => {
     const targetTag = document.getElementById("caption");
-    console.log("로그로그");
-    console.log(script);
+    logOnlyDevelopment(script);
     targetTag.innerText = document.getElementById(
       `idx${idx}`
     ).children[1].innerText;

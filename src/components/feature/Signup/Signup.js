@@ -5,6 +5,7 @@ import network from "global/store/store";
 import setGoogleLogin from "global/Oauth/setGoogleLogin";
 import logo from "assets/logo.svg";
 import { Link } from "react-router-dom";
+import logOnlyDevelopment from "../../../global/log/log";
 const { naver } = window;
 
 function Signup(props) {
@@ -82,7 +83,7 @@ function Signup(props) {
         sns: "NORMAL",
       })
       .then((res) => {
-        console.log(res);
+        logOnlyDevelopment(res);
         if (res.data.success) {
           alert("가입이 완료되었습니다.");
           props.history.push("/");

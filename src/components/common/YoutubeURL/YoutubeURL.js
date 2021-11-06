@@ -32,7 +32,7 @@ function YoutubeURL(props) {
       },
     })
       .then((res) => {
-        logOnlyDevelopment(res);
+        logOnlyDevelopment("영상 변환 결과", res);
         if (res.data.success) {
           setCookie("videoId", res.data.data.videoId, {
             path: "/",

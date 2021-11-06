@@ -5,6 +5,7 @@ import Loading from "components/common/Loading/Loading";
 import Completion from "components/common/Completion/Completion";
 import Fail from "components/common/Fail/Fail";
 import YoutubeURL from "components/common/YoutubeURL/YoutubeURL";
+import logOnlyDevelopment from "../../../global/log/log";
 
 const type = {
   YOUTUBE_URL: 0,
@@ -49,7 +50,7 @@ function Dialog(props) {
   const onFail = (_reason) => {
     setDescription("콘텐츠 제작에 실패했습니다.");
     setOnlyCancel(true);
-    console.log("이유", _reason);
+    logOnlyDevelopment("이유", _reason);
     setReason(_reason);
     setMode(4);
   };
