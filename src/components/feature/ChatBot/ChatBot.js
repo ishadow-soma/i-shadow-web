@@ -37,9 +37,9 @@ export default function ChatBot() {
             <div className="title">
               <h1>Chat Bot</h1>
             </div>
-            <div className="temp">임시로 만든 박스</div>
+            <div className="temp">준비중입니다.</div>
             <div className="caption">
-              <p id="caption">자막자막자막</p>
+              <p id="caption">자막입니다.</p>
             </div>
             <div className="record-container">
               <Dropdown
