@@ -1,8 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./RecordedList.css";
 import "react-audio-player";
+import logOnlyDevelopment from "../../../global/log/log";
 
 export default function RecordedList(props) {
+  let duration = 0;
   const onStart = () => {
     document.getElementById("audio").play();
     document.getElementById("controls").classList.add("playing");
@@ -17,13 +19,8 @@ export default function RecordedList(props) {
       className="recoded-list"
       style={{ display: props.contentType === 1 ? "block" : "none" }}
     >
-      <li>
-        <p>녹음 결과</p>
-        <div className="controls" id="controls">
-          <i className="xi-play controls-icon" onClick={onStart} />
-          <i className="xi-pause controls-icon" onClick={onPause} />
-        </div>
-        <audio id="audio" />
+      <li className="recorded-item">
+        <audio id="audio" controls={true} />
       </li>
     </ul>
   );
