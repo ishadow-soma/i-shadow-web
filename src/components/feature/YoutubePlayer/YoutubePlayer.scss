@@ -252,6 +252,22 @@
     cursor: pointer;
   }
 
+  .icon-repeat {
+    display: block;
+  }
+
+  .playing .icon-repeat {
+    display: none;
+  }
+
+  .icon-repeat-stop {
+    display: none;
+  }
+
+  .playing .icon-repeat-stop {
+    display: block;
+  }
+
   .content li.ds-selected .repetition:hover {
     box-shadow: 0 0 8px white;
     color: white;

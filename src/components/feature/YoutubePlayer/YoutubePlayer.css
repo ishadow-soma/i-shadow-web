@@ -215,6 +215,18 @@
   opacity: 0.85;
   cursor: pointer;
 }
+.youtube-player .icon-repeat {
+  display: block;
+}
+.youtube-player .playing .icon-repeat {
+  display: none;
+}
+.youtube-player .icon-repeat-stop {
+  display: none;
+}
+.youtube-player .playing .icon-repeat-stop {
+  display: block;
+}
 .youtube-player .content li.ds-selected .repetition:hover {
   box-shadow: 0 0 8px white;
   color: white;
