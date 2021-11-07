@@ -117,90 +117,36 @@
     line-height: 24px;
   }
 
-  .content li {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    list-style: none;
-    padding: 0 8px 8px;
-  }
+  #script {
+    li {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      list-style: none;
+      padding: 0 8px 8px;
+    }
 
-  .content .time-stamp {
-    min-width: 32px;
-    text-align: left;
-    color: #b4d0ff;
-    background-color: transparent;
-    border: none;
-    margin-right: 30px;
-    font-size: $normal-font-size;
-  }
+    .time-stamp {
+      min-width: 32px;
+      text-align: left;
+      color: #b4d0ff;
+      background-color: transparent;
+      border: none;
+      margin-right: 30px;
+      font-size: $normal-font-size;
+    }
 
-  .time-stamp:hover {
-    color: #ffcc00;
-  }
+    .time-stamp:hover {
+      color: #ffcc00;
+    }
 
-  .content p {
-    display: inline-block;
-  }
+    p {
+      display: inline-block;
+    }
 
-  /* recoded-list */
-
-  .content .recoded-list li {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 390px;
-    height: 80px;
-    background-color: #2f3f65;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 16px;
-  }
-
-  .content .recoded-list li .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    color: #ff0077;
-    background-color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 16px;
-  }
-
-  .content .recoded-list li:hover {
-    cursor: pointer;
-    background-color: #f2f6fe;
-    color: #001833;
-  }
-
-  .content .recoded-list li h3 {
-    position: relative;
-    top: -15px;
-    font-size: $normal-font-size;
-    font-weight: normal;
-  }
-
-  .content .recoded-list li p.time-line {
-    position: absolute;
-    left: 81px;
-    bottom: 15px;
-    font-size: $normal-font-size;
-    font-weight: normal;
-  }
-
-  .content .recoded-list li p.datetime {
-    position: absolute;
-    font-size: $normal-font-size;
-    font-style: italic;
-    right: 15px;
-    bottom: 15px;
-  }
-
-  .current-sentence {
-    color: #00FFD3 !important;
+    .current-sentence {
+      color: #00FFD3 !important;
+    }
   }
 
   /* footer */
