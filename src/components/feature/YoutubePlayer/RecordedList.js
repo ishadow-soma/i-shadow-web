@@ -25,6 +25,7 @@ export default function RecordedList(props) {
           <i className="xi-play controls-icon" onClick={onStart} />
           <i className="xi-pause controls-icon" onClick={onPause} />
         </div>
+        <span id="record-date-time">2021-00-00 00:00</span>
         <audio
           id="audio"
           onTimeUpdate={(e) => {

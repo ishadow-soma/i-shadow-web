@@ -97,6 +97,9 @@ export default class Recorder {
             document.getElementById("fake-audio").src =
               URL.createObjectURL(blob);
             audio.src = URL.createObjectURL(blob);
+            document.getElementById(
+              "record-date-time"
+            ).innerText = `${getCurrentDate()}`;
             logOnlyDevelopment("recorder stopped", audio.src);
           };
 
@@ -107,4 +110,14 @@ export default class Recorder {
         .catch((err) => logOnlyDevelopment(err));
     }
   }
+}
+
+function getCurrentDate() {
+  const date = new Date();
+  const y = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDay();
+  const h = date.getHours();
+  const m = date.getMinutes();
+  return `${y}-${month}-${day} ${h}:${m}`;
 }
