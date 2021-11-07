@@ -30,7 +30,7 @@ export default function setDragSelect(player, script) {
   function createNewButtons() {
     const selectedElements = document.getElementsByClassName("ds-selected");
     if (validateElements(selectedElements)) {
-      const repetitionIcon = createRepetitionIcon();
+      const repetitionIcon = createRepeatButton();
       const lastElement = selectedElements[selectedElements.length - 1];
       lastElement.append(repetitionIcon);
     }
@@ -62,20 +62,20 @@ export default function setDragSelect(player, script) {
   let originBegin;
   let originEnd;
   let setTime;
-  const createRepetitionIcon = () => {
-    const div = document.createElement("div");
-    div.className = "repetition";
-    div.onclick = (e) => {
+  const createRepeatButton = () => {
+    const result = document.createElement("div");
+    result.className = "repetition";
+    result.onclick = (e) => {
       removeButtons(e.target);
       restore();
       repeat();
     };
 
-    const result = document.createElement("i");
-    result.className = "icon-repeat";
+    const repeatIcon = document.createElement("i");
+    repeatIcon.className = "icon-repeat";
 
-    const result2 = document.createElement("i");
-    result2.className = "icon-repeat-stop";
+    const stopIcon = document.createElement("i");
+    stopIcon.className = "icon-repeat-stop";
 
     const selectedElements = document.getElementsByClassName("ds-selected");
     const [beginIndex, endIndex] = getIndex(selectedElements);
@@ -84,9 +84,9 @@ export default function setDragSelect(player, script) {
       originEnd = endIndex;
     }, 40);
 
-    div.append(result);
-    div.append(result2);
-    return div;
+    result.append(repeatIcon);
+    result.append(stopIcon);
+    return result;
   };
 
   function restore() {
