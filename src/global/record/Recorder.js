@@ -94,6 +94,8 @@ export default class Recorder {
               type: "audio/ogg codecs=opus",
             });
             chunks = [];
+            document.getElementById("fake-audio").src =
+              URL.createObjectURL(blob);
             audio.src = URL.createObjectURL(blob);
             logOnlyDevelopment("recorder stopped", audio.src);
           };
