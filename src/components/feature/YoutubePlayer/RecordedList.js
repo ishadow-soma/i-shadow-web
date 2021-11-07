@@ -1,31 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import "./RecordedList.css";
+import "react-audio-player";
 
 export default function RecordedList(props) {
+  const onStart = () => {
+    document.getElementById("audio").play();
+    document.getElementById("controls").classList.add("playing");
+  };
+  const onPause = () => {
+    document.getElementById("audio").pause();
+    document.getElementById("controls").classList.remove("playing");
+  };
+
   return (
     <ul
       className="recoded-list"
       style={{ display: props.contentType === 1 ? "block" : "none" }}
     >
       <li>
-        <audio id="audio" src="#" controls="true" />
-      </li>
-      <li>
-        <i className="xi-microphone icon" />
-        <h3>녹음된 목록 3</h3>
-        <p className="time-line">00:08 - 00:42</p>
-        <p className="datetime">2021.07.29. 13:41</p>
-      </li>
-      <li>
-        <i className="xi-microphone icon" />
-        <h3>녹음된 목록 2</h3>
-        <p className="time-line">00:08 - 00:42</p>
-        <p>2021.07.28. 13:41</p>
-      </li>
-      <li>
-        <i className="xi-microphone icon" />
-        <h3>녹음된 목록 1</h3>
-        <p className="time-line">00:08 - 00:42</p>
-        <p>2021.07.27. 13:41</p>
+        <p>녹음 결과</p>
+        <div className="controls" id="controls">
+          <i className="xi-play controls-icon" onClick={onStart} />
+          <i className="xi-pause controls-icon" onClick={onPause} />
+        </div>
+        <audio id="audio" />
       </li>
     </ul>
   );
