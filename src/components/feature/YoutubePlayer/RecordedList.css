@@ -1,0 +1,83 @@
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 18px;
+  cursor: pointer;
+}
+.controls .controls-icon {
+  font-size: 28px;
+}
+.controls .controls-icon.xi-play {
+  display: block;
+  position: relative;
+  left: 2px;
+}
+.controls .controls-icon.xi-pause {
+  display: none;
+}
+
+.playing .controls-icon.xi-play {
+  display: none;
+}
+.playing .controls-icon.xi-pause {
+  display: block;
+}
+
+/* recoded-list */
+.recoded-list li.recorded-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 390px;
+  height: 80px;
+  background-color: #46b5be;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 16px;
+}
+
+.recoded-list li .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: #ff0077;
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.recoded-list li span {
+  position: relative;
+  bottom: 2px;
+  display: block;
+  margin-left: 20px;
+}
+
+.recoded-list li p.time-line {
+  position: absolute;
+  left: 81px;
+  bottom: 15px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.recoded-list li p.datetime {
+  position: absolute;
+  font-size: 16px;
+  font-style: italic;
+  right: 15px;
+  bottom: 15px;
+}
+
+#audio {
+  width: 100%;
+}
+
+/*# sourceMappingURL=RecordedList.css.map */
