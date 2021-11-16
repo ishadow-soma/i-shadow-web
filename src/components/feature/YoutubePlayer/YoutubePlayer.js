@@ -19,6 +19,8 @@ import { modalStyle } from "global/styles/customStyles";
 import { getScript, getTitle, requestVideoInfo } from "global/player/setPlayer";
 import logOnlyDevelopment from "global/log/log";
 import Bookmark from "./Bookmark";
+import VideoController from "../../../controller/VideoController";
+import Recommend from "../../common/Recommend/Recommend";
 
 const YTPlayer = require("yt-player");
 
@@ -203,6 +205,7 @@ function YoutubePlayer() {
               <a href={url}>
                 <i className="xi-link" /> {url}
               </a>
+              <Recommend />
               <Footer />
             </div>
 
