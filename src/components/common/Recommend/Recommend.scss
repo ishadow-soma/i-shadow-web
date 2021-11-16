@@ -1,0 +1,29 @@
+.recommended-videos {
+  margin-top: 48px;
+  width: 800px;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  li {
+    cursor: pointer;
+    width: 25%;
+    list-style: none;
+    padding: 12px 12px;
+
+    .item {
+      width: 160px;
+
+      .background {
+        margin: 0 auto;
+        height: 100px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+
+}
