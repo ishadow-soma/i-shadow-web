@@ -6,9 +6,9 @@ import logOnlyDevelopment from "../global/log/log";
 export default class VideoController {
   recommendPath = "media/recommend";
 
-  async getRecommendedVideos() {
+  async getRecommendedVideos(categoryId = 20, level = 3) {
     try {
-      const res = axios({
+      return axios({
         method: "get",
         url: network.baseURL + this.recommendPath,
         headers: {
@@ -17,8 +17,6 @@ export default class VideoController {
         },
         param: {},
       });
-
-      return res;
     } catch (err) {
       logOnlyDevelopment("영상 추천 목록 API", err);
     }
