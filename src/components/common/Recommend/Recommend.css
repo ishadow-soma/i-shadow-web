@@ -1,0 +1,26 @@
+.recommended-videos {
+  margin-top: 48px;
+  width: 800px;
+}
+.recommended-videos ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.recommended-videos li {
+  cursor: pointer;
+  width: 25%;
+  list-style: none;
+  padding: 12px 12px;
+}
+.recommended-videos li .item {
+  width: 160px;
+}
+.recommended-videos li .item .background {
+  margin: 0 auto;
+  height: 100px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*# sourceMappingURL=Recommend.css.map */
