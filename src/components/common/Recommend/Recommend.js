@@ -4,26 +4,16 @@ import { useEffect, useState } from "react";
 import "./Recommend.css";
 import { setCookie } from "../../../global/store/cookie";
 
-export default function Recommend() {
-  const _controller = new VideoController();
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    _controller.getRecommendedVideos().then((res) => {
-      setVideos(res.data.data);
-      console.log("sdfsdfsdfsdf");
-    });
-  }, []);
-
+export default function Recommend(props) {
   return (
     <div className="recommended-videos">
       <h2>추천 영상</h2>
       <ul>
-        {videos.map((video, index) => {
+        {props.videos.map((video, index) => {
           if (index < 8)
             return (
               <li>
-                <div className="item">
+                <div className="recommend-item">
                   <div
                     className="background"
                     style={{ backgroundImage: `url('${video.thumbNailURL}')` }}

@@ -25,6 +25,15 @@ import Recommend from "../../common/Recommend/Recommend";
 const YTPlayer = require("yt-player");
 
 function YoutubePlayer() {
+  const _controller = new VideoController();
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    _controller.getRecommendedVideos().then((res) => {
+      setVideos(res.data.data);
+    });
+  }, []);
+
   // 페이지 정보
   const [title, setTitle] = useState("제목");
   const [url, setUrl] = useState("null");
@@ -205,7 +214,7 @@ function YoutubePlayer() {
               <a href={url}>
                 <i className="xi-link" /> {url}
               </a>
-              <Recommend />
+              <Recommend videos={videos} />
               <Footer />
             </div>
 

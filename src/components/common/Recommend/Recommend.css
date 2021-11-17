@@ -12,10 +12,10 @@
   list-style: none;
   padding: 12px 12px;
 }
-.recommended-videos li .item {
+.recommended-videos li .recommend-item {
   width: 160px;
 }
-.recommended-videos li .item .background {
+.recommended-videos li .recommend-item .background {
   margin: 0 auto;
   height: 100px;
   background-position: center center;
