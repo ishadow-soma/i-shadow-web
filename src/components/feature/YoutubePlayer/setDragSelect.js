@@ -107,6 +107,12 @@ export default function setDragSelect(player, script) {
     remove(bookmarkIcons);
 
     function validate(icon, target) {
+      logOnlyDevelopment(
+        "log",
+        icon.parentElement !== selectedElements[selectedElements.length - 1] &&
+          icon !== selectedElements[selectedElements.length - 1]
+      );
+
       if (
         icon.parentElement !== selectedElements[selectedElements.length - 1] &&
         icon !== selectedElements[selectedElements.length - 1]
@@ -119,9 +125,10 @@ export default function setDragSelect(player, script) {
     }
 
     function remove(buttons) {
+      const length = buttons.length;
       if (buttons.length > 0) {
-        for (let i = 0; i < buttons.length; ++i) {
-          if (validate(buttons[i], target)) buttons[i].remove();
+        for (let i = 0; i < length; ++i) {
+          if (validate(buttons[0], target)) buttons[0].remove();
         }
       }
     }

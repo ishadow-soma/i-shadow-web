@@ -165,23 +165,9 @@
     background-color: #2f3f65;
   }
 
-  .content li .bookmark-icon,
+  .content li .bookmark,
   .content li .repetition {
     display: none;
-  }
-
-  .content li.ds-selected .bookmark-icon {
-    display: block;
-    position: absolute;
-    bottom: 8px;
-    right: 50px;
-    font-size: 24px;
-    background-color: #ffcc00;
-    color: white;
-    border-radius: 20px;
-    padding: 5px;
-    opacity: 0.85;
-    cursor: pointer;
   }
 
   .content li.ds-selected .repetition {
@@ -198,7 +184,7 @@
     cursor: pointer;
   }
 
-  .bookmark {
+  .content li.ds-selected .bookmark {
     @include inline-flexbox;
     width: 40px;
     height: 40px;
