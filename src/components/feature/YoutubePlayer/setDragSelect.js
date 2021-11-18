@@ -98,6 +98,7 @@ export default function setDragSelect(player, script) {
   };
 
   function removeButtons(target = null) {
+    logOnlyDevelopment("remove!");
     const repetitionIcons = document.getElementsByClassName("repetition");
     const bookmarkIcons = document.getElementsByClassName("bookmark");
     const selectedElements = document.getElementsByClassName("ds-selected");
@@ -127,10 +128,13 @@ export default function setDragSelect(player, script) {
   }
 
   function restore() {
-    const targetSection = sections[sections.length - 2];
+    logOnlyDevelopment("restore!");
     ds.clearSelection();
-    for (let i = targetSection.begin[0]; i <= targetSection.begin[1]; ++i) {
-      logOnlyDevelopment("idx", i);
+    for (
+      let i = sections[sections.length - 2][0];
+      i < sections[sections.length - 2][1];
+      ++i
+    ) {
       ds.addSelection(document.getElementsByClassName("item")[i]);
     }
   }
