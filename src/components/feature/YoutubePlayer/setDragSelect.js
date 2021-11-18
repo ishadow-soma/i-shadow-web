@@ -2,8 +2,6 @@ import DragSelect from "dragselect";
 import logOnlyDevelopment from "global/log/log";
 import { repeatStore } from "global/store/store";
 import Bookmark from "global/Bookmark/Bookmark";
-import repeatIcon from "assets/repeat.svg";
-import stopRepeatIcon from "assets/repeat.svg";
 import { getCookie } from "../../../global/store/cookie";
 
 export default function setDragSelect(player, script) {
@@ -51,9 +49,8 @@ export default function setDragSelect(player, script) {
     const result = document.createElement("div");
     result.className = "bookmark";
     result.onclick = (e) => {
-      removeButtons(e.target);
+      removeButtons();
       restore();
-      // 북마크 api
     };
 
     const repeatIcon = document.createElement("i");
@@ -130,13 +127,10 @@ export default function setDragSelect(player, script) {
   }
 
   function restore() {
-    logOnlyDevelopment("restore!");
+    const targetSection = sections[sections.length - 2];
+    logOnlyDevelopment("restore!", targetSection.begin);
     ds.clearSelection();
-    for (
-      let i = sections[sections.length - 2][0];
-      i < sections[sections.length - 2][1];
-      ++i
-    ) {
+    for (let i = targetSection.begin[0]; i <= targetSection.begin[1]; ++i) {
       logOnlyDevelopment("idx", i);
       ds.addSelection(document.getElementsByClassName("item")[i]);
     }
