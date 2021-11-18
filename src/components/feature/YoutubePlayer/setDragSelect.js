@@ -106,9 +106,14 @@ export default function setDragSelect(player, script) {
     remove(bookmarkIcons);
 
     function validate(icon, target) {
+      if (
+        icon.parentElement !== selectedElements[selectedElements.length - 1] &&
+        icon !== selectedElements[selectedElements.length - 1]
+      )
+        return true;
+
       return (
-        icon.parentElement !== selectedElements[selectedElements.length - 1] ||
-        (target !== null && target.parentElement !== icon)
+        target !== null && target.parentElement !== icon && target !== icon
       );
     }
 

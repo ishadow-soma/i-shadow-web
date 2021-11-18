@@ -182,6 +182,10 @@
   cursor: pointer;
   color: white;
 }
+.youtube-player .bookmark:hover {
+  box-shadow: 0 0 8px white;
+  color: white;
+}
 .youtube-player .icon-repeat {
   display: block;
 }
