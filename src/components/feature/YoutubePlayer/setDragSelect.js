@@ -1,12 +1,12 @@
 import DragSelect from "dragselect";
 import logOnlyDevelopment from "global/log/log";
 import { repeatStore } from "global/store/store";
-import Bookmark from "global/Bookmark/Bookmark";
+import SentenceController from "global/Bookmark/SentenceController";
 import { getCookie } from "../../../global/store/cookie";
 
 export default function setDragSelect(player, script) {
   let dsSelected = null;
-  const bookmarkApi = new Bookmark();
+  const bookmarkApi = new SentenceController();
   const sections = [];
   let ds = new DragSelect({
     selectables: document.querySelectorAll(".item"),

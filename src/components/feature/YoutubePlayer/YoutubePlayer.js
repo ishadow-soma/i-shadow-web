@@ -21,18 +21,27 @@ import logOnlyDevelopment from "global/log/log";
 import Bookmark from "./Bookmark";
 import VideoController from "../../../controller/VideoController";
 import Recommend from "../../common/Recommend/Recommend";
+import { getCookie } from "../../../global/store/cookie";
+import SentenceController from "../../../global/Bookmark/SentenceController";
 
 const YTPlayer = require("yt-player");
 
 function YoutubePlayer() {
   const _controller = new VideoController();
   const [videos, setVideos] = useState([]);
+  const _sentenceController = new SentenceController();
 
   useEffect(() => {
     _controller.getRecommendedVideos().then((res) => {
       setVideos(res.data.data);
     });
+    _sentenceController
+      .getSentence(getCookie("videoId"))
+      .then((res) => console.log("res", res));
   }, []);
+
+  // 즐겨찾기
+  const [bookmarks, setBookmarks] = useState([]);
 
   // 페이지 정보
   const [title, setTitle] = useState("제목");
