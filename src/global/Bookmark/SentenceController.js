@@ -3,7 +3,7 @@ import network from "global/store/store";
 import { getCookie } from "global/store/cookie";
 import logOnlyDevelopment from "global/log/log";
 
-export default class Bookmark {
+export default class SentenceController {
   saveSentence(sentenceIds) {
     axios({
       method: "post",
@@ -24,18 +24,19 @@ export default class Bookmark {
       .catch((err) => logOnlyDevelopment("에러", err));
   }
 
-  getSentence(videoId) {
-    axios({
-      method: "get",
-      url: network + "shadowing-player/bookmark",
-      headers: { "ACCESS-TOKEN": getCookie("jwt") },
-      params: {
-        videoId: videoId,
-      },
-    })
-      .then((res) => {
-        logOnlyDevelopment(res);
-      })
-      .catch((err) => logOnlyDevelopment(err));
+  async getSentence(videoId) {
+    try {
+      return await axios({
+        method: "get",
+        url: network.baseURL + "shadowing-player/bookmark",
+        headers: { "ACCESS-TOKEN": getCookie("jwt") },
+        params: {
+          type: "FAVORITE",
+          videoId: videoId,
+        },
+      });
+    } catch (err) {
+      logOnlyDevelopment("에러", err);
+    }
   }
 }
