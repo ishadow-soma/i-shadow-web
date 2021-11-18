@@ -1,0 +1,16 @@
+.bookmark-list {
+  li {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+
+    button.time-stamp {
+      color: #a6c4fb;
+      font-size: 16px;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      margin: 0 24px 0 8px;
+    }
+  }
+}

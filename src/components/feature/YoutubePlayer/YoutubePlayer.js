@@ -30,18 +30,16 @@ function YoutubePlayer() {
   const _controller = new VideoController();
   const [videos, setVideos] = useState([]);
   const _sentenceController = new SentenceController();
+  const [bookmarks, setBookmarks] = useState([]);
 
   useEffect(() => {
     _controller.getRecommendedVideos().then((res) => {
       setVideos(res.data.data);
     });
-    _sentenceController
-      .getSentence(getCookie("videoId"))
-      .then((res) => console.log("res", res));
+    _sentenceController.getSentence(getCookie("videoId")).then((res) => {
+      setBookmarks(res.data.data);
+    });
   }, []);
-
-  // 즐겨찾기
-  const [bookmarks, setBookmarks] = useState([]);
 
   // 페이지 정보
   const [title, setTitle] = useState("제목");
@@ -263,7 +261,7 @@ function YoutubePlayer() {
                     style={{ display: contentType === 0 ? "block" : "none" }}
                   />
                   <RecordedList contentType={contentType} />
-                  <Bookmark contentType={contentType} />
+                  <Bookmark contentType={contentType} sentences={bookmarks} />
                 </Scrollbar>
               </div>
             </div>
