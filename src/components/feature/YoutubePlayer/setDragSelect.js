@@ -4,6 +4,7 @@ import { repeatStore } from "global/store/store";
 import Bookmark from "global/Bookmark/Bookmark";
 import repeatIcon from "assets/repeat.svg";
 import stopRepeatIcon from "assets/repeat.svg";
+import { getCookie } from "../../../global/store/cookie";
 
 export default function setDragSelect(player, script) {
   let dsSelected = null;
@@ -35,7 +36,7 @@ export default function setDragSelect(player, script) {
 
       const lastElement = selectedElements[selectedElements.length - 1];
       lastElement.append(repetitionIcon);
-      lastElement.append(bookmarkButton);
+      if (getCookie("jwt") !== "null") lastElement.append(bookmarkButton);
     }
   }
 
@@ -107,12 +108,6 @@ export default function setDragSelect(player, script) {
     remove(bookmarkIcons);
 
     function validate(icon, target) {
-      logOnlyDevelopment(
-        "log",
-        icon.parentElement !== selectedElements[selectedElements.length - 1] &&
-          icon !== selectedElements[selectedElements.length - 1]
-      );
-
       if (
         icon.parentElement !== selectedElements[selectedElements.length - 1] &&
         icon !== selectedElements[selectedElements.length - 1]
@@ -142,6 +137,7 @@ export default function setDragSelect(player, script) {
       i < sections[sections.length - 2][1];
       ++i
     ) {
+      logOnlyDevelopment("idx", i);
       ds.addSelection(document.getElementsByClassName("item")[i]);
     }
   }
