@@ -127,12 +127,10 @@ export default function setDragSelect(player, script) {
   }
 
   function restore() {
+    const targetSection = sections[sections.length - 2];
     ds.clearSelection();
-    for (
-      let i = sections[sections.length - 2][0];
-      i < sections[sections.length - 2][1];
-      ++i
-    ) {
+    for (let i = targetSection.begin[0]; i <= targetSection.begin[1]; ++i) {
+      logOnlyDevelopment("idx", i);
       ds.addSelection(document.getElementsByClassName("item")[i]);
     }
   }
