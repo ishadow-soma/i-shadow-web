@@ -51,6 +51,14 @@ export default function setDragSelect(player, script) {
     result.onclick = (e) => {
       removeButtons();
       restore();
+      const [begin, end] = getIndex(
+        document.getElementsByClassName("ds-selected")
+      );
+      const listToSend = [];
+      for (let i = begin; i <= end; ++i) {
+        listToSend.push(i);
+      }
+      bookmarkApi.saveSentence(listToSend);
     };
 
     const repeatIcon = document.createElement("i");

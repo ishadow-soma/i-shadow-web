@@ -8,12 +8,12 @@ export default class Bookmark {
     axios({
       method: "post",
       url: network.baseURL + "shadowing-player/sentence",
-      headers: getCookie("jwt"),
+      headers: { "ACCESS-TOKEN": getCookie("jwt") },
       data: {
         sentenceSaveType: "FAVORITE",
         sentences: sentenceIds,
+        videoId: getCookie("videoId"),
       },
-      videoId: getCookie("videoId"),
     })
       .then((res) => {
         logOnlyDevelopment(res);
@@ -21,14 +21,14 @@ export default class Bookmark {
           logOnlyDevelopment("즐겨찾기 목록에 저장되었습니다.", res);
         else alert("알 수 없는 이유로 저장에 실패했습니다.");
       })
-      .catch((err) => logOnlyDevelopment(err));
+      .catch((err) => logOnlyDevelopment("에러", err));
   }
 
   getSentence(videoId) {
     axios({
       method: "get",
       url: network + "shadowing-player/bookmark",
-      headers: getCookie("jwt"),
+      headers: { "ACCESS-TOKEN": getCookie("jwt") },
       params: {
         videoId: videoId,
       },
